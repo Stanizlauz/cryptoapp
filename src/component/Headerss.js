@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import { Link } from "react-router-dom";
+import TradingView from "./TradingView";
 
 export default function Headerss() {
   return (
@@ -102,24 +103,63 @@ export default function Headerss() {
   </ul>
 </div>Ticker */}
 
-      <div className="mb-1 trading_view_wid">
-        {/* TradingView Widget BEGIN */}
-        <div
-          className="tradingview-widget-container"
-          style={{ width: "100%", height: 46 }}
-        >
-          <iframe
-            scrolling="no"
-            allowTransparency="true"
-            frameBorder={0}
-            src="https://s.tradingview.com/embed-widget/ticker-tape/?locale=en#%7B%22symbols%22%3A%5B%7B%22proName%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22title%22%3A%22S%26P%20500%22%7D%2C%7B%22proName%22%3A%22FOREXCOM%3ANSXUSD%22%2C%22title%22%3A%22Nasdaq%20100%22%7D%2C%7B%22proName%22%3A%22FX_IDC%3AEURUSD%22%2C%22title%22%3A%22EUR%2FUSD%22%7D%2C%7B%22proName%22%3A%22BITSTAMP%3ABTCUSD%22%2C%22title%22%3A%22BTC%2FUSD%22%7D%2C%7B%22proName%22%3A%22BITSTAMP%3AETHUSD%22%2C%22title%22%3A%22ETH%2FUSD%22%7D%5D%2C%22showSymbolLogo%22%3Atrue%2C%22colorTheme%22%3A%22light%22%2C%22isTransparent%22%3Afalse%2C%22displayMode%22%3A%22adaptive%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A46%2C%22utm_source%22%3A%22cryptontrades.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%7D"
-            style={{ boxSizing: "border-box", height: 46, width: "100%" }}
-          />
-        </div>
-        {/* TradingView Widget END */}
-      </div>
+     <TradingView />
 
-     
+      {/* Carousel wrapper */}
+<div id="carouselDarkVariant" className="carousel slide carousel-fade carousel-dark" data-mdb-ride="carousel">
+  {/* Indicators */}
+  <div className="carousel-indicators">
+    <button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to={0} className="active" aria-current="true" aria-label="Slide 1" />
+    <button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to={1} aria-label="Slide 1" />
+    <button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to={2} aria-label="Slide 1" />
+  </div>
+  {/* Inner */}
+  <div className="carousel-inner">
+    {/* Single item */}
+    <div className="carousel-item active">
+    <img src="img/slider-2.jpg" className="d-block w-100" alt title="#slider-caption-1" />
+      {/* <div className="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div> */}
+       <div className="carousel-caption d-none d-md-block">
+              <h1 className="wow fadeInLeft2" data-wow-delay="1s"><span>Invest In Cryptocoin</span><br /><span>Easy Way To Trade Bitcoin.</span></h1>
+              <p className="wow fadeInRight2" data-wow-delay="1s">We offer free consulting and the best project management <br />for your ideas, 100% delivery guaranteed.</p>
+              <a href="#" className="button_1 wow bounceInUp" data-wow-delay="0.8s">Learn More</a>
+            </div>
+      
+    </div>
+    {/* Single item */}
+    <div className="carousel-item">
+      <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(35).webp" className="d-block w-100" alt="Mountaintop" />
+      <div className="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    {/* Single item */}
+    <div className="carousel-item">
+      <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(40).webp" className="d-block w-100" alt="Woman Reading a Book" />
+      <div className="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </div>
+  </div>
+  
+
+  {/* Inner */}
+  {/* Controls */}
+  {/* <button className="carousel-control-prev" type="button" data-mdb-target="#carouselDarkVariant" data-mdb-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true" />
+    <span className="visually-hidden">Previous</span>
+  </button>
+  <button className="carousel-control-next" type="button" data-mdb-target="#carouselDarkVariant" data-mdb-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true" />
+    <span className="visually-hidden">Next</span>
+  </button> */}
+</div>
+{/* Carousel wrapper */}
     </>
   );
 }

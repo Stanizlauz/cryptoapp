@@ -1,4 +1,5 @@
 import React from 'react'
+import Packages from './Packages'
 
 export default function Pricing() {
   return (
