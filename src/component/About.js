@@ -18,7 +18,7 @@ export default function About() {
           <a href="#" className="button_1">More About Us</a>
         </div>
       </div>
-      <div className="col-sm-6 xs-padding">
+      {/* <div className="col-sm-6 xs-padding">
         <div className="why_content">
           <h3>Why Choose Us?</h3>
           <ul>
@@ -28,7 +28,7 @@ export default function About() {
             <li><i className="fa fa-check" />Afordable pricing offers. Printing and typesetting house.</li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   </div>
   <div className="about_image" />
