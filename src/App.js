@@ -8,7 +8,7 @@ import Router, { AppRoutes } from "./Router";
 
 function App() {
 
-  const check = true;
+  const check = false;
   if (check) {
     return (
       <>
