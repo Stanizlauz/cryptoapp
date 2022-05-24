@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export default function Headerss() {
   return (
     <>
-
       <header id="header" className="header_section bd-bottom">
         <div className="top_header">
           <div className="container">
@@ -29,16 +28,28 @@ export default function Headerss() {
               <div className="col-sm-4 d-none d-md-block">
                 <ul className="right_info">
                   <li>
-                    <Link to="/login"><i className="ti-user" />Login</Link>
+                    <Link to="/login">
+                      <i className="ti-user" />
+                      Login
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/register"><i className="ti-pencil-alt" />Register</Link>
+                    <Link to="/register">
+                      <i className="ti-pencil-alt" />
+                      Register
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/register"><i className="ti-new-window" />Logout</Link>
+                    <Link to="/register">
+                      <i className="ti-new-window" />
+                      Logout
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/register"><i className="ti-bar-chart" />Dashboard</Link>
+                    <Link to="/register">
+                      <i className="ti-bar-chart" />
+                      Dashboard
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -58,23 +69,20 @@ export default function Headerss() {
                   <li className="active">
                     {" "}
                     <a href="index.html">Home</a>
-                   
                   </li>
                   <li>
-                  <Link to="/about">About</Link>
-                   
+                    <Link to="/about">About</Link>
                   </li>
                   <li>
-                  <Link to="/login">Plans</Link>
+                    <Link to="/login">Plans</Link>
                   </li>
                   <li>
-                  <Link to="/faqs">FAQS</Link>
+                    <Link to="/faqs">FAQS</Link>
                   </li>
                   <li>
-                  <Link to="/contact">Contact Us</Link>
+                    <Link to="/contact">Contact Us</Link>
                   </li>
                 </ul>
-             
               </div>
             </div>
           </div>
@@ -111,63 +119,7 @@ export default function Headerss() {
         {/* TradingView Widget END */}
       </div>
 
-
-      
-      {/* Carousel wrapper */}
-<div id="carouselDarkVariant" className="carousel slide carousel-fade carousel-dark" data-mdb-ride="carousel">
-  {/* Indicators */}
-  <div className="carousel-indicators">
-    <button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to={0} className="active" aria-current="true" aria-label="Slide 1" />
-    <button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to={1} aria-label="Slide 1" />
-    <button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to={2} aria-label="Slide 1" />
-  </div>
-  {/* Inner */}
-  <div className="carousel-inner">
-    {/* Single item */}
-    <div className="carousel-item active">
-    <img src="img/slider-2.jpg" className="d-block w-100" alt title="#slider-caption-1" />
-      {/* <div className="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </div> */}
-       <div className="carousel-caption d-none d-md-block">
-              <h1 className="wow fadeInLeft2" data-wow-delay="1s"><span>Invest In Cryptocoin</span><br /><span>Easy Way To Trade Bitcoin.</span></h1>
-              <p className="wow fadeInRight2" data-wow-delay="1s">We offer free consulting and the best project management <br />for your ideas, 100% delivery guaranteed.</p>
-              <a href="#" className="button_1 wow bounceInUp" data-wow-delay="0.8s">Learn More</a>
-            </div>
-      
-    </div>
-    {/* Single item */}
-    <div className="carousel-item">
-      <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(35).webp" className="d-block w-100" alt="Mountaintop" />
-      <div className="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </div>
-    {/* Single item */}
-    <div className="carousel-item">
-      <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(40).webp" className="d-block w-100" alt="Woman Reading a Book" />
-      <div className="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-      </div>
-    </div>
-  </div>
-  
-
-  {/* Inner */}
-  {/* Controls */}
-  {/* <button className="carousel-control-prev" type="button" data-mdb-target="#carouselDarkVariant" data-mdb-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true" />
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-mdb-target="#carouselDarkVariant" data-mdb-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true" />
-    <span className="visually-hidden">Next</span>
-  </button> */}
-</div>
-{/* Carousel wrapper */}
+     
     </>
   );
 }
