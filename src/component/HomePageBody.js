@@ -8,6 +8,8 @@ import Testimonial from "./Testimonial";
 import Team from "./Team";
 import Pricing from "./Pricing";
 import CarouselWrapper from "./CarouselWrapper";
+import AboutTeam from "./AboutTeam";
+import AboutTeamSecond from "./AboutTeamSecond";
 
 export default function HomePageBody() {
   return (
@@ -20,7 +22,9 @@ export default function HomePageBody() {
       <Testimonial />
       {/* <HowItWork /> */}
       <Pricing />
-      <Team />
+      {/* <Team /> */}
+      {/* <AboutTeam /> */}
+      <AboutTeamSecond />
     </>
   );
 }
