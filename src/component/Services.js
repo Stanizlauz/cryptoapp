@@ -3,12 +3,11 @@ import React from 'react'
 export default function Services() {
   return (
     <>
-   <section className="service_section bg-grey padding">
-  <div className="container">
+  {/* <div className="container">
     <div className="section_heading align-center mb-40">
       <h2>Our   <span> Services</span></h2>
       <p>Why Choose Us</p>
-    </div>{/* /Section Heading */}
+    </div>
     <div className="row service_lists">
       <div className="col-md-4 col-sm-6">
         <div className="service_content">
@@ -35,8 +34,58 @@ export default function Services() {
       </div>
      
     </div>
+  </div> */}
+ <div className="py-5 bg-light service-27">
+  <div className="container">
+    <div className="row">
+      {/* column */}
+      <div className="col-lg-6 align-self-center">
+        <span className="badge badge-info rounded-pill px-3 py-1 font-weight-light">Welcome to the best profit making platform.</span>
+        <h4 className="my-3 service-text">We have covered everything for you get desire results with us</h4>
+        {/* <p className="mt-3">You can relay on our amazing features list and also our customer services will be great experience for you without doubt and in no-time and with great quality.</p> */}
+        <div className="row">
+          <div className="col-md-5 mt-4 mx-2 service-box">
+            <span className="text-info-gradiant display-5">
+            <i className="ti ti-server" aria-hidden="true" />
+            </span>
+            <h6 className="font-weight-medium my-3">Our Service</h6>
+            <p>The team of the company's financial specialist with strong command in crypto minning allows for effective analysis and financial situation. All plans comes with an instant trading feature.</p>
+            <a className="linking font-weight-medium" href="#f27">Lets Talk!</a>
+          </div>
+          <div className="col-md-5 mt-4 service-box">
+            <span className="text-info-gradiant display-5">
+            <i className="ti ti-server" aria-hidden="true" />
+            </span>
+            <h6 className="font-weight-medium my-3">Our Service</h6>
+            <p>The team of the company's financial specialist with strong command in crypto minning allows for effective analysis and financial situation. All plans comes with an instant trading feature.</p>
+            <a className="linking font-weight-medium" href="#f27">Lets Talk!</a>
+          </div>
+          <div className="col-md-5 mt-4 mx-2 service-box">
+            <span className="text-info-gradiant display-5">
+            <i className="ti ti-server" aria-hidden="true" />
+            </span>
+            <h6 className="font-weight-medium my-3">Our Service</h6>
+            <p>The team of the company's financial specialist with strong command in crypto minning allows for effective analysis and financial situation. All plans comes with an instant trading feature.</p>
+            <a className="linking font-weight-medium" href="#f27">Lets Talk!</a>
+          </div>
+          <div className="col-md-5 mt-4 service-box">
+          <span className="text-info-gradiant display-5">
+            <i className="ti ti-server" aria-hidden="true" />
+            </span>
+            <h6 className="font-weight-medium my-3">Get Powerful Results with WrapKit</h6>
+            <p>You can relay on our amazing features list and also our customer services will be great experience have.</p>
+            <a className="linking font-weight-medium" href="#f27">Lets Talk!</a>
+          </div>
+        </div>
+      </div>
+      {/* column */}
+      {/* <div className="col-lg-6 text-center">
+        <img src="img/servicestrade.avif" className="img-fluid" alt="wrapkit" />
+      </div> */}
+    </div>
   </div>
-</section>{/* /.Service Section */}
+</div>
+
 
 <div id="counter" className="counter_section">
   <div className="container">

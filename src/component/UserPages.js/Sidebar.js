@@ -57,6 +57,13 @@ export default function Sidebar() {
                         <span>Deposit</span></Link>
                 </li>
                 <hr className="sidebar-divider" />
+                {/* Nav Item - Charts */}
+                <li className="nav-item">
+                    <Link className="nav-link" to="/userprofile">
+                        <i className="fas fa-fw fa-chart-area" />
+                        <span>User</span></Link>
+                </li>
+                <hr className="sidebar-divider" />
 
                 {/* Nav Item - Tables */}
                 <li className="nav-item">
