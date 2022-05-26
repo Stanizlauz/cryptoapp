@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+
 
 export default function About() {
   return (
@@ -15,7 +17,8 @@ export default function About() {
         <div className="about_info">
           <h3>What Is Cryptocoin?</h3>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-          <a href="#" className="button_1">More About Us</a>
+          {/* <a href="#" className="button_1">More About Us</a> */}
+          <Link to="/about"  className="button_1">More about us</Link>
         </div>
       </div>
       {/* <div className="col-sm-6 xs-padding">

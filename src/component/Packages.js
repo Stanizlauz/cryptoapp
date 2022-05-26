@@ -1,98 +1,196 @@
-import React from 'react'
+import React from "react";
 
 export default function Packages() {
-    return (
-        <>
-            <div className="row pricing_lists">
-                <div className="col-lg-3 col-sm-6 sm-padding">
-                    <div className="pricing_wrapper">
-                        <div className="pricing_top">
-                            <i className="fa fa-bitcoin" />
-                        </div>
-                        <div className="pricing_box">
-                            <div className="pricing_head">
-                                <h3>Get 01 Bitcoin</h3>
-                                <h2>$49 <span>Per Package</span></h2>
-                            </div>
-                            <ul className="pricing_mid">
-                                <li>1 GB Photos</li>
-                                <li>Secure Online Transfer</li>
-                                <li>Unlimited Styles</li>
-                                <li>Manual Backup</li>
-                            </ul>
-                            <div className="pricing_footer">
-                                <a href="#" className="button_1">Purchase</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-sm-6 sm-padding">
-                    <div className="pricing_wrapper">
-                        <div className="pricing_top">
-                            <i className="fa fa-bitcoin" />
-                        </div>
-                        <div className="pricing_box">
-                            <div className="pricing_head">
-                                <h3>Get 49 Bitcoin</h3>
-                                <h2>$99 <span>Per Package</span></h2>
-                            </div>
-                            <ul className="pricing_mid">
-                                <li>1 GB Photos</li>
-                                <li>Secure Online Transfer</li>
-                                <li>Unlimited Styles</li>
-                                <li>Manual Backup</li>
-                            </ul>
-                            <div className="pricing_footer">
-                                <a href="#" className="button_1">Purchase</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-sm-6 sm-padding">
-                    <div className="pricing_wrapper">
-                        <div className="pricing_top">
-                            <i className="fa fa-bitcoin" />
-                        </div>
-                        <div className="pricing_box">
-                            <div className="pricing_head">
-                                <h3>Get 99 Bitcoin</h3>
-                                <h2>$149 <span>Per Package</span></h2>
-                            </div>
-                            <ul className="pricing_mid">
-                                <li>1 GB Photos</li>
-                                <li>Secure Online Transfer</li>
-                                <li>Unlimited Styles</li>
-                                <li>Manual Backup</li>
-                            </ul>
-                            <div className="pricing_footer">
-                                <a href="#" className="button_1">Purchase</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-sm-6 sm-padding">
-                    <div className="pricing_wrapper">
-                        <div className="pricing_top">
-                            <i className="fa fa-bitcoin" />
-                        </div>
-                        <div className="pricing_box">
-                            <div className="pricing_head">
-                                <h3>Get 200 Bitcoin</h3>
-                                <h2>$199 <span>Per Package</span></h2>
-                            </div>
-                            <ul className="pricing_mid">
-                                <li>1 GB Photos</li>
-                                <li>Secure Online Transfer</li>
-                                <li>Unlimited Styles</li>
-                                <li>Manual Backup</li>
-                            </ul>
-                            <div className="pricing_footer">
-                                <a href="#" className="button_1">Purchase</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <>
+    
+  <div className="container-fluid">
+  <div className="container p-5">
+    <div className="row">
+      <div className="col-lg-4 col-md-12 mb-4">
+        <div className="card card1 h-100">
+          <div className="card-body">
+            <h5 className="card-title">Basic</h5>
+            <br />
+            <span className="amt">$500</span>/$999
+            <div className="d-grid my-3">
+              <button className="btn btn-outline-dark btn-block">Select</button>
             </div>
-        </>
-    )
+            <ul>
+              <li>24/7 Support</li>
+              <li>3 Days/Trade</li>
+              <li>7 Days</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="col-lg-4 col-md-12 mb-4">
+        <div className="card card2 h-100">
+          <div className="card-body">
+            <h5 className="card-title">Silver</h5>
+            <br />
+            <span className="amt">$1000</span>$5999
+            <br /><br />
+            <div className="d-grid my-3">
+              <button className="btn btn-outline-dark btn-block">Select</button>
+            </div>
+            <ul>
+            <li>24/7 Support</li>
+              <li>7 Days/Trade</li>
+              <li>14 Days</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="col-lg-4 col-md-12 mb-4">
+        <div className="card card3 h-100">
+          <div className="card-body">
+            <h5 className="card-title">Gold</h5>
+            <br />
+            <span className="amt">$6000</span>$9999
+            <br /><br />
+            <div className="d-grid my-3">
+              <button className="btn btn-outline-dark btn-block">Select</button>
+            </div>
+            <ul>
+            <li>24/7 Support</li>
+              <li>7 Days/Trade</li>
+              <li>14 Days</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="col-lg-4 col-md-12 mb-4">
+        <div className="card card4 h-100">
+          <div className="card-body">
+            <h5 className="card-title">Diamond</h5>
+            <br />
+            <span className="amt">$10,000</span>$49,999
+            <br /><br />
+            <div className="d-grid my-3">
+              <button className="btn btn-outline-dark btn-block">Select</button>
+            </div>
+            <ul>
+            <li>24/7 Support</li>
+              <li>14 Days/Trade</li>
+              <li>28 Days</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
+
+      {/* <div className="container">
+        <div>
+          <h3 className="headline">Pricing Tables</h3>
+          <span className="line margin-bottom-45" />
+          <div className="clearfix" />
+          <br />
+          <br />
+        </div>
+        <div className="row">
+          <div className="plan color-1 four columns">
+            <div className="plan-price">
+              <h3>Basic</h3>
+              <span className="plan-currency">$</span>
+              <span className="value">500</span>
+              <span className="period">/ MAX 999</span>
+            </div>
+            <div className="plan-features">
+              <ul>
+                <li>24/7 Support</li>
+                <li>3 Days/Trade for 7 Days</li>
+            
+              </ul>
+              <a className="button" href="#">
+                Purchase
+              </a>
+            </div>
+          </div>
+          <div className="plan color-2 four columns">
+            <div className="plan-price">
+              <h3>Premium</h3>
+              <span className="plan-currency">$</span>
+              <span className="value">29,90</span>
+              <span className="period">/ per month</span>
+            </div>
+            <div className="plan-features">
+              <ul>
+                <li>10GB Disk Space</li>
+                <li>15 Email Accounts</li>
+                <li>10GB Monthly Bandwidth</li>
+                <li>Unlimited Subdomains</li>
+                <li>Automatic Cloud Backup</li>
+              </ul>
+              <a className="button" href="#">
+                Sign Up
+              </a>
+            </div>
+          </div>
+          <div className="plan color-3 four columns">
+            <div className="plan-price">
+              <h3>Ultimate</h3>
+              <span className="plan-currency">$</span>
+              <span className="value">39,90</span>
+              <span className="period">/ per month</span>
+            </div>
+            <div className="plan-features">
+              <ul>
+                <li>15GB Disk Space</li>
+                <li>15 Email Accounts</li>
+                <li>15GB Monthly Bandwidth</li>
+                <li>Unlimited Subdomains</li>
+                <li>Automatic Cloud Backup</li>
+              </ul>
+              <a className="button" href="#">
+                Sign Up
+              </a>
+            </div>
+          </div>
+          <div className="plan color-4 four columns">
+            <div className="plan-price">
+              <h3>Ultra</h3>
+              <span className="plan-currency">$</span>
+              <span className="value">49,90</span>
+              <span className="period">/ per month</span>
+            </div>
+            <div className="plan-features">
+              <ul>
+                <li>35GB Disk Space</li>
+                <li>25 Email Accounts</li>
+                <li>35GB Monthly Bandwidth</li>
+                <li>Unlimited Subdomains</li>
+                <li>Automatic Cloud Backup</li>
+              </ul>
+              <a className="button" href="#">
+                Sign Up
+              </a>
+            </div>
+          </div>
+          <div className="plan color-5 four columns">
+            <div className="plan-price">
+              <h3>Ultra</h3>
+              <span className="plan-currency">$</span>
+              <span className="value">49,90</span>
+              <span className="period">/ per month</span>
+            </div>
+            <div className="plan-features">
+              <ul>
+                <li>35GB Disk Space</li>
+                <li>25 Email Accounts</li>
+                <li>35GB Monthly Bandwidth</li>
+                <li>Unlimited Subdomains</li>
+                <li>Automatic Cloud Backup</li>
+              </ul>
+              <a className="button" href="#">
+                Sign Up
+              </a>
+            </div>
+          </div>
+        </div>
+      </div> */}
+    </>
+  );
 }

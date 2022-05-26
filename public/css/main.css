@@ -917,7 +917,55 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
         height: 120px;
         border-radius: 50%;
     }
-    
+
+    /* Packages Section */
+    .card1:hover {
+        background:#00ffb6;
+        border:1px solid #00ffb6;
+      }
+  
+      .card1:hover .list-group-item{
+        background:#00ffb6 !important
+      }
+      .card-body .amt{
+          color: grey;
+          font-size: xxx-large;
+      }
+      .card-body li{
+          color: black;
+      }
+      .card2:hover {
+        background:#84a5ae;
+        border:1px solid #84a5ae;
+      }
+  
+      .card2:hover .list-group-item{
+        background:#00C9FF !important
+      }
+  
+  
+      .card3:hover {
+        background:#b79d09;
+        border:1px solid #b79d09;
+      }
+  
+      .card3:hover .list-group-item{
+        background:#ff95e9 !important
+      }
+      .card4:hover {
+        background:#ef7752;
+        border:1px solid #ef7752;
+      }
+  
+      .card4:hover .list-group-item{
+        background:#ff95e9 !important
+      }
+  
+  
+      .card:hover .btn-outline-dark{
+        color:white;
+        background:#212529;
+      }
 
 /* ==========================================================================
    3.0 About Section
@@ -926,7 +974,15 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
     position: relative;
     overflow: hidden;
     z-index: 1;
-    background-color: rgb(29, 32, 32);
+    /* background-color: rgb(29, 32, 32); */
+    background: url(../img/aboutimage.avif) no-repeat;
+    background: cover;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 70vh;
+    background-position: center center;
+    background-size: cover;
+    padding-top: 65px;
 }
 .about_section .section_heading h4{
     background-color: #1f293d;
@@ -953,7 +1009,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
     color: #f9b707;
     margin-right: 10px;
 }
-.about_image{
+/* .about_image{
     background-image: url(../img/bag-2.png);
     background-repeat: no-repeat;
     background-position: right center;
@@ -964,7 +1020,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
     top: 30px;
     position: absolute;
     z-index: -1;
-}
+} */
 
 /* ==========================================================================
    4.0 Service Section
@@ -1044,6 +1100,95 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
     text-transform: uppercase;
 	margin: 0;
     color: #bbb;
+}
+
+/* SERVICE PART2 */
+@import url(//fonts.googleapis.com/css?family=Montserrat:300,500);
+.service-27 {
+  font-family: "Montserrat", sans-serif;
+	color: #8d97ad;
+  font-weight: 300;
+  margin: 0;
+    background: url(../img/plansimage2.avif) no-repeat;
+    background: cover;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 70vh;
+    background-position: center center;
+    background-size: cover;
+    padding-top: 65px;
+}
+
+.service-27 h1, .service-27 h2, .service-27 h3, .service-27 h4, .service-27 h5, .service-27 h6 {
+  color: #dcc40f;
+}
+.service-27 p{
+    color: black;
+}
+
+.service-27 .font-weight-medium {
+	font-weight: 500;
+}
+
+.service-27 .bg-light {
+    background-color: #f4f8fa !important;
+}
+
+.service-27 .badge {
+	line-height: 14px;
+}
+.service-box{
+    background-color: white;
+    border-radius: 15px;
+}
+
+.service-27 .badge-info {
+	background: #b7ae24;
+    font-size: 25px;
+    font-weight: bold;
+}
+.service-text{
+    font-size: 20px;
+}
+
+.service-27 a {
+	text-decoration: none;
+}
+
+.service-27 .linking {
+	color: #3e4555;
+}
+
+.service-27 .linking:hover {
+	color: #316ce8;
+}
+
+.service-27 .text-info-gradiant {
+		background: #188ef4;
+    background: -webkit-linear-gradient(legacy-direction(to right), #188ef4 0%, #316ce8 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#188ef4), to(#316ce8));
+    background: -webkit-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+    background: -o-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+    background: linear-gradient(to right, #188ef4 0%, #316ce8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+}
+
+.service-27 .display-5 {
+	font-size: 2.5rem;
+}
+.service-section{
+    margin: 0;
+    background: url(../img/plansimage.avif) no-repeat;
+    background: cover;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 70vh;
+    background-position: center center;
+    background-size: cover;
+    padding-top: 65px;
 }
 
 /* ==========================================================================

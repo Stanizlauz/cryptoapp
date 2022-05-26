@@ -12,6 +12,7 @@ import Deposit from "./component/UserPages.js/Deposit";
 import Plans from "./component/UserPages.js/Plans";
 import Profile from "./component/UserPages.js/Profile";
 import Transaction from "./component/UserPages.js/Transaction";
+import UserProfile from "./component/UserPages.js/UserProfile";
 import Withdraw from "./component/UserPages.js/Withdraw";
 
 
@@ -42,6 +43,8 @@ export function AppRoutes() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/transactions" element={<Transaction />} />
         <Route path="/withdraw" element={<Withdraw />} />
+        <Route path="/userprofile" element={<UserProfile />} />
+
 
         <Route path="*" element={<Dashboard />} />
 
@@ -49,3 +52,5 @@ export function AppRoutes() {
     </>
   );
 }
+
+
