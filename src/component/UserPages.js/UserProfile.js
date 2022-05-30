@@ -10,12 +10,11 @@ export default function UserProfile() {
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
             <Header />
-            <div className="container-fluid"></div>
-            <div className="row d-flex float-left ml-4" style={{color: "black"}}>
-                <h1>Profile</h1>
-                <hr />
-              </div>
+            <div className="container-fluid">
             <section className="col" style={{ backgroundColor: "#eee" }}>
+              <div className="row d-flex float-left ml-4">
+              <h2 className="m-0 font-weight-bold text-dark">Welcome</h2>
+              </div>
               <div className="row d-flex float-right mr-4">
                 <button type="button" class="btn btn-info btn-rounded">
                   Edit
@@ -33,7 +32,9 @@ export default function UserProfile() {
                           className="rounded-circle img-fluid"
                           style={{ width: 150 }}
                         />
-                        <h5 className="my-3">John Smith</h5>
+                        <h5 className="my-3">John Smith</h5><span className="text-dark font-weight-bold">
+                        <i className="fab fa-gg-circle fa-lg text-success" />
+                           verified</span>
                       </div>
                     </div>
                     <div className="card mb-4 mb-lg-0">
@@ -200,6 +201,7 @@ export default function UserProfile() {
             </section>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
