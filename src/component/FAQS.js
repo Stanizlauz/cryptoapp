@@ -1,161 +1,87 @@
-import React from 'react'
+import React from "react";
+import Footer from "./Footer";
+import Headerss from "./Headerss";
 
 export default function FAQS() {
   return (
-   <>
-
-     {/* Carousel wrapper */}
-     <div
-        id="carouselDarkVariant"
-        className="carousel slide carousel-fade carousel-dark"
-        data-mdb-ride="carousel"
-      >
-        {/* Indicators */}
-        <div className="carousel-indicators">
-          <button
-            data-mdb-target="#carouselDarkVariant"
-            data-mdb-slide-to={0}
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          />
-          <button
-            data-mdb-target="#carouselDarkVariant"
-            data-mdb-slide-to={1}
-            aria-label="Slide 1"
-          />
-          <button
-            data-mdb-target="#carouselDarkVariant"
-            data-mdb-slide-to={2}
-            aria-label="Slide 1"
-          />
+    <>
+      <Headerss />
+      <div className="container-fluid">
+  <div className="row">
+    <div className="col-xl-12 pa-0">
+      <div className="faq-search-wrap bg-teal-light-3">
+        <div className="container">
+          <h1 className="display-5 text-white mb-20">Frequently asked questions.</h1>
+          <div className="form-group w-100 mb-0">
+          </div>
         </div>
-        {/* Inner */}
-        <div className="carousel-inner">
-          {/* Single item */}
-          <div className="carousel-item active">
-            <img
-              src="img/slider-3.jpg"
-              className="d-block w-100"
-              alt
-              title="#slider-caption-1"
-            />
-            {/* <div className="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </div> */}
-            <div className="carousel-caption d-none d-md-block">
-              <h1 className="wow fadeInLeft2" data-wow-delay="1s">
-                <span>FAQS</span>
-                <br />
-                <span>Most Asked Questions</span>
-              </h1>
-              <p className="wow fadeInRight2" data-wow-delay="1s">
-                Welcome
-              </p>
-              <a
-                href="#"
-                className="button_1 wow bounceInUp"
-                data-wow-delay="0.8s"
-              >
-                Learn More
-              </a>
-            </div>
-          </div>
-          {/* Single item */}
-          <div className="carousel-item">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(35).webp"
-              className="d-block w-100"
-              alt="Mountaintop"
-            />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-          {/* Single item */}
-          <div className="carousel-item">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(40).webp"
-              className="d-block w-100"
-              alt="Woman Reading a Book"
-            />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+      </div>
+      <div className="container mt-sm-60 mt-30">
+        <div className="hk-row">
+          <div className="col-xl-8">
+            <div className="card card-lg">
+              <h3 className="card-header border-bottom-0 text-dark">
+               Questions !
+              </h3>
+              <div className="accordion accordion-type-2 accordion-flush" id="accordion_2">
+                <div className="card">
+                  <div className="card-header d-flex justify-content-between activestate">
+                    <a role="button" data-toggle="collapse" href="#collapse_1i" aria-expanded="true">What methods are available for depositing funds into my account ?</a>
+                  </div>
+                  <div id="collapse_1i" className="collapse show" data-parent="#accordion_2" role="tabpanel">
+                    <div className="card-body pa-15 text-dark">The methods available for funding your account are by cryptocurrency (Bitcoin, Ethereum and Litecoin and many more). We do not accept Fiat on our trading platform as we are fully a cryptocurrency organisation.</div>
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="card-header d-flex justify-content-between">
+                    <a className="collapsed" role="button" data-toggle="collapse" href="#collapse_2i" aria-expanded="false">What document do i need to provide when opening an account ?</a>
+                  </div>
+                  <div id="collapse_2i" className="collapse" data-parent="#accordion_2">
+                    <div className="card-body pa-15 text-dark">You will need to provide a copy of a valid government-issued ID. (Passport, driver’s license, ID card).</div>
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="card-header d-flex justify-content-between">
+                    <a className="collapsed" role="button" data-toggle="collapse" href="#collapse_3i" aria-expanded="false">Does uploading my document automatically get my account verified ?</a>
+                  </div>
+                  <div id="collapse_3i" className="collapse" data-parent="#accordion_2">
+                    <div className="card-body pa-15 text-dark">Immediately you upload your document, we would process it for verification and a success or denied notification would be sent to you by mail.</div>
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="card-header d-flex justify-content-between">
+                    <a className="collapsed" role="button" data-toggle="collapse" href="#collapse_4i" aria-expanded="false"> What are the available means of withdrawal ?</a>
+                  </div>
+                  <div id="collapse_4i" className="collapse" data-parent="#accordion_2">
+                    <div className="card-body pa-15 text-dark">To withdraw from your balance, you will have to provide a wallet address (Bitcoin, Bitcoin cash, Ethereum, Litecoin).</div>
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="card-header d-flex justify-content-between">
+                    <a className="collapsed" role="button" data-toggle="collapse" href="#collapse_5i" aria-expanded="false"> What can i trade trade with Cryptontrades ?</a>
+                  </div>
+                  <div id="collapse_5i" className="collapse" data-parent="#accordion_2">
+                    <div className="card-body pa-15 text-dark">(Bitcoin, Bitcoin cash, Ethereum, Litecoin etc...).</div>
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="card-header d-flex justify-content-between">
+                    <a className="collapsed" role="button" data-toggle="collapse" href="#collapse_6i" aria-expanded="false">Terms and Conditions</a>
+                  </div>
+                  <div id="collapse_6i" className="collapse" data-parent="#accordion_2">
+                    <div className="card-body pa-15 text-dark"> Upon executing this Agreement, you will become a Member of BobbieCoinz. In the event that you make an investment in securities through the Platform, you will also become a client of BC. BC will advise you of the type of client you are for regulatory purposes.</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      {/* Carousel wrapper */}
-
-{/*Section: FAQ*/}
-<section>
-  <h3 className="text-center mb-4 pb-2 text-primary fw-bold">FAQ</h3>
-  <p className="text-center mb-5">
-    Find the answers for the most frequently asked questions below
-  </p>
-  <div className="row">
-    <div className="col-md-6 col-lg-4 mb-4">
-      <h6 className="mb-3 text-primary"><i className="far fa-paper-plane text-primary pe-2" /> A simple
-        question?</h6>
-      <p>
-        <strong><u>Absolutely!</u></strong> We work with top payment companies which guarantees
-        your
-        safety and
-        security. All billing information is stored on our payment processing partner.
-      </p>
-    </div>
-    <div className="col-md-6 col-lg-4 mb-4">
-      <h6 className="mb-3 text-primary"><i className="fas fa-pen-alt text-primary pe-2" /> A question
-        that
-        is longer then the previous one?</h6>
-      <p>
-        <strong><u>Yes, it is possible!</u></strong> You can cancel your subscription anytime in
-        your
-        account. Once the subscription is
-        cancelled, you will not be charged next month.
-      </p>
-    </div>
-    <div className="col-md-6 col-lg-4 mb-4">
-      <h6 className="mb-3 text-primary"><i className="fas fa-user text-primary pe-2" /> A simple
-        question?
-      </h6>
-      <p>
-        Currently, we only offer monthly subscription. You can upgrade or cancel your monthly
-        account at any time with no further obligation.
-      </p>
-    </div>
-    <div className="col-md-6 col-lg-4 mb-4">
-      <h6 className="mb-3 text-primary"><i className="fas fa-rocket text-primary pe-2" /> A simple
-        question?
-      </h6>
-      <p>
-        Yes. Go to the billing section of your dashboard and update your payment information.
-      </p>
-    </div>
-    <div className="col-md-6 col-lg-4 mb-4">
-      <h6 className="mb-3 text-primary"><i className="fas fa-home text-primary pe-2" /> A simple
-        question?
-      </h6>
-      <p><strong><u>Unfortunately no</u>.</strong> We do not issue full or partial refunds for any
-        reason.</p>
-    </div>
-    <div className="col-md-6 col-lg-4 mb-4">
-      <h6 className="mb-3 text-primary"><i className="fas fa-book-open text-primary pe-2" /> Another
-        question that is longer than usual</h6>
-      <p>
-        Of course! We’re happy to offer a free plan to anyone who wants to try our service.
-      </p>
     </div>
   </div>
-</section>
-{/*Section: FAQ*/}
+</div>
 
-
-   </>
-  )
+      <Footer />
+    </>
+  );
 }
