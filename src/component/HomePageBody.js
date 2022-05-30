@@ -1,30 +1,33 @@
 import React from "react";
 import About from "./About";
+import AboutTeamSecond from "./AboutTeamSecond";
 import AllChart from "./AllChart";
 import BinanceView from "./BinanceView";
+import CarouselWrapper from "./CarouselWrapper";
+import CounterSecion from "./CounterSecion";
+import Footer from "./Footer";
+import Headerss from "./Headerss";
+import Pricing from "./Pricing";
 // import HowItWork from "./HowItWork";
 import Services from "./Services";
-import Testimonial from "./Testimonial";
-import Team from "./Team";
-import Pricing from "./Pricing";
-import CarouselWrapper from "./CarouselWrapper";
-import AboutTeam from "./AboutTeam";
-import AboutTeamSecond from "./AboutTeamSecond";
 
 export default function HomePageBody() {
   return (
     <>
+      <Headerss />
       <CarouselWrapper />
       <BinanceView />
       <About />
       <AllChart />
       <Services />
-      <Testimonial />
+      {/* <Testimonial /> */}
       {/* <HowItWork /> */}
       <Pricing />
       {/* <Team /> */}
       {/* <AboutTeam /> */}
       <AboutTeamSecond />
+      <CounterSecion />
+      <Footer />
     </>
   );
 }

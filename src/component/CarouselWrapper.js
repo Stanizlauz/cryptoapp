@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
 export default function CarouselWrapper() {
   return (
     <>
-    {/* Carousel wrapper */}
-    <div
+      {/* Carousel wrapper */}
+      <div
         id="carouselDarkVariant"
         className="carousel slide carousel-fade carousel-dark"
         data-mdb-ride="carousel"
@@ -33,8 +33,17 @@ export default function CarouselWrapper() {
         <div className="carousel-inner">
           {/* Single item */}
           <div className="carousel-item active">
+          <div className="carousel-caption d-none d-md-block">
+              <h1 className="wow fadeInLeft2" data-wow-delay="1s">
+                <span>Get Organized and make Profit</span>
+                <br />
+              </h1>
+              <p className="wow fadeInRight2" data-wow-delay="1s">
+                All you need to become a better earner in one place
+              </p>
+            </div>
             <img
-              src="img/slider-2.jpg"
+              src="img/landinhpagegif.jpg"
               className="d-block w-100"
               alt
               title="#slider-caption-1"
@@ -43,24 +52,7 @@ export default function CarouselWrapper() {
         <h5>First slide label</h5>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
       </div> */}
-            <div className="carousel-caption d-none d-md-block">
-              <h1 className="wow fadeInLeft2" data-wow-delay="1s">
-                <span>Invest In Cryptocoin</span>
-                <br />
-                <span>Easy Way To Trade Bitcoin.</span>
-              </h1>
-              <p className="wow fadeInRight2" data-wow-delay="1s">
-                We offer free consulting and the best project management <br />
-                for your ideas, 100% delivery guaranteed.
-              </p>
-              <a
-                href="#"
-                className="button_1 wow bounceInUp"
-                data-wow-delay="0.8s"
-              >
-                Learn More
-              </a>
-            </div>
+            
           </div>
           {/* Single item */}
           <div className="carousel-item">
@@ -89,7 +81,7 @@ export default function CarouselWrapper() {
             </div>
           </div>
         </div>
-        </div>
+      </div>
     </>
-  )
+  );
 }

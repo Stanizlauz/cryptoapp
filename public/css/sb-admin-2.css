@@ -9797,7 +9797,7 @@ a:focus {
 }
 
 #wrapper #content-wrapper {
-  background-color: #f8f9fc;
+  background-color: #5a5c69;
   width: 100%;
   overflow-x: hidden;
 }
@@ -10681,9 +10681,9 @@ a:focus {
   color: #fff;
 }
 
-.sidebar-dark hr.sidebar-divider {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
+/* .sidebar-dark hr.sidebar-divider {
+  border-top: 1px solid rgba(0, 0, 0, 0);
+} */
 
 .sidebar-dark .sidebar-heading {
   color: rgba(255, 255, 255, 0.4);
@@ -10706,7 +10706,7 @@ a:focus {
 }
 
 .sidebar-dark .nav-item .nav-link[data-toggle="collapse"]::after {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(3 0 0 / 50%);
 }
 
 .sidebar-dark .nav-item.active .nav-link {

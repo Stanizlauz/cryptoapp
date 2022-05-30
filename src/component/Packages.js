@@ -65,7 +65,7 @@ export default function Packages() {
           <div className="card-body">
             <h5 className="card-title">Diamond</h5>
             <br />
-            <span className="amt">$10,000</span>$49,999
+            <span className="amt">$10,000</span>/$49,999
             <br /><br />
             <div className="d-grid my-3">
               <button className="btn btn-outline-dark btn-block">Select</button>

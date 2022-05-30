@@ -65,7 +65,7 @@ export default function AboutTeamSecond() {
           </figure>
         </div>
       </div>
-      <div className="col-md-4 col-sm-6 col-xs-12">
+      {/* <div className="col-md-4 col-sm-6 col-xs-12">
         <div className="team-item">
           <figure>
             <img src="img/helen.jpg" alt />
@@ -76,15 +76,12 @@ export default function AboutTeamSecond() {
               </div>
               <div className="social">
                 <a href="https://t.me/experthelen"><i className="ti ti-comment" aria-hidden="true"></i></a>
-                {/* <a href="#" className="twitter" data-abc="true"><i className="fa fa-twitter" /></a>
-                <a href="#" className="facebook" data-abc="true"><i className="fa fa-facebook" /></a>
-                <a href="#" className="google-plus" data-abc="true"><i className="fa fa-linkedin" /></a> */}
               </div>
             </figcaption>
           </figure>
         </div>
-      </div>
-      <div className="col-md-4 col-sm-6 col-xs-12">
+      </div> */}
+      {/* <div className="col-md-4 col-sm-6 col-xs-12">
         <div className="team-item">
           <figure>
             <img src="img/evelyn.jpg" alt />
@@ -95,14 +92,11 @@ export default function AboutTeamSecond() {
               </div>
               <div className="social">
                 <a href="https://t.me/evelynsmith"><i className="ti ti-comment" aria-hidden="true"></i></a>
-                {/* <a href="#" className="twitter" data-abc="true"><i className="fa fa-twitter" /></a>
-                <a href="#" className="facebook" data-abc="true"><i className="fa fa-facebook" /></a>
-                <a href="#" className="google-plus" data-abc="true"><i className="fa fa-linkedin" /></a> */}
               </div>
             </figcaption>
           </figure>
         </div>
-      </div>
+      </div> */}
       {/* <div className="col-md-4 col-sm-6 col-xs-12">
         <div className="team-item">
           <figure>

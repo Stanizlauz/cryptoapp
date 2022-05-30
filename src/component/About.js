@@ -8,15 +8,15 @@ export default function About() {
    <section className="about_section bd-bottom padding">
   <div className="container">
     <div className="section_heading align-center mb-40">
-      <h4>Number One</h4>
-      <h2>Buying And Selling Bitcoins</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br />It has survived not only five centuries.</p>
+      {/* <h4>Number One</h4> */}
+      <h2>Making money and making you rich.</h2>
+      <p>Our goal is to provide our investors with a reliable source of high income, while minimizing any possible risks and offering high-quality service</p>
     </div>{/* /Section Heading */}
     <div className="row about_box">
       <div className="col-sm-6 xs-padding">
         <div className="about_info">
-          <h3>What Is Cryptocoin?</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+          <h3>Recognizing your need is our primary motive.</h3>
+          <p>Our aim is to minimize risk and make profit from the crypto currency market while putting smiles on our customers faces.</p>
           {/* <a href="#" className="button_1">More About Us</a> */}
           <Link to="/about"  className="button_1">More about us</Link>
         </div>
