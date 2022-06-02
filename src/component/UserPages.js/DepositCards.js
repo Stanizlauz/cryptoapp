@@ -8,7 +8,7 @@ export default function DepositCards({ image, coin }) {
                     <div className="cnt-block equal-hight" style={{ height: 349 }}>
                         <figure>{image}</figure>
                         <div className="p-4">
-                            <div className="font-weight-bolder">
+                            <div className="font-weight-bolder" style={{ color: 'black' }}>
                                 {coin}
                             </div>
                             <div className="mt-2" style={{ color: '#666666' }}>

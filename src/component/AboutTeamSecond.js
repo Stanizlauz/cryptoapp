@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function AboutTeamSecond() {
   return (
@@ -33,7 +34,7 @@ export default function AboutTeamSecond() {
             <img src="img/denise-thompson.jpg" alt />
             <figcaption>
               <div className="info">
-                <h3>Miss Denise Thompson</h3>
+                <h3>Miss Anita Jenna</h3>
                 <p>Crypto Expert</p>
               </div>
               <div className="social">
@@ -52,8 +53,8 @@ export default function AboutTeamSecond() {
             <img src="img/anitajenna.jpg" alt />
             <figcaption>
               <div className="info">
-                <h3>Alan Stuart</h3>
-                <p>Chief Executive Officer</p>
+                <h3>Ms Denise Thompson</h3>
+                <p>Crypto Expert</p>
               </div>
               <div className="social">
                 <a href="https://t.me/Denisethompson"><i className="ti ti-comment" aria-hidden="true"></i></a>
@@ -63,6 +64,12 @@ export default function AboutTeamSecond() {
               </div>
             </figcaption>
           </figure>
+          <Link to="/about">
+          <button type="button" className="team-button">
+                          More about us.
+                        </button>
+          </Link>
+          
         </div>
       </div>
       {/* <div className="col-md-4 col-sm-6 col-xs-12">

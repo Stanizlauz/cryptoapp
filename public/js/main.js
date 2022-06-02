@@ -253,3 +253,4 @@
     new WOW().init();         
 
 })(jQuery);
+

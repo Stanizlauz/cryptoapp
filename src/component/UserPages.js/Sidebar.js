@@ -3,6 +3,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Sidebar() {
+
+    const myFunc =()=>{
+        let tog = document.getElementById("accordionSidebar")
+        if(!tog?.classList.contains('toggled')){
+            tog?.classList.add("toggled")
+        }else{
+            tog?.classList.remove("toggled")
+        }
+      };
+
     return (
         <>
         
@@ -77,7 +87,7 @@ export default function Sidebar() {
                 <hr className="sidebar-divider d-none d-md-block" />
                 {/* Sidebar Toggler (Sidebar) */}
                 <div className="text-center d-none d-md-inline">
-                    <button className="rounded-circle border-0-offcanvas" id="sidebarToggle" type="button" data-toggle="offcanvas" />
+                    <button className="rounded-circle border-0-offcanvas" onClick={myFunc} id="sidebarToggle" type="button" data-toggle="offcanvas" />
                 </div>
             </ul>
             
