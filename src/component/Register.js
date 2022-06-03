@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function Register() {
+  
   return (
     <>
   <section className="h-100 bg-dark">
