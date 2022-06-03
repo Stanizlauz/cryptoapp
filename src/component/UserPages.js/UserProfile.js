@@ -15,12 +15,12 @@ export default function UserProfile() {
               <div className="row d-flex float-left ml-4">
               <h2 className="m-0 font-weight-bold text-dark">Welcome</h2>
               </div>
-              <div className="row d-flex float-right mr-4">
+              {/* <div className="row d-flex float-right mr-4">
                 <button type="button" class="btn btn-info btn-rounded">
                   Edit
                 </button>
                 <hr />
-              </div>
+              </div> */}
               <div className="col container py-5">
                 <div className="row">
                   <div className="col-lg-4">
