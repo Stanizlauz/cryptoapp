@@ -53,7 +53,7 @@ export default function Transaction() {
                       {transaction && transaction.length > 0
                         && transaction?.map((index, tran) =>
                           <tr key={tran.id}>
-                            <td className="text-dark">{index +1}</td>
+                            <td className="text-dark">{index + 1}</td>
                             <td className="text-dark">{tran.coin}</td>
                             <td className="text-dark">{tran.email}</td>
                             <td className="text-dark">{tran.userName}</td>
@@ -63,7 +63,7 @@ export default function Transaction() {
                             <td className="text-dark">{tran.endDate}</td>
                             <td className="text-dark">
                               <span className="badge bg-warning text-white p-2 font-weight-bold">
-                              {tran.transactionStatus}
+                                {tran.transactionStatus}
                               </span>
                             </td>
                             <td className="text-dark">
@@ -86,7 +86,7 @@ export default function Transaction() {
                             </td>
                           </tr>
                         )}
-                        {transaction.length===0 &&
+                      {transaction.length === 0 &&
                         <h3 className="text-danger">No record found!!</h3>}
                     </tbody>
                   </table>
