@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import axios from "axios";
-import { urlProfile, urlWallet } from "../../endpoints"
+import { urlProfile, urlWallet } from "../../endpoints";
+import { coins } from "../../enum";
 
 export default function UserProfile() {
   const [wallet, setWallet] = useState([]);
@@ -65,92 +66,108 @@ export default function UserProfile() {
                         </div>
                       </div>
                       <div className="card mb-4 mb-lg-0">
-                      <div className="card-body p-0">
-                        <ul className="list-group list-group-flush rounded-3">
-                          <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                            <i className="fab fa-bitcoin fa-lg text-warning" />
-                            <p className=" text-dark mb-0">btc12124343gfhf</p>
-                            <div className="d-flex justify-content-between">
-                              <button
-                                type="button"
-                                className="btn btn-link btn-sm px-3 text-dark"
-                                data-ripple-color="dark"
-                              >
-                                <i className="fas fa-bars text-dark" />
-                              </button>
-                            </div>
-                          </li>
-                          <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                            <i
-                              className="fab fa-ethereum fa-lg"
-                              style={{ color: "#333333" }}
-                            />
-                            <p className=" text-dark mb-0">btc12124343gfhf</p>
-                            <div className="d-flex justify-content-between">
-                              <button
-                                type="button"
-                                className="btn btn-link btn-sm px-3 text-dark"
-                                data-ripple-color="dark"
-                              >
-                                <i className="fas fa-bars text-dark" />
-                              </button>
-                            </div>
-                          </li>
-                          <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                            <img src="img/binance-coin-bnb.svg" style={{width: '20px'}}/>
-                            <p className=" text-dark mb-0">btc12124343gfhf</p>
-                            <div className="d-flex justify-content-between">
-                              <button
-                                type="button"
-                                className="btn btn-link btn-sm px-3 text-dark"
-                                data-ripple-color="dark"
-                              >
-                                <i className="fas fa-bars text-dark" />
-                              </button>
-                            </div>
-                          </li>
-                          <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                            <img src="img/xrp-xrp-logo.svg" style={{width: '20px'}}/>
-                            <p className=" text-dark mb-0">btc12124343gfhf</p>
-                            <div className="d-flex justify-content-between">
-                              <button
-                                type="button"
-                                className="btn btn-link btn-sm px-3 text-dark"
-                                data-ripple-color="dark"
-                              >
-                                <i className="fas fa-bars text-dark" />
-                              </button>
-                            </div>
-                          </li>
-                          <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                          <img src="img/tether-usdt-logo.svg" style={{width: '20px'}}/>
-                            <p className=" text-dark mb-0">btc12124343gfhf</p>
-                            <div className="d-flex justify-content-between">
-                              <button
-                                type="button"
-                                className="btn btn-link btn-sm px-3 text-dark"
-                                data-ripple-color="dark"
-                              >
-                                <i className="fas fa-bars text-dark" />
-                              </button>
-                            </div>
-                          </li>
-                          <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                          <img src="img/litecoin-ltc.svg" style={{width: '20px'}}/>
-                            <p className=" text-dark mb-0">btc12124343gfhf</p>
-                            <div className="d-flex justify-content-between">
-                              <button
-                                type="button"
-                                className="btn btn-link btn-sm px-3 text-dark"
-                                data-ripple-color="dark"
-                              >
-                                <i className="fas fa-bars text-dark" />
-                              </button>
-                            </div>
-                          </li>
-                        </ul>
+                        <div className="card-body p-0">
+                          <div className="row d-flex float-right mr-4">
+                          <p className="text-dark font-weight-bold mr-2 mt-2">Add Wallet</p>
+                            <i className="fas fa-plus text-primary mt-2" />
+                            <hr />
+                          </div>
+                          <ul className="list-group list-group-flush rounded-3">
+                            {wallet && wallet?.coin === coins.BTC &&
+                              <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                                <i className="fab fa-bitcoin fa-lg text-warning" />
+                                <p className=" text-dark mb-0">btc12124343gfhf</p>
+                                <div className="d-flex justify-content-between">
+                                  <button
+                                    type="button"
+                                    className="btn btn-link btn-sm px-3 text-dark"
+                                    data-ripple-color="dark"
+                                  >
+                                    <i className="fas fa-bars text-dark" />
+                                  </button>
+                                </div>
+                              </li>
+                            }
+                            {wallet && wallet?.coin === coins.ETH &&
+                              <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                                <i
+                                  className="fab fa-ethereum fa-lg"
+                                  style={{ color: "#333333" }}
+                                />
+                                <p className=" text-dark mb-0">btc12124343gfhf</p>
+                                <div className="d-flex justify-content-between">
+                                  <button
+                                    type="button"
+                                    className="btn btn-link btn-sm px-3 text-dark"
+                                    data-ripple-color="dark"
+                                  >
+                                    <i className="fas fa-bars text-dark" />
+                                  </button>
+                                </div>
+                              </li>
+                            }
+                            {wallet && wallet?.coin === coins.BNB &&
+                              <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                                <img src="img/binance-coin-bnb.svg" style={{ width: '20px' }} />
+                                <p className=" text-dark mb-0">btc12124343gfhf</p>
+                                <div className="d-flex justify-content-between">
+                                  <button
+                                    type="button"
+                                    className="btn btn-link btn-sm px-3 text-dark"
+                                    data-ripple-color="dark"
+                                  >
+                                    <i className="fas fa-bars text-dark" />
+                                  </button>
+                                </div>
+                              </li>
+                            }
+                            {wallet && wallet?.coin === coins.XRP &&
+                              <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                                <img src="img/xrp-xrp-logo.svg" style={{ width: '20px' }} />
+                                <p className=" text-dark mb-0">btc12124343gfhf</p>
+                                <div className="d-flex justify-content-between">
+                                  <button
+                                    type="button"
+                                    className="btn btn-link btn-sm px-3 text-dark"
+                                    data-ripple-color="dark"
+                                  >
+                                    <i className="fas fa-bars text-dark" />
+                                  </button>
+                                </div>
+                              </li>}
+                            {wallet && wallet?.coin === coins.USDT &&
+                              <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                                <img src="img/tether-usdt-logo.svg" style={{ width: '20px' }} />
+                                <p className=" text-dark mb-0">btc12124343gfhf</p>
+                                <div className="d-flex justify-content-between">
+                                  <button
+                                    type="button"
+                                    className="btn btn-link btn-sm px-3 text-dark"
+                                    data-ripple-color="dark"
+                                  >
+                                    <i className="fas fa-bars text-dark" />
+                                  </button>
+                                </div>
+                              </li>
+                            }
+                            {wallet && wallet?.coin === coins.LTC &&
+                              <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                                <img src="img/litecoin-ltc.svg" style={{ width: '20px' }} />
+                                <p className=" text-dark mb-0">btc12124343gfhf</p>
+                                <div className="d-flex justify-content-between">
+                                  <button
+                                    type="button"
+                                    className="btn btn-link btn-sm px-3 text-dark"
+                                    data-ripple-color="dark"
+                                  >
+                                    <i className="fas fa-bars text-dark" />
+                                  </button>
+                                </div>
+                              </li>
+                            }
+                          </ul>
+                        </div>
                       </div>
-                    </div>
                     </div>
                     <div className="col-lg-8">
                       <div className="card mb-4">
