@@ -70,10 +70,7 @@ export default function UserProfile() {
                             </div>
                           </li>
                           <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                            <i
-                              className="fab fa-gg-circle fa-lg"
-                              style={{ color: "#55acee" }}
-                            />
+                            <img src="img/binance-coin-bnb.svg" style={{width: '20px'}}/>
                             <p className=" text-dark mb-0">btc12124343gfhf</p>
                             <div className="d-flex justify-content-between">
                               <button
@@ -86,10 +83,7 @@ export default function UserProfile() {
                             </div>
                           </li>
                           <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                            <i
-                              className="fab fa-gg-circle fa-lg"
-                              style={{ color: "#ac2bac" }}
-                            />
+                            <img src="img/xrp-xrp-logo.svg" style={{width: '20px'}}/>
                             <p className=" text-dark mb-0">btc12124343gfhf</p>
                             <div className="d-flex justify-content-between">
                               <button
@@ -102,10 +96,20 @@ export default function UserProfile() {
                             </div>
                           </li>
                           <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                            <i
-                              className="fab fa-gg-circle fa-lg"
-                              style={{ color: "#3b5998" }}
-                            />
+                          <img src="img/tether-usdt-logo.svg" style={{width: '20px'}}/>
+                            <p className=" text-dark mb-0">btc12124343gfhf</p>
+                            <div className="d-flex justify-content-between">
+                              <button
+                                type="button"
+                                className="btn btn-link btn-sm px-3 text-dark"
+                                data-ripple-color="dark"
+                              >
+                                <i className="fas fa-bars text-dark" />
+                              </button>
+                            </div>
+                          </li>
+                          <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                          <img src="img/litecoin-ltc.svg" style={{width: '20px'}}/>
                             <p className=" text-dark mb-0">btc12124343gfhf</p>
                             <div className="d-flex justify-content-between">
                               <button

@@ -8,8 +8,11 @@ export default function Deposit() {
   const coins = [
     { image: <img src="img/bitcoinimg.png" className="img-responsive" alt />, coin: "Bitcoin" },
     { image: <img src="img/Ethereum-img.png" className="img-responsive" alt />, coin: "Etherum" },
-    { image: <img src="img/ada_cardano_img.png" className="img-responsive" alt />, coin: "Cardano" },
-    { image: <img src="img/tron-img.png" className="img-responsive" alt />, coin: "Tron" }
+    { image: <img src="img/pngwing.com.png" className="img-responsive" alt />, coin: "BNB" },
+    { image: <img src="img/tether-usdt-logo.png" className="img-responsive" alt />, coin: "USDT" },
+    { image: <img src="img/litecoin-ltc-logo.png" className="img-responsive" alt />, coin: "Litecoin" },
+    { image: <img src="img/xrp-xrp-logo.png" className="img-responsive" alt />, coin: "XRP" }
+
 
   ]
 
