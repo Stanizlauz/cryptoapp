@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TradingView from "../TradingView";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
+import { urlTransaction } from "../../endpoints";
+import axios from "axios";
 
 export default function Transaction() {
+  const [transaction, setTransaction] = useState([]);
+
+  useEffect(() => {
+    loadData();
+  }, [])
+
+  const loadData = async () => {
+    await axios.get(urlTransaction)
+      .then(response => setTransaction(response.data))
+  }
   return (
     <>
       <div id="wrapper">
@@ -25,7 +37,6 @@ export default function Transaction() {
                     <thead>
                       <tr>
                         <th className="text-dark">S/N</th>
-                        <th className="text-dark">Transaction ID</th>
                         <th className="text-dark">Coin</th>
                         <th className="text-dark">User Email</th>
                         <th className="text-dark">Username</th>
@@ -33,113 +44,50 @@ export default function Transaction() {
                         <th className="text-dark">Expected Payout</th>
                         <th className="text-dark">Start date</th>
                         <th className="text-dark">End Date</th>
+                        <th>Current Balance</th>
                         <th className="text-dark">Trade Status</th>
                         <th className="text-dark">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td className="text-dark">1</td>
-                        <td className="text-dark">TXCC34</td>
-                        <td className="text-dark">BTC</td>
-                        <td className="text-dark">test@example.com</td>
-                        <td className="text-dark">Mini Plan</td>
-                        <td className="text-dark">$2013</td>
-                        <td className="text-dark">$320,800</td>
-                        <td className="text-dark">10/2/2022</td>
-                        <td className="text-dark">12/3/2022</td>
-                        <td className="text-dark">
-                          <span className="badge bg-warning text-white p-2 font-weight-bold">
-                            Pending
-                          </span>
-                        </td>
-                        <td className="text-dark">
-                          <div className="d-flex justify-content-between">
-                            <button
-                              type="button"
-                              className="btn btn-link btn-sm px-3 text-dark"
-                              data-ripple-color="dark"
-                            >
-                              <i className="fas fa-bars text-dark" />
-                            </button>
-                            <button
-                              type="button"
-                              className="btn btn-link btn-sm px-3 "
-                              data-ripple-color="dark"
-                            >
-                              <i className="fas fa-times text-dark" />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-dark">1</td>
-                        <td className="text-dark">TXCC34</td>
-                        <td className="text-dark">BTC</td>
-                        <td className="text-dark">test@example.com</td>
-                        <td className="text-dark">Mini Plan</td>
-                        <td className="text-dark">$2013</td>
-                        <td className="text-dark">$320,800</td>
-                        <td className="text-dark">10/2/2022</td>
-                        <td className="text-dark">12/3/2022</td>
-                        <td className="text-dark">
-                          <span className="badge bg-warning text-white p-2 font-weight-bold">
-                            Pending
-                          </span>
-                        </td>
-                        <td className="text-dark">
-                          <div className="d-flex justify-content-between">
-                            <button
-                              type="button"
-                              className="btn btn-link btn-sm px-3"
-                              data-ripple-color="dark"
-                            >
-                              <i className="fas fa-bars text-dark" />
-                            </button>
-                            <button
-                              type="button"
-                              className="btn btn-link btn-sm px-3"
-                              data-ripple-color="dark"
-                            >
-                              <i className="fas fa-times text-dark" />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-dark">1</td>
-                        <td className="text-dark">TXCC34</td>
-                        <td className="text-dark">BTC</td>
-                        <td className="text-dark">test@example.com</td>
-                        <td className="text-dark">Mini Plan</td>
-                        <td className="text-dark">$2013</td>
-                        <td className="text-dark">$320,800</td>
-                        <td className="text-dark">10/2/2022</td>
-                        <td className="text-dark">12/3/2022</td>
-                        <td className="text-dark">
-                          <span className="badge bg-warning text-white p-2 font-weight-bold">
-                            Pending
-                          </span>
-                        </td>
-                        <td className="text-dark">
-                          <div className="d-flex justify-content-between">
-                            <button
-                              type="button"
-                              className="btn btn-link btn-sm px-3"
-                              data-ripple-color="dark"
-                            >
-                              <i className="fas fa-bars text-dark" />
-                            </button>
-                            <button
-                              type="button"
-                              className="btn btn-link btn-sm px-3"
-                              data-ripple-color="dark"
-                            >
-                              <i className="fas fa-times text-dark" />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
+                      {transaction && transaction.length > 0
+                        && transaction?.map((index, tran) =>
+                          <tr key={tran.id}>
+                            <td className="text-dark">{index + 1}</td>
+                            <td className="text-dark">{tran.coin}</td>
+                            <td className="text-dark">{tran.email}</td>
+                            <td className="text-dark">{tran.userName}</td>
+                            <td className="text-dark">${tran.amountDeposited}</td>
+                            <td className="text-dark">${tran.expectedPayout}</td>
+                            <td className="text-dark">{tran.startDate}</td>
+                            <td className="text-dark">{tran.endDate}</td>
+                            <td className="text-dark">
+                              <span className="badge bg-warning text-white p-2 font-weight-bold">
+                                {tran.transactionStatus}
+                              </span>
+                            </td>
+                            <td className="text-dark">
+                              <div className="d-flex justify-content-between">
+                                <button
+                                  type="button"
+                                  className="btn btn-link btn-sm px-3 text-dark"
+                                  data-ripple-color="dark"
+                                >
+                                  <i className="fas fa-bars text-dark" />
+                                </button>
+                                <button
+                                  type="button"
+                                  className="btn btn-link btn-sm px-3 "
+                                  data-ripple-color="dark"
+                                >
+                                  <i className="fas fa-times text-dark" />
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      {transaction.length === 0 &&
+                        <h3 className="text-danger">No record found!!</h3>}
                     </tbody>
                   </table>
                 </div>

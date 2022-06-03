@@ -1,114 +1,257 @@
+import axios from 'axios';
 import React from 'react'
+import { useForm } from 'react-hook-form';
+import { urlRegister } from '../endpoints';
 
 export default function Register() {
-  
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    watch,
+    trigger,
+    control,
+    setValue,
+    getValues,
+  } = useForm({
+    mode: "onChange",
+    reValidateMode: "onChange",
+  });
+  // const history = useHistory()
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+
+  };
+  const registerUser = async (data) => {
+    try {
+      await axios.post(urlRegister, data)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <>
-  <section className="h-100 bg-dark">
-  <div className="container py-5 h-100">
-    <div className="row d-flex justify-content-center align-items-center h-100">
-      <div className="col">
-        <div className="card card-registration my-4">
-          <div className="row g-0">
-            <div className="col-xl-6 d-none d-xl-block">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp" alt="Sample photo" className="img-fluid" style={{borderTopLeftRadius: '.25rem', borderBottomLeftRadius: '.25rem'}} />
-            </div>
-            <div className="col-xl-6">
-              <div className="card-body p-md-5 text-black">
-                <h3 className="mb-5 text-uppercase">Sign Up</h3>
-                <div className="row">
-                  <div className="col-md-6 mb-4">
-                    <div className="form-outline">
-                      <input type="text" id="form3Example1m" className="form-control form-control-lg" />
-                      <label className="form-label" htmlFor="form3Example1m">First name</label>
-                    </div>
-                  </div>
-                  <div className="col-md-6 mb-4">
-                    <div className="form-outline">
-                      <input type="text" id="form3Example1n" className="form-control form-control-lg" />
-                      <label className="form-label" htmlFor="form3Example1n">Last name</label>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  {/* <div className="col-md-6 mb-4">
-                    <div className="form-outline">
-                      <input type="text" id="form3Example1m1" className="form-control form-control-lg" />
-                      <label className="form-label" htmlFor="form3Example1m1">Mother's name</label>
-                    </div>
+      <section className="h-100 bg-dark">
+        <div className="container py-5 h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col">
+              <div className="card card-registration my-4">
+                <div className="row g-0">
+                  {/* <div className="col-xl-6 d-none d-xl-block">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp" alt="Sample photo" className="img-fluid" style={{ borderTopLeftRadius: '.25rem', borderBottomLeftRadius: '.25rem' }} />
                   </div> */}
-                  {/* <div className="col-md-6 mb-4">
-                    <div className="form-outline">
-                      <input type="text" id="form3Example1n1" className="form-control form-control-lg" />
-                      <label className="form-label" htmlFor="form3Example1n1">Father's name</label>
+                  {/* <div className="col-xl-6"> */}
+                  <div className="card-body p-md-5 text-black">
+                    <h3 className="mb-5 text-uppercase text-dark">Sign Up</h3>
+                    <form className="row">
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="firstName">First Name <span className='text-danger'>*</span>
+                          {errors.firstName &&
+                            <span className="text-danger font-weight-bold"> required</span>
+                          }</label>
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          id="firstName"
+                          name="firstName"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("firstName", { required: true })}
+                        />
+                      </div>
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="lastName">Last name <span className='text-danger'>*</span>
+                          {errors.lastName &&
+                            <span className="text-danger font-weight-bold"> required</span>
+                          }</label>
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          id="lastName"
+                          name="lastName"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("lastName", { required: true })}
+                        />
+                      </div>
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="picture">Picture <span className='text-danger'>*</span>
+                          {errors.picture &&
+                            <span className="text-danger font-weight-bold"> required</span>
+                          }</label>
+                        <input
+                          type="file"
+                          className="form-control form-control-lg"
+                          id="picture"
+                          name="picture"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("picture", { required: false })}
+                        />
+                      </div>
+
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="gender">Gender <span className='text-danger'>*</span>
+                          {errors.gender &&
+                            <span className="text-danger font-weight-bold"> required</span>}
+                        </label>
+                        <select className="form-control form-control-lg"
+                          id="gender"
+                          name="gender"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("gender", { required: true })}
+                        >
+                          <option></option>
+                          <option id='male' value="receipt"> Male </option>
+                          <option id='female' value="adjustment">Female </option>
+                        </select>
+                      </div>
+
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="dateOfBirth">Date Of Birth <span className='text-danger'>*</span>
+                          {errors.dateOfBirth &&
+                            <span className="text-danger font-weight-bold"> required</span>
+                          }</label>
+                        <input
+                          type="date"
+                          className="form-control form-control-lg"
+                          id="dateOfBirth"
+                          name="dateOfBirth"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("dateOfBirth", { required: true })}
+                        />
+                      </div>
+
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="email">Email <span className='text-danger'>*</span>
+                          {errors.email &&
+                            <span className="text-danger font-weight-bold"> required</span>
+                          }</label>
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          id="email"
+                          name="email"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("email", { required: true })}
+                        />
+                      </div>
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="phoneNo">Phone No. <span className='text-danger'>*</span>
+                          {errors.phoneNo &&
+                            <span className="text-danger font-weight-bold"> required</span>
+                          }</label>
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          id="phoneNo"
+                          name="phoneNo"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("phoneNo", { required: true })}
+                        />
+                      </div>
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="country">Country <span className='text-danger'>*</span>
+                          {errors.country &&
+                            <span className="text-danger font-weight-bold"> required</span>}
+                        </label>
+                        <select className="form-control form-control-lg"
+                          id="country"
+                          name="country"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("country", { required: true })}
+                        >
+                          <option></option>
+                          <option id='male' value="receipt"> Male </option>
+                          <option id='female' value="adjustment">Female </option>
+                        </select>
+                      </div>
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="state">State <span className='text-danger'>*</span>
+                          {errors.state &&
+                            <span className="text-danger font-weight-bold"> required</span>}
+                        </label>
+                        <select className="form-control form-control-lg"
+                          id="state"
+                          name="state"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("state", { required: true })}
+                        >
+                          <option></option>
+                          <option id='male' value="receipt"> Male </option>
+                          <option id='female' value="adjustment">Female </option>
+                        </select>
+                      </div>
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="city">City <span className='text-danger'>*</span>
+                          {errors.city &&
+                            <span className="text-danger font-weight-bold"> required</span>}
+                        </label>
+                        <select className="form-control form-control-lg"
+                          id="city"
+                          name="city"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("city", { required: true })}
+                        >
+                          <option></option>
+                          <option id='male' value="receipt"> Male </option>
+                          <option id='female' value="adjustment">Female </option>
+                        </select>
+                      </div>
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="address">Address <span className='text-danger'>*</span>
+                          {errors.address &&
+                            <span className="text-danger font-weight-bold"> required</span>
+                          }</label>
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          id="address"
+                          name="address"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("address", { required: true })}
+                        />
+                      </div>
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="password">Password <span className='text-danger'>*</span>
+                          {errors.password &&
+                            <span className="text-danger font-weight-bold"> required</span>
+                          }</label>
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          id="password"
+                          name="password"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("password", { required: true })}
+                        />
+                      </div>
+                      <div className="form-outline mb-4 col-md-4">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="confirmPassword">Confirm Password <span className='text-danger'>*</span>
+                          {errors.confirmPassword &&
+                            <span className="text-danger font-weight-bold"> required</span>
+                          }</label>
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          id="confirmPassword"
+                          name="confirmPassword"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("confirmPassword", { required: true })}
+                        />
+                      </div>
+                    </form>
+                    <div className="d-flex float-right pt-3">
+                      <button type="button" className="btn btn-danger btn-lg mr-2">Reset all</button>
+                      <button type="button" onClick={handleSubmit(registerUser)} className="btn btn-success btn-lg">Submit form</button>
                     </div>
-                  </div> */}
-                </div>
-                <div className="form-outline mb-4">
-                  <input type="text" id="form3Example8" className="form-control form-control-lg" />
-                  <label className="form-label" htmlFor="form3Example8">Address</label>
-                </div>
-                <div className="d-md-flex justify-content-start align-items-center mb-4 py-2">
-                  <h6 className="mb-0 me-4">Gender: </h6>
-                  <div className="form-check form-check-inline mb-0 me-4">
-                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender" defaultValue="option1" />
-                    <label className="form-check-label" htmlFor="femaleGender">Female</label>
                   </div>
-                  <div className="form-check form-check-inline mb-0 me-4">
-                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender" defaultValue="option2" />
-                    <label className="form-check-label" htmlFor="maleGender">Male</label>
-                  </div>
-                  <div className="form-check form-check-inline mb-0">
-                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender" defaultValue="option3" />
-                    <label className="form-check-label" htmlFor="otherGender">Other</label>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-6 mb-4">
-                    <select className="select">
-                      <option value={1}>State</option>
-                      <option value={2}>Option 1</option>
-                      <option value={3}>Option 2</option>
-                      <option value={4}>Option 3</option>
-                    </select>
-                  </div>
-                  <div className="col-md-6 mb-4">
-                    <select className="select">
-                      <option value={1}>City</option>
-                      <option value={2}>Option 1</option>
-                      <option value={3}>Option 2</option>
-                      <option value={4}>Option 3</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="form-outline mb-4">
-                  <input type="text" id="form3Example9" className="form-control form-control-lg" />
-                  <label className="form-label" htmlFor="form3Example9">DOB</label>
-                </div>
-                {/* <div className="form-outline mb-4">
-                  <input type="text" id="form3Example90" className="form-control form-control-lg" />
-                  <label className="form-label" htmlFor="form3Example90">Pincode</label>
-                </div> */}
-                {/* <div className="form-outline mb-4">
-                  <input type="text" id="form3Example99" className="form-control form-control-lg" />
-                  <label className="form-label" htmlFor="form3Example99">Course</label>
-                </div> */}
-                <div className="form-outline mb-4">
-                  <input type="text" id="form3Example97" className="form-control form-control-lg" />
-                  <label className="form-label" htmlFor="form3Example97">Email</label>
-                </div>
-                <div className="d-flex justify-content-end pt-3">
-                  <button type="button" className="btn btn-light btn-lg">Reset all</button>
-                  <button type="button" className="btn btn-warning btn-lg ms-2">Submit form</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+        {/* </div> */}
+      </section>
 
     </>
   )
