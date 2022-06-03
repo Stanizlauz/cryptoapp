@@ -51,18 +51,7 @@ export default function AboutUs() {
               <h1 className="wow fadeInLeft2" data-wow-delay="1s">
                 <span>About Us</span>
                 <br />
-                <span>Welcome</span>
               </h1>
-              <p className="wow fadeInRight2" data-wow-delay="1s">
-               Welcome
-              </p>
-              <a
-                href="#"
-                className="button_1 wow bounceInUp"
-                data-wow-delay="0.8s"
-              >
-                Learn More
-              </a>
             </div>
           </div>
           {/* Single item */}
@@ -74,7 +63,6 @@ export default function AboutUs() {
             />
             <div className="carousel-caption d-none d-md-block">
               <h5>Second slide label</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
           </div>
           {/* Single item */}
@@ -98,16 +86,14 @@ export default function AboutUs() {
    <section className="about_section bd-bottom padding">
   <div className="container">
     <div className="section_heading align-center mb-40">
-      <h4>Number One</h4>
-      <h2>Buying And Selling Bitcoins</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br />It has survived not only five centuries.</p>
+      <h2>Making money and making you rich.</h2>
     </div>{/* /Section Heading */}
     <div className="row about_box">
       <div className="col-sm-6 xs-padding">
         <div className="about_info">
-          <h3>What Is Cryptocoin?</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-          <a href="#" className="button_1">More About Us</a>
+          <h3>Recognizing your need is our primary motive.</h3>
+          <p>Our aim is to minimize risk and make profit from the crypto currency market while putting smiles on our customers faces.</p>
+
         </div>
       </div>
       <div className="col-sm-6 xs-padding">

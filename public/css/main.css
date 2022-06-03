@@ -600,6 +600,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
     overflow: auto !important;
     padding: 20px 0 0 60px;
     background-color: rgb(246, 249, 249);
+    border-radius: 5px;
 }
 
 .all_chart{
@@ -1065,6 +1066,14 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
 .service_content a:hover{
     text-decoration: underline;
 }
+.team-button{
+    border-radius: 12px;
+    background-color: #11b7cd; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
 
 /* ==========================================================================
    5.0 Counter Section
@@ -1149,6 +1158,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
 }
 .service-text{
     font-size: 20px;
+    color: black;
 }
 
 .service-27 a {

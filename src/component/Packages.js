@@ -30,7 +30,7 @@ export default function Packages() {
             <h5 className="card-title">Silver</h5>
             <br />
             <span className="amt">$1000</span>$5999
-            <br /><br />
+            <br />
             <div className="d-grid my-3">
               <button className="btn btn-outline-dark btn-block">Select</button>
             </div>
@@ -48,7 +48,7 @@ export default function Packages() {
             <h5 className="card-title">Gold</h5>
             <br />
             <span className="amt">$6000</span>$9999
-            <br /><br />
+            <br />
             <div className="d-grid my-3">
               <button className="btn btn-outline-dark btn-block">Select</button>
             </div>
@@ -66,7 +66,7 @@ export default function Packages() {
             <h5 className="card-title">Diamond</h5>
             <br />
             <span className="amt">$10,000</span>/$49,999
-            <br /><br />
+            <br />
             <div className="d-grid my-3">
               <button className="btn btn-outline-dark btn-block">Select</button>
             </div>

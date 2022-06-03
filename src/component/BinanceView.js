@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function BinanceView() {
   return (
     <>
-          <div className="first_widget_one">
+      <div className="first_widget_one">
         <div className="binance_home center2">
           <div
             style={{
@@ -175,5 +175,5 @@ export default function BinanceView() {
         </div>
       </div>
     </>
-  )
+  );
 }
