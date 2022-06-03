@@ -1,40 +1,90 @@
 import React from 'react'
+import { useForm } from 'react-hook-form';
+import { urlLogin } from '../endpoints';
+import axios from 'axios';
 
 export default function Login() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    watch,
+    trigger,
+    control,
+    setValue,
+    getValues,
+  } = useForm({
+    mode: "onChange",
+    reValidateMode: "onChange",
+  });
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+
+  };
+  const loginUser = async (data) => {
+    try {
+      await axios.post(urlLogin, data)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <>
-     <section className="h-100 bg-dark">
-  <div className="container py-5 h-100">
-    <div className="row d-flex justify-content-center align-items-center h-100">
-      <div className="col">
-        <div className="card card-registration my-4">
-          <div className="row g-0">
-            <div className="col-xl-6 d-none d-xl-block">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp" alt="Sample photo" className="img-fluid" style={{borderTopLeftRadius: '.25rem', borderBottomLeftRadius: '.25rem'}} />
-            </div>
-            <div className="col-xl-6">
-              <div className="card-body p-md-5 text-black">
-                <h3 className="mb-5 text-uppercase">Sign In</h3>
-              
-                <div className="form-outline mb-4">
-                  <input type="email" id="form3Example97" className="form-control form-control-lg" />
-                  <label className="form-label" htmlFor="form3Example97">Email</label>
-                </div>
-                <div className="form-outline mb-4">
-                  <input type="password" id="form3Example99" className="form-control form-control-lg" />
-                  <label className="form-label" htmlFor="form3Example99">Password</label>
-                </div>
-                <div className="d-flex justify-content-end pt-3">
-                  <button type="button" className="btn btn-warning btn-lg ms-2">Login</button>
+      <section className="h-100 bg-dark">
+        <div className="container py-5 h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col">
+              <div className="card card-registration my-4">
+                <div className="row g-0">
+                  <div className="col-xl-6 d-none d-xl-block">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp" alt="Sample photo" className="img-fluid" style={{ borderTopLeftRadius: '.25rem', borderBottomLeftRadius: '.25rem' }} />
+                  </div>
+                  <div className="col-xl-6">
+                    <div className="card-body p-md-5 text-black">
+                      <h3 className="mb-5 text-uppercase text-dark">Sign In</h3>
+                      <form >
+                        <div className="form-outline mb-4">
+                          <label className="form-label text-dark font-weight-bold" htmlFor="email">Email <span className='text-danger'>*</span>
+                            {errors.email &&
+                              <span className="text-danger font-weight-bold"> required</span>
+                            }</label>
+                          <input
+                            type="text"
+                            className="form-control form-control-lg"
+                            id="email"
+                            name="email"
+                            onChange={(e) => handleOnChange(e)}
+                            {...register("email", { required: true })}
+                          />
+                        </div>
+                        <div className="form-outline mb-4">
+                          <label className="form-label text-dark font-weight-bold" htmlFor="password">Password <span className='text-danger'>*</span>
+                            {errors.password &&
+                              <span className="text-danger font-weight-bold"> required</span>
+                            }</label>
+                          <input
+                            type="text"
+                            className="form-control form-control-lg"
+                            id="password"
+                            name="password"
+                            onChange={(e) => handleOnChange(e)}
+                            {...register("password", { required: true })}
+                          />
+                        </div>
+                      </form>
+                      <div className="d-flex justify-content-end pt-3">
+                        <button type="button" onClick={handleSubmit(loginUser)} className="btn btn-success btn-lg ms-2">Login</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
     </>
   )
 }
