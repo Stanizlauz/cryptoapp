@@ -94,15 +94,15 @@ export default function Register() {
                           {errors.gender &&
                             <span className="text-danger font-weight-bold"> required</span>}
                         </label>
-                        <select className="form-control form-control-lg"
+                        <select className="form-control form-control-lg text-dark"
                           id="gender"
                           name="gender"
                           onChange={(e) => handleOnChange(e)}
                           {...register("gender", { required: true })}
                         >
                           <option></option>
-                          <option id='male' value="receipt"> Male </option>
-                          <option id='female' value="adjustment">Female </option>
+                          <option className='text-dark' id='male' value="receipt"> Male </option>
+                          <option className='text-dark' id='female' value="adjustment">Female </option>
                         </select>
                       </div>
 

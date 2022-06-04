@@ -4,4 +4,6 @@ export const urlWallet=`${baseURL}/wallets`;
 export const urlProfile=`${baseURL}/users`;
 export const urlRegister=`${baseURL}/register`;
 export const urlLogin=`${baseURL}/login`;
+export const urlCoins=`${baseURL}/coins`;
+
 

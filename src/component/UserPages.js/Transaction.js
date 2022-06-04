@@ -87,7 +87,7 @@ export default function Transaction() {
                           </tr>
                         )}
                       {transaction.length === 0 &&
-                        <h3 className="text-danger">No record found!!</h3>}
+                        <p className="text-danger">No record found!!</p>}
                     </tbody>
                   </table>
                 </div>
