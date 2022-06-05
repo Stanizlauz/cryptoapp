@@ -101,8 +101,8 @@ export default function Register() {
                           {...register("gender", { required: true })}
                         >
                           <option></option>
-                          <option className='text-dark' id='male' value="receipt"> Male </option>
-                          <option className='text-dark' id='female' value="adjustment">Female </option>
+                          <option className='text-dark' id='male' value="Male"> Male </option>
+                          <option className='text-dark' id='female' value="Female">Female </option>
                         </select>
                       </div>
 

@@ -45,11 +45,11 @@ export default function UserProfile() {
   const [listedCoins, setListedCoins] = useState();
   const [editWalletData, setEditWalletData] = useState({});
 
-  // useEffect(() => {
-  //   loadWallet();
-  //   loadUserData();
-  //   loadCoins();
-  // }, [wallet])
+  useEffect(() => {
+    loadWallet();
+    loadUserData();
+    loadCoins();
+  }, [wallet])
 
   const loadWallet = async () => {
     await axios.get(urlWallet)
@@ -57,7 +57,7 @@ export default function UserProfile() {
   }
 
   const loadUserData = async () => {
-    await axios.get(urlProfile)
+    await axios.get(`${urlProfile}/2`)
       .then(response => setProfile(response.data))
   }
 
@@ -94,7 +94,7 @@ export default function UserProfile() {
       let obj = {
         walletAddress: data?.editwalletAddress
       }
-      await axios.put(editWalletData?.id, obj)
+      await axios.put(`${urlWallet}/${editWalletData?.id}`, obj)
       loadWallet();
 
     } catch (error) {

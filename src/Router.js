@@ -7,12 +7,14 @@ import FAQS from "./component/FAQS";
 import HomePageBody from "./component/HomePageBody";
 import Login from "./component/Login";
 import Register from "./component/Register";
+import AdminWallet from "./component/UserPages.js/AdminWallet";
 import Dashboard from "./component/UserPages.js/Dashboard";
 import Deposit from "./component/UserPages.js/Deposit";
 import Plans from "./component/UserPages.js/Plans";
 import Profile from "./component/UserPages.js/Profile";
 import Transaction from "./component/UserPages.js/Transaction";
 import UserProfile from "./component/UserPages.js/UserProfile";
+import UsersList from "./component/UserPages.js/UsersList";
 import Withdraw from "./component/UserPages.js/Withdraw";
 
 
@@ -48,6 +50,8 @@ export function AppRoutes() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/faqs" element={<FAQS />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/users" element={<UsersList />} />
+        <Route path="/admin/wallet" element={<AdminWallet />} />
 
         <Route path="*" element={<Dashboard />} />
 
