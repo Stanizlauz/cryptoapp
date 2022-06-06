@@ -1,7 +1,9 @@
 const baseURL=process.env.REACT_APP_API_URL;
-export const urlTransaction=`${baseURL}/transaction`;
+export const urlTransaction=`${baseURL}/transactions`;
 export const urlWallet=`${baseURL}/wallets`;
 export const urlProfile=`${baseURL}/users`;
 export const urlRegister=`${baseURL}/register`;
 export const urlLogin=`${baseURL}/login`;
-
+export const urlCoins=`${baseURL}/coins`;
+export const urlLogout=`${baseURL}/logout`;
+export const urlAdminWallet=`${baseURL}/adminwallet`;

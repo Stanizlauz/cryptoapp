@@ -44,14 +44,14 @@ export default function Transaction() {
                         <th className="text-dark">Expected Payout</th>
                         <th className="text-dark">Start date</th>
                         <th className="text-dark">End Date</th>
-                        <th>Current Balance</th>
+                        <th className="text-dark">Current Balance</th>
                         <th className="text-dark">Trade Status</th>
                         <th className="text-dark">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       {transaction && transaction.length > 0
-                        && transaction?.map((index, tran) =>
+                        && transaction?.map((tran, index) => (
                           <tr key={tran.id}>
                             <td className="text-dark">{index + 1}</td>
                             <td className="text-dark">{tran.coin}</td>
@@ -85,9 +85,9 @@ export default function Transaction() {
                               </div>
                             </td>
                           </tr>
-                        )}
+                        ))}
                       {transaction.length === 0 &&
-                        <h3 className="text-danger">No record found!!</h3>}
+                        <p className="text-danger">No record found!!</p>}
                     </tbody>
                   </table>
                 </div>

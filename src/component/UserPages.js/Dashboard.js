@@ -58,9 +58,9 @@ export default function Dashboard() {
                               </thead>
                               <tbody>
                                 {transaction && transaction.length > 0
-                                  && transaction?.map((index, tran) =>
+                                  && transaction?.map((tran, index) =>(
                                     <tr key={tran.id}>
-                                      <td>{index + 1}</td>
+                                      <td className="text-dark">{index + 1}</td>
                                       <td className="text-dark">{tran.coin}</td>
                                       <td className="text-dark">${tran.amountDeposited}</td>
                                       <td className="text-dark">{tran.startDate}</td>
@@ -69,7 +69,7 @@ export default function Dashboard() {
                                       <td className="text-dark">${tran.expectedPayout}</td>
                                       <td className="text-dark">{tran.transactionStatus}</td>
                                     </tr>
-                                  )}
+                                  ))}
                               </tbody>
                             </table>
                           </div>

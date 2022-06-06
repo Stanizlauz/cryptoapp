@@ -76,6 +76,18 @@ export default function Sidebar() {
                         <span className="text-dark">User</span></Link>
                 </li>
                 <hr className="sidebar-divider" />
+                <li className="nav-item">
+                    <Link className="nav-link" to="/users">
+                        <i className="fas fa-fw fa-chart-area text-dark" />
+                        <span className="text-dark">Users</span></Link>
+                </li>
+                <hr className="sidebar-divider" />
+                <li className="nav-item">
+                    <Link className="nav-link" to="/admin/wallet">
+                        <i className="fas fa-fw fa-chart-area text-dark" />
+                        <span className="text-dark">Admin Wallet</span></Link>
+                </li>
+                <hr className="sidebar-divider" />
 
                 {/* Nav Item - Tables */}
                 <li className="nav-item">
