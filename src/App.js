@@ -9,9 +9,9 @@ function App() {
   if (!loggedin) {
     return (
       <>
-        <Headerss />
+        {/* <Headerss /> */}
         <Router />
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   } else {

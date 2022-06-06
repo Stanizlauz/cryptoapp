@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function DepositCards({ image, coin }) {
-  const [value, setValue] = useState(
+ 
+
+
+  const [value, setValues] = useState(
     "bc1qeyvn3dl5a2tjrhd0wfc62vkld4sefnq2zd3vs5"
   );
   const [copied, setCopied] = useState(false);

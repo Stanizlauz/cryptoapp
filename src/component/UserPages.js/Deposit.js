@@ -27,6 +27,12 @@ export default function Deposit() {
       <h1 className='text-dark'>Deposit</h1>
       <TradingView />
       <section className="our-webcoderskull padding-lg bg-light">
+    <div className="my_alert">
+  <div className="alert alert-info">
+    You have chosen Basic plan. Please select your desired coin. Note: plan ranges from $500 - $999 <i className="font-weight-bolder text-danger float-right mr-2 pointer" id="dismiss_alert_btn">×</i>
+  </div>
+</div>
+
         <div className="container">
           <ul className="row">
             {coins && coins?.map(coin => <DepositCards image={coin.image} coin={coin.coin} />

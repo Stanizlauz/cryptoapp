@@ -2,8 +2,16 @@ import axios from 'axios';
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { urlRegister } from '../endpoints';
+import { Country, State, City }  from 'country-state-city';
 
 export default function Register() {
+  const country = Country.getAllCountries();
+  const state = State.getAllStates();
+  const city = City.getAllCities();
+  console.log(Country.getAllCountries())
+  console.log(State.getAllStates())
+  console.log(City.getAllCities())
+
   const {
     register,
     handleSubmit,
@@ -25,6 +33,7 @@ export default function Register() {
   };
   const registerUser = async (data) => {
     try {
+
       await axios.post(urlRegister, data)
 
     } catch (error) {
@@ -154,15 +163,19 @@ export default function Register() {
                           {errors.country &&
                             <span className="text-danger font-weight-bold"> required</span>}
                         </label>
-                        <select className="form-control form-control-lg"
+                        <select className="form-control form-control-lg text-dark"
                           id="country"
                           name="country"
                           onChange={(e) => handleOnChange(e)}
                           {...register("country", { required: true })}
                         >
                           <option></option>
-                          <option id='male' value="receipt"> Male </option>
-                          <option id='female' value="adjustment">Female </option>
+                          {country?.map((wal) => (
+                            <option key={wal.isoCode} value={wal.name} className="text-dark">{wal.name}
+                            </option>
+                          ))}
+                          {/* <option id='male' value="receipt"> Male </option>
+                          <option id='female' value="adjustment">Female </option> */}
                         </select>
                       </div>
                       <div className="form-outline mb-4 col-md-4">
