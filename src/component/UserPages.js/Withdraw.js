@@ -32,7 +32,7 @@ export default function Withdraw() {
     {
       id: 2,
       coin: "Etherum",
-      walletAddress: "jfhekt48y69348ythgkb"
+      walletAddress: "jfhekt48y693hbhjgjhghj48ythgkb"
     }
   ]);
   useEffect(() => {
@@ -98,8 +98,22 @@ export default function Withdraw() {
               </div>
               <div className="card mb-4">
                 <div className="card-body">
-                  {!wallet &&
+                  {wallet &&
                     <form>
+                      <div className="form-outline mb-4 ">
+                        <label className="form-label text-dark font-weight-bold" htmlFor="amount">Amount <span className='text-danger'>*</span>
+                          {errors.amount &&
+                            <span className="text-danger font-weight-bold"> required</span>
+                          }</label>
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          id="amount"
+                          name="amount"
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("amount", { required: true })}
+                        />
+                      </div>
                       <div className="form-outline mb-4">
                         <label className="form-label text-dark font-weight-bold" htmlFor="coin">Coin <span className='text-danger'>*</span>
                           {errors.coin &&
@@ -150,51 +164,6 @@ export default function Withdraw() {
                         data-target="#createWallet"> here </span>
                       to add one</h4>
                   }
-                  <form>
-                    <div className="form-outline mb-4 text-dark">
-                      Enter Amount
-                      <input
-                        type="number"
-                        placeholder="Eg.2500"
-                        id="form1Example1"
-                        className="form-control"
-                      />
-                    </div>
-                    <div className="form-outline mb-4">
-                      <select
-                        placeholder="coin"
-                        typeof="text"
-                        className="text-dark form-control"
-                      >
-                        <option value="bitcoin" className="text-dark">
-                          Bitcoin
-                        </option>
-                        <option value="ethereum" className="text-dark">
-                          Ethereum
-                        </option>
-                        <option value="shiba" className="text-dark">
-                          Shiba Inu
-                        </option>
-                        <option value="doge" className="text-dark">
-                          Dogecoin
-                        </option>
-                      </select>
-                      {/* <label className="form-label">Coin</label> */}
-                    </div>
-                    <div className="form-outline mb-4">
-                      <input
-                        type="text"
-                        placeholder="Wallet Address"
-                        id="form1Example1"
-                        className="form-control"
-                      />
-                      {/* <label className="form-label">Wallet address</label> */}
-                    </div>
-
-                    <button type="submit" className="btn btn-success btn-block">
-                      Submit
-                    </button>
-                  </form>
                 </div>
               </div>
             </div>
