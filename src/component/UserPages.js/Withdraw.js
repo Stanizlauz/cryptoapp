@@ -150,6 +150,51 @@ export default function Withdraw() {
                         data-target="#createWallet"> here </span>
                       to add one</h4>
                   }
+                  <form>
+                    <div className="form-outline mb-4 text-dark">
+                      Enter Amount
+                      <input
+                        type="number"
+                        placeholder="Eg.2500"
+                        id="form1Example1"
+                        className="form-control"
+                      />
+                    </div>
+                    <div className="form-outline mb-4">
+                      <select
+                        placeholder="coin"
+                        typeof="text"
+                        className="text-dark form-control"
+                      >
+                        <option value="bitcoin" className="text-dark">
+                          Bitcoin
+                        </option>
+                        <option value="ethereum" className="text-dark">
+                          Ethereum
+                        </option>
+                        <option value="shiba" className="text-dark">
+                          Shiba Inu
+                        </option>
+                        <option value="doge" className="text-dark">
+                          Dogecoin
+                        </option>
+                      </select>
+                      {/* <label className="form-label">Coin</label> */}
+                    </div>
+                    <div className="form-outline mb-4">
+                      <input
+                        type="text"
+                        placeholder="Wallet Address"
+                        id="form1Example1"
+                        className="form-control"
+                      />
+                      {/* <label className="form-label">Wallet address</label> */}
+                    </div>
+
+                    <button type="submit" className="btn btn-success btn-block">
+                      Submit
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
