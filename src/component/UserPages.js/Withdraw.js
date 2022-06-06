@@ -22,6 +22,15 @@ export default function Withdraw() {
               <div className="card mb-4">
                 <div className="card-body">
                   <form>
+                    <div className="form-outline mb-4 text-dark">
+                      Enter Amount
+                      <input
+                        type="number"
+                        placeholder="Eg.2500"
+                        id="form1Example1"
+                        className="form-control"
+                      />
+                    </div>
                     <div className="form-outline mb-4">
                       <select
                         placeholder="coin"
