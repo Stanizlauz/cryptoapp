@@ -3,6 +3,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { urlRegister } from '../endpoints';
 import { Country, State, City }  from 'country-state-city';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 export default function Register() {
   const country = Country.getAllCountries();
@@ -26,7 +27,8 @@ export default function Register() {
     mode: "onChange",
     reValidateMode: "onChange",
   });
-  // const history = useHistory()
+  const history = useNavigate();
+  // Navigate('/');
   const handleOnChange = (e) => {
     const { name, value } = e.target;
 
@@ -254,7 +256,7 @@ export default function Register() {
                       </div>
                     </form>
                     <div className="d-flex float-right pt-3">
-                      <button type="button" className="btn btn-danger btn-lg mr-2">Reset all</button>
+                      <Link type="button" to='/' className="btn btn-dark btn-lg mr-2">Back</Link>
                       <button type="button" onClick={handleSubmit(registerUser)} className="btn btn-success btn-lg">Submit form</button>
                     </div>
                   </div>
