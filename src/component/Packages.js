@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 export default function Packages() {
   return (
@@ -6,6 +8,9 @@ export default function Packages() {
     
   <div className="container-fluid">
   <div className="container p-5">
+ <div className="my_alert">
+</div>
+
     <div className="row">
       <div className="col-lg-4 col-md-12 mb-4">
         <div className="card card1 h-100">
@@ -14,7 +19,9 @@ export default function Packages() {
             <br />
             <span className="amt">$500</span>/$999
             <div className="d-grid my-3">
+              <Link to="/deposit">
               <button className="btn btn-outline-dark btn-block">Select</button>
+              </Link>
             </div>
             <ul>
               <li>24/7 Support</li>
@@ -32,7 +39,9 @@ export default function Packages() {
             <span className="amt">$1000</span>$5999
             <br />
             <div className="d-grid my-3">
+            <Link to="/deposit">
               <button className="btn btn-outline-dark btn-block">Select</button>
+              </Link>
             </div>
             <ul>
             <li>24/7 Support</li>
@@ -50,7 +59,9 @@ export default function Packages() {
             <span className="amt">$6000</span>$9999
             <br />
             <div className="d-grid my-3">
+            <Link to="/deposit">
               <button className="btn btn-outline-dark btn-block">Select</button>
+              </Link>
             </div>
             <ul>
             <li>24/7 Support</li>
@@ -68,7 +79,9 @@ export default function Packages() {
             <span className="amt">$10,000</span>/$49,999
             <br />
             <div className="d-grid my-3">
+            <Link to="/deposit">
               <button className="btn btn-outline-dark btn-block">Select</button>
+              </Link>
             </div>
             <ul>
             <li>24/7 Support</li>

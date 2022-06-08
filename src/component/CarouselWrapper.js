@@ -34,7 +34,9 @@ export default function CarouselWrapper() {
           {/* Single item */}
           <div className="carousel-item active">
           <div className="carousel-caption d-none d-md-block">
-              <h1 className="wow fadeInLeft2" data-wow-delay="1s">
+              <h1 className="wow fadeInLeft2" 
+                  data-wow-delay="1s"
+                  style={{backgroundColor: "rgba(249, 183, 7, 0.9)", padding: "20px 15px", borderRadius: "4px"}}>
                 <span>Get Organized and make Profit</span>
                 <br />
               </h1>

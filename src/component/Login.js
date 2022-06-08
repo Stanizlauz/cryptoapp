@@ -76,6 +76,7 @@ export default function Login() {
                         </div>
                       </form>
                       <div className="d-flex justify-content-end pt-3">
+                      <button type="button" className="btn btn-danger btn-lg mr-2">Back</button>
                         <button type="button" onClick={handleSubmit(loginUser)} className="btn btn-success btn-lg ms-2">Login</button>
                       </div>
                     </div>
