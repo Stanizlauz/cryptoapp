@@ -13,9 +13,8 @@ export default function Dashboard() {
   }, [])
 
   const loadData = async () => {
-    const res = await axios.get(urlTransaction)
-      .then(response => setTransaction(response.data))
-      console.log({res})
+     await axios.get(urlTransaction)
+      .then(response =>  setTransaction(response.data))
   }
 
   return (
@@ -35,7 +34,7 @@ export default function Dashboard() {
                 <TradingView />
                 <BinanceView />
                 {/* Content Row */}
-                {transaction &&
+                {transaction && transaction?.length > 0 &&
                   <div className="row mt-2">
                     <div className="col-md-6">
                       <div className="card">
@@ -59,7 +58,7 @@ export default function Dashboard() {
                               </thead>
                               <tbody>
                                 {transaction && transaction.length > 0
-                                  && transaction?.map((tran, index) =>(
+                                  && transaction?.map((tran, index) => (
                                     <tr key={tran.id}>
                                       <td className="text-dark">{index + 1}</td>
                                       <td className="text-dark">{tran.coin}</td>

@@ -39,7 +39,7 @@ export default function Sidebar() {
 
                 {/* Nav Item - Pages Collapse Menu */}
                 <li className="nav-item">
-                    <Link className="nav-link collapsed" to="/dashboard" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <Link className="nav-link collapsed" to="/dashboard" >
                         <i className="fas fa-fw fa-cog text-dark" />
                         <span className="text-dark">Dashboard</span>
                     </Link>
@@ -47,7 +47,7 @@ export default function Sidebar() {
                 <hr className="sidebar-divider" />
                 {/* Nav Item - Utilities Collapse Menu */}
                 <li className="nav-item">
-                    <Link className="nav-link collapsed" to="/plans" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                    <Link className="nav-link collapsed" to="/plans" >
                         <i className="fas fa-fw fa-wrench text-dark" />
                         <span className="text-dark">Plans</span>
                     </Link>
@@ -56,7 +56,7 @@ export default function Sidebar() {
                 <hr className="sidebar-divider" />
                 {/* Nav Item - Pages Collapse Menu */}
                 <li className="nav-item">
-                    <Link className="nav-link collapsed" to="/transactions" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                    <Link className="nav-link collapsed" to="/transactions" >
                         <i className="fas fa-fw fa-folder text-dark" />
                         <span className="text-dark">Transactions</span>
                     </Link>

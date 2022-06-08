@@ -2,6 +2,8 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { urlLogin } from '../endpoints';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import { saveToken } from '../Auth/HandleJWT';
 
 export default function Login() {
   const {
@@ -18,15 +20,19 @@ export default function Login() {
     mode: "onChange",
     reValidateMode: "onChange",
   });
+  const history = useNavigate();
   const handleOnChange = (e) => {
     const { name, value } = e.target;
 
   };
   const loginUser = async (data) => {
     try {
+      console.log({data})
      const res= await axios.post(urlLogin, data)
-     console.log({res})
-
+     console.log(res?.data)
+     saveToken(res?.data)
+     history("/dashboard")
+     window.location.reload()
     } catch (error) {
       console.log(error)
     }
@@ -66,7 +72,7 @@ export default function Login() {
                               <span className="text-danger font-weight-bold"> required</span>
                             }</label>
                           <input
-                            type="text"
+                            type="password"
                             className="form-control form-control-lg"
                             id="password"
                             name="password"
@@ -76,7 +82,7 @@ export default function Login() {
                         </div>
                       </form>
                       <div className="d-flex justify-content-end pt-3">
-                      <button type="button" className="btn btn-danger btn-lg mr-2">Back</button>
+                      <Link to="/" type="button" className="btn btn-danger btn-lg mr-2">Back</Link>
                         <button type="button" onClick={handleSubmit(loginUser)} className="btn btn-success btn-lg ms-2">Login</button>
                       </div>
                     </div>
