@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { urlRegister } from '../endpoints';
-import { Country, State, City }  from 'country-state-city';
+import { Country, State, City } from 'country-state-city';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 export default function Register() {
@@ -35,8 +35,10 @@ export default function Register() {
   };
   const registerUser = async (data) => {
     try {
-
+      data.address = `${data.address}, ${data.city}, ${data.state}. ${data.country}`
+      console.log({ data })
       await axios.post(urlRegister, data)
+      history("/login")
 
     } catch (error) {
       console.log(error)
@@ -152,7 +154,7 @@ export default function Register() {
                             <span className="text-danger font-weight-bold"> required</span>
                           }</label>
                         <input
-                          type="text"
+                          type="number"
                           className="form-control form-control-lg"
                           id="phoneNo"
                           name="phoneNo"
@@ -232,7 +234,7 @@ export default function Register() {
                             <span className="text-danger font-weight-bold"> required</span>
                           }</label>
                         <input
-                          type="text"
+                          type="password"
                           className="form-control form-control-lg"
                           id="password"
                           name="password"
@@ -246,7 +248,7 @@ export default function Register() {
                             <span className="text-danger font-weight-bold"> required</span>
                           }</label>
                         <input
-                          type="text"
+                          type="password"
                           className="form-control form-control-lg"
                           id="confirmPassword"
                           name="confirmPassword"

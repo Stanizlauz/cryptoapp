@@ -33,20 +33,10 @@ export default function Withdraw() {
     reValidateMode: "onChange",
   });
   const [listedCoins, setListedCoins] = useState();
-  const [wallet, setWallet] = useState([
-    {
-      id: 1,
-      coin: "Bitcoin",
-      walletAddress: "jbvkjfhkj5876893hb47486834"
-    },
-    {
-      id: 2,
-      coin: "Etherum",
-      walletAddress: "jfhekt48y693hbhjgjhghj48ythgkb"
-    }
-  ]);
+  const [wallet, setWallet] = useState([]);
   useEffect(() => {
     loadWallet();
+    loadCoins();
   }, [wallet])
   const loadWallet = async () => {
     await axios.get(urlWallet)
@@ -90,8 +80,12 @@ export default function Withdraw() {
   }
   const saveWallet = async (data) => {
     try {
-      await axios.post(urlWallet, data)
-      loadWallet();
+      let exist = wallet.find(x => x.coin === data.coin);
+      if (!exist) {
+        console.log({ data })
+        await axios.post(urlWallet, data)
+        loadWallet();
+      }
 
     } catch (error) {
       console.log(error)
@@ -112,7 +106,7 @@ export default function Withdraw() {
               </div>
               <div className="card mb-4">
                 <div className="card-body">
-                  {wallet &&
+                  {wallet && wallet?.length > 0 &&
                     <form>
                       <div className="form-outline mb-4 ">
                         <label className="form-label text-dark font-weight-bold" htmlFor="amount">Amount <span className='text-danger'>*</span>
@@ -141,7 +135,7 @@ export default function Withdraw() {
                             onChange: (e) => { selectedCoin(e) },
                           })}
                         >
-                          <option></option>
+                          <option className="text-dark">Select Coin</option>
                           {wallet?.map((wal) => (
                             <option key={wal.id} value={wal.id} className="text-dark">{wal.coin}
                             </option>
@@ -170,7 +164,7 @@ export default function Withdraw() {
                     </form>
                   }
 
-                  {wallet &&
+                  {wallet?.length === 0 &&
                     <h4 className="text-danger">No wallet found, click
                       <span
                         className="text-primary"
@@ -222,9 +216,11 @@ export default function Withdraw() {
                     onChange={(e) => handleOnChange(e)}
                     {...register2("coin", { required: true })}
                   >
-                    <option></option>
-                    <option className='text-dark' id='male' value="receipt"> Male </option>
-                    <option className='text-dark' id='female' value="adjustment">Female </option>
+                    <option>Select Coin</option>
+                    {listedCoins?.map((coin) => (
+                      <option key={coin.id} value={coin.coin} className="text-dark">{coin.coin}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div className="form-outline mb-4 ">

@@ -1,12 +1,13 @@
 import "./App.css";
-import Footer from "./component/Footer";
-import Headerss from "./component/Headerss";
+import { getToken } from "./Auth/HandleJWT";
+import configureInterceptor from "./Auth/httpInterceptor";
 import Router, { AppRoutes } from "./Router";
 
-
+configureInterceptor()
 function App() {
-  const loggedin = true;
-  if (!loggedin) {
+  const loggedin = getToken();
+  console.log({loggedin})
+  if (loggedin?.length === 0) {
     return (
       <>
         {/* <Headerss /> */}
@@ -25,8 +26,8 @@ function App() {
               <div id="content">
                 <Header />
                 <div className="container-fluid"> */}
-                  <AppRoutes />
-                {/* </div>
+        <AppRoutes />
+        {/* </div>
               </div>
             </div>
           </div>

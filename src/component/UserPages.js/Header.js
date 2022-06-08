@@ -1,5 +1,6 @@
 import React from "react";
-import TradingView from "../TradingView";
+import { Link } from "react-router-dom";
+import { getToken, logOut } from "../../Auth/HandleJWT";
 
 export default function Header() {
   const myFunc =()=>{
@@ -10,6 +11,7 @@ export default function Header() {
         tog?.classList.remove("toggled")
     }
   };
+  const userAuth = getToken();
   return (
     <>
       <nav className="navbar navbar-expand navbar-light bg-gradient-light topbar mb-4 static-top shadow">
@@ -24,10 +26,9 @@ export default function Header() {
         <div class="col-sm-11 text-right"> 
           <ul id="mainmenu" class="nav navbar-nav nav-menu">
             <li class="active nav-item dropdown no-arrow">
-              {" "}
-              <a
+              <h4
                 className="nav-link dropdown-toggle"
-                href="#"
+                // href="#"
                 id="userDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -35,22 +36,22 @@ export default function Header() {
                 aria-expanded="true"
               >
                 <span className="mr-2 d-none d-lg-inline text-dark-600 small" style={{ color: 'black' }}>
-                  Cammilarhi
+                  {userAuth?.name}
                 </span>
                 <img
                   className="img-profile rounded-circle"
                   src="img/undraw_profile.svg"
                 />
-              </a>
+              </h4>
               <ul>
                 <li>
-                  <a href="#">
+                <Link className="nav-link" to="/userprofile">
                     <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400" />
                     Profile
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" data-toggle="modal" data-target="#logoutModal">
+                <a href="/" onClick={()=> logOut()}>
                     <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />
                     Logout
                   </a>

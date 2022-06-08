@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getToken } from "../Auth/HandleJWT";
 import TradingView from "./TradingView";
 
 export default function Headerss() {
-  const loggedIn = true;
+  const loggedIn = getToken();
   return (
     <>
       <header id="header" className="header_section bd-bottom">
@@ -28,37 +29,37 @@ export default function Headerss() {
               </div>
               <div className="col-sm-4 d-md-block">
                 <ul className="right_info">
-                  {!loggedIn && 
-                  <>
-                  <li>
-                    <Link to="/login">
-                      <i className="ti-user" />
-                      Login
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/register">
-                      <i className="ti-pencil-alt" />
-                      Register
-                    </Link>
-                  </li>
-                  </>}
-                  {loggedIn &&
-                  <>
-                  <li>
-                    <Link to="/register">
-                      <i className="ti-new-window" />
-                      Logout
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/register">
-                      <i className="ti-bar-chart" />
-                      Dashboard
-                    </Link>
-                  </li>
-                  </>
-}
+                  {loggedIn?.length === 0 &&
+                    <>
+                      <li>
+                        <Link to="/login">
+                          <i className="ti-user" />
+                          Login
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/register">
+                          <i className="ti-pencil-alt" />
+                          Register
+                        </Link>
+                      </li>
+                    </>}
+                  {loggedIn?.length > 0 &&
+                    <>
+                      <li>
+                        <Link to="/">
+                          <i className="ti-new-window" />
+                          Logout
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/dashboard">
+                          <i className="ti-bar-chart" />
+                          Dashboard
+                        </Link>
+                      </li>
+                    </>
+                  }
                 </ul>
               </div>
             </div>
@@ -68,9 +69,9 @@ export default function Headerss() {
           <div className="container">
             <div className="bottom_content_wrap row">
               <div className="col-sm-4">
-                
-                  <img src="img/logo.png" alt="Brand" />
-                
+
+                <img src="img/logo.png" alt="Brand" />
+
               </div>
               <div className="col-sm-8 text-right">
                 <ul id="mainmenu" className="nav navbar-nav nav-menu">
@@ -109,9 +110,9 @@ export default function Headerss() {
   </ul>
 </div>Ticker */}
 
-     <TradingView />
+      <TradingView />
 
-     
+
     </>
   );
 }
