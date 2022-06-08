@@ -312,7 +312,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
 /*Bottom Header */
 .bottom_header{
     background-color: rgb(29, 32, 32);
-    padding: 20px 0;
+    /* padding: 20px 0; */
     position: relative;
 }
 .bottom_content_wrap{

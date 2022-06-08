@@ -13,8 +13,9 @@ export default function Dashboard() {
   }, [])
 
   const loadData = async () => {
-    await axios.get(urlTransaction)
+    const res = await axios.get(urlTransaction)
       .then(response => setTransaction(response.data))
+      console.log({res})
   }
 
   return (
