@@ -21,6 +21,7 @@ export default function UserProfile() {
     mode: "onChange",
     reValidateMode: "onChange",
   });
+  
   const {
     register: register2,
     handleSubmit: handleSubmit2,

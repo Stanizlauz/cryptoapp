@@ -61,6 +61,7 @@ export default function Transaction() {
                             <td className="text-dark">${tran.expectedPayout}</td>
                             <td className="text-dark">{tran.startDate}</td>
                             <td className="text-dark">{tran.endDate}</td>
+                            <td className="text-dark">${tran.currentBalance}</td>
                             <td className="text-dark">
                               <span className="badge bg-warning text-white p-2 font-weight-bold">
                                 {tran.transactionStatus}
