@@ -22,6 +22,16 @@ export default function Withdraw() {
     mode: "onChange",
     reValidateMode: "onChange",
   });
+  const {
+    register: register2,
+    handleSubmit: handleSubmit2,
+    formState: { errors: errors2 },
+    setValue: setValue2,
+    getValues: getValues2,
+  } = useForm({
+    mode: "onChange",
+    reValidateMode: "onChange",
+  });
   const [listedCoins, setListedCoins] = useState();
   const [wallet, setWallet] = useState([
     {
@@ -51,8 +61,12 @@ export default function Withdraw() {
 
   };
 
-  const selectedCoin = (e) => {
-    setValue("walletAddress", e.target.value)
+  function selectedCoin(e) {
+    console.log(e.target.value)
+    const addre = wallet.find(x => x.id === Number(e.target.value));
+
+    console.log(addre)
+    setValue("withdrawWalletAddress", addre?.walletAddress)
   }
   const saveWithdrawal = (data) => {
     try {
@@ -115,38 +129,38 @@ export default function Withdraw() {
                         />
                       </div>
                       <div className="form-outline mb-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="coin">Coin <span className='text-danger'>*</span>
-                          {errors.coin &&
+                        <label className="form-label text-dark font-weight-bold" htmlFor="withdrawCoin">Coin <span className='text-danger'>*</span>
+                          {errors.withdrawCoin &&
                             <span className="text-danger font-weight-bold"> required</span>}
                         </label>
                         <select className="form-control form-control-lg text-dark"
-                          id="coin"
-                          name="coin"
-                          {...register("coin", {
+                          id="withdrawCoin"
+                          name="withdrawCoin"
+                          {...register("withdrawCoin", {
                             required: true,
-                            onChange: (e) => { selectedCoin(e) }
+                            onChange: (e) => { selectedCoin(e) },
                           })}
                         >
                           <option></option>
                           {wallet?.map((wal) => (
-                            <option key={wal.id} value={wal.walletAddress} className="text-dark">{wal.coin}
+                            <option key={wal.id} value={wal.id} className="text-dark">{wal.coin}
                             </option>
                           ))}
                         </select>
                       </div>
                       <div className="form-outline mb-4 ">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="walletAddress">Wallet <span className='text-danger'>*</span>
-                          {errors.walletAddress &&
+                        <label className="form-label text-dark font-weight-bold" htmlFor="withdrawWalletAddress">Wallet <span className='text-danger'>*</span>
+                          {errors.withdrawWalletAddress &&
                             <span className="text-danger font-weight-bold"> required</span>
                           }</label>
                         <input
                           type="text"
                           className="form-control form-control-lg"
-                          id="walletAddress"
-                          name="walletAddress"
+                          id="withdrawWalletAddress"
+                          name="withdrawWalletAddress"
                           readOnly
                           onChange={(e) => handleOnChange(e)}
-                          {...register("walletAddress", { required: true })}
+                          {...register("withdrawWalletAddress", { required: true })}
                         />
                       </div>
 
@@ -167,37 +181,6 @@ export default function Withdraw() {
                 </div>
               </div>
             </div>
-            {/* <div className="card shadow mb-4">
-  <div className="card-header py-3">
-    <h6 className="m-0 font-weight-bold text-primary">Basic Card Example</h6>
-  </div>
-  <div className="card-body">
-    Wallet Address
-  </div>
-  <form>
-
-  <div className="form-outline mb-4">
-    <input type="email" id="form1Example1" className="form-control" />
-    <label className="form-label" htmlFor="form1Example1">Email address</label>
-  </div>
-
-  <div className="form-outline mb-4">
-    <input type="password" id="form1Example2" className="form-control" />
-    <label className="form-label" htmlFor="form1Example2">Password</label>
-  </div>
-
-  <button type="submit" className="btn btn-success btn-block">Submit</button>
-</form>
-
-</div>
-<select class="select">
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-  <option value="4">Four</option>
-  <option value="5">Five</option>
-</select>
-<label class="form-label select-label">Example label</label> */}
           </div>
         </div>
       </div>
@@ -237,7 +220,7 @@ export default function Withdraw() {
                     id="coin"
                     name="coin"
                     onChange={(e) => handleOnChange(e)}
-                    {...register("coin", { required: true })}
+                    {...register2("coin", { required: true })}
                   >
                     <option></option>
                     <option className='text-dark' id='male' value="receipt"> Male </option>
@@ -255,7 +238,7 @@ export default function Withdraw() {
                     id="walletAddress"
                     name="walletAddress"
                     onChange={(e) => handleOnChange(e)}
-                    {...register("walletAddress", { required: true })}
+                    {...register2("walletAddress", { required: true })}
                   />
                 </div>
               </form>
@@ -270,7 +253,7 @@ export default function Withdraw() {
               >
                 Close
               </button>
-              <button data-dismiss="modal" onClick={handleSubmit(saveWallet)} type="button" className="btn btn-primary">
+              <button data-dismiss="modal" onClick={handleSubmit2(saveWallet)} type="button" className="btn btn-primary">
                 Save
               </button>
             </div>

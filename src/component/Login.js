@@ -24,7 +24,8 @@ export default function Login() {
   };
   const loginUser = async (data) => {
     try {
-      await axios.post(urlLogin, data)
+     const res= await axios.post(urlLogin, data)
+     console.log({res})
 
     } catch (error) {
       console.log(error)
