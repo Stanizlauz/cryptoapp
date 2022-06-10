@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { tokenKey } from './HandleJWT';
 
 export default function Authorize({ authorize, notAuthorized, roles }) {
     const [isAuthorized, setIsAuthorized] = useState(false);
     // const { claims } = useContext(AuthenticationContext);
-    const { role } = JSON.parse(localStorage.getItem(tokenKey) || '');
+    const auth = JSON.parse(localStorage.getItem(tokenKey));
+    
     useEffect(() => {
-        if (role) {
-            if (role === "Admin" && roles === role) {
+        if (auth?.role) {
+            if (auth?.role === "Admin" && roles ===auth?.role) {
                 setIsAuthorized(true)
             }
             // const index = claims.findIndex(claim =>
@@ -17,7 +18,7 @@ export default function Authorize({ authorize, notAuthorized, roles }) {
             setIsAuthorized(false)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [role])
+    }, [auth?.role])
     return (
         <>
             {isAuthorized ? authorize : notAuthorized}

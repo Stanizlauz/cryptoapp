@@ -1,21 +1,23 @@
 import React from "react";
 // import ReactDOM from "react-dom/client";
 import { Route, Routes } from "react-router-dom";
-import AboutUs from "./component/AboutUs";
-import Contact from "./component/Contact";
-import FAQS from "./component/FAQS";
-import HomePageBody from "./component/HomePageBody";
-import Login from "./component/Login";
-import Register from "./component/Register";
-import AdminWallet from "./component/UserPages.js/AdminWallet";
-import Dashboard from "./component/UserPages.js/Dashboard";
-import Deposit from "./component/UserPages.js/Deposit";
-import Plans from "./component/UserPages.js/Plans";
-import Profile from "./component/UserPages.js/Profile";
-import Transaction from "./component/UserPages.js/Transaction";
-import UserProfile from "./component/UserPages.js/UserProfile";
-import UsersList from "./component/UserPages.js/UsersList";
-import Withdraw from "./component/UserPages.js/Withdraw";
+import AboutUs from "../component/AboutUs";
+import Contact from "../component/Contact";
+import FAQS from "../component/FAQS";
+import HomePageBody from "../component/HomePageBody";
+import Login from "../component/Login";
+import NotFound from "../component/NotFound";
+import Register from "../component/Register";
+import AdminWallet from "../component/UserPages.js/AdminWallet";
+import Dashboard from "../component/UserPages.js/Dashboard";
+import Deposit from "../component/UserPages.js/Deposit";
+import Plans from "../component/UserPages.js/Plans";
+import Profile from "../component/UserPages.js/Profile";
+import Transaction from "../component/UserPages.js/Transaction";
+import UserProfile from "../component/UserPages.js/UserProfile";
+import UsersList from "../component/UserPages.js/UsersList";
+import Withdraw from "../component/UserPages.js/Withdraw";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 
 export default function Router() {
@@ -50,11 +52,13 @@ export function AppRoutes() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/faqs" element={<FAQS />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/users" element={<UsersList />} />
-        <Route path="/admin/wallet" element={<AdminWallet />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/admin/wallet" element={<AdminWallet />} />
+          <Route path="/users" element={<UsersList />} />
+        </Route>
+        <Route path="/404" element={<NotFound />} />
 
         <Route path="*" element={<Dashboard />} />
-
       </Routes>
     </>
   );
