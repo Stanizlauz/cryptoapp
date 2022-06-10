@@ -13,8 +13,8 @@ export default function Dashboard() {
   }, [])
 
   const loadData = async () => {
-     await axios.get(urlTransaction)
-      .then(response =>  setTransaction(response.data))
+    await axios.get(urlTransaction)
+      .then(response => setTransaction(response.data))
   }
 
   return (
@@ -67,7 +67,15 @@ export default function Dashboard() {
                                       <td className="text-dark">{tran.endDate}</td>
                                       <td className="text-dark">${tran.currentBalance}</td>
                                       <td className="text-dark">${tran.expectedPayout}</td>
-                                      <td className="text-dark">{tran.transactionStatus}</td>
+                                      <td className="text-dark">{tran.transactionStatus === "Pending" ?
+                                        <span className="badge bg-warning text-white p-2 font-weight-bold">
+                                          {tran.transactionStatus}
+                                        </span>
+                                        :
+                                        <span className="badge bg-success text-white p-2 font-weight-bold">
+                                          {tran.transactionStatus}
+                                        </span>
+                                      }</td>
                                     </tr>
                                   ))}
                               </tbody>

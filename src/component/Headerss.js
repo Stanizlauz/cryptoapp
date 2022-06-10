@@ -44,7 +44,7 @@ export default function Headerss() {
                         </Link>
                       </li>
                     </>}
-                  {loggedIn?.length > 0 &&
+                  {loggedIn &&
                     <>
                       <li>
                         <Link to="/">

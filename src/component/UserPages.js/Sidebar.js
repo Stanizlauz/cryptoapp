@@ -1,21 +1,21 @@
 import React from 'react'
-// import { Accordion } from 'react-bootstrap';
+import Authorize from '../../Auth/Authorize';
 import { Link } from 'react-router-dom'
 
 export default function Sidebar() {
 
-    const myFunc =()=>{
+    const myFunc = () => {
         let tog = document.getElementById("accordionSidebar")
-        if(!tog?.classList.contains('toggled')){
+        if (!tog?.classList.contains('toggled')) {
             tog?.classList.add("toggled")
-        }else{
+        } else {
             tog?.classList.remove("toggled")
         }
-      };
+    };
 
     return (
         <>
-        
+
             {/* Sidebar */}
             <ul className="navbar-nav text-dark bg-gradient-light sidebar sidebar-dark accordion" id="accordionSidebar">
                 {/* Sidebar - Brand */}
@@ -26,7 +26,7 @@ export default function Sidebar() {
                     <div className="sidebar-brand-text mx-3 text-dark">Admin</div>
                 </a>
                 {/* Divider */}
-                <hr className="sidebar-divider"/>
+                <hr className="sidebar-divider" />
                 {/* Nav Item - Dashboard */}
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
@@ -45,6 +45,21 @@ export default function Sidebar() {
                     </Link>
                 </li>
                 <hr className="sidebar-divider" />
+                <Authorize
+                    notAuthorized={
+                        <>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/userprofile">
+                                    <i className="fas fa-fw fa-chart-area text-dark" />
+                                    <span className="text-dark">Profile</span></Link>
+                            </li>
+                            <hr className="sidebar-divider" />
+                            <h3>not auth</h3>
+                        </>
+                    }
+                    roles="Admin"
+                />
+
                 {/* Nav Item - Utilities Collapse Menu */}
                 <li className="nav-item">
                     <Link className="nav-link collapsed" to="/plans" >
@@ -70,25 +85,25 @@ export default function Sidebar() {
                 </li>
                 <hr className="sidebar-divider" />
                 {/* Nav Item - Charts */}
-                <li className="nav-item">
-                    <Link className="nav-link" to="/userprofile">
-                        <i className="fas fa-fw fa-chart-area text-dark" />
-                        <span className="text-dark">User</span></Link>
-                </li>
-                <hr className="sidebar-divider" />
-                <li className="nav-item">
-                    <Link className="nav-link" to="/users">
-                        <i className="fas fa-fw fa-chart-area text-dark" />
-                        <span className="text-dark">Users</span></Link>
-                </li>
-                <hr className="sidebar-divider" />
-                <li className="nav-item">
-                    <Link className="nav-link" to="/admin/wallet">
-                        <i className="fas fa-fw fa-chart-area text-dark" />
-                        <span className="text-dark">Admin Wallet</span></Link>
-                </li>
-                <hr className="sidebar-divider" />
-
+                <Authorize
+                    authorize={
+                        <>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/users">
+                                    <i className="fas fa-fw fa-chart-area text-dark" />
+                                    <span className="text-dark">Users</span></Link>
+                            </li>
+                            <hr className="sidebar-divider" />
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/admin/wallet">
+                                    <i className="fas fa-fw fa-chart-area text-dark" />
+                                    <span className="text-dark">Admin Wallet</span></Link>
+                            </li>
+                            <hr className="sidebar-divider" />
+                        </>
+                    }
+                    roles="Admin"
+                />
                 {/* Nav Item - Tables */}
                 <li className="nav-item">
                     <Link className="nav-link" to="/withdraw">
@@ -102,9 +117,9 @@ export default function Sidebar() {
                     <button className="rounded-circle border-0-offcanvas" onClick={myFunc} id="sidebarToggle" type="button" data-toggle="offcanvas" />
                 </div>
             </ul>
-            
+
             {/* End of Sidebar */}
-            
+
         </>
     )
 }
