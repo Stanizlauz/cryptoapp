@@ -29,7 +29,7 @@ export default function Headerss() {
               </div>
               <div className="col-sm-4 d-md-block">
                 <ul className="right_info">
-                  {loggedIn?.length === 0 &&
+                  {loggedIn?.length === 0 ?
                     <>
                       <li>
                         <Link to="/login">
@@ -43,8 +43,8 @@ export default function Headerss() {
                           Register
                         </Link>
                       </li>
-                    </>}
-                  {loggedIn &&
+                    </>
+                    :
                     <>
                       <li>
                         <Link to="/">
@@ -52,7 +52,7 @@ export default function Headerss() {
                           Logout
                         </Link>
                       </li>
-                      <li>  
+                      <li>
                         <Link to="/dashboard">
                           <i className="ti-bar-chart" />
                           Dashboard

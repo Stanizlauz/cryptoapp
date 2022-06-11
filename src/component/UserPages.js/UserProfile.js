@@ -117,6 +117,14 @@ export default function UserProfile() {
       console.log(error)
     }
   }
+  const Verify = () => {
+
+    useEffect(() => {
+      const timer = setTimeout(() => console.log("Your account have been successfully verified!"), 5000);
+      return () => clearTimeout(timer);
+    }, []);
+  
+  };
 
   return (
     <>
@@ -127,6 +135,86 @@ export default function UserProfile() {
             <Header />
             <div className="container-fluid">
               <section className="col" style={{ backgroundColor: "#eee" }}>
+              <div className="row ml-4">
+                  <small className="btn m-0 font-weight-bold text-danger" data-toggle="modal" data-target="#exampleModal">Click to verify your account</small>
+                </div>
+                <div>
+                {/* Button trigger modal */}
+                {/* Modal */}
+                <div
+                  className="modal fade"
+                  id="exampleModal"
+                  tabIndex={-1}
+                  role="dialog"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <form>
+                    <div className="modal-dialog" role="document">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title" id="exampleModalLabel">
+                            Deposit
+                          </h5>
+                          <button
+                            type="button"
+                            className="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div className="modal-body">
+                          <div className="form-outline mb-4 text-dark">
+                            <label
+                              className="form-label text-dark font-weight-bold"
+                              htmlFor="identityNumber"
+                            >
+                              Enter identity number{" "}
+                              <span className="text-danger">*</span>
+                              {errors.identityNumber && (
+                                <span className="text-danger font-weight-bold">
+                                  {" "}
+                                  Minimum $500
+                                </span>
+                              )}
+                            </label>
+                            <input
+                              type="number"
+                              placeholder="Driver's license, Identification number"
+                              id="identityNumber"
+                              className="form-control"
+                              onChange={(e) => handleOnChange(e)}
+                              {...register("identityNumber", {
+                                required: true,
+                              })}
+                            />
+                          </div>
+                          <hr />
+                         
+                        </div>
+                        <div className="modal-footer">
+                          <button
+                            type="button"
+                            className="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-primary"
+                            onClick={Verify}
+                          >
+                            Verify
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
                 <div className="row d-flex float-left ml-4">
                   <h2 className="m-0 font-weight-bold text-dark">Welcome</h2>
                 </div>

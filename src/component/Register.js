@@ -1,17 +1,20 @@
-import axios from 'axios';
-import React from 'react'
-import { useForm } from 'react-hook-form';
-import { urlRegister } from '../endpoints';
-import { Country, State, City } from 'country-state-city';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import axios from "axios";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { urlRegister } from "../endpoints";
+import { Country, State, City } from "country-state-city";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export default function Register() {
-  const country = Country.getAllCountries();
-  const state = State.getAllStates();
-  const city = City.getAllCities();
-  console.log(Country.getAllCountries())
-  console.log(State.getAllStates())
-  console.log(City.getAllCities())
+  const country = Country.getAllCountries([]);
+  const states = State.getAllStates([]);
+  const city = City.getAllCities([]);
+  const [state, setState] = useState([]);
+  const [cities, setCities] = useState([]);
+
+  // console.log("country", country);
+  // console.log("city", city);
+  // console.log("state:", states);
 
   const {
     register,
@@ -19,7 +22,7 @@ export default function Register() {
     formState: { errors },
     reset,
     watch,
-    trigger,
+    trigger, 
     control,
     setValue,
     getValues,
@@ -31,19 +34,77 @@ export default function Register() {
   // Navigate('/');
   const handleOnChange = (e) => {
     const { name, value } = e.target;
-
   };
   const registerUser = async (data) => {
     try {
-      data.address = `${data.address}, ${data.city}, ${data.state}. ${data.country}`
-      console.log({ data })
-      await axios.post(urlRegister, data)
-      history("/login")
-
+      data.address = `${data.address}, ${data.state}. ${data.country}`;
+      console.log({ data });
+      await axios.post(urlRegister, data);
+      history("/login");
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
+  };
+  const selectedState = (e) => {
+    console.log(e.target.value);
+    setState(State.getStatesOfCountry(e.target.value));
+    //console.log(State.getStatesOfCountry(e.target.value));
+  };
+  const selectedCity = (e) => {
+    console.log(e.target.value);
+    setCities(City.getCitiesOfState(e.target.value));
+    // console.log(cities);
+  };
+
+  const [input, setInput] = useState({
+    password: '',
+    confirmPassword: ''
+  });
+  const [error, setError] = useState({
+    password: '',
+    confirmPassword: ''
+  })
+  const onInputChange = e => {
+    const { name, value } = e.target;
+    setInput(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    validateInput(e);
   }
+  const validateInput = e => {
+    let { name, value } = e.target;
+    setError(prev => {
+      const stateObj = { ...prev, [name]: "" };
+
+      switch (name) {
+
+        case "password":
+          if (!value) {
+            stateObj[name] = "Please enter Password.";
+          } else if (input.confirmPassword && value !== input.confirmPassword) {
+            stateObj["confirmPassword"] = "Password and Confirm Password does not match.";
+          } else {
+            stateObj["confirmPassword"] = input.confirmPassword ? "" : error.confirmPassword;
+          }
+          break;
+
+        case "confirmPassword":
+          if (!value) {
+            stateObj[name] = "Please enter Confirm Password.";
+          } else if (input.password && value !== input.password) {
+            stateObj[name] = "Password does not match.";
+          }
+          break;
+
+        default:
+          break;
+      }
+
+      return stateObj;
+    });
+  }
+
   return (
     <>
       <section className="h-100 bg-dark">
@@ -60,10 +121,18 @@ export default function Register() {
                     <h3 className="mb-5 text-uppercase text-dark">Sign Up</h3>
                     <form className="row">
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="firstName">First Name <span className='text-danger'>*</span>
-                          {errors.firstName &&
-                            <span className="text-danger font-weight-bold"> required</span>
-                          }</label>
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="firstName"
+                        >
+                          First Name <span className="text-danger">*</span>
+                          {errors.firstName && (
+                            <span className="text-danger font-weight-bold">
+                              {" "}
+                              required
+                            </span>
+                          )}
+                        </label>
                         <input
                           type="text"
                           className="form-control form-control-lg"
@@ -74,10 +143,18 @@ export default function Register() {
                         />
                       </div>
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="lastName">Last name <span className='text-danger'>*</span>
-                          {errors.lastName &&
-                            <span className="text-danger font-weight-bold"> required</span>
-                          }</label>
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="lastName"
+                        >
+                          Last name <span className="text-danger">*</span>
+                          {errors.lastName && (
+                            <span className="text-danger font-weight-bold">
+                              {" "}
+                              required
+                            </span>
+                          )}
+                        </label>
                         <input
                           type="text"
                           className="form-control form-control-lg"
@@ -88,10 +165,18 @@ export default function Register() {
                         />
                       </div>
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="picture">Picture <span className='text-danger'>*</span>
-                          {errors.picture &&
-                            <span className="text-danger font-weight-bold"> required</span>
-                          }</label>
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="picture"
+                        >
+                          Picture <span className="text-danger">*</span>
+                          {errors.picture && (
+                            <span className="text-danger font-weight-bold">
+                              {" "}
+                              required
+                            </span>
+                          )}
+                        </label>
                         <input
                           type="file"
                           className="form-control form-control-lg"
@@ -103,27 +188,53 @@ export default function Register() {
                       </div>
 
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="gender">Gender <span className='text-danger'>*</span>
-                          {errors.gender &&
-                            <span className="text-danger font-weight-bold"> required</span>}
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="gender"
+                        >
+                          Gender <span className="text-danger">*</span>
+                          {errors.gender && (
+                            <span className="text-danger font-weight-bold">
+                              {" "}
+                              required
+                            </span>
+                          )}
                         </label>
-                        <select className="form-control form-control-lg text-dark"
+                        <select
+                          className="form-control form-control-lg text-dark"
                           id="gender"
                           name="gender"
                           onChange={(e) => handleOnChange(e)}
                           {...register("gender", { required: true })}
                         >
                           <option></option>
-                          <option className='text-dark' id='male' value="Male"> Male </option>
-                          <option className='text-dark' id='female' value="Female">Female </option>
+                          <option className="text-dark" id="male" value="Male">
+                            {" "}
+                            Male{" "}
+                          </option>
+                          <option
+                            className="text-dark"
+                            id="female"
+                            value="Female"
+                          >
+                            Female{" "}
+                          </option>
                         </select>
                       </div>
 
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="dateOfBirth">Date Of Birth <span className='text-danger'>*</span>
-                          {errors.dateOfBirth &&
-                            <span className="text-danger font-weight-bold"> required</span>
-                          }</label>
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="dateOfBirth"
+                        >
+                          Date Of Birth <span className="text-danger">*</span>
+                          {errors.dateOfBirth && (
+                            <span className="text-danger font-weight-bold">
+                              {" "}
+                              required
+                            </span>
+                          )}
+                        </label>
                         <input
                           type="date"
                           className="form-control form-control-lg"
@@ -135,10 +246,18 @@ export default function Register() {
                       </div>
 
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="email">Email <span className='text-danger'>*</span>
-                          {errors.email &&
-                            <span className="text-danger font-weight-bold"> required</span>
-                          }</label>
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="email"
+                        >
+                          Email <span className="text-danger">*</span>
+                          {errors.email && (
+                            <span className="text-danger font-weight-bold">
+                              {" "}
+                              required
+                            </span>
+                          )}
+                        </label>
                         <input
                           type="text"
                           className="form-control form-control-lg"
@@ -149,10 +268,18 @@ export default function Register() {
                         />
                       </div>
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="phoneNo">Phone No. <span className='text-danger'>*</span>
-                          {errors.phoneNo &&
-                            <span className="text-danger font-weight-bold"> required</span>
-                          }</label>
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="phoneNo"
+                        >
+                          Phone No. <span className="text-danger">*</span>
+                          {errors.phoneNo && (
+                            <span className="text-danger font-weight-bold">
+                              {" "}
+                              required
+                            </span>
+                          )}
+                        </label>
                         <input
                           type="number"
                           className="form-control form-control-lg"
@@ -163,19 +290,33 @@ export default function Register() {
                         />
                       </div>
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="country">Country <span className='text-danger'>*</span>
-                          {errors.country &&
-                            <span className="text-danger font-weight-bold"> required</span>}
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="country"
+                        >
+                          Country <span className="text-danger">*</span>
+                          {errors.country && (
+                            <span className="text-danger font-weight-bold">
+                              {" "}
+                              required
+                            </span>
+                          )}
                         </label>
-                        <select className="form-control form-control-lg text-dark"
+                        <select
+                          className="form-control form-control-lg text-dark"
                           id="country"
                           name="country"
-                          onChange={(e) => handleOnChange(e)}
-                          {...register("country", { required: true })}
+                          {...register("country", {
+                            required: true,
+                            onChange: (e) => {
+                              selectedState(e);
+                            },
+                          })}
                         >
                           <option></option>
                           {country?.map((wal) => (
-                            <option key={wal.isoCode} value={wal.name} className="text-dark">{wal.name}
+                            <option value={wal.isoCode} className="text-dark">
+                              {wal.name}
                             </option>
                           ))}
                           {/* <option id='male' value="receipt"> Male </option>
@@ -183,42 +324,55 @@ export default function Register() {
                         </select>
                       </div>
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="state">State <span className='text-danger'>*</span>
-                          {errors.state &&
-                            <span className="text-danger font-weight-bold"> required</span>}
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="state"
+                        >
+                          State <span className="text-danger">*</span>
+                          {errors.state && (
+                            <span className="text-danger font-weight-bold">
+                              {" "}
+                              required
+                            </span>
+                          )}
                         </label>
-                        <select className="form-control form-control-lg"
+                        <select
+                          className="form-control form-control-lg"
                           id="state"
                           name="state"
-                          onChange={(e) => handleOnChange(e)}
-                          {...register("state", { required: true })}
+                          {...register("state", {
+                            required: true,
+                            onChange: (e) => {
+                              selectedCity(e);
+                            },
+                          })}
                         >
                           <option></option>
-                          <option id='male' value="receipt"> Male </option>
-                          <option id='female' value="adjustment">Female </option>
+                          {state &&
+                            state?.map((wal) => (
+                              <option
+                                value={wal.name}
+                                className="text-dark"
+                                key={wal.isoCode}
+                              >
+                                {wal.name}
+                              </option>
+                            ))}
                         </select>
                       </div>
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="city">City <span className='text-danger'>*</span>
-                          {errors.city &&
-                            <span className="text-danger font-weight-bold"> required</span>}
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="address"
+                        >
+                          Address <span className="text-danger">*</span>
+                          {errors.address && (
+                            <span className="text-danger font-weight-bold">
+                              {" "}
+                              required
+                            </span>
+                          )}
                         </label>
-                        <select className="form-control form-control-lg"
-                          id="city"
-                          name="city"
-                          onChange={(e) => handleOnChange(e)}
-                          {...register("city", { required: true })}
-                        >
-                          <option></option>
-                          <option id='male' value="receipt"> Male </option>
-                          <option id='female' value="adjustment">Female </option>
-                        </select>
-                      </div>
-                      <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="address">Address <span className='text-danger'>*</span>
-                          {errors.address &&
-                            <span className="text-danger font-weight-bold"> required</span>
-                          }</label>
                         <input
                           type="text"
                           className="form-control form-control-lg"
@@ -229,37 +383,73 @@ export default function Register() {
                         />
                       </div>
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="password">Password <span className='text-danger'>*</span>
-                          {errors.password &&
-                            <span className="text-danger font-weight-bold"> required</span>
-                          }</label>
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="password"
+                        >
+                          Password <span className="text-danger">*</span>
+                          {error.password && (
+                            <span className="text-danger font-weight-bold">
+                              {error.password}
+                              required
+                            </span>
+                          )}
+                        </label>
                         <input
                           type="password"
                           className="form-control form-control-lg"
                           id="password"
                           name="password"
-                          onChange={(e) => handleOnChange(e)}
-                          {...register("password", { required: true })}
+                          value={input.password}
+                          onBlur={validateInput}
+                          {...register("password", { required: true, onChange: (e) => {
+                            onInputChange(e);
+                          }, })}
                         />
                       </div>
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="confirmPassword">Confirm Password <span className='text-danger'>*</span>
-                          {errors.confirmPassword &&
-                            <span className="text-danger font-weight-bold"> required</span>
-                          }</label>
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="confirmPassword"
+                        >
+                          Confirm Password{" "}
+                          <span className="text-danger">*</span>
+                          {error.confirmPassword && (
+                            <span className="text-danger font-weight-bold">
+                              {error.confirmPassword}
+                              required
+                            </span>
+                          )}
+                        </label>
                         <input
                           type="password"
                           className="form-control form-control-lg"
                           id="confirmPassword"
                           name="confirmPassword"
-                          onChange={(e) => handleOnChange(e)}
-                          {...register("confirmPassword", { required: true })}
+                          value={input.confirmPassword}
+                          onBlur={validateInput}
+                          {...register("confirmPassword", { required: true,   onChange: (e) => {
+                              onInputChange(e);
+                            }, })}
                         />
                       </div>
                     </form>
                     <div className="d-flex float-right pt-3">
-                      <Link type="button" to='/' className="btn btn-dark btn-lg mr-2">Back</Link>
-                      <button type="button" onClick={handleSubmit(registerUser)} className="btn btn-success btn-lg">Submit form</button>
+                      <Link
+                        type="button"
+                        to="/"
+                        className="btn btn-dark btn-lg mr-2"
+                      >
+                        Back
+                      </Link>
+                      <button
+                        type="button"
+                        id="submit"
+                        onClick={handleSubmit(registerUser)}
+                        className="btn btn-success btn-lg"
+                      >
+                        Submit form
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -269,7 +459,6 @@ export default function Register() {
         </div>
         {/* </div> */}
       </section>
-
     </>
-  )
+  );
 }
