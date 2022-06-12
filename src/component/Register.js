@@ -12,26 +12,24 @@ export default function Register() {
   const [state, setState] = useState([]);
   const [cities, setCities] = useState([]);
 
-  // console.log("country", country);
-  // console.log("city", city);
-  // console.log("state:", states);
+ 
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
-    watch,
-    trigger, 
-    control,
-    setValue,
-    getValues,
+    // reset,
+    // watch,
+    // trigger, 
+    // control,
+    // setValue,
+    // getValues,
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
   });
   const history = useNavigate();
-  // Navigate('/');
+  Navigate('/');
   const handleOnChange = (e) => {
     const { name, value } = e.target;
   };
@@ -48,12 +46,10 @@ export default function Register() {
   const selectedState = (e) => {
     console.log(e.target.value);
     setState(State.getStatesOfCountry(e.target.value));
-    //console.log(State.getStatesOfCountry(e.target.value));
   };
   const selectedCity = (e) => {
     console.log(e.target.value);
     setCities(City.getCitiesOfState(e.target.value));
-    // console.log(cities);
   };
 
   const [input, setInput] = useState({

@@ -12,12 +12,7 @@ export default function UserProfile() {
     register,
     handleSubmit,
     formState: { errors },
-    // reset,
-    // watch,
-    // trigger,
-    // control,
-    // setValue,
-    // getValues,
+ 
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -28,7 +23,6 @@ export default function UserProfile() {
     handleSubmit: handleSubmit2,
     formState: { errors: errors2 },
     setValue: setValue2,
-    // getValues: getValues2,
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -98,7 +92,6 @@ export default function UserProfile() {
         loadWallet();
       }
 
-      //  window.location.reload()
 
     } catch (error) {
       console.log(error)

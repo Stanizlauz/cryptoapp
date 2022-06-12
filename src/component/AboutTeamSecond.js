@@ -11,7 +11,7 @@ export default function AboutTeamSecond() {
             <div className="col-md-4 col-sm-6 col-xs-12">
               <div className="team-item">
                 <figure>
-                  <img src="img/joandav.jpg" alt="" />
+                  <img src="img/joandav.jpg" alt="joan" />
                   <figcaption>
                     <div className="info">
                       <h3>Miss Joan Davies</h3>
@@ -20,7 +20,7 @@ export default function AboutTeamSecond() {
                     <div className="social">
                       <a href="https://t.me/Stanizlauz">
                         <i className="ti ti-comment" aria-hidden="true"></i>
-                      </a>
+                       </a>
                     </div>
                   </figcaption>
                 </figure>
@@ -29,7 +29,7 @@ export default function AboutTeamSecond() {
             <div className="col-md-4 col-sm-6 col-xs-12">
               <div className="team-item">
                 <figure>
-                  <img src="img/denise-thompson.jpg" alt="" />
+                  <img src="img/denise-thompson.jpg" alt="denise" />
                   <figcaption>
                     <div className="info">
                       <h3>Ms Denise Thompson</h3>
@@ -38,7 +38,7 @@ export default function AboutTeamSecond() {
                    
                       <a href="https://t.me/Denisethompson">
                         <i className="ti ti-comment" aria-hidden="true"></i>
-                      </a>
+                       </a>
                     </div>
                   </figcaption>
                 </figure>
@@ -47,7 +47,7 @@ export default function AboutTeamSecond() {
             <div className="col-md-4 col-sm-6 col-xs-12">
               <div className="team-item">
                 <figure>
-                  <img src="img/anitajenna.jpg" alt="" />
+                  <img src="img/anitajenna.jpg" alt="anita" />
                   <figcaption>
                     <div className="info">
                     <h3>Miss Anita Jenna</h3>
@@ -55,7 +55,7 @@ export default function AboutTeamSecond() {
                     <div className="social">
                       <a href="https://t.me/Denisethompson">
                         <i className="ti ti-comment" aria-hidden="true"></i>
-                      </a>
+                       </a>
                       {/* <a href="#" className="twitter" data-abc="true"><i className="fa fa-twitter" /></a>
                 <a href="#" className="facebook" data-abc="true"><i className="fa fa-facebook" /></a>
                 <a href="#" className="google-plus" data-abc="true"><i className="fa fa-linkedin" /></a> */}
