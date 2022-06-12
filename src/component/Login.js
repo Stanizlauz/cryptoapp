@@ -49,9 +49,9 @@ export default function Login() {
             <div className="col">
               <div className="card card-registration my-4">
                 <div className="row g-0">
-                  <div className="col-xl-6 d-none d-xl-block">
+                  {/* <div className="col-xl-6 d-none d-xl-block">
                     <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp" alt="Sample" className="img-fluid" style={{ borderTopLeftRadius: '.25rem', borderBottomLeftRadius: '.25rem' }} />
-                  </div>
+                  </div> */}
                   <div className="col-xl-6">
                     <div className="card-body p-md-5 text-black">
                       <h3 className="mb-5 text-uppercase text-dark">Sign In</h3>

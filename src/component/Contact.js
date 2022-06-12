@@ -39,17 +39,14 @@ export default function Contact() {
           <div className="carousel-item active">
             <img
               src="img/slider-3.jpg"
-              className="d-block w-100"
-              alt
+              className="d-block w-100 pd-4"
+              alt=""
               title="#slider-caption-1"
             />
-            {/* <div className="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </div> */}
-            <div className="carousel-caption d-none d-md-block">
-              <h1 className="wow fadeInLeft2" data-wow-delay="1s">
-                <span>Contact Us Here</span>
+         
+            <div className="carousel-caption d-none d-md-block mb-8">
+              <h1 className="wow fadeInLeft2 mb-12" data-wow-delay="1s">
+                <span style={{fontSize: '70px', fontWeight: 'bolder'}}>Contact Us Here</span>
                 <br />
                 <span>Always Available</span>
               </h1>

@@ -73,7 +73,7 @@ export default function Headerss() {
                 <img src="img/logo.png" alt="Brand" />
 
               </div>
-              <div className="col-sm-8 text-right">
+              <div className="col-sm-8 mt-4 text-right">
                 <ul id="mainmenu" className="nav navbar-nav nav-menu">
                   <li className="active">
                     <a href="/">Home</a>

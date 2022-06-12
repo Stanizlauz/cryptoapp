@@ -8,7 +8,6 @@ import CounterSecion from "./CounterSecion";
 import Footer from "./Footer";
 import Headerss from "./Headerss";
 import Pricing from "./Pricing";
-// import HowItWork from "./HowItWork";
 import Services from "./Services";
 
 export default function HomePageBody() {
@@ -20,11 +19,7 @@ export default function HomePageBody() {
       <About />
       <AllChart />
       <Services />
-      {/* <Testimonial /> */}
-      {/* <HowItWork /> */}
       <Pricing />
-      {/* <Team /> */}
-      {/* <AboutTeam /> */}
       <AboutTeamSecond />
       <CounterSecion />
       <Footer />
