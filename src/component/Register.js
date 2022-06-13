@@ -18,12 +18,6 @@ export default function Register() {
     register,
     handleSubmit,
     formState: { errors },
-    // reset,
-    // watch,
-    // trigger, 
-    // control,
-    // setValue,
-    // getValues,
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",

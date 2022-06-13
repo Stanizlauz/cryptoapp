@@ -32,6 +32,7 @@ export default function BinanceView() {
                 marginWidth={0}
                 marginHeight={0}
                 frameBorder={0}
+                title="binance"
                 border={0}
                 style={{ border: 0, margin: 0, padding: 0, lineHeight: 14 }}
               />
@@ -65,6 +66,7 @@ export default function BinanceView() {
                 marginWidth={0}
                 marginHeight={0}
                 frameBorder={0}
+                title="binance"
                 border={0}
                 style={{ border: 0, margin: 0, padding: 0, lineHeight: 14 }}
               />
@@ -98,6 +100,7 @@ export default function BinanceView() {
                 scrolling="auto"
                 marginWidth={0}
                 marginHeight={0}
+                title="binance1"
                 frameBorder={0}
                 border={0}
                 style={{ border: 0, margin: 0, padding: 0, lineHeight: 14 }}
@@ -134,6 +137,7 @@ export default function BinanceView() {
                 marginHeight={0}
                 frameBorder={0}
                 border={0}
+                title="binance2"
                 style={{ border: 0, margin: 0, padding: 0, lineHeight: 14 }}
               />
             </div>
@@ -167,6 +171,7 @@ export default function BinanceView() {
                 marginWidth={0}
                 marginHeight={0}
                 frameBorder={0}
+                title="binance3"
                 border={0}
                 style={{ border: 0, margin: 0, padding: 0, lineHeight: 14 }}
               />

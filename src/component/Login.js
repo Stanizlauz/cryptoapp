@@ -19,8 +19,7 @@ export default function Login() {
 
   const history = useNavigate();
   const handleOnChange = (e) => {
-    const { name, value } = e.target;
-
+    
   };
   const loginUser = async (data) => {
     try {
