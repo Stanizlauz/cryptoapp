@@ -44,8 +44,8 @@ export default function UserProfile() {
     loadWallet();
     loadUserData();
     loadCoins();
+  //eslint-disable-next-line
   }, [wallet])
-
   const loadWallet = async () => {
     await axios.get(urlWallet)
       .then(response => setWallet(response.data))

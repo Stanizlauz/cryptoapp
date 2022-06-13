@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 export default function DepositCards({ image, coin}) {
@@ -27,13 +28,13 @@ export default function DepositCards({ image, coin}) {
               Deposit using {coin}
             </div>
             <div className="mt-4">
-              <a
+              <Link
                 className="btn btn-primary pointer text-white"
                 data-toggle="modal"
                 data-target="#exampleModal"
               >
                 Continue
-               </a>
+               </Link>
             </div>
           </div>
         </div>
