@@ -1,7 +1,6 @@
 import React from "react";
 import About from "./About";
 import AboutTeamSecond from "./AboutTeamSecond";
-import AllChart from "./AllChart";
 import BinanceView from "./BinanceView";
 import CarouselWrapper from "./CarouselWrapper";
 import CounterSecion from "./CounterSecion";
@@ -17,7 +16,6 @@ export default function HomePageBody() {
       <CarouselWrapper />
       <BinanceView />
       <About />
-      <AllChart />
       <Services />
       <Pricing />
       <AboutTeamSecond />
