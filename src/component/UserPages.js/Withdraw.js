@@ -12,12 +12,12 @@ export default function Withdraw() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
-    watch,
-    trigger,
-    control,
-    setValue,
-    getValues,
+    // reset,
+    // watch,
+    // trigger,
+    // control,
+    // setValue,
+    // getValues,
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -25,9 +25,9 @@ export default function Withdraw() {
   const {
     register: register2,
     handleSubmit: handleSubmit2,
-    formState: { errors: errors2 },
-    setValue: setValue2,
-    getValues: getValues2,
+    // formState: { errors: errors2 },
+    // setValue: setValue2,
+    // getValues: getValues2,
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -47,7 +47,7 @@ export default function Withdraw() {
       .then(response => setListedCoins(response.data))
   }
   const handleOnChange = (e) => {
-    const { name, value } = e.target;
+    // const { name, value } = e.target;
 
   };
 
@@ -56,7 +56,7 @@ export default function Withdraw() {
     const addre = wallet.find(x => x.id === Number(e.target.value));
 
     console.log(addre)
-    setValue("withdrawWalletAddress", addre?.walletAddress)
+    // setValue("withdrawWalletAddress", addre?.walletAddress)
   }
   const saveWithdrawal = (data) => {
     try {

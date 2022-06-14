@@ -41,6 +41,7 @@ export default function Header() {
                 <img
                   className="img-profile rounded-circle"
                   src="img/undraw_profile.svg"
+                  alt=""
                 />
               </h4>
               <ul>

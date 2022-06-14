@@ -8,11 +8,10 @@ export default function Footer() {
         <section className="widget_section padding">
           <div className="container">
             <div className="row widget_wrapper">
-              <div className="col-lg-3 col-sm-6 sm-padding">
-                <img className="mb-10" src="img/footer-logo.png" alt="Logo" />
+              <div className="col-lg-3 col-sm-6 sm-padding" style={{fontWeight: 'bold'}}>
                 <p>
-                  All deposit should be made directly to BobbieCoinz trading
-                  wallet provided on your dashboard, BobbieCoinz wont aknowlegde
+                  All deposit should be made directly to CapitalTrades trading
+                  wallet provided on your dashboard, CapitalTrades wont aknowlegde
                   fund transfer from third party agent or be accountable for
                   loss of deposit made to any account managers or refer.
                 </p>
