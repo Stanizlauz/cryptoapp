@@ -27,7 +27,7 @@ export default function Login() {
       const res = await axios.post(urlLogin, data)
       console.log(res?.data)
       saveToken(res?.data)
-      history("/dashboard")
+      history("/home")
       window.location.reload()
     } catch (error) {
       console.log(error)
