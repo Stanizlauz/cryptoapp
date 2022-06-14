@@ -1,9 +1,18 @@
 import React from "react";
 
 export default function AllChart() {
+  
   return (
     <>
-      <div className="all_chart">
+{/* TradingView Widget BEGIN */}
+<div className="tradingview-widget-container">
+  <div className="tradingview-widget-container__widget" />
+  <div className="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/cryptocurrencies/prices-all/" rel="noopener" target="_blank"><span className="blue-text">Cryptocurrency Markets</span></a> by TradingView</div>
+</div>
+{/* TradingView Widget END */}
+
+
+      {/* <div className="all_chart">
         <div
           style={{
             height: 787,
@@ -49,7 +58,7 @@ export default function AllChart() {
             </iframe>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

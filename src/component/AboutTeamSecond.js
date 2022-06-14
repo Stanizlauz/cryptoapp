@@ -18,7 +18,7 @@ export default function AboutTeamSecond() {
                       {/* <a href="https://t.me/Stanizlauz" aria-hidden="true"><i className="fa-telegram" /></a> */}
                     </div>
                     <div className="social">
-                      <a href="https://t.me/Stanizlauz">
+                      <a href="https://t.me/joandavies">
                         <i className="ti ti-comment" aria-hidden="true"></i>
                        </a>
                     </div>
@@ -36,7 +36,7 @@ export default function AboutTeamSecond() {
                     </div>
                     <div className="social">
                    
-                      <a href="https://t.me/Denisethompson">
+                      <a href="https://t.me/denisethomp1">
                         <i className="ti ti-comment" aria-hidden="true"></i>
                        </a>
                     </div>
@@ -53,7 +53,7 @@ export default function AboutTeamSecond() {
                     <h3>Miss Anita Jenna</h3>
                     </div>
                     <div className="social">
-                      <a href="https://t.me/Denisethompson">
+                      <a href="https://t.me/anitajenna">
                         <i className="ti ti-comment" aria-hidden="true"></i>
                        </a>
                       {/* <a href="#" className="twitter" data-abc="true"><i className="fa fa-twitter" /></a>

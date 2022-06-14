@@ -14,7 +14,7 @@ export default function Headerss() {
               <div className="col-sm-8">
                 <ul className="left_info">
                   <li>
-                    <a href="/"><i className="ti-email" />capitattrade@info.com </a>
+                    <a href="/"><i className="ti-email" />service.capitaltrades@hotmail.com </a>
                   </li>
                 </ul>
               </div>
@@ -59,7 +59,7 @@ export default function Headerss() {
         <div className="bottom_header">
           <div className="container">
             <div className="bottom_content_wrap row">
-              <div className="col-sm-4">
+              <div className="col-sm-4 mt-4">
 
                 <img src="img/logo.png" alt="Brand" />
 

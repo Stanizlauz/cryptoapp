@@ -290,7 +290,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
 
 /*Top Header */
 .top_header{
-    background-color: rgb(57 61 61);
+    background-color: rgb(19, 20, 20);
     padding: 10px 0;
 }
 .top_content_wrap ul li{
@@ -1160,7 +1160,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
 }
 
 .service-27 .badge-info {
-	background: #b7ae24;
+	background: #bfb416;
     font-size: 25px;
     font-weight: bold;
 }
