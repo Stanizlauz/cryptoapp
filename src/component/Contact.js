@@ -1,8 +1,22 @@
 import React from "react";
 import Headerss from "./Headerss";
 import Footer from "./Footer";
+import emailjs from '@emailjs/browser';
+
 
 export default function Contact() {
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_33x5rne', 'template_kh9sg39', e.target, 'user_3Qmrr6MR0vYHh7GiRvOW9')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+};
+  
   return (
     <>
       <Headerss />
@@ -39,17 +53,14 @@ export default function Contact() {
           <div className="carousel-item active">
             <img
               src="img/slider-3.jpg"
-              className="d-block w-100"
-              alt
+              className="d-block w-100 pd-4"
+              alt=""
               title="#slider-caption-1"
             />
-            {/* <div className="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </div> */}
-            <div className="carousel-caption d-none d-md-block">
-              <h1 className="wow fadeInLeft2" data-wow-delay="1s">
-                <span>Contact Us Here</span>
+         
+            <div className="carousel-caption d-none d-md-block mb-8">
+              <h1 className="wow fadeInLeft2 mb-12" data-wow-delay="1s">
+                <span style={{fontSize: '70px', fontWeight: 'bolder'}}>Contact Us Here</span>
                 <br />
                 <span>Always Available</span>
               </h1>
@@ -95,13 +106,10 @@ export default function Contact() {
                  Let us hear from you!
                 </p>
                 <ul>
-                  <li>
-                    <i className="ti-mobile text-dark" />
-                    <span>Call:   +88 023 524 0251</span>
-                  </li>
+                 
                   <li>
                     <i className="ti-envelope text-dark" />
-                    <span>Mail:  Cryptocoin@yourmail.com</span> 
+                    <span>Mail:  service.capitaltrades@hotmail.com</span> 
                   </li>
                 </ul>
               </div>
@@ -111,13 +119,12 @@ export default function Contact() {
                 <h2>Send Us Message</h2>
                 <p>Please don’t hesitate to chat with me just drop a line.</p>
                 <form
-                  action="contact.php"
-                  method="post"
-                  id="ajax_form"
+                onSubmit={sendEmail}
                   className="form-horizontal"
                 >
                   <div className="form-group row">
                     <div className="col-sm-6">
+                    <label htmlFor="name">Name</label>
                       <input
                         type="text"
                         id="name"
@@ -128,10 +135,11 @@ export default function Contact() {
                       />
                     </div>
                     <div className="col-sm-6">
+                    <label htmlFor="email">Email</label>
                       <input
                         type="email"
                         id="email"
-                        name="email"
+                        name="user_email"
                         className="form-control"
                         placeholder="Email"
                         required
@@ -140,6 +148,7 @@ export default function Contact() {
                   </div>
                   <div className="form-group row">
                     <div className="col-sm-12">
+                    <label htmlFor="message">Write your message...</label>
                       <textarea
                         id="message"
                         name="message"
@@ -152,12 +161,11 @@ export default function Contact() {
                   </div>
                   <div className="form-group row">
                     <div className="col-sm-12">
-                      <button id="submit" className="button_1" type="submit">
+                      <button className="button_1" type="submit">
                         Send Message
                       </button>
                     </div>
                   </div>
-                  <div id="form-messages" className="alert" role="alert" />
                 </form>
               </div>
               {/* /.contact_form */}

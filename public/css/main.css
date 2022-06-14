@@ -290,7 +290,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
 
 /*Top Header */
 .top_header{
-    background-color: rgb(57 61 61);
+    background-color: rgb(19, 20, 20);
     padding: 10px 0;
 }
 .top_content_wrap ul li{
@@ -953,6 +953,14 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
       .card3:hover .list-group-item{
         background:#ff95e9 !important
       }
+      .card5:hover {
+        background:#d2e504;
+        border:1px solid #b79d09;
+      }
+  
+      .card5:hover .list-group-item{
+        background:#c0f741 !important
+      }
       .card4:hover {
         background:#ef7752;
         border:1px solid #ef7752;
@@ -1149,10 +1157,11 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
 .service-box{
     background-color: white;
     border-radius: 15px;
+
 }
 
 .service-27 .badge-info {
-	background: #b7ae24;
+	background: #bfb416;
     font-size: 25px;
     font-weight: bold;
 }
@@ -1360,7 +1369,8 @@ body{
     background-color:#eee;
 }
 .team {
-    text-align: center
+    text-align: center;
+    background-color: gainsboro;
 }
 
 .section {

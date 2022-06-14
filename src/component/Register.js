@@ -2,41 +2,28 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { urlRegister } from "../endpoints";
-import { Country, State, City } from "country-state-city";
+import { Country, State} from "country-state-city";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export default function Register() {
   const country = Country.getAllCountries([]);
-  const states = State.getAllStates([]);
-  const city = City.getAllCities([]);
   const [state, setState] = useState([]);
-  const [cities, setCities] = useState([]);
-  const [password, SetPassword] = useState(false);
-  const [confirmPassword, SetConfirmPassword] = useState(false);
 
-  // console.log("country", country);
-  // console.log("city", city);
-  // console.log("state:", states);
+ 
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
-    watch,
-    trigger,
-    control,
-    setValue,
-    getValues,
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
   });
   const history = useNavigate();
-  // Navigate('/');
-  const handleOnChange = (e) => {
-    const { name, value } = e.target;
-  };
+  Navigate('/');
+  // const handleOnChange = (e) => {
+  //   const { name, value } = e.target;
+  // };
   const registerUser = async (data) => {
     try {
       data.address = `${data.address}, ${data.state}. ${data.country}`;
@@ -50,13 +37,8 @@ export default function Register() {
   const selectedState = (e) => {
     console.log(e.target.value);
     setState(State.getStatesOfCountry(e.target.value));
-    //console.log(State.getStatesOfCountry(e.target.value));
   };
-  const selectedCity = (e) => {
-    console.log(e.target.value);
-    setCities(City.getCitiesOfState(e.target.value));
-    // console.log(cities);
-  };
+ 
 
   const [input, setInput] = useState({
     password: '',
@@ -153,7 +135,7 @@ export default function Register() {
                           className="form-control form-control-lg"
                           id="firstName"
                           name="firstName"
-                          onChange={(e) => handleOnChange(e)}
+                          // onChange={(e) => handleOnChange(e)}
                           {...register("firstName", { required: true })}
                         />
                       </div>
@@ -175,7 +157,7 @@ export default function Register() {
                           className="form-control form-control-lg"
                           id="lastName"
                           name="lastName"
-                          onChange={(e) => handleOnChange(e)}
+                          // onChange={(e) => handleOnChange(e)}
                           {...register("lastName", { required: true })}
                         />
                       </div>
@@ -197,7 +179,7 @@ export default function Register() {
                           className="form-control form-control-lg"
                           id="picture"
                           name="picture"
-                          onChange={(e) => handleOnChange(e)}
+                          // onChange={(e) => handleOnChange(e)}
                           {...register("picture", { required: false })}
                         />
                       </div>
@@ -219,7 +201,7 @@ export default function Register() {
                           className="form-control form-control-lg text-dark"
                           id="gender"
                           name="gender"
-                          onChange={(e) => handleOnChange(e)}
+                          // onChange={(e) => handleOnChange(e)}
                           {...register("gender", { required: true })}
                         >
                           <option></option>
@@ -255,7 +237,7 @@ export default function Register() {
                           className="form-control form-control-lg"
                           id="dateOfBirth"
                           name="dateOfBirth"
-                          onChange={(e) => handleOnChange(e)}
+                          // onChange={(e) => handleOnChange(e)}
                           {...register("dateOfBirth", { required: true })}
                         />
                       </div>
@@ -278,7 +260,7 @@ export default function Register() {
                           className="form-control form-control-lg"
                           id="email"
                           name="email"
-                          onChange={(e) => handleOnChange(e)}
+                          // onChange={(e) => handleOnChange(e)}
                           {...register("email", { required: true })}
                         />
                       </div>
@@ -300,7 +282,7 @@ export default function Register() {
                           className="form-control form-control-lg"
                           id="phoneNo"
                           name="phoneNo"
-                          onChange={(e) => handleOnChange(e)}
+                          // onChange={(e) => handleOnChange(e)}
                           {...register("phoneNo", { required: true })}
                         />
                       </div>
@@ -357,9 +339,6 @@ export default function Register() {
                           name="state"
                           {...register("state", {
                             required: true,
-                            onChange: (e) => {
-                              selectedCity(e);
-                            },
                           })}
                         >
                           <option></option>
@@ -393,7 +372,7 @@ export default function Register() {
                           className="form-control form-control-lg"
                           id="address"
                           name="address"
-                          onChange={(e) => handleOnChange(e)}
+                          // onChange={(e) => handleOnChange(e)}
                           {...register("address", { required: true })}
                         />
                       </div>

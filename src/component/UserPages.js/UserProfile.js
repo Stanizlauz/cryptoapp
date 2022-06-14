@@ -12,12 +12,7 @@ export default function UserProfile() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
-    watch,
-    trigger,
-    control,
-    setValue,
-    getValues,
+ 
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -28,7 +23,6 @@ export default function UserProfile() {
     handleSubmit: handleSubmit2,
     formState: { errors: errors2 },
     setValue: setValue2,
-    getValues: getValues2,
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -50,8 +44,8 @@ export default function UserProfile() {
     loadWallet();
     loadUserData();
     loadCoins();
+  //eslint-disable-next-line
   }, [wallet])
-
   const loadWallet = async () => {
     await axios.get(urlWallet)
       .then(response => setWallet(response.data))
@@ -69,7 +63,7 @@ export default function UserProfile() {
   }
 
   const handleOnChange = (e) => {
-    const { name, value } = e.target;
+    // const { name, value } = e.target;
 
   };
 
@@ -98,7 +92,6 @@ export default function UserProfile() {
         loadWallet();
       }
 
-      //  window.location.reload()
 
     } catch (error) {
       console.log(error)

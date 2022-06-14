@@ -40,7 +40,7 @@ export default function AboutUs() {
             <img
               src="img/slider-1.jpg"
               className="d-block w-100"
-              alt
+              alt=""
               title="#slider-caption-1"
             />
             {/* <div className="carousel-caption d-none d-md-block">
@@ -49,7 +49,7 @@ export default function AboutUs() {
       </div> */}
             <div className="carousel-caption d-none d-md-block">
               <h1 className="wow fadeInLeft2" data-wow-delay="1s">
-                <span>About Us</span>
+                <span style={{fontSize: '70px', fontWeight: 'bolder'}}>About Us</span>
                 <br />
               </h1>
             </div>
@@ -120,17 +120,15 @@ export default function AboutUs() {
       <div className="col-md-4 col-sm-6 col-xs-12">
         <div className="team-item">
           <figure>
-            <img src="img/joandav.jpg" alt />
+            <img src="img/joandav.jpg" alt="" />
             <figcaption>
               <div className="info">
                 <h3>Miss Joan Davies</h3>
-                <p>Crypto Expert</p>
                 {/* <a href="https://t.me/Stanizlauz" aria-hidden="true"><i className="fa-telegram" /></a> */}
               </div>
               <div className="social">
-                <a href="https://t.me/Stanizlauz"><i className="ti ti-comment" aria-hidden="true"></i></a>
-                {/* <a href="#" className="facebook" data-abc="true"><i className="fa fa-facebook" /></a> */}
-                {/* <a href="#" className="google-plus" data-abc="true"><i className="fa fa-linkedin" /></a> */}
+                {/* <a href="https://t.me/Stanizlauz"><i className="ti ti-comment" aria-hidden="true"></i></a> */}
+             
               </div>
               
             </figcaption>
@@ -140,17 +138,16 @@ export default function AboutUs() {
       <div className="col-md-4 col-sm-6 col-xs-12">
         <div className="team-item">
           <figure>
-            <img src="img/denise-thompson.jpg" alt />
+            <img src="img/denise-thompson.jpg" alt="" />
             <figcaption>
               <div className="info">
                 <h3>Miss Denise Thompson</h3>
-                <p>Crypto Expert</p>
               </div>
               <div className="social">
                 {/* <a href="#" className="twitter" data-abc="true"><i className="fa fa-twitter" /></a>
                 <a href="#" className="facebook" data-abc="true"><i className="fa fa-facebook" /></a>
                 <a href="#" className="google-plus" data-abc="true"><i className="fa fa-linkedin" /></a> */}
-                <a href="https://t.me/Denisethompson"><i className="ti ti-comment" aria-hidden="true"></i></a>
+                <a href="https://t.me/Denisethompson"><i className="ti ti-comment" aria-hidden="true"></i> </a>
               </div>
             </figcaption>
           </figure>
@@ -159,14 +156,13 @@ export default function AboutUs() {
       <div className="col-md-4 col-sm-6 col-xs-12">
         <div className="team-item">
           <figure>
-            <img src="img/anitajenna.jpg" alt />
+            <img src="img/anitajenna.jpg" alt="" />
             <figcaption>
               <div className="info">
-                <h3>Alan Stuart</h3>
-                <p>Chief Executive Officer</p>
+                <h3>Miss Anita Jenna</h3>
               </div>
               <div className="social">
-                <a href="https://t.me/Denisethompson"><i className="ti ti-comment" aria-hidden="true"></i></a>
+                <a href="https://t.me/Denisethompson"><i className="ti ti-comment" aria-hidden="true"></i> </a>
                 {/* <a href="#" className="twitter" data-abc="true"><i className="fa fa-twitter" /></a>
                 <a href="#" className="facebook" data-abc="true"><i className="fa fa-facebook" /></a>
                 <a href="#" className="google-plus" data-abc="true"><i className="fa fa-linkedin" /></a> */}
@@ -178,14 +174,13 @@ export default function AboutUs() {
       <div className="col-md-4 col-sm-6 col-xs-12">
         <div className="team-item">
           <figure>
-            <img src="img/helen.jpg" alt />
+            <img src="img/helen.jpg" alt="" />
             <figcaption>
               <div className="info">
                 <h3>Miss Helen Williams</h3>
-                <p>Crypto Expert</p>
               </div>
               <div className="social">
-                <a href="https://t.me/experthelen"><i className="ti ti-comment" aria-hidden="true"></i></a>
+                <a href="https://t.me/experthelen"><i className="ti ti-comment" aria-hidden="true"></i> </a>
                 {/* <a href="#" className="twitter" data-abc="true"><i className="fa fa-twitter" /></a>
                 <a href="#" className="facebook" data-abc="true"><i className="fa fa-facebook" /></a>
                 <a href="#" className="google-plus" data-abc="true"><i className="fa fa-linkedin" /></a> */}
@@ -197,14 +192,13 @@ export default function AboutUs() {
       <div className="col-md-4 col-sm-6 col-xs-12">
         <div className="team-item">
           <figure>
-            <img src="img/evelyn.jpg" alt />
+            <img src="img/evelyn.jpg" alt="" />
             <figcaption>
               <div className="info">
                 <h3>Miss Evelyn Smith</h3>
-                <p>Crypto Expert</p>
               </div>
               <div className="social">
-                <a href="https://t.me/evelynsmith"><i className="ti ti-comment" aria-hidden="true"></i></a>
+                <a href="https://t.me/evelynsmith"><i className="ti ti-comment" aria-hidden="true"></i> </a>
                 {/* <a href="#" className="twitter" data-abc="true"><i className="fa fa-twitter" /></a>
                 <a href="#" className="facebook" data-abc="true"><i className="fa fa-facebook" /></a>
                 <a href="#" className="google-plus" data-abc="true"><i className="fa fa-linkedin" /></a> */}
@@ -213,24 +207,6 @@ export default function AboutUs() {
           </figure>
         </div>
       </div>
-      {/* <div className="col-md-4 col-sm-6 col-xs-12">
-        <div className="team-item">
-          <figure>
-            <img src="https://i.imgur.com/J6l19aF.jpg" alt />
-            <figcaption>
-              <div className="info">
-                <h3>Michael Slater</h3>
-                <p>Marketing Manager</p>
-              </div>
-              <div className="social">
-                <a href="#" className="twitter" data-abc="true"><i className="fa fa-twitter" /></a>
-                <a href="#" className="facebook" data-abc="true"><i className="fa fa-facebook" /></a>
-                <a href="#" className="google-plus" data-abc="true"><i className="fa fa-linkedin" /></a>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-      </div> */}
     </div>
   </div>
 </section>

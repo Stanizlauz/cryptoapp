@@ -9,25 +9,16 @@ import { useForm } from "react-hook-form";
 
 export default function AdminWallet() {
   const {
-    register,
     handleSubmit,
     formState: { errors },
-    reset,
-    watch,
-    trigger,
-    control,
-    setValue,
-    getValues,
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
   });
   const {
-    register: register2,
     handleSubmit: handleSubmit2,
     formState: { errors: errors2 },
     setValue: setValue2,
-    getValues: getValues2,
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -56,9 +47,9 @@ export default function AdminWallet() {
       .then(response => setWallet(response?.data));
   };
   const loadOneWallet = async (id) => {
-    let wal = wallet.find(x => x.coin === id);
+    // let wal = wallet.find(x => x.coin === id);
     console.log({ id })
-    const res = await axios.get(`${urlAdminWallet}/${wal?.id}`)
+    // const res = await axios.get(`${urlAdminWallet}/${wal?.id}`)
       .then(response => {
         setEditWalletData(response.data);
         setValue2("editwalletAddress", response?.data?.walletAddress);
@@ -78,16 +69,15 @@ export default function AdminWallet() {
         loadWallet();
       }
 
-      //  window.location.reload()
 
     } catch (error) {
       console.log(error)
     }
   }
-  const handleOnChange = (e) => {
-    const { name, value } = e.target;
+  // const handleOnChange = (e) => {
+  //   const { name, value } = e.target;
 
-  };
+  // };
   const editWallets = async (data) => {
     try {
       let obj = {
@@ -292,8 +282,8 @@ export default function AdminWallet() {
                   <select className="form-control form-control-lg text-dark"
                     id="coin"
                     name="coin"
-                    onChange={(e) => handleOnChange(e)}
-                    {...register("coin", { required: true })}
+                    // onChange={(e) => handleOnChange(e)}
+                    // {...register("coin", { required: true })}
                   >
                     <option>Select Coin</option>
                     {listedCoins?.map((coin) => (
@@ -312,8 +302,8 @@ export default function AdminWallet() {
                     className="form-control form-control-lg"
                     id="walletAddress"
                     name="walletAddress"
-                    onChange={(e) => handleOnChange(e)}
-                    {...register("walletAddress", { required: true })}
+                    // onChange={(e) => handleOnChange(e)}
+                    // {...register("walletAddress", { required: true })}
                   />
                 </div>
               </form>
@@ -374,8 +364,8 @@ export default function AdminWallet() {
                     id="editcoin"
                     readOnly
                     name="editcoin"
-                    onChange={(e) => handleOnChange(e)}
-                    {...register2("editcoin", { required: true })}
+                    // onChange={(e) => handleOnChange(e)}
+                    // {...register2("editcoin", { required: true })}
                   />
                 </div>
                 <div className="form-outline mb-4 ">
@@ -388,8 +378,8 @@ export default function AdminWallet() {
                     className="form-control form-control-lg"
                     id="editwalletAddress"
                     name="editwalletAddress"
-                    onChange={(e) => handleOnChange(e)}
-                    {...register2("editwalletAddress", { required: true })}
+                    // onChange={(e) => handleOnChange(e)}
+                    // {...register2("editwalletAddress", { required: true })}
                   />
                 </div>
               </form>

@@ -47,7 +47,7 @@ export default function CarouselWrapper() {
             <img
               src="img/landinhpagegif.jpg"
               className="d-block w-100"
-              alt
+              alt=""
               title="#slider-caption-1"
             />
             {/* <div className="carousel-caption d-none d-md-block">

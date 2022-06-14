@@ -14,16 +14,7 @@ export default function Headerss() {
               <div className="col-sm-8">
                 <ul className="left_info">
                   <li>
-                    <a href="#">
-                      <i className="ti-email" />
-                      Info@YourDomain.com
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-mobile" />
-                      +(333) 052 39876
-                    </a>
+                    <a href="/"><i className="ti-email" />service.capitaltrades@hotmail.com </a>
                   </li>
                 </ul>
               </div>
@@ -68,12 +59,12 @@ export default function Headerss() {
         <div className="bottom_header">
           <div className="container">
             <div className="bottom_content_wrap row">
-              <div className="col-sm-4">
+              <div className="col-sm-4 mt-4">
 
                 <img src="img/logo.png" alt="Brand" />
 
               </div>
-              <div className="col-sm-8 text-right">
+              <div className="col-sm-8 mt-4 text-right">
                 <ul id="mainmenu" className="nav navbar-nav nav-menu">
                   <li className="active">
                     <a href="/">Home</a>
@@ -98,17 +89,6 @@ export default function Headerss() {
       </header>
       {/* Header Section */}
 
-      {/* <div className="ticker_wrapper bd-bottom">
-  <ul id="webTicker">
-    <li><img src="img/c-1.png" alt="icon" /> Bitcoin<span>(BTC)</span> $545.285</li>
-    <li><img src="img/c-2.png" alt="icon" /> Ethereum<span>(LTC)</span> $123.912</li>
-    <li><img src="img/c-3.png" alt="icon" /> Exchange Union<span>(AMD)</span> $611.278</li>
-    <li><img src="img/c-4.png" alt="icon" /> Ripple<span>(DASH)</span> $095.385</li>
-    <li><img src="img/c-5.png" alt="icon" /> DigitalCash<span>(XMR)</span> $745.285</li>
-    <li><img src="img/c-6.png" alt="icon" /> Monero<span>(ETH)</span> $835.193</li>
-    <li><img src="img/c-7.png" alt="icon" /> Litecoin<span>(ADA)</span> $381.067</li>
-  </ul>
-</div>Ticker */}
 
       <TradingView />
 
