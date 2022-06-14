@@ -63,7 +63,7 @@ export default function AboutTeamSecond() {
                   </figcaption>
                 </figure>
                 <Link to="/about">
-                  <button type="button" className="team-button">
+                  <button type="button" className="team-button">  
                     More about us.
                   </button>
                 </Link>
