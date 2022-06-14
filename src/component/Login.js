@@ -28,6 +28,7 @@ export default function Login() {
       console.log(res?.data)
       saveToken(res?.data)
       history("/")
+      window.location.reload()
     } catch (error) {
       console.log(error)
     }
