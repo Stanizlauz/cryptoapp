@@ -18,9 +18,9 @@ export default function Login() {
   const [password, SetPassword] = useState(false);
 
   const history = useNavigate();
-  // const handleOnChange = (e) => {
+  const handleOnChange = (e) => {
     
-  // };
+  };
   const loginUser = async (data) => {
     try {
       console.log({ data })
