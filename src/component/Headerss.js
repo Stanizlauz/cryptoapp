@@ -5,9 +5,110 @@ import TradingView from "./TradingView";
 
 export default function Headerss() {
   const loggedIn = getToken();
+
+  const myFunc = () => {
+    let tog = document.getElementById("accordionSidebar");
+    if (!tog?.classList.contains("toggled")) {
+      tog?.classList.add("toggled");
+    } else {
+      tog?.classList.remove("toggled");
+    }
+  };
   return (
     <>
-      <header id="header" className="header_section bd-bottom">
+      <header>
+        x
+        <nav
+          className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+          id="accordionSidebar"
+        >
+          <a className="navbar-brand" href="#">
+            {/* Navbar */}
+            <img src="img/logo.png" alt="Brand" style={{ width: "120px" }} />
+          </a>
+          <button
+            className="navbar-toggler"
+            onClick={myFunc}
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+              <li className="nav-item active">
+                <a className="nav-link" href="/">
+                  Home <span className="sr-only">(current)</span>
+                </a>
+              </li>
+              {/* <li className="nav-item">
+              <a className="nav-link" href="#">
+                Link
+              </a>
+            </li> */}
+              <li>
+                <Link to="/about" className="nav-link" style={{fontWeight: 'bolder'}}>
+                  About{" "}
+                </Link>
+              </li>
+              <li>
+                <Link to="/plans" className="nav-link" style={{fontWeight: 'bolder'}}>
+                  Plans
+                </Link>
+              </li>
+              <li>
+                <Link to="/faqs" className="nav-link" style={{fontWeight: 'bolder'}}>
+                  FAQS
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="nav-link" style={{fontWeight: 'bolder'}}>
+                  Contact Us
+                </Link>
+              </li>
+              {loggedIn?.length === 0 ? (
+                <>
+                  <li className="nav-item">
+                    <Link to="/login" className="btn btn-outline-light btn-xs btn-icon-text mx-2 my-1">
+                      {/* <i className="ti-user" /> */}
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/register" type="button" className="btn btn-outline-light btn-xs btn-icon-text my-1">
+                      {/* <i className="ti-pencil-alt" /> */}
+                      Register
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/" className="nav-link">
+                      <i className="ti-new-window" />
+                      Logout
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/dashboard" className="nav-link">
+                      <i className="ti-bar-chart" />
+                      Dashboard
+                    </Link>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
+        </nav>
+      </header>
+  
+      <TradingView />
+
+      {/* <header id="header" className="header_section bd-bottom">
         <div className="top_header">
           <div className="container">
             <div className="top_content_wrap row">
@@ -86,13 +187,10 @@ export default function Headerss() {
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
       {/* Header Section */}
 
-
       <TradingView />
-
-
     </>
   );
 }
