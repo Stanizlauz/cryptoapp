@@ -39,11 +39,18 @@ export default function Header() {
                 <span className="mr-2 d-none d-lg-inline text-dark-600 small" style={{ color: 'black' }}>
                   {userAuth?.name}
                 </span>
-                <img
-                  className="img-profile rounded-circle"
-                  src={userAuth?.picture}
-                  alt=""
-                />
+
+                {!userAuth?.picture ?
+                  <img
+                    className="img-profile rounded-circle"
+                    src="http://localhost:8000/api/uploads/e1d3e7196663ffc2e7ab70105d887ff410.jpg"
+                    alt=""
+                  /> :
+                  <img
+                    className="img-profile rounded-circle"
+                    src={userAuth?.picture}
+                    alt=""
+                  />}
               </h4>
               <ul>
                 <Authorize
