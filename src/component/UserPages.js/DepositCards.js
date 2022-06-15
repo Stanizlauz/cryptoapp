@@ -28,13 +28,13 @@ export default function DepositCards({ image, coin}) {
               Deposit using {coin}
             </div>
             <div className="mt-4">
-              <Link
+              <a
                 className="btn btn-primary pointer text-white"
                 data-toggle="modal"
                 data-target="#exampleModal"
               >
                 Continue
-               </Link>
+               </a>
             </div>
           </div>
         </div>
