@@ -10,8 +10,8 @@ import Sidebar from "./Sidebar";
 
 export default function Deposit() {
   const {
-    register,
-    handleSubmit,
+    // register,
+    // handleSubmit,
     formState: { errors },
   } = useForm({
     mode: "onChange",
