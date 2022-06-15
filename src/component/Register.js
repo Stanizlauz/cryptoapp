@@ -88,20 +88,7 @@ export default function Register() {
       return stateObj;
     });
   }
-  const togglepassword = () => {
-    const userPassword = getValues("password");
-    if (!userPassword) {
-      return;
-    }
-    SetPassword(password ? false : true);
-  };
-  const toggleConfirmpassword = () => {
-    const userPassword = getValues("confirmPassword");
-    if (!userPassword) {
-      return;
-    }
-    SetConfirmPassword(confirmPassword ? false : true);
-  };
+
   return (
     <>
       <section className="h-100 bg-dark">
@@ -376,77 +363,32 @@ export default function Register() {
                           {...register("address", { required: true })}
                         />
                       </div>
-                      {/* <div className="form-group mr-2"> */}
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="password">Password <span className='text-danger'>*</span>
-                          {errors.password &&
-                            <span className="text-danger font-weight-bold"> required</span>
-                          }</label>
-                        <div className='input-group'>
-                          <input
-                            type={password ? "text" : "password"}
-                            className="form-control form-control-lg"
-                            id="password"
-                            name="password"
-                            onChange={(e) => handleOnChange(e)}
-                            {...register("password", { required: true })}
-                            aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default"
-                          />
-                          <div
-                            style={{ cursor: 'pointer' }}
-                            onClick={togglepassword}
-                            class="input-group-prepend">
-                            <span
-                              className="input-group-text bg-primary text-light"
-                              id="inputGroup-sizing-default"
-                            >
-                              <i
-                                className={
-                                  password ? "ti ti-eye" : "ti ti-eye"
-                                }
-                              ></i>
+                        <label
+                          className="form-label text-dark font-weight-bold"
+                          htmlFor="password"
+                        >
+                          Password <span className="text-danger">*</span>
+                          {error.password && (
+                            <span className="text-danger font-weight-bold">
+                              {error.password}
+                              required
                             </span>
-                          </div>
-                        </div>
+                          )}
+                        </label>
+                        <input
+                          type="password"
+                          className="form-control form-control-lg"
+                          id="password"
+                          name="password"
+                          value={input.password}
+                          onBlur={validateInput}
+                          {...register("password", { required: true, onChange: (e) => {
+                            onInputChange(e);
+                          }, })}
+                        />
                       </div>
-                      {/* </div> */}
-                      {/* <div className="form-group"> */}
                       <div className="form-outline mb-4 col-md-4">
-                        <label className="form-label text-dark font-weight-bold" htmlFor="confirmPassword">Confirm Password <span className='text-danger'>*</span>
-                          {errors.confirmPassword &&
-                            <span className="text-danger font-weight-bold"> required</span>
-                          }</label>
-                        <div className='input-group'>
-                          <input
-                            type={confirmPassword ? "text" : "password"}
-                            className="form-control form-control-lg"
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            onChange={(e) => handleOnChange(e)}
-                            {...register("confirmPassword", { required: true })}
-                            aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default"
-                          />
-                          <div
-                            style={{ cursor: 'pointer' }}
-                            onClick={toggleConfirmpassword}
-                            class="input-group-prepend">
-                            <span
-                              className="input-group-text bg-primary text-light"
-                              id="inputGroup-sizing-default"
-                            >
-                              <i
-                                className={
-                                  confirmPassword ? "ti ti-eye" : "ti ti-eye"
-                                }
-                              ></i>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      {/* </div> */}
-                      {/* <div className="form-outline mb-4 col-md-4">
                         <label
                           className="form-label text-dark font-weight-bold"
                           htmlFor="confirmPassword"
@@ -467,13 +409,11 @@ export default function Register() {
                           name="confirmPassword"
                           value={input.confirmPassword}
                           onBlur={validateInput}
-                          {...register("confirmPassword", {
-                            required: true, onChange: (e) => {
+                          {...register("confirmPassword", { required: true,   onChange: (e) => {
                               onInputChange(e);
-                            },
-                          })}
+                            }, })}
                         />
-                      </div> */}
+                      </div>
                     </form>
                     <div className="d-flex float-right pt-3">
                       <Link

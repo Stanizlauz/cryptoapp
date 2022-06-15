@@ -223,8 +223,8 @@ export default function UserProfile() {
                       <div className="card mb-4">
                         <div className="card-body text-center">
                           <img
-                            // src={profile?.picture}
-                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                            src={profile?.picture}
+                            // src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                             alt="avatar"
                             className="rounded-circle img-fluid"
                             style={{ width: 150 }}
