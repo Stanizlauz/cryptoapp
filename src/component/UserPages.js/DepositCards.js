@@ -113,8 +113,6 @@ export default function DepositCards({ image, coin, address, modalId }) {
                   </div>
                   <hr />
                   <div className="">
-                    {/* {coins &&
-                                coins?.map((coin) => ( */}
                     <textarea
                       readOnly
                       rows={1}
@@ -122,10 +120,8 @@ export default function DepositCards({ image, coin, address, modalId }) {
                       style={{ maxWidth: "100%" }}
                       className=" text-dark"
                       value={address}
-
-                    // value="bc1qc8zcqyyxpm0340rslg9xqzlhlt7yw6s0lp9cye"
+                      // onChange={setCopied(true)}
                     />
-                    {/* ))} */}
 
                   </div>
                   <div className="mb-1 ml-3">
@@ -135,7 +131,7 @@ export default function DepositCards({ image, coin, address, modalId }) {
                     >
                       Copy address to clipboard{" "}
                       <CopyToClipboard
-                        value="bc1qc8zcqyyxpm0340rslg9xqzlhlt7yw6s0lp9cye"
+                        text={address}
                         onCopy={() => setCopied(true)}
                       >
                         <i className="fas fa-copy text-dark ml-2" />
