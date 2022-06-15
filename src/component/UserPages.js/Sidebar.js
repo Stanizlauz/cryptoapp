@@ -54,7 +54,6 @@ export default function Sidebar() {
                                     <span className="text-dark">Profile</span></Link>
                             </li>
                             <hr className="sidebar-divider" />
-                            <h3>not auth</h3>
                         </>
                     }
                     roles="Admin"

@@ -12,7 +12,7 @@ export default function UserProfile() {
     register,
     handleSubmit,
     formState: { errors },
- 
+
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -27,10 +27,21 @@ export default function UserProfile() {
     mode: "onChange",
     reValidateMode: "onChange",
   });
+  const {
+    register: register3,
+    handleSubmit: handleSubmit3,
+    formState: { errors: errors3 },
+    setValue: setValue3,
+  } = useForm({
+    mode: "onChange",
+    reValidateMode: "onChange",
+  });
   const [wallet, setWallet] = useState([]);
   const [profile, setProfile] = useState([]);
   const [listedCoins, setListedCoins] = useState();
   const [editWalletData, setEditWalletData] = useState({});
+  const [isLoading, setIsLoading] = useState('')
+  const [showForm, setShowForm] = useState(true)
   let addresses = {
     bitcoin: wallet?.find(x => x.coin === coins.BTC),
     ethereum: wallet?.find(x => x.coin === coins.ETH),
@@ -44,8 +55,8 @@ export default function UserProfile() {
     loadWallet();
     loadUserData();
     loadCoins();
-  //eslint-disable-next-line
-  }, [wallet])
+    //eslint-disable-next-line
+  }, [])
   const loadWallet = async () => {
     await axios.get(urlWallet)
       .then(response => setWallet(response.data))
@@ -85,6 +96,7 @@ export default function UserProfile() {
   }
   const saveWallet = async (data) => {
     try {
+      console.log({ data })
       let exist = wallet.find(x => x.coin === data.coin);
       if (!exist) {
         console.log({ data })
@@ -110,13 +122,20 @@ export default function UserProfile() {
       console.log(error)
     }
   }
-  const Verify = () => {
-
-    useEffect(() => {
-      const timer = setTimeout(() => console.log("Your account have been successfully verified!"), 5000);
+  const Verify = async (data) => {
+    try {
+      setShowForm(false)
+      setIsLoading("verify")
+      console.log({ data })
+      await axios.put(`${urlProfile}/${userAuth?.id}`, data)
+      const timer = setTimeout(() => setIsLoading("load"), 5000);
       return () => clearTimeout(timer);
-    }, []);
-  
+      loadUserData();
+    } catch (error) {
+      console.log(error)
+    }
+
+
   };
 
   return (
@@ -128,86 +147,11 @@ export default function UserProfile() {
             <Header />
             <div className="container-fluid">
               <section className="col" style={{ backgroundColor: "#eee" }}>
-              <div className="row ml-4">
-                  <small className="btn m-0 font-weight-bold text-danger" data-toggle="modal" data-target="#exampleModal">Click to verify your account</small>
-                </div>
-                <div>
-                {/* Button trigger modal */}
-                {/* Modal */}
-                <div
-                  className="modal fade"
-                  id="exampleModal"
-                  tabIndex={-1}
-                  role="dialog"
-                  aria-labelledby="exampleModalLabel"
-                  aria-hidden="true"
-                >
-                  <form>
-                    <div className="modal-dialog" role="document">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title" id="exampleModalLabel">
-                            Deposit
-                          </h5>
-                          <button
-                            type="button"
-                            className="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                          >
-                            <span aria-hidden="true">×</span>
-                          </button>
-                        </div>
-                        <div className="modal-body">
-                          <div className="form-outline mb-4 text-dark">
-                            <label
-                              className="form-label text-dark font-weight-bold"
-                              htmlFor="identityNumber"
-                            >
-                              Enter identity number{" "}
-                              <span className="text-danger">*</span>
-                              {errors.identityNumber && (
-                                <span className="text-danger font-weight-bold">
-                                  {" "}
-                                  Minimum $500
-                                </span>
-                              )}
-                            </label>
-                            <input
-                              type="number"
-                              placeholder="Driver's license, Identification number"
-                              id="identityNumber"
-                              className="form-control"
-                              onChange={(e) => handleOnChange(e)}
-                              {...register("identityNumber", {
-                                required: true,
-                              })}
-                            />
-                          </div>
-                          <hr />
-                         
-                        </div>
-                        <div className="modal-footer">
-                          <button
-                            type="button"
-                            className="btn btn-secondary"
-                            data-dismiss="modal"
-                          >
-                            Close
-                          </button>
-                          <button
-                            type="button"
-                            className="btn btn-primary"
-                            onClick={Verify}
-                          >
-                            Verify
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
+                {!profile?.identityNumber &&
+                  <div className="row ml-4">
+                    <small className="btn m-0 font-weight-bold text-danger" data-toggle="modal" data-target="#exampleModal">Click to verify your account</small>
+                  </div>
+                }
                 <div className="row d-flex float-left ml-4">
                   <h2 className="m-0 font-weight-bold text-dark">Welcome</h2>
                 </div>
@@ -241,12 +185,12 @@ export default function UserProfile() {
                         </div>
                       </div>
                       <div className="card mb-4 mb-lg-0">
-                          <div className="card-body p-0">
-                            <div className="row d-flex float-left ml-2">
-                              <p className="text-dark font-weight-bold mr-2 mt-2">Wallets</p>
-                            </div>
+                        <div className="card-body p-0">
+                          <div className="row d-flex float-left ml-2">
+                            <p className="text-dark font-weight-bold mr-2 mt-2">Wallets</p>
                           </div>
                         </div>
+                      </div>
                       {wallet?.length !== 6 &&
                         <div className="card mb-4 mb-lg-0">
                           <div className="card-body p-0">
@@ -449,6 +393,7 @@ export default function UserProfile() {
       <div
         className="modal fade"
         id="createWallet"
+        data-backdrop="static"
         tabIndex={-1}
         role="dialog"
         aria-labelledby="createWallet"
@@ -530,6 +475,7 @@ export default function UserProfile() {
         id="editwallet"
         tabIndex={-1}
         role="dialog"
+        data-backdrop="static"
         aria-labelledby="editwallet"
         aria-hidden="true"
       >
@@ -596,6 +542,94 @@ export default function UserProfile() {
               </button>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div>
+        {/* Button trigger modal */}
+        {/* Modal */}
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabIndex={-1}
+          data-backdrop="static"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <form>
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLabel">
+                    Verification
+                  </h5>
+                  <button
+                    type="button"
+                    className="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div className="modal-body">
+                  {showForm && <>
+                    <div className="form-outline mb-4 text-dark">
+                      <label
+                        className="form-label text-dark font-weight-bold"
+                        htmlFor="identityNumber"
+                      >
+                        Enter identity number{" "}
+                        <span className="text-danger"> *</span>
+                        {errors3.identityNumber && (
+                          <span className="text-danger font-weight-bold">
+                            required
+                          </span>
+                        )}
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Driver's license, Identification number"
+                        id="identityNumber"
+                        className="form-control"
+                        onChange={(e) => handleOnChange(e)}
+                        {...register3("identityNumber", {
+                          required: true,
+                        })}
+                      />
+                    </div>
+                    <hr />
+                  </>}
+
+                  {isLoading === 'load' &&
+                    <img src="https://cdn.dribbble.com/users/778626/screenshots/5064153/verify.gif" alt="loader" />
+                  }
+                  {isLoading === 'verify' &&
+                    <img src="https://flevix.com/wp-content/uploads/2019/07/Comp-2.gif" alt="loader" />
+                  }
+
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={handleSubmit3(Verify)}
+                  >
+                    Verify
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+
         </div>
       </div>
     </>

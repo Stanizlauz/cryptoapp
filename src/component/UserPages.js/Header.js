@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Authorize from "../../Auth/Authorize";
 import { getToken, logOut } from "../../Auth/HandleJWT";
 
 export default function Header() {
-  const myFunc =()=>{
+  const myFunc = () => {
     let tog = document.getElementById("accordionSidebar")
-    if(!tog?.classList.contains('toggled')){
-        tog?.classList.add("toggled")
-    }else{
-        tog?.classList.remove("toggled")
+    if (!tog?.classList.contains('toggled')) {
+      tog?.classList.add("toggled")
+    } else {
+      tog?.classList.remove("toggled")
     }
   };
   const userAuth = getToken();
@@ -23,7 +24,7 @@ export default function Header() {
           <i className="fa fa-bars" style={{ color: 'black' }} />
         </button>
 
-        <div class="col-sm-11 text-right"> 
+        <div class="col-sm-11 text-right">
           <ul id="mainmenu" class="nav navbar-nav nav-menu">
             <li class="active nav-item dropdown no-arrow">
               <h4
@@ -40,19 +41,26 @@ export default function Header() {
                 </span>
                 <img
                   className="img-profile rounded-circle"
-                  src="img/undraw_profile.svg"
+                  src={userAuth?.picture}
                   alt=""
                 />
               </h4>
               <ul>
+                <Authorize
+                  notAuthorized={
+                    <>
+                      <li>
+                        <Link className="nav-link" to="/userprofile">
+                          <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400" />
+                          Profile
+                        </Link>
+                      </li>
+                    </>
+                  }
+                  roles="Admin"
+                />
                 <li>
-                <Link className="nav-link" to="/userprofile">
-                    <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400" />
-                    Profile
-                  </Link>
-                </li>
-                <li>
-                <a href="/" onClick={()=> logOut()}>
+                  <a href="/" onClick={() => logOut()}>
                     <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />
                     Logout
                   </a>
