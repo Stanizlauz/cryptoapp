@@ -88,14 +88,14 @@ export default function Headerss() {
               ) : (
                 <>
                   <li>
-                    <Link to="/" className="nav-link">
-                      <i className="ti-new-window" />
+                    <Link to="/" className="btn btn-outline-light btn-xs btn-icon-text mx-2 my-1">
+                      {/* <i className="ti-new-window" /> */}
                       Logout
                     </Link>
                   </li>
                   <li>
-                    <Link to="/dashboard" className="nav-link">
-                      <i className="ti-bar-chart" />
+                    <Link to="/dashboard" className="btn btn-outline-light btn-xs btn-icon-text my-1">
+                      {/* <i className="ti-bar-chart" /> */}
                       Dashboard
                     </Link>
                   </li>
