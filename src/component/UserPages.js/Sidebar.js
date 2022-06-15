@@ -6,7 +6,7 @@ export default function Sidebar() {
 
     const myFunc = () => {
         let tog = document.getElementById("accordionSidebar")
-        if (!tog?.classList.contains('toggled')) {
+        if (!tog?.classList.contains('ccc')) {
             tog?.classList.add("toggled")
         } else {
             tog?.classList.remove("toggled")

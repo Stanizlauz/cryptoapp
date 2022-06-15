@@ -18,7 +18,9 @@ export default function Deposit() {
     reValidateMode: "onChange",
   });
 
-  const handleOnChange = () => {};
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+  };
 
   const depositCoin = async (data) => {
     try {
@@ -37,12 +39,16 @@ export default function Deposit() {
       address: "btcjhdjdkdiirirkf",
     },
     {
-      image: <img src="img/Ethereum-img.png" className="img-responsive" alt="" />,
+      image: (
+        <img src="img/Ethereum-img.png" className="img-responsive" alt="" />
+      ),
       coin: "Etherum",
       address: "ethytthgjfkfkvnnhdrdkd",
     },
     {
-      image: <img src="img/pngwing.com.png" className="img-responsive" alt="" />,
+      image: (
+        <img src="img/pngwing.com.png" className="img-responsive" alt="" />
+      ),
       coin: "BNB",
       address: "bnbfgddjdkkirhrn4848rnn",
     },
@@ -55,13 +61,19 @@ export default function Deposit() {
     },
     {
       image: (
-        <img src="img/litecoin-ltc-logo.png" className="img-responsive" alt="" />
+        <img
+          src="img/litecoin-ltc-logo.png"
+          className="img-responsive"
+          alt=""
+        />
       ),
       coin: "Litecoin",
       address: "xrprkgjjdldkfnvfjffkk595",
     },
     {
-      image: <img src="img/xrp-xrp-logo.png" className="img-responsive" alt="" />,
+      image: (
+        <img src="img/xrp-xrp-logo.png" className="img-responsive" alt="" />
+      ),
       coin: "XRP",
       address: "ltw333kgjggidpgdggdj",
     },
@@ -74,15 +86,6 @@ export default function Deposit() {
     data = JSON.parse(data);
   }
 
-  // const [wallet, setWallet] = useState([]);
-  // let addresses = {
-  //   bitcoin: wallet?.find(x => x.coin === coins.BTC),
-  //   ethereum: wallet?.find(x => x.coin === coins.ETH),
-  //   bnb: wallet?.find(x => x.coin === coins.BNB),
-  //   usdt: wallet?.find(x => x.coin === coins.USDT),
-  //   xrp: wallet?.find(x => x.coin === coins.XRP),
-  //   litecoin: wallet?.find(x => x.coin === coins.LTC),
-  // };
   return (
     <>
       <div id="wrapper">
@@ -173,14 +176,20 @@ export default function Deposit() {
                             </div>
                             <hr />
                             <div className="">
+                              {coins &&
+                                coins?.map((coin) => (
                               <textarea
                                 readOnly
                                 rows={1}
                                 cols={50}
                                 style={{ maxWidth: "100%" }}
                                 className=" text-dark"
-                                value="bc1qc8zcqyyxpm0340rslg9xqzlhlt7yw6s0lp9cye"
+                                address={coin.address}
+
+                                // value="bc1qc8zcqyyxpm0340rslg9xqzlhlt7yw6s0lp9cye"
                               />
+                              ))}
+
                             </div>
                             <div className="mb-1 ml-3">
                               <small
