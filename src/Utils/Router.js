@@ -11,11 +11,13 @@ import Register from "../component/Register";
 import AdminWallet from "../component/UserPages.js/AdminWallet";
 import Dashboard from "../component/UserPages.js/Dashboard";
 import Deposit from "../component/UserPages.js/Deposit";
+import EditTransaction from "../component/UserPages.js/EditTransaction";
 import Plans from "../component/UserPages.js/Plans";
 import Profile from "../component/UserPages.js/Profile";
 import Transaction from "../component/UserPages.js/Transaction";
 import UserProfile from "../component/UserPages.js/UserProfile";
 import UsersList from "../component/UserPages.js/UsersList";
+import ViewTransaction from "../component/UserPages.js/ViewTransaction";
 import Withdraw from "../component/UserPages.js/Withdraw";
 import ProtectedRoutes from "./ProtectedRoutes";
 
@@ -46,6 +48,8 @@ export function AppRoutes() {
         <Route path="/plans" element={<Plans />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/transactions" element={<Transaction />} />
+        <Route path="/edittransactions" element={<EditTransaction />} />
+        <Route path="/viewtransactions" element={<ViewTransaction />} />
         <Route path="/withdraw" element={<Withdraw />} />
         <Route path="/userprofile" element={<UserProfile />} />
         <Route path="/" element={<HomePageBody />} />
