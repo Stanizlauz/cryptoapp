@@ -13,6 +13,9 @@ export default function ViewTransaction() {
             <Header />
             <div className="container-fluid">
               <section className="col" style={{ backgroundColor: "#eee" }}>
+                <div className="row d-flex float-left ml-4">
+                  <h2 className="m-0 font-weight-bold text-dark">View Transactions</h2>
+                </div>
                 <div className="row d-flex float-right mr-4">
                       <a
                         type="button"
