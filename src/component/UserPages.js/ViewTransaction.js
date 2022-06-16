@@ -13,13 +13,6 @@ export default function ViewTransaction() {
             <Header />
             <div className="container-fluid">
               <section className="col" style={{ backgroundColor: "#eee" }}>
-                  <div className="row ml-4">
-                    <small className="btn m-0 font-weight-bold text-danger" data-toggle="modal" data-target="#exampleModal">Click to verify your account</small>
-                  </div>
-              
-                <div className="row d-flex float-left ml-4">
-                  <h2 className="m-0 font-weight-bold text-dark">Welcome</h2>
-                </div>
                 <div className="row d-flex float-right mr-4">
                       <a
                         type="button"
