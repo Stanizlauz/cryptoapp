@@ -1,14 +1,14 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { urlRegister } from "../endpoints";
 import { Country, State } from "country-state-city";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { urlRegister } from "../endpoints";
+import { registerFormData } from "../Utils/FormData";
 
 export default function Register() {
   const country = Country.getAllCountries([]);
   const [state, setState] = useState([]);
-
   const {
     register,
     handleSubmit,
@@ -19,13 +19,16 @@ export default function Register() {
   });
   const history = useNavigate();
   const handleOnChange = (e) => {
-    const { name, value } = e.target;
+    // const { name, value } = e.target;
   };
   const registerUser = async (data) => {
     try {
       data.address = `${data.address}, ${data.state}. ${data.country}`;
+      data.picture = data.picture[0]
       console.log({ data });
-      await axios.post(urlRegister, data);
+      const formData = registerFormData(data);
+      console.log({formData})
+      await axios.post(urlRegister, formData);
       history("/login");
     } catch (error) {
       console.log(error);
@@ -162,6 +165,7 @@ export default function Register() {
                         <input
                           type="file"
                           className="form-control form-control-lg"
+                          accept=".jpg, .jpeg, .png"
                           id="picture"
                           name="picture"
                           onChange={(e) => handleOnChange(e)}
@@ -301,8 +305,6 @@ export default function Register() {
                               {wal.name}
                             </option>
                           ))}
-                          {/* <option id='male' value="receipt"> Male </option>
-                          <option id='female' value="adjustment">Female </option> */}
                         </select>
                       </div>
                       <div className="form-outline mb-4 col-md-4">
@@ -367,9 +369,11 @@ export default function Register() {
                           htmlFor="password"
                         >
                           Password <span className="text-danger">*</span>
-                          {error.password && (
+                          {/* {error.password && <span className="text-danger font-weight-bold">
+                            {error.password}
+                          </span>} */}
+                          {errors.password && (
                             <span className="text-danger font-weight-bold">
-                              {error.password}
                               required
                             </span>
                           )}
@@ -382,8 +386,7 @@ export default function Register() {
                           value={input.password}
                           onBlur={validateInput}
                           {...register("password", {
-                            required: true,
-                            onChange: (e) => {
+                            required: true, onChange: (e) => {
                               onInputChange(e);
                             },
                           })}
@@ -396,9 +399,11 @@ export default function Register() {
                         >
                           Confirm Password{" "}
                           <span className="text-danger">*</span>
-                          {error.confirmPassword && (
+                          {error.confirmPassword && <span className="text-danger font-weight-bold">
+                            {error.confirmPassword}
+                          </span>}
+                          {errors.confirmPassword && (
                             <span className="text-danger font-weight-bold">
-                              {error.confirmPassword}
                               required
                             </span>
                           )}
@@ -411,8 +416,7 @@ export default function Register() {
                           value={input.confirmPassword}
                           onBlur={validateInput}
                           {...register("confirmPassword", {
-                            required: true,
-                            onChange: (e) => {
+                            required: true, onChange: (e) => {
                               onInputChange(e);
                             },
                           })}

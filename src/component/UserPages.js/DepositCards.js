@@ -1,9 +1,9 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 import { urlTransaction } from "../../endpoints";
+import { depositFormData } from "../../Utils/FormData";
 
 
 export default function DepositCards({ image, coin, address, modalId }) {
@@ -23,14 +23,19 @@ export default function DepositCards({ image, coin, address, modalId }) {
 
   const depositCoin = async (data) => {
     try {
-      await axios.post(urlTransaction, data);
+      data.coin = selectCoin
+      data.picture = data.picture[0]
+      const formData = depositFormData(data);
+      await axios.post(urlTransaction, formData);
     } catch (error) {
       console.log(error);
     }
   };
-
+  const selectedCoin = (coi) => {
+    setSelectCoin(coi)
+  }
   const [copied, setCopied] = useState(false);
-
+  const [selectCoin, setSelectCoin] = useState()
   return (
     <>
       <li className="col-12 col-md-6 col-lg-3">
@@ -48,7 +53,7 @@ export default function DepositCards({ image, coin, address, modalId }) {
                 className="btn btn-primary pointer text-white"
                 data-toggle="modal"
                 data-target={`#${modalId}`}
-              // onClick={() => selectedCoin(coin, address)}
+                onClick={() => selectedCoin(coin)}
               >
                 Continue
               </a>
@@ -120,7 +125,7 @@ export default function DepositCards({ image, coin, address, modalId }) {
                       style={{ maxWidth: "100%" }}
                       className=" text-dark"
                       value={address}
-                      // onChange={setCopied(true)}
+                    // onChange={setCopied(true)}
                     />
 
                   </div>
@@ -157,6 +162,11 @@ export default function DepositCards({ image, coin, address, modalId }) {
                       id="picture"
                       name="picture"
                       type="file"
+                      accept=".jpg, .jpeg, .png"
+                      onChange={(e) => handleOnChange(e)}
+                      {...register("picture", {
+                        required: true,
+                      })}
                     />
                   </div>
                   {/* <h5
