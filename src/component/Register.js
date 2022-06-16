@@ -39,37 +39,38 @@ export default function Register() {
     setState(State.getStatesOfCountry(e.target.value));
   };
 
-
   const [input, setInput] = useState({
-    password: '',
-    confirmPassword: ''
+    password: "",
+    confirmPassword: "",
   });
   const [error, setError] = useState({
-    password: '',
-    confirmPassword: ''
-  })
-  const onInputChange = e => {
+    password: "",
+    confirmPassword: "",
+  });
+  const onInputChange = (e) => {
     const { name, value } = e.target;
-    setInput(prev => ({
+    setInput((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
     validateInput(e);
-  }
-  const validateInput = e => {
+  };
+  const validateInput = (e) => {
     let { name, value } = e.target;
-    setError(prev => {
+    setError((prev) => {
       const stateObj = { ...prev, [name]: "" };
 
       switch (name) {
-
         case "password":
           if (!value) {
             stateObj[name] = "Please enter Password.";
           } else if (input.confirmPassword && value !== input.confirmPassword) {
-            stateObj["confirmPassword"] = "Password and Confirm Password does not match.";
+            stateObj["confirmPassword"] =
+              "Password and Confirm Password does not match.";
           } else {
-            stateObj["confirmPassword"] = input.confirmPassword ? "" : error.confirmPassword;
+            stateObj["confirmPassword"] = input.confirmPassword
+              ? ""
+              : error.confirmPassword;
           }
           break;
 
@@ -87,7 +88,7 @@ export default function Register() {
 
       return stateObj;
     });
-  }
+  };
 
   return (
     <>

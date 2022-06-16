@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getToken } from "../Auth/HandleJWT";
+import { getToken, logOut } from "../Auth/HandleJWT";
 import TradingView from "./TradingView";
 
 export default function Headerss() {
@@ -34,7 +34,7 @@ export default function Headerss() {
             data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02"
             aria-expanded="false"
-            aria-label="Toggle navigation"
+            // aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon" />
           </button>
@@ -88,10 +88,10 @@ export default function Headerss() {
               ) : (
                 <>
                   <li>
-                    <Link to="/" className="btn btn-outline-light btn-xs btn-icon-text mx-2 my-1">
+                    <a href="/" onClick={() => logOut()} className="btn btn-outline-light btn-xs btn-icon-text mx-2 my-1">
                       {/* <i className="ti-new-window" /> */}
                       Logout
-                    </Link>
+                    </a>
                   </li>
                   <li>
                     <Link to="/dashboard" className="btn btn-outline-light btn-xs btn-icon-text my-1">
