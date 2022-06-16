@@ -128,9 +128,11 @@ export default function UserProfile() {
       setIsLoading("verify")
       console.log({ data })
       await axios.put(`${urlProfile}/${userAuth?.id}`, data)
-      const timer = setTimeout(() => setIsLoading("load"), 5000);
-      return () => clearTimeout(timer);
-      loadUserData();
+      // const timer = 
+      setTimeout(() => setIsLoading("load"), 5000);
+      // return () => clearTimeout(timer);
+      setTimeout(() => loadUserData(), 5000);
+      
     } catch (error) {
       console.log(error)
     }
