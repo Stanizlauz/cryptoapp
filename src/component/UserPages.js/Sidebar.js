@@ -116,14 +116,22 @@ export default function Sidebar() {
           roles="Admin"
         />
         {/* Nav Item - Tables */}
-        <li className="nav-item">
-          <Link className="nav-link" to="/withdraw">
-            <i className="fas fa-fw fa-table text-dark" />
-            <span className="text-dark">Withdraw</span>
-          </Link>
-        </li>
-        {/* Divider */}
-        <hr className="sidebar-divider d-none d-md-block" />
+        <Authorize
+          notAuthorized={
+            <>
+              <li className="nav-item">
+                <Link className="nav-link" to="/withdraw">
+                  <i className="fas fa-fw fa-table text-dark" />
+                  <span className="text-dark">Withdraw</span>
+                </Link>
+              </li>
+              {/* Divider */}
+              <hr className="sidebar-divider d-none d-md-block" />
+            </>
+          }
+          roles="Admin"
+        />
+
         {/* Sidebar Toggler (Sidebar) */}
         <div className="text-center d-none d-md-inline">
           <button

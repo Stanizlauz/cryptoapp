@@ -1,19 +1,61 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { useNavigate, useParams } from 'react-router-dom'
+import { urlTransaction } from '../../endpoints'
 import TradingView from '../TradingView'
 import Header from './Header'
 import Sidebar from './Sidebar'
 
 export default function () {
+  const { id } = useParams();
+  const history = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+  } = useForm({
+    mode: "onChange",
+    reValidateMode: "onChange",
+  });
+  useEffect(() => {
+    loadData();
+  }, [])
+  const handleOnChange = (e) => {
+    // const { name, value } = e.target;
+  };
+  const loadData = async () => {
+    const res = await axios.get(`${urlTransaction}/${id}`)
+    setValue("coin", res?.data?.coin)
+    setValue("amountDeposited", res?.data?.amountDeposited)
+    setValue("expectedPayout", res?.data?.expectedPayout)
+    setValue("startDate", res?.data?.startDate)
+    setValue("currentBalance", res?.data?.currentBalance)
+  }
+
+  const saveTransaction = async (data) => {
+    try {
+      const obj = {
+        currentBalance: data?.currentBalance,
+        expectedPayout: data?.expectedPayout
+      }
+      await axios.put(`${urlTransaction}/${id}`, obj);
+      history("/transactions");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
- <div id="wrapper">
+      <div id="wrapper">
         <Sidebar />
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
             <Header />
             <div className="container-fluid"></div>
             <TradingView />
-             <div className="col">
+            <div className="col">
               <div className="card card-registration my-4">
                 <div className="row g-0">
                   <div className="card-body p-md-5 text-black">
@@ -32,21 +74,25 @@ export default function () {
                           id="coin"
                           name="coin"
                           readOnly
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("coin", { required: true })}
                         />
                       </div>
                       <div className="form-outline mb-4 col-md-4">
                         <label
                           className="form-label text-dark font-weight-bold"
-                          htmlFor="amountTraded"
+                          htmlFor="amountDeposited"
                         >
                           Amount Traded <span className="text-danger">*</span>
                         </label>
                         <input
                           type="text"
                           className="form-control form-control-lg"
-                          id="amountTraded"
-                          name="amountTraded"
+                          id="amountDeposited"
+                          name="amountDeposited"
                           readOnly
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("amountDeposited", { required: true })}
                         />
                       </div>
                       <div className="form-outline mb-4 col-md-4">
@@ -61,7 +107,8 @@ export default function () {
                           className="form-control form-control-lg"
                           id="expectedPayout"
                           name="expectedPayout"
-                          readOnly
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("expectedPayout", { required: true })}
                         />
                       </div>
 
@@ -70,8 +117,8 @@ export default function () {
                           className="form-label text-dark font-weight-bold"
                           htmlFor="startDate"
                         >
-                         Start Date <span className="text-danger">*</span>
-                        
+                          Start Date <span className="text-danger">*</span>
+
                         </label>
                         <input
                           type="text"
@@ -79,22 +126,8 @@ export default function () {
                           id="startDate"
                           name="startDate"
                           readOnly
-                        />
-                      </div>
-                      <div className="form-outline mb-4 col-md-4">
-                        <label
-                          className="form-label text-dark font-weight-bold"
-                          htmlFor="endDate"
-                        >
-                          End Date <span className="text-danger">*</span>
-                       
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control form-control-lg"
-                          id="endDate"
-                          name="endDate"
-                          readOnly
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("startDate", { required: true })}
                         />
                       </div>
                       <div className="form-outline mb-4 col-md-4">
@@ -102,36 +135,18 @@ export default function () {
                           className="form-label text-dark font-weight-bold"
                           htmlFor="currentBalance"
                         >
-                         Current Balance <span className="text-danger">*</span>
-                         
+                          Current Balance <span className="text-danger">*</span>
+
                         </label>
                         <input
                           type="number"
                           className="form-control form-control-lg"
                           id="currentBalance"
                           name="currentBalance"
-                        
+                          onChange={(e) => handleOnChange(e)}
+                          {...register("currentBalance", { required: true })}
                         />
                       </div>
-                      <div className="form-outline mb-4 col-md-4">
-                        <label
-                          className="form-label text-dark font-weight-bold"
-                          htmlFor="tradeStatus"
-                        >
-                          Trade Status <span className="text-danger">*</span>
-                         
-                        </label>
-                        <select
-                          className="form-control form-control-lg text-dark"
-                          id="tradeStatus"
-                          name="tradeStatus"
-                         
-                        >
-                          <option></option>
-                         
-                        </select>
-                      </div>
-                     
                     </form>
                     <div className="d-flex float-right pt-3">
                       <a
@@ -145,6 +160,7 @@ export default function () {
                         type="button"
                         id="submit"
                         className="btn btn-success btn-lg"
+                        onClick={handleSubmit(saveTransaction)}
                       >
                         Save
                       </button>
@@ -157,7 +173,7 @@ export default function () {
         </div>
       </div>
 
-  
+
     </>
   )
 }

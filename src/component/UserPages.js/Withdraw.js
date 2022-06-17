@@ -16,7 +16,7 @@ export default function Withdraw() {
     // watch,
     // trigger,
     // control,
-    // setValue,
+    setValue,
     // getValues,
   } = useForm({
     mode: "onChange",
@@ -56,7 +56,7 @@ export default function Withdraw() {
     const addre = wallet.find(x => x.id === Number(e.target.value));
 
     console.log(addre)
-    // setValue("withdrawWalletAddress", addre?.walletAddress)
+    setValue("withdrawWalletAddress", addre?.walletAddress)
   }
   const saveWithdrawal = (data) => {
     try {
@@ -114,7 +114,7 @@ export default function Withdraw() {
                             <span className="text-danger font-weight-bold"> required</span>
                           }</label>
                         <input
-                          type="text"
+                          type="number"
                           className="form-control form-control-lg"
                           id="amount"
                           name="amount"

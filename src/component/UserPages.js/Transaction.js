@@ -5,6 +5,7 @@ import Header from "./Header";
 import { urlTransaction } from "../../endpoints";
 import axios from "axios";
 import Authorize from "../../Auth/Authorize";
+import { Link } from "react-router-dom";
 
 export default function Transaction() {
   const [transaction, setTransaction] = useState([]);
@@ -55,7 +56,7 @@ export default function Transaction() {
                         <th className="text-dark">Amount Traded</th>
                         <th className="text-dark">Expected Payout</th>
                         <th className="text-dark">Start date</th>
-                        <th className="text-dark">End Date</th>
+                        {/* <th className="text-dark">End Date</th> */}
                         <th className="text-dark">Current Balance</th>
                         <th className="text-dark">Trade Status</th>
                         <Authorize
@@ -77,17 +78,17 @@ export default function Transaction() {
                             <Authorize
                               authorize={
                                 <>
-                                  <td className="text-dark">{tran.email}</td>
+                                  <td className="text-dark">{tran.userEmail}</td>
                                   <td className="text-dark">{tran.userName}</td>
                                 </>
                               }
                               roles="Admin"
                             />
-                            <td className="text-dark">${tran.amountDeposited}</td>
-                            <td className="text-dark">${tran.expectedPayout}</td>
+                            <td className="text-dark">{tran.amountDeposited && <>${tran.amountDeposited}</>}</td>
+                            <td className="text-dark">{tran.expectedPayout && <>${tran.expectedPayout}</>}</td>
                             <td className="text-dark">{tran.startDate}</td>
-                            <td className="text-dark">{tran.endDate}</td>
-                            <td className="text-dark">${tran.currentBalance}</td>
+                            {/* <td className="text-dark">{tran.endDate}</td> */}
+                            <td className="text-dark">{tran.currentBalance && <>${tran.currentBalance}</>}</td>
                             <td className="text-dark">
                               {tran.transactionStatus === "Pending" ?
                                 <span className="badge bg-warning text-white p-2 font-weight-bold">
@@ -105,20 +106,17 @@ export default function Transaction() {
                                 <>
                                   <td className="text-dark">
                                     <div className="d-flex justify-content-between">
-                                      <button
-                                        type="button"
-                                        className="btn btn-link btn-sm px-3 text-dark"
-                                        data-ripple-color="dark"
-                                      >
-                                        <i className="fas fa-bars text-dark" />
-                                      </button>
-                                      <button
-                                        type="button"
-                                        className="btn btn-link btn-sm px-3 "
-                                        data-ripple-color="dark"
-                                      >
-                                        <i className="fas fa-times text-danger" />
-                                      </button>
+                                      <Link to={`/viewtransactions/${tran.id}`}>
+                                        <i
+                                          // onClick={() => deleteWallet(coins.BTC)}
+                                          className="fas fa-eye text-primary" />
+                                      </Link>
+                                      <Link to={`/edittransactions/${tran.id}`}>
+                                        <i
+                                          // onClick={() => loadOneWallet(coins.BTC)}
+                                          className="fas fa-pen text-success mr-1"
+                                        />
+                                      </Link>
                                     </div>
                                   </td>
                                 </>

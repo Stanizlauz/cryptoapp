@@ -48,8 +48,8 @@ export function AppRoutes() {
         <Route path="/plans" element={<Plans />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/transactions" element={<Transaction />} />
-        <Route path="/edittransactions" element={<EditTransaction />} />
-        <Route path="/viewtransactions" element={<ViewTransaction />} />
+        <Route path="/edittransactions/:id" element={<EditTransaction />} />
+        <Route path="/viewtransactions/:id" element={<ViewTransaction />} />
         <Route path="/withdraw" element={<Withdraw />} />
         <Route path="/userprofile" element={<UserProfile />} />
         <Route path="/" element={<HomePageBody />} />

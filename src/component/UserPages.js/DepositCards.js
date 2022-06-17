@@ -2,11 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { urlTransaction } from "../../endpoints";
 import { depositFormData } from "../../Utils/FormData";
 
 
 export default function DepositCards({ image, coin, address, modalId }) {
+  const history = useNavigate();
 
   const {
     register,
@@ -27,6 +29,7 @@ export default function DepositCards({ image, coin, address, modalId }) {
       data.picture = data.picture[0]
       const formData = depositFormData(data);
       await axios.post(urlTransaction, formData);
+      history("/transactions");
     } catch (error) {
       console.log(error);
     }
