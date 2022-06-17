@@ -20,7 +20,7 @@ export default function DepositCards({ image, coin, address, modalId }) {
   });
 
   const handleOnChange = (e) => {
-    const { name, value } = e.target;
+    // const { name, value } = e.target;
   };
 
   const depositCoin = async (data) => {
@@ -53,14 +53,14 @@ export default function DepositCards({ image, coin, address, modalId }) {
               Deposit using {coin}
             </div>
             <div className="mt-4">
-              <a
+              <button
                 className="btn btn-primary pointer text-white"
                 data-toggle="modal"
                 data-target={`#${modalId}`}
                 onClick={() => selectedCoin(coin)}
               >
                 Continue
-              </a>
+              </button>
             </div>
           </div>
         </div>

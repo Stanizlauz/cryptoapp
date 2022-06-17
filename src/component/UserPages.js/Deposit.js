@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { urlAdminWallet } from "../../endpoints";
 import { coins } from "../../enum";
 import TradingView from "../TradingView";
@@ -9,18 +8,13 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 
 export default function Deposit() {
-  const {
-    formState: { errors },
-  } = useForm({
-    mode: "onChange",
-    reValidateMode: "onChange",
-  });
   const [data, setData] = useState();
   const [wallet, setWallet] = useState([]);
   let fromPlans = sessionStorage.getItem('fromPlans', "true")
   useEffect(() => {
     loadWallet();
     getPlans();
+    //eslint-disable-next-line
   }, [])
   const loadWallet = async () => {
     await axios.get(urlAdminWallet)

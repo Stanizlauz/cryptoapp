@@ -1,13 +1,13 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { urlTransaction } from '../../endpoints'
 import TradingView from '../TradingView'
 import Header from './Header'
 import Sidebar from './Sidebar'
 
-export default function () {
+export default function EditTransaction() {
   const { id } = useParams();
   const history = useNavigate();
   const {
@@ -20,6 +20,7 @@ export default function () {
   });
   useEffect(() => {
     loadData();
+    //eslint-disable-next-line
   }, [])
   const handleOnChange = (e) => {
     // const { name, value } = e.target;
@@ -149,13 +150,13 @@ export default function () {
                       </div>
                     </form>
                     <div className="d-flex float-right pt-3">
-                      <a
+                      <Link
                         type="button"
-                        to="/"
+                        to="/transactions"
                         className="btn btn-dark btn-lg mr-2"
                       >
                         Back
-                      </a>
+                      </Link>
                       <button
                         type="button"
                         id="submit"
