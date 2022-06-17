@@ -101,9 +101,12 @@ export default function Withdraw() {
             <Header />
             <TradingView />
             <div className="col-lg-8">
-              <div>
+              {/* <div>
                 <h1 style={{ color: "white" }}>Withdraw</h1>
-              </div>
+              </div> */}
+              <div>
+              <h3 className="text-light">Withdraw</h3>
+            </div>
               <div className="card mb-4">
                 <div className="card-body">
                   {wallet && wallet?.length > 0 &&

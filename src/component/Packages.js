@@ -12,8 +12,8 @@ export default function Packages() {
   }
   return (
     <>
-      <div className="container-fluid">
-        <div className="container p-5">
+      {/* <div className="container-fluid"> */}
+        {/* <div className="container p-5"> */}
           <div className="my_alert">
             {" "}
           </div>
@@ -140,8 +140,8 @@ export default function Packages() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
 
       {/* <div className="container">
         <div>

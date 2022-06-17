@@ -59,7 +59,7 @@ export default function () {
               <div className="card card-registration my-4">
                 <div className="row g-0">
                   <div className="card-body p-md-5 text-black">
-                    <h3 className="mb-5 text-uppercase text-dark">Edit Transaction</h3>
+                    <h4 className="mb-5 text-uppercase text-dark">Edit Transaction</h4>
                     <form className="row">
                       <div className="form-outline mb-4 col-md-4">
                         <label
