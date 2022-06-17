@@ -12,6 +12,7 @@ export default function ViewTransaction() {
   const history = useNavigate();
   useEffect(() => {
     loadData();
+    //eslint-disable-next-line
   }, [])
   const loadData = async () => {
     const res = await axios.get(`${urlTransaction}/${id}`)
