@@ -30,7 +30,7 @@ export default function DepositCards({ image, coin, address, modalId }) {
       const formData = depositFormData(data);
       await axios.post(urlTransaction, formData);
       history("/transactions");
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       console.log(error);
     }
