@@ -86,7 +86,7 @@ export default function Sidebar() {
         </li>
         <hr className="sidebar-divider" />
         {/* Nav Item - Charts */}
-        <li className="nav-item">
+        <li className="nav-item" onClick={() => { sessionStorage.setItem('fromPlans', "false") }}>
           <Link className="nav-link" to="/deposit">
             <i className="fas fa-fw fa-chart-area text-dark" />
             <span className="text-dark">Deposit</span>

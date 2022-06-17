@@ -17,6 +17,7 @@ export default function Deposit() {
   });
   const [data, setData] = useState();
   const [wallet, setWallet] = useState([]);
+  let fromPlans = sessionStorage.getItem('fromPlans', "true")
   useEffect(() => {
     loadWallet();
     getPlans();
@@ -66,7 +67,6 @@ export default function Deposit() {
     },
   ];
   const getPlans = () => {
-    let fromPlans = sessionStorage.getItem('fromPlans', "true")
     if (fromPlans === "true") {
       let sessionData = sessionStorage.getItem("myData");
       setData(JSON.parse(sessionData));
@@ -84,21 +84,25 @@ export default function Deposit() {
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
             <Header />
-            <div className="container-fluid"></div>
-            <h1 className="text-dark">Deposit</h1>
+            {/* <div className="container-fluid"></div>
+            <h1 className="text-dark">Deposit</h1> */}
             <TradingView />
+            <div>
+              <h1 className="text-light">Deposit</h1>
+            </div>
             <section className="our-webcoderskull padding-lg bg-light">
               <div className="my_alert">
-                <div className="alert alert-info mx-2">
-                  You have chosen {data?.plan} plan. Please select your desired
-                  coin. Note: plan ranges from {data?.message}
-                  <i
-                    className="font-weight-bolder text-danger float-right mr-2 pointer"
-                    id="dismiss_alert_btn"
-                  >
-                    ×
-                  </i>
-                </div>
+                {fromPlans === "true" &&
+                  <div className="alert alert-info mx-2">
+                    You have chosen {data?.plan} plan. Please select your desired
+                    coin. Note: plan ranges from {data?.message}
+                    <i
+                      className="font-weight-bolder text-danger float-right mr-2 pointer"
+                      id="dismiss_alert_btn"
+                    >
+                      ×
+                    </i>
+                  </div>}
                 <div className="container">
                   <ul className="row">
                     {coin &&

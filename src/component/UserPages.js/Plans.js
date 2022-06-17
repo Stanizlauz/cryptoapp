@@ -14,6 +14,9 @@ export default function Plans() {
             <Header />
             <div className="container-fluid"></div>
             <TradingView />
+            <div>
+              <h1 className="text-light">Plans</h1>
+            </div>
             <Packages />
           </div>
         </div>
