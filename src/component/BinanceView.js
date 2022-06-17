@@ -6,7 +6,7 @@ export default function BinanceView() {
   {/* TradingView Widget BEGIN */}
 <div className="tradingview-widget-container">
   <div className="tradingview-widget-container__widget" />
-  <div className="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE" rel="noopener" target="_blank"><span className="blue-text">BTCUSDT Rates</span></a> by TradingView</div>
+  <div className="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE" rel="noreferrer" target="_blank"><span className="blue-text">BTCUSDT Rates</span></a> by TradingView</div>
 </div>
 
       <div className="first_widget_one">
