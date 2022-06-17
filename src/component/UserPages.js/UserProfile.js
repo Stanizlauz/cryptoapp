@@ -31,7 +31,6 @@ export default function UserProfile() {
     register: register3,
     handleSubmit: handleSubmit3,
     formState: { errors: errors3 },
-    setValue: setValue3,
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
