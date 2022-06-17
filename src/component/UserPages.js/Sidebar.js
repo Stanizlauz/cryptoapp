@@ -35,9 +35,9 @@ export default function Sidebar() {
         {/* Divider */}
         <hr className="sidebar-divider" />
         {/* Nav Item - Dashboard */}
-        <li className="nav-item active">
+        <li className="nav-item">
           <Link className="nav-link" to="/">
-            <i className="fas fa-fw fa-tachometer-alt text-dark" />
+            <i className="fas fa-fw fa-home text-dark" />
             <span className="text-dark">Home</span>
           </Link>
         </li>
@@ -48,7 +48,7 @@ export default function Sidebar() {
         {/* Nav Item - Pages Collapse Menu */}
         <li className="nav-item">
           <Link className="nav-link collapsed" to="/dashboard">
-            <i className="fas fa-fw fa-cog text-dark" />
+            <i className="fas fa-fw fa-line-chart text-dark" />
             <span className="text-dark">Dashboard</span>
           </Link>
         </li>
@@ -58,7 +58,7 @@ export default function Sidebar() {
             <>
               <li className="nav-item">
                 <Link className="nav-link" to="/userprofile">
-                  <i className="fas fa-fw fa-chart-area text-dark" />
+                  <i className="fas fa-fw fa-user-circle text-dark" />
                   <span className="text-dark">Profile</span>
                 </Link>
               </li>
@@ -67,11 +67,9 @@ export default function Sidebar() {
           }
           roles="Admin"
         />
-
-        {/* Nav Item - Utilities Collapse Menu */}
         <li className="nav-item">
           <Link className="nav-link collapsed" to="/plans">
-            <i className="fas fa-fw fa-wrench text-dark" />
+            <i className="fas fa-fw fa-suitcase text-dark" />
             <span className="text-dark">Plans</span>
           </Link>
         </li>
@@ -80,7 +78,7 @@ export default function Sidebar() {
         {/* Nav Item - Pages Collapse Menu */}
         <li className="nav-item">
           <Link className="nav-link collapsed" to="/transactions">
-            <i className="fas fa-fw fa-folder text-dark" />
+            <i className="fas fa-fw fa-tasks text-dark" />
             <span className="text-dark">Transactions</span>
           </Link>
         </li>
@@ -88,7 +86,7 @@ export default function Sidebar() {
         {/* Nav Item - Charts */}
         <li className="nav-item" onClick={() => { sessionStorage.setItem('fromPlans', "false") }}>
           <Link className="nav-link" to="/deposit">
-            <i className="fas fa-fw fa-chart-area text-dark" />
+            <i className="fas fa-fw fa-window-maximize text-dark" />
             <span className="text-dark">Deposit</span>
           </Link>
         </li>
@@ -99,14 +97,14 @@ export default function Sidebar() {
             <>
               <li className="nav-item">
                 <Link className="nav-link" to="/users">
-                  <i className="fas fa-fw fa-chart-area text-dark" />
+                  <i className="fas fa-fw fa-users text-dark" />
                   <span className="text-dark">Users</span>
                 </Link>
               </li>
               <hr className="sidebar-divider" />
               <li className="nav-item">
                 <Link className="nav-link" to="/admin/wallet">
-                  <i className="fas fa-fw fa-chart-area text-dark" />
+                  <i className="fas fa-fw fa-user-secret text-dark" />
                   <span className="text-dark">Admin Wallet</span>
                 </Link>
               </li>
@@ -121,7 +119,7 @@ export default function Sidebar() {
             <>
               <li className="nav-item">
                 <Link className="nav-link" to="/withdraw">
-                  <i className="fas fa-fw fa-table text-dark" />
+                  <i className="fas fa-fw fa-credit-card text-dark" />
                   <span className="text-dark">Withdraw</span>
                 </Link>
               </li>
