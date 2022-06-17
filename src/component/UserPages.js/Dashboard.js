@@ -30,7 +30,7 @@ export default function Dashboard() {
                 {/* Page Heading */}
                 <TradingView />
             <div>
-              <h1 className="text-light">Dashboard</h1>
+              <h3 className="text-light">Dashboard</h3>
             </div>
                 {/* <div className="d-sm-flex align-items-center justify-content-between mb-4">
                   <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>

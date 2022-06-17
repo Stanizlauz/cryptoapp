@@ -84,13 +84,13 @@ export default function Deposit() {
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
             <Header />
-            {/* <div className="container-fluid"></div>
-            <h1 className="text-dark">Deposit</h1> */}
+            <div className="container-fluid">
+            {/* <h1 className="text-dark">Deposit</h1> */}
             <TradingView />
             <div>
-              <h1 className="text-light">Deposit</h1>
+              <h3 className="text-light">Deposit</h3>
             </div>
-            <section className="our-webcoderskull padding-lg bg-light">
+            <div className="our-webcoderskull bg-light">
               <div className="my_alert">
                 {fromPlans === "true" &&
                   <div className="alert alert-info mx-2">
@@ -103,7 +103,7 @@ export default function Deposit() {
                       ×
                     </i>
                   </div>}
-                <div className="container">
+                {/* <div className="container"> */}
                   <ul className="row">
                     {coin &&
                       coin?.map((coin) => (
@@ -115,11 +115,11 @@ export default function Deposit() {
                         />
                       ))}
                   </ul>
-                </div>
-
+                {/* </div> */}
               </div>
-            </section>
+            </div>
           </div>
+        </div>
         </div>
       </div>
     </>

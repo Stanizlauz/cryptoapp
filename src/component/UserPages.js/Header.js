@@ -58,7 +58,7 @@ export default function Header() {
                     <>
                       <li>
                         <Link className="nav-link" to="/userprofile">
-                          <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400" />
+                          <i className="fas fa-user fa-sm fa-fw mr-2 text-dark" />
                           Profile
                         </Link>
                       </li>
@@ -68,7 +68,7 @@ export default function Header() {
                 />
                 <li>
                   <a href="/" onClick={() => logOut()}>
-                    <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />
+                    <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-dark" />
                     Logout
                   </a>
                 </li>
