@@ -28,7 +28,7 @@ export default function Transaction() {
             <div className="container-fluid"></div>
             <TradingView />
             <div>
-              <h1 style={{ color: "white" }}> Transaction History</h1>
+              <h1 className="text-light"> Transaction History</h1>
             </div>
             {/* <div className="card-header py-3">
               <h6 className="m-0 font-weight-bold text-dark">
