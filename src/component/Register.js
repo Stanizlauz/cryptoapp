@@ -411,7 +411,7 @@ export default function Register() {
                         <input
                           type="password"
                           className="form-control form-control-lg"
-                          id="confirmPassword"
+                          id="confirmPassword"   
                           name="confirmPassword"
                           value={input.confirmPassword}
                           onBlur={validateInput}

@@ -10,16 +10,16 @@ import Sidebar from "./Sidebar";
 
 export default function Deposit() {
   const {
-    // register,
-    // handleSubmit,
     formState: { errors },
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
   });
+  const [data, setData] = useState();
   const [wallet, setWallet] = useState([]);
   useEffect(() => {
     loadWallet();
+    getPlans();
   }, [])
   const loadWallet = async () => {
     await axios.get(urlAdminWallet)
@@ -29,28 +29,24 @@ export default function Deposit() {
     {
       image: <img src="img/bitcoinimg.png" className="img-responsive" alt="" />,
       coin: wallet?.find(x => x.coin === coins.BTC),
-      // address: "btcjhdjdkdiirirkf",
     },
     {
       image: (
         <img src="img/Ethereum-img.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.ETH),
-      // address: "ethytthgjfkfkvnnhdrdkd",
     },
     {
       image: (
         <img src="img/pngwing.com.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.BNB),
-      // address: "bnbfgddjdkkirhrn4848rnn",
     },
     {
       image: (
         <img src="img/tether-usdt-logo.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.USDT),
-      // address: "usadfjfjfggklkgl998jjgd",
     },
     {
       image: (
@@ -60,24 +56,26 @@ export default function Deposit() {
           alt=""
         />
       ),
-      coin:wallet?.find(x => x.coin === coins.LTC),
-      // address: "xrprkgjjdldkfnvfjffkk595",
+      coin: wallet?.find(x => x.coin === coins.LTC),
     },
     {
       image: (
         <img src="img/xrp-xrp-logo.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.XRP),
-      // address: "ltw333kgjggidpgdggdj",
     },
   ];
-
-  const getPlans = true;
-  let data;
-  if (getPlans) {
-    data = sessionStorage.getItem("myData");
-    data = JSON.parse(data);
+  const getPlans = () => {
+    let fromPlans = sessionStorage.getItem('fromPlans', "true")
+    if (fromPlans === "true") {
+      let sessionData = sessionStorage.getItem("myData");
+      setData(JSON.parse(sessionData));
+    }
   }
+  // const getPlans = true;
+  // if (getPlans) {
+
+  // }
 
   return (
     <>

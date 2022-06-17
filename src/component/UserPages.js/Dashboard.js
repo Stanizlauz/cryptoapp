@@ -49,8 +49,8 @@ export default function Dashboard() {
                                   <th>S/N</th>
                                   <th>Coin</th>
                                   <th>Amount Traded</th>
-                                  <th>Start Date</th>
-                                  <th>End Date</th>
+                                  {/* <th>Start Date</th> */}
+                                  {/* <th>End Date</th> */}
                                   <th>Current Balance</th>
                                   <th>Expected Payout</th>
                                   <th>Trade Status</th>
@@ -62,11 +62,11 @@ export default function Dashboard() {
                                     <tr key={tran.id}>
                                       <td className="text-dark">{index + 1}</td>
                                       <td className="text-dark">{tran.coin}</td>
-                                      <td className="text-dark">${tran.amountDeposited}</td>
-                                      <td className="text-dark">{tran.startDate}</td>
-                                      <td className="text-dark">{tran.endDate}</td>
-                                      <td className="text-dark">${tran.currentBalance}</td>
-                                      <td className="text-dark">${tran.expectedPayout}</td>
+                                      <td className="text-dark">{tran.amountDeposited && <>${tran.amountDeposited}</>}</td>
+                                      {/* <td className="text-dark">{tran.startDate}</td> */}
+                                      {/* <td className="text-dark">{tran.endDate}</td> */}
+                                      <td className="text-dark">{tran.currentBalance && <>${tran.currentBalance}</>}</td>
+                                      <td className="text-dark">{tran.expectedPayout && <>${tran.expectedPayout}</>}</td>
                                       <td className="text-dark">{tran.transactionStatus === "Pending" ?
                                         <span className="badge bg-warning text-white p-2 font-weight-bold">
                                           {tran.transactionStatus}

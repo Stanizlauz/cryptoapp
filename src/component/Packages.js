@@ -3,19 +3,13 @@ import { Link } from "react-router-dom";
 
 export default function Packages() {
 
-  const setPlans=(name, price) => {
+  const setPlans = (name, price) => {
     //set data with session storage
-      let obj = {plan: name, message: price}
-      sessionStorage.setItem('myData', JSON.stringify(obj))
-      console.log(obj);
+    let obj = { plan: name, message: price }
+    sessionStorage.setItem('myData', JSON.stringify(obj))
+    sessionStorage.setItem('fromPlans', "true")
+    console.log(obj);
   }
-
-  // const getPlans=()=> {
-  //   let data = sessionStorage.getItem('myData');
-  //   data = JSON.parse(data)
-  //   console.log(data.message);
-  // }
-
   return (
     <>
       <div className="container-fluid">
@@ -34,7 +28,7 @@ export default function Packages() {
                   <div className="d-grid my-3">
                     <Link to="/deposit">
                       <button className="btn btn-outline-dark btn-block"
-                      onClick={()=> setPlans('Basic', '$500 - $999')}
+                        onClick={() => setPlans('Basic', '$500 - $999')}
                       >
                         Select
                       </button>
@@ -58,7 +52,7 @@ export default function Packages() {
                   <div className="d-grid my-3">
                     <Link to="/deposit">
                       <button className="btn btn-outline-dark btn-block"
-                      onClick={()=> setPlans('Silver', '$1000 - $5999')}
+                        onClick={() => setPlans('Silver', '$1000 - $5999')}
                       >
                         Select
                       </button>
@@ -72,7 +66,7 @@ export default function Packages() {
                 </div>
               </div>
             </div>
-            
+
             <div className="col-lg-4 col-md-12 mb-4">
               <div className="card card3 h-100">
                 <div className="card-body">
@@ -83,7 +77,7 @@ export default function Packages() {
                   <div className="d-grid my-3">
                     <Link to="/deposit">
                       <button className="btn btn-outline-dark btn-block"
-                      onClick={()=> setPlans('Gold', '$6000 - $9999')}
+                        onClick={() => setPlans('Gold', '$6000 - $9999')}
                       >
                         Select
                       </button>
@@ -107,7 +101,7 @@ export default function Packages() {
                   <div className="d-grid my-3">
                     <Link to="/deposit">
                       <button className="btn btn-outline-dark btn-block"
-                      onClick={()=> setPlans('Diamond', '$10,000 - $49,999')}
+                        onClick={() => setPlans('Diamond', '$10,000 - $49,999')}
                       >
                         Select
                       </button>
@@ -131,7 +125,7 @@ export default function Packages() {
                   <div className="d-grid my-3">
                     <Link to="/deposit">
                       <button className="btn btn-outline-dark btn-block"
-                      onClick={()=> setPlans('Platinum', '$50,000 - $99,999')}
+                        onClick={() => setPlans('Platinum', '$50,000 - $99,999')}
                       >
                         Select
                       </button>
