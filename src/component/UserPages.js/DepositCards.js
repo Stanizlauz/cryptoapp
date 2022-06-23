@@ -30,16 +30,18 @@ export default function DepositCards({ image, coin, address, modalId ,message}) 
       const formData = depositFormData(data);
       await axios.post(urlTransaction, formData);
       history("/transactions");
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       console.log(error);
     }
   };
+
   const selectedCoin = (coi) => {
     setSelectCoin(coi)
   }
+
   const [copied, setCopied] = useState(false);
-  const [selectCoin, setSelectCoin] = useState()
+  const [selectCoin, setSelectCoin] = useState();
   return (
     <>
       <li className="col-12 col-md-6 col-lg-3">
