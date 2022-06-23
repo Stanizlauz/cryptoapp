@@ -51,14 +51,36 @@ export default function Pricing() {
                           Silver
                         </Link>
                         <h3>
-                          $1000
+                          $1,000
                           <small className="max">/Max $5999</small>
                         </h3>
                       </div>
                       <div className="solu_description">
                         <p>24/7 Support</p>
                         <br />
-                        <p>7 Days/Trade For</p>
+                        <p>14 Days/Trade For</p>
+                        <div className="number_of_days">7 Days</div>
+                        <button type="button" className="read_more_btn">
+                          Choose Plan
+                        </button>
+                      </div>
+                    </div>
+                    <div className="solution_card">
+                      <div className="hover_color_bubble" />
+                   
+                      <div className="solu_title">
+                        <Link to="/plan" className="type-of-plan">
+                          Gold
+                        </Link>
+                        <h3>
+                          $6,000
+                          <small className="max">/Max $39,999</small>
+                        </h3>
+                      </div>
+                      <div className="solu_description">
+                        <p>24/7 Support</p>
+                        <br />
+                        <p>14 Days/Trade For</p>
                         <div className="number_of_days">7Days</div>
                         <button type="button" className="read_more_btn">
                           Choose Plan
@@ -73,17 +95,17 @@ export default function Pricing() {
                    
                       <div className="solu_title">
                         <Link to="/plan" className="type-of-plan">
-                          Gold
+                          Diamond
                         </Link>
                         <h3>
-                          $6000
-                          <small className="max">/Max $39,999</small>
+                          $10,000
+                          <small className="max">/Max $49,999</small>
                         </h3>
                       </div>
                       <div className="solu_description">
                         <p>24/7 Support</p>
                         <br />
-                        <p>12 Days/Trade For</p>
+                        <p>14 Days/Trade For</p>
                         <div className="number_of_days">14 Days</div>
                         <button type="button" className="read_more_btn">
                           Choose Plan
@@ -95,11 +117,33 @@ export default function Pricing() {
                    
                       <div className="solu_title">
                         <Link to="/plan" className="type-of-plan">
-                          Diamomd
+                          Platinum
                         </Link>
                         <h3>
-                          $40,000
+                          $50,000
                           <small className="max">/Max $99,999</small>
+                        </h3>
+                      </div>
+                      <div className="solu_description">
+                        <p>24/7 Support</p>
+                        <br />
+                        <p>14 Days/Trade For</p>
+                        <div className="number_of_days">14 Days</div>
+                        <button type="button" className="read_more_btn">
+                          Choose Plan
+                        </button>
+                      </div>
+                    </div>
+                    <div className="solution_card">
+                      <div className="hover_color_bubble" />
+                   
+                      <div className="solu_title">
+                        <Link to="/plan" className="type-of-plan">
+                          Premium
+                        </Link>
+                        <h3>
+                          $100,000
+                          <small className="max">/Max $999,999</small>
                         </h3>
                       </div>
                       <div className="solu_description">
@@ -112,6 +156,7 @@ export default function Pricing() {
                         </button>
                       </div>
                     </div>
+                    
                   </div>
                 </div>
               </div>

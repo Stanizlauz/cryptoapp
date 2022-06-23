@@ -1,5 +1,5 @@
 import React from "react";
-import About from "./About";
+// import About from "./About";
 import AboutTeamSecond from "./AboutTeamSecond";
 import AllChart from "./AllChart";
 import CarouselWrapper from "./CarouselWrapper";
@@ -15,7 +15,7 @@ export default function HomePageBody() {
       <Headerss />
       <CarouselWrapper />
       {/* <BinanceView /> */}
-      <About />
+      {/* <About /> */}
       <AllChart />
       <Services />
       <Pricing />

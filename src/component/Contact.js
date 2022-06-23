@@ -9,7 +9,7 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_33x5rne', 'template_kh9sg39', e.target, 'user_3Qmrr6MR0vYHh7GiRvOW9')
+    emailjs.sendForm('service_is1k6x2', 'template_kh9sg39', e.target, 'user_3Qmrr6MR0vYHh7GiRvOW9')
         .then((result) => {
             console.log(result.text);
         }, (error) => {
@@ -109,7 +109,7 @@ export default function Contact() {
                  
                   <li>
                     <i className="ti-envelope text-dark" />
-                    <span>Mail:  service.capitaltrades@hotmail.com</span> 
+                    <span>Mail:  arkstrades.info@gmail.com</span> 
                   </li>
                 </ul>
               </div>

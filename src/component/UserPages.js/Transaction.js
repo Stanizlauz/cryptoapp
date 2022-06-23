@@ -6,6 +6,7 @@ import { urlTransaction } from "../../endpoints";
 import axios from "axios";
 import Authorize from "../../Auth/Authorize";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 export default function Transaction() {
   const [transaction, setTransaction] = useState([]);
@@ -28,7 +29,7 @@ export default function Transaction() {
             <div className="container-fluid">
               <TradingView />
               <div>
-                <h3 className="text-light"> Transaction History</h3>
+                <h3 className="" style={{ color: '#00757F', fontWeight: 'bold' }}> Transaction History</h3>
               </div>
               {/* <div className="card-header py-3">
               <h6 className="m-0 font-weight-bold text-dark">
@@ -86,7 +87,7 @@ export default function Transaction() {
                               />
                               <td className="text-dark">{tran.amountDeposited && <>${tran.amountDeposited}</>}</td>
                               <td className="text-dark">{tran.expectedPayout && <>${tran.expectedPayout}</>}</td>
-                              <td className="text-dark">{tran.startDate}</td>
+                              <td className="text-dark">{moment(tran.startDate).format('MMM D, YYYY')}</td>
                               {/* <td className="text-dark">{tran.endDate}</td> */}
                               <td className="text-dark">{tran.currentBalance && <>${tran.currentBalance}</>}</td>
                               <td className="text-dark">

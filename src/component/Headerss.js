@@ -19,12 +19,12 @@ export default function Headerss() {
       <header>
         x
         <nav
-          className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+          className="navbar navbar-expand-lg navbar-dark bg-light fixed-top"
           id="accordionSidebar"
         >
           {/* <a className="navbar-brand" href="#"> */}
             {/* Navbar */}
-            <img src="img/logo.png" alt="Brand" style={{ width: "120px" }} />
+            <img src="img/logo1.png" alt="Brand" style={{ width: "120px" }} />
           {/* </a> */}
           <button
             className="navbar-toggler"
@@ -41,7 +41,7 @@ export default function Headerss() {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
               <li className="nav-item">
-              <Link to="/" className="nav-link" style={{fontWeight: 'bolder'}}>
+              <Link to="/" className="nav-link text-dark" style={{fontWeight: 'bolder'}}>
               Home
                 </Link>
               </li>
@@ -51,35 +51,35 @@ export default function Headerss() {
               </a>
             </li> */}
               <li>
-                <Link to="/about" className="nav-link" style={{fontWeight: 'bolder'}}> 
+                <Link to="/about" className="nav-link text-dark" style={{fontWeight: 'bolder'}}> 
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/plans" className="nav-link" style={{fontWeight: 'bolder'}}>
+                <Link to="/plans" className="nav-link text-dark" style={{fontWeight: 'bolder'}}>
                   Plans
                 </Link>
               </li>
               <li>
-                <Link to="/faqs" className="nav-link" style={{fontWeight: 'bolder'}}>
+                <Link to="/faqs" className="nav-link text-dark" style={{fontWeight: 'bolder'}}>
                   FAQS
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="nav-link" style={{fontWeight: 'bolder'}}>
+                <Link to="/contact" className="nav-link text-dark" style={{fontWeight: 'bolder'}}>
                   Contact Us
                 </Link>
               </li>
               {loggedIn?.length === 0 ? (
                 <>
                   <li className="nav-item">
-                    <Link to="/login" className="btn btn-outline-light btn-xs btn-icon-text mx-2 my-1">
+                    <Link to="/login" className="btn btn-outline-dark btn-xs btn-icon-text mx-2 my-1 text-dark">
                       {/* <i className="ti-user" /> */}
                       Login
                     </Link>
                   </li>
                   <li>
-                    <Link to="/register" type="button" className="btn btn-outline-light btn-xs btn-icon-text my-1">
+                    <Link to="/register" type="button" className="btn btn-outline-dark btn-xs btn-icon-text my-1 text-dark">
                       {/* <i className="ti-pencil-alt" /> */}
                       Register
                     </Link>
@@ -88,13 +88,13 @@ export default function Headerss() {
               ) : (
                 <>
                   <li>
-                    <a href="/" onClick={() => logOut()} className="btn btn-outline-light btn-xs btn-icon-text mx-2 my-1">
+                    <a href="/" onClick={() => logOut()} className="btn btn-outline-dark btn-xs btn-icon-text mx-2 my-1 text-dark">
                       {/* <i className="ti-new-window" /> */}
                       Logout
                     </a>
                   </li>
                   <li>
-                    <Link to="/dashboard" className="btn btn-outline-light btn-xs btn-icon-text my-1">
+                    <Link to="/dashboard" className="btn btn-outline-dark btn-xs btn-icon-text my-1 text-dark">
                       {/* <i className="ti-bar-chart" /> */}
                       Dashboard
                     </Link>

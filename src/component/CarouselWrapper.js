@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function CarouselWrapper() {
   return (
@@ -33,16 +34,68 @@ export default function CarouselWrapper() {
         <div className="carousel-inner">
           {/* Single item */}
           <div className="carousel-item active">
-          <div className="carousel-caption d-none d-md-block">
-              <h1 className="wow fadeInLeft2" 
-                  data-wow-delay="1s"
-                  style={{backgroundColor: "rgba(249, 183, 7, 0.9)", padding: "20px 15px", borderRadius: "4px"}}>
+            <div className="carousel-caption d-none d-md-block mb-4">
+              <h1
+                className="wow fadeInLeft2 mb-4"
+                data-wow-delay="1s"
+                style={{
+                  backgroundColor: "#00757F",
+                  padding: "20px 15px",
+                  borderRadius: "4px",
+                }}
+              >
                 <span>Get Organized and make Profit</span>
                 <br />
               </h1>
-              <p className="wow fadeInRight2" data-wow-delay="1s">
+              <p
+                className="wow fadeInRight2"
+                data-wow-delay="1s"
+                style={{
+                  backgroundColor: "#4b4b4f",
+                  borderRadius: "4px",
+                  }}
+              >
                 All you need to become a better earner in one place
               </p>
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+
+              <div className="col-sm-6 xs-padding mb-4">
+                <div className="about_info">
+                  <h3
+                    style={{
+                      backgroundColor: "#00757F",
+                      padding: "10px 15px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Recognizing your need is our primary motive.
+                  </h3>
+                  <p
+                    style={{
+                      backgroundColor: "#4b4b4f",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    Our aim is to minimize risk and make profit from the crypto
+                    currency market while putting smiles on our customers faces.
+                  </p>
+                  {/* <a href="#" className="button_1">More About Us</a> */}
+                  <Link
+                    to="/about"
+                    className="btn btn-outline-light btn-xs btn-icon-text"
+                  >
+                    More about us
+                  </Link>
+                </div>
+              </div>
             </div>
             <img
               src="img/landinhpagegif.jpg"
@@ -50,11 +103,6 @@ export default function CarouselWrapper() {
               alt=""
               title="#slider-caption-1"
             />
-            {/* <div className="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </div> */}
-            
           </div>
           {/* Single item */}
           <div className="carousel-item">

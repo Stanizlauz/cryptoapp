@@ -24,24 +24,31 @@ export default function Deposit() {
     {
       image: <img src="img/bitcoinimg.png" className="img-responsive" alt="" />,
       coin: wallet?.find(x => x.coin === coins.BTC),
+      message: "(Bitcoin network)"
     },
     {
       image: (
         <img src="img/Ethereum-img.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.ETH),
+      message: "(ERc 20 network)"
+
     },
     {
       image: (
         <img src="img/pngwing.com.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.BNB),
+      message: "(Bep 20 network)"
+
     },
     {
       image: (
         <img src="img/tether-usdt-logo.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.USDT),
+      message: "(usdt 20 network)"
+
     },
     {
       image: (
@@ -52,12 +59,16 @@ export default function Deposit() {
         />
       ),
       coin: wallet?.find(x => x.coin === coins.LTC),
+      message: "(Ltc network)"
+
     },
     {
       image: (
         <img src="img/xrp-xrp-logo.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.XRP),
+      message: "(Ripple network)"
+
     },
   ];
   const getPlans = () => {
@@ -82,9 +93,9 @@ export default function Deposit() {
             {/* <h1 className="text-dark">Deposit</h1> */}
             <TradingView />
             <div>
-              <h3 className="text-light">Deposit</h3>
+              <h3 className="" style={{ color: '#00757F', fontWeight: 'bold' }}>Deposit</h3>
             </div>
-            <div className="our-webcoderskull bg-light">
+            <div className="our-webcoderskull bg-dark">
               <div className="my_alert">
                 {fromPlans === "true" &&
                   <div className="alert alert-info mx-2">
@@ -106,6 +117,7 @@ export default function Deposit() {
                           coin={coin.coin?.coin}
                           address={coin.coin?.walletAddress}
                           modalId={coin.coin?.walletAddress}
+                          message={coin.message}
                         />
                       ))}
                   </ul>
