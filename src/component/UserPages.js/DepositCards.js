@@ -7,7 +7,7 @@ import { urlTransaction } from "../../endpoints";
 import { depositFormData } from "../../Utils/FormData";
 
 
-export default function DepositCards({ image, coin, address, modalId }) {
+export default function DepositCards({ image, coin, address, modalId ,message}) {
   const history = useNavigate();
 
   const {
@@ -121,6 +121,9 @@ export default function DepositCards({ image, coin, address, modalId }) {
                   </div>
                   <hr />
                   <div >
+                  <div className="mt-3 mb-3 text-dark" style={{fontWeight: 'bold'}}>
+                  Pay your preferred investment amount to the company's {coin} address {message}
+                  </div>
                     <textarea
                       readOnly
                       rows={1}

@@ -105,7 +105,7 @@ export default function Withdraw() {
                 <h1 style={{ color: "white" }}>Withdraw</h1>
               </div> */}
               <div>
-              <h3 className="text-light">Withdraw</h3>
+              <h3 style={{ color: '#FFD700', fontWeight: 'bold' }}>Withdraw</h3>
             </div>
               <div className="card mb-4">
                 <div className="card-body">

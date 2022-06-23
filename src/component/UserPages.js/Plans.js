@@ -15,7 +15,7 @@ export default function Plans() {
             <div className="container-fluid">
               <TradingView />
               <div>
-                <h3 className="text-light">Plans</h3>
+                <h3 className="" style={{ color: '#00757F', fontWeight: 'bold' }}>Plans</h3>
               </div>
               <Packages />
             </div>

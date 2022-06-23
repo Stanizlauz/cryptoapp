@@ -16,7 +16,7 @@ export default function Sidebar() {
     <>
       {/* Sidebar */}
       <ul
-        className="navbar-nav text-dark bg-gradient-light sidebar sidebar-dark accordion"
+        className="navbar-nav text-dark sidebar sidebar-dark accordion"
         id="accordionSidebar"
       >
         {/* Sidebar - Brand */}
@@ -28,7 +28,7 @@ export default function Sidebar() {
 
             {/* <i className="fas fa-laugh-wink text-dark" /> */}
           </div>
-          <img src="img/logo.png" alt="Brand" style={{ width: "120px" }} />
+          <img src="img/logo1.png" alt="Brand" style={{ width: "120px" }} />
 
           {/* <div className="sidebar-brand-text mx-3 text-dark">Admin</div> */}
         </a>
@@ -38,7 +38,7 @@ export default function Sidebar() {
         <li className="nav-item">
           <Link className="nav-link" to="/">
             <i className="fas fa-fw fa-home text-dark" />
-            <span className="text-dark">Home</span>
+            <span className="text-dark" style={{fontWeight: 'bolder', fontSize: '15px'}}>Home</span>
           </Link>
         </li>
         {/* Divider */}
@@ -49,7 +49,7 @@ export default function Sidebar() {
         <li className="nav-item">
           <Link className="nav-link collapsed" to="/dashboard">
             <i className="fas fa-fw fa-line-chart text-dark" />
-            <span className="text-dark">Dashboard</span>
+            <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Dashboard</span>
           </Link>
         </li>
         <hr className="sidebar-divider" />
@@ -59,7 +59,7 @@ export default function Sidebar() {
               <li className="nav-item">
                 <Link className="nav-link" to="/userprofile">
                   <i className="fas fa-fw fa-user-circle text-dark" />
-                  <span className="text-dark">Profile</span>
+                  <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Profile</span>
                 </Link>
               </li>
               <hr className="sidebar-divider" />
@@ -70,7 +70,7 @@ export default function Sidebar() {
         <li className="nav-item">
           <Link className="nav-link collapsed" to="/plans">
             <i className="fas fa-fw fa-suitcase text-dark" />
-            <span className="text-dark">Plans</span>
+            <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Plans</span>
           </Link>
         </li>
         {/* Divider */}
@@ -79,7 +79,7 @@ export default function Sidebar() {
         <li className="nav-item">
           <Link className="nav-link collapsed" to="/transactions">
             <i className="fas fa-fw fa-tasks text-dark" />
-            <span className="text-dark">Transactions</span>
+            <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Transactions</span>
           </Link>
         </li>
         <hr className="sidebar-divider" />
@@ -87,7 +87,7 @@ export default function Sidebar() {
         <li className="nav-item" onClick={() => { sessionStorage.setItem('fromPlans', "false") }}>
           <Link className="nav-link" to="/deposit">
             <i className="fas fa-fw fa-window-maximize text-dark" />
-            <span className="text-dark">Deposit</span>
+            <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Deposit</span>
           </Link>
         </li>
         <hr className="sidebar-divider" />
@@ -98,14 +98,14 @@ export default function Sidebar() {
               <li className="nav-item">
                 <Link className="nav-link" to="/users">
                   <i className="fas fa-fw fa-users text-dark" />
-                  <span className="text-dark">Users</span>
+                  <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Users</span>
                 </Link>
               </li>
               <hr className="sidebar-divider" />
               <li className="nav-item">
                 <Link className="nav-link" to="/admin/wallet">
                   <i className="fas fa-fw fa-user-secret text-dark" />
-                  <span className="text-dark">Admin Wallet</span>
+                  <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Admin Wallet</span>
                 </Link>
               </li>
               <hr className="sidebar-divider" />
@@ -120,7 +120,7 @@ export default function Sidebar() {
               <li className="nav-item">
                 <Link className="nav-link" to="/withdraw">
                   <i className="fas fa-fw fa-credit-card text-dark" />
-                  <span className="text-dark">Withdraw</span>
+                  <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Withdraw</span>
                 </Link>
               </li>
               {/* Divider */}

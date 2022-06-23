@@ -5,7 +5,7 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_33x5rne', 'template_kh9sg39', e.target, 'user_3Qmrr6MR0vYHh7GiRvOW9')
+    emailjs.sendForm('service_is1k6x2', 'template_kh9sg39', e.target, 'user_3Qmrr6MR0vYHh7GiRvOW9')
         .then((result) => {
             console.log(result.text);
         }, (error) => {
@@ -22,7 +22,7 @@ export default function Contact() {
         <div className="contact_info">
           <h2>Contact Information</h2>
           <ul>
-            <li><i className="ti-envelope" /><span>Mail:</span> service.capitaltrades@hotmail.com</li>
+            <li><i className="ti-envelope" /><span>Mail:</span> arkstrades.info@gmail.com</li>
           </ul>
         </div>
       </div>

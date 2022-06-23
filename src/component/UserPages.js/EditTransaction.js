@@ -6,6 +6,8 @@ import { urlTransaction } from '../../endpoints'
 import TradingView from '../TradingView'
 import Header from './Header'
 import Sidebar from './Sidebar'
+import moment from "moment";
+
 
 export default function EditTransaction() {
   const { id } = useParams();
@@ -30,7 +32,7 @@ export default function EditTransaction() {
     setValue("coin", res?.data?.coin)
     setValue("amountDeposited", res?.data?.amountDeposited)
     setValue("expectedPayout", res?.data?.expectedPayout)
-    setValue("startDate", res?.data?.startDate)
+    setValue("startDate", moment(res?.data?.startDate).format('MMM D, YYYY'))
     setValue("currentBalance", res?.data?.currentBalance)
   }
 
