@@ -107,7 +107,7 @@ export default function AdminWallet() {
             {/* <section className="col" style={{ backgroundColor: "#eee" }}> */}
             <div className="col-lg-12">
               <div>
-                <h1 style={{ color: "white" }}>Admin Wallet</h1>
+                <h1 style={{ color: '#00757F', fontWeight: 'bold' }}>Admin Wallet</h1>
               </div>
               {wallet?.length !== 6 &&
                 <div className="card mb-4 mb-lg-0">

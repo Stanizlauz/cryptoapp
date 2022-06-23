@@ -16,7 +16,7 @@
       content="width=device-width, minimum-scale=1, maximum-scale=1"
     />
     <meta name="turbo-visit-control" content="reload" />
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon1.png" />
     <link
       href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
       rel="stylesheet"
@@ -165,6 +165,18 @@
 
     <!-- charts -->
     <script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>
-   
+  <script src="https://widgets.coingecko.com/coingecko-coin-price-static-headline-widget.js"></script>
+  <script>
+    (function(b,i,t,C,O,I,N) {
+      window.addEventListener('load',function() {
+        if(b.getElementById(C))return;
+        I=b.createElement(i),N=b.getElementsByTagName(i)[0];
+        I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
+      },false)
+    })(document,'script','https://widgets.bitcoin.com/widget.js','btcwdgt');
+  </script>
+  <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinPriceBlock.js"></script>
+  <script src="https://www.cryptohopper.com/widgets/js/script"></script>
+
   </body>
 </html>

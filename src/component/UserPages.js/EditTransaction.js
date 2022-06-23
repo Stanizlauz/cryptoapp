@@ -1,13 +1,15 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { urlTransaction } from '../../endpoints'
 import TradingView from '../TradingView'
 import Header from './Header'
 import Sidebar from './Sidebar'
+import moment from "moment";
 
-export default function () {
+
+export default function EditTransaction() {
   const { id } = useParams();
   const history = useNavigate();
   const {
@@ -20,6 +22,7 @@ export default function () {
   });
   useEffect(() => {
     loadData();
+    //eslint-disable-next-line
   }, [])
   const handleOnChange = (e) => {
     // const { name, value } = e.target;
@@ -29,7 +32,7 @@ export default function () {
     setValue("coin", res?.data?.coin)
     setValue("amountDeposited", res?.data?.amountDeposited)
     setValue("expectedPayout", res?.data?.expectedPayout)
-    setValue("startDate", res?.data?.startDate)
+    setValue("startDate", moment(res?.data?.startDate).format('MMM D, YYYY'))
     setValue("currentBalance", res?.data?.currentBalance)
   }
 
@@ -59,7 +62,7 @@ export default function () {
               <div className="card card-registration my-4">
                 <div className="row g-0">
                   <div className="card-body p-md-5 text-black">
-                    <h3 className="mb-5 text-uppercase text-dark">Edit Transaction</h3>
+                    <h4 className="mb-5 text-uppercase text-dark">Edit Transaction</h4>
                     <form className="row">
                       <div className="form-outline mb-4 col-md-4">
                         <label
@@ -149,13 +152,13 @@ export default function () {
                       </div>
                     </form>
                     <div className="d-flex float-right pt-3">
-                      <a
+                      <Link
                         type="button"
-                        to="/"
+                        to="/transactions"
                         className="btn btn-dark btn-lg mr-2"
                       >
                         Back
-                      </a>
+                      </Link>
                       <button
                         type="button"
                         id="submit"

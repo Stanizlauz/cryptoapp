@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { urlAdminWallet } from "../../endpoints";
 import { coins } from "../../enum";
 import TradingView from "../TradingView";
@@ -9,17 +8,13 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 
 export default function Deposit() {
-  const {
-    formState: { errors },
-  } = useForm({
-    mode: "onChange",
-    reValidateMode: "onChange",
-  });
   const [data, setData] = useState();
   const [wallet, setWallet] = useState([]);
+  let fromPlans = sessionStorage.getItem('fromPlans', "true")
   useEffect(() => {
     loadWallet();
     getPlans();
+    //eslint-disable-next-line
   }, [])
   const loadWallet = async () => {
     await axios.get(urlAdminWallet)
@@ -29,24 +24,31 @@ export default function Deposit() {
     {
       image: <img src="img/bitcoinimg.png" className="img-responsive" alt="" />,
       coin: wallet?.find(x => x.coin === coins.BTC),
+      message: "(Bitcoin network)"
     },
     {
       image: (
         <img src="img/Ethereum-img.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.ETH),
+      message: "(ERc 20 network)"
+
     },
     {
       image: (
         <img src="img/pngwing.com.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.BNB),
+      message: "(Bep 20 network)"
+
     },
     {
       image: (
         <img src="img/tether-usdt-logo.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.USDT),
+      message: "(usdt 20 network)"
+
     },
     {
       image: (
@@ -57,16 +59,19 @@ export default function Deposit() {
         />
       ),
       coin: wallet?.find(x => x.coin === coins.LTC),
+      message: "(Ltc network)"
+
     },
     {
       image: (
         <img src="img/xrp-xrp-logo.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.XRP),
+      message: "(Ripple network)"
+
     },
   ];
   const getPlans = () => {
-    let fromPlans = sessionStorage.getItem('fromPlans', "true")
     if (fromPlans === "true") {
       let sessionData = sessionStorage.getItem("myData");
       setData(JSON.parse(sessionData));
@@ -84,22 +89,26 @@ export default function Deposit() {
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
             <Header />
-            <div className="container-fluid"></div>
-            <h1 className="text-dark">Deposit</h1>
+            <div className="container-fluid">
+            {/* <h1 className="text-dark">Deposit</h1> */}
             <TradingView />
-            <section className="our-webcoderskull padding-lg bg-light">
+            <div>
+              <h3 className="" style={{ color: '#00757F', fontWeight: 'bold' }}>Deposit</h3>
+            </div>
+            <div className="our-webcoderskull bg-dark">
               <div className="my_alert">
-                <div className="alert alert-info mx-2">
-                  You have chosen {data?.plan} plan. Please select your desired
-                  coin. Note: plan ranges from {data?.message}
-                  <i
-                    className="font-weight-bolder text-danger float-right mr-2 pointer"
-                    id="dismiss_alert_btn"
-                  >
-                    ×
-                  </i>
-                </div>
-                <div className="container">
+                {fromPlans === "true" &&
+                  <div className="alert alert-info mx-2">
+                    You have chosen {data?.plan} plan. Please select your desired
+                    coin. Note: plan ranges from {data?.message}
+                    <i
+                      className="font-weight-bolder text-danger float-right mr-2 pointer"
+                      id="dismiss_alert_btn"
+                    >
+                      ×
+                    </i>
+                  </div>}
+                {/* <div className="container"> */}
                   <ul className="row">
                     {coin &&
                       coin?.map((coin) => (
@@ -108,14 +117,15 @@ export default function Deposit() {
                           coin={coin.coin?.coin}
                           address={coin.coin?.walletAddress}
                           modalId={coin.coin?.walletAddress}
+                          message={coin.message}
                         />
                       ))}
                   </ul>
-                </div>
-
+                {/* </div> */}
               </div>
-            </section>
+            </div>
           </div>
+        </div>
         </div>
       </div>
     </>

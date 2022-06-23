@@ -26,12 +26,15 @@ export default function UsersList() {
                         <Header />
                         <div className="container-fluid"></div>
                         <TradingView />
+                        <div>
+                            <h1 className="text-light">Users</h1>
+                        </div>
                         <div className="card shadow mb-4 mx-2">
-                            <div className="card-header py-3">
+                            {/* <div className="card-header py-3">
                                 <h4 className="m-0 font-weight-bold text-dark">
                                     Users
                                 </h4>
-                            </div>
+                            </div> */}
                             <div className="card-body bg-white">
                                 <div className="table-responsive">
                                     <table className="table align-middle">

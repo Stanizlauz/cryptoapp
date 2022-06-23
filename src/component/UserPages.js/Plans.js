@@ -12,9 +12,13 @@ export default function Plans() {
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
             <Header />
-            <div className="container-fluid"></div>
-            <TradingView />
-            <Packages />
+            <div className="container-fluid">
+              <TradingView />
+              <div>
+                <h3 className="" style={{ color: '#00757F', fontWeight: 'bold' }}>Plans</h3>
+              </div>
+              <Packages />
+            </div>
           </div>
         </div>
       </div>

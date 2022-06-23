@@ -10,8 +10,8 @@ export default function Footer() {
             <div className="row widget_wrapper">
               <div className="col-lg-3 col-sm-6 sm-padding" style={{fontWeight: 'bold'}}>
                 <p>
-                  All deposit should be made directly to CapitalTrades trading
-                  wallet provided on your dashboard, CapitalTrades wont aknowlegde
+                  All deposit should be made directly to ArksTrades trading
+                  wallet provided on your dashboard, ArksTrades wont aknowlegde
                   fund transfer from third party agent or be accountable for
                   loss of deposit made to any account managers or refer.
                 </p>
@@ -21,9 +21,11 @@ export default function Footer() {
                 <ul className="widget_links">
                   <li>Bitcoin</li>
                   <li>Ethereum</li>
-                  <li>Shiba Inu</li>
-                  <li>DogeCoin</li>
-                  <li>Luna Coin</li>
+                  <li>BNB</li>
+                  <li>XRP</li>
+                  <li>Lite Coin</li>
+                  <li>USDT</li>
+
                 </ul>
               </div>
               <div className="col-lg-3 col-sm-6 sm-padding">

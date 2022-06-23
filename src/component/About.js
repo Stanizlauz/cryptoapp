@@ -21,17 +21,6 @@ export default function About() {
           <Link to="/about"  className="button_1">More about us</Link>
         </div>
       </div>
-      {/* <div className="col-sm-6 xs-padding">
-        <div className="why_content">
-          <h3>Why Choose Us?</h3>
-          <ul>
-            <li><i className="fa fa-check" />We offer the most package of service in the industry.</li>
-            <li><i className="fa fa-check" />High customer retention rate. Printing and type company.</li>
-            <li><i className="fa fa-check" />Our service features are unmatched in the center.</li>
-            <li><i className="fa fa-check" />Afordable pricing offers. Printing and typesetting house.</li>
-          </ul>
-        </div>
-      </div> */}
     </div>
   </div>
   <div className="about_image" />

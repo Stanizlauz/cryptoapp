@@ -1,47 +1,22 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Services() {
   return (
     <>
-  {/* <div className="container">
-    <div className="section_heading align-center mb-40">
-      <h2>Our   <span> Services</span></h2>
-      <p>Why Choose Us</p>
-    </div>
-    <div className="row service_lists">
-      <div className="col-md-4 col-sm-6">
-        <div className="service_content">
-          <img src="img/icon-1.png" alt="services" />
-          <h3>Transaction</h3>
-          <p>Our Trading program is insured with up to $89million. This covers for 80% of your trading risk. Access your earnings and request withdrawals without a hitch.</p>
-        </div>
-      </div>
-   
-      <div className="col-md-4 col-sm-6">
-        <div className="service_content">
-          <img src="img/icon-4.png" alt="services" />
-          <h3>Safe and Secure</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing cryptocoin and typesetting industry.</p>
-        </div>
-      </div>
-      <div className="col-md-4 col-sm-6">
-        <div className="service_content">
-          <img src="img/icon-5.png" alt="services" />
-          <h3>Investment Planning</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing cryptocoin and typesetting industry.</p>
-          <a href="#">Read More</a>
-        </div>
-      </div>
-     
-    </div>
-  </div> */}
  <div className="py-5 bg-light service-27">
   <div className="container">
     <div className="row justify-content-md-center">
       {/* column */}
       <div className="col-lg-6 align-self-center">
-        <span className="badge badge-info font-weight-heavy" style={{fontSize: '30px'}}>Why Choose Us?</span>
+        <span className="badge badge-info font-weight-heavy" style={{fontSize: '20px'}}>Why Choose Us?</span>
         <h4 className="my-3 text-dark service-text">Our goal is to provide our investors with a reliable source of high income, while minimizing any possible risks and offering high-quality service.</h4>
+        <Link
+                    to="/about"
+                    className="btn btn-outline-light btn-xs btn-icon-text"
+                  >
+                    Read More.
+                  </Link>
         {/* <p className="mt-3">You can relay on our amazing features list and also our customer services will be great experience for you without doubt and in no-time and with great quality.</p> */}
         <div className="row justify-content-md-center">
           <div className="col-md-5 mt-4 mx-2 service-box">

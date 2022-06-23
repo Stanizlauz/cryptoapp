@@ -7,7 +7,7 @@ import { urlTransaction } from "../../endpoints";
 import { depositFormData } from "../../Utils/FormData";
 
 
-export default function DepositCards({ image, coin, address, modalId }) {
+export default function DepositCards({ image, coin, address, modalId ,message}) {
   const history = useNavigate();
 
   const {
@@ -20,7 +20,7 @@ export default function DepositCards({ image, coin, address, modalId }) {
   });
 
   const handleOnChange = (e) => {
-    const { name, value } = e.target;
+    // const { name, value } = e.target;
   };
 
   const depositCoin = async (data) => {
@@ -30,6 +30,7 @@ export default function DepositCards({ image, coin, address, modalId }) {
       const formData = depositFormData(data);
       await axios.post(urlTransaction, formData);
       history("/transactions");
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -52,14 +53,14 @@ export default function DepositCards({ image, coin, address, modalId }) {
               Deposit using {coin}
             </div>
             <div className="mt-4">
-              <a
+              <button
                 className="btn btn-primary pointer text-white"
                 data-toggle="modal"
                 data-target={`#${modalId}`}
                 onClick={() => selectedCoin(coin)}
               >
                 Continue
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -103,7 +104,6 @@ export default function DepositCards({ image, coin, address, modalId }) {
                       <span className="text-danger">*</span>
                       {errors.amountDeposited && (
                         <span className="text-danger font-weight-bold">
-                          {" "}
                           Minimum $500
                         </span>
                       )}
@@ -120,13 +120,16 @@ export default function DepositCards({ image, coin, address, modalId }) {
                     />
                   </div>
                   <hr />
-                  <div className="">
+                  <div >
+                  <div className="mt-3 mb-3 text-dark" style={{fontWeight: 'bold'}}>
+                  Pay your preferred investment amount to the company's {coin} address {message}
+                  </div>
                     <textarea
                       readOnly
                       rows={1}
                       cols={50}
                       style={{ maxWidth: "100%" }}
-                      className=" text-dark"
+                      className="text-dark"
                       value={address}
                     // onChange={setCopied(true)}
                     />
@@ -159,6 +162,12 @@ export default function DepositCards({ image, coin, address, modalId }) {
                   <div className="form-group">
                     <label className="text-dark" htmlFor="picture">
                       Upload proof of payment
+                      <span className="text-danger">*</span>
+                      {errors.picture && (
+                        <span className="text-danger font-weight-bold">
+                          required
+                        </span>
+                      )}
                     </label>
                     <input
                       className="text-dark"
