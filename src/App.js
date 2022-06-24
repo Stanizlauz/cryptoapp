@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import "./App.css";
 import { getToken } from "./Auth/HandleJWT";
 import configureInterceptor from "./Auth/httpInterceptor";
@@ -12,6 +13,9 @@ function App() {
       <>
         {/* <Headerss /> */}
         <Router />
+        <Toaster position="top-center"
+          reverseOrder={true}
+           />
         {/* <Footer /> */}
       </>
     );
@@ -20,6 +24,8 @@ function App() {
     return (
       <>
         <AppRoutes />
+        <Toaster position="top-center"
+          reverseOrder={true} />
       </>
     )
   }

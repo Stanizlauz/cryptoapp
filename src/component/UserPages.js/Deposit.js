@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { expiredToken } from "../../Auth/HandleJWT";
 import { urlAdminWallet } from "../../endpoints";
 import { coins } from "../../enum";
 import TradingView from "../TradingView";
@@ -12,6 +13,7 @@ export default function Deposit() {
   const [wallet, setWallet] = useState([]);
   let fromPlans = sessionStorage.getItem('fromPlans', "true")
   useEffect(() => {
+    expiredToken();
     loadWallet();
     getPlans();
     //eslint-disable-next-line

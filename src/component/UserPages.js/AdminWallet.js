@@ -6,6 +6,7 @@ import axios from "axios";
 import { urlAdminWallet, urlCoins } from "../../endpoints";
 import { coins } from "../../enum";
 import { useForm } from "react-hook-form";
+import { expiredToken } from "../../Auth/HandleJWT";
 
 export default function AdminWallet() {
   const {
@@ -37,6 +38,7 @@ export default function AdminWallet() {
     litecoin: wallet?.find(x => x.coin === coins.LTC),
   };
   useEffect(() => {
+    expiredToken();
     loadCoins();
     loadWallet();
   }, [wallet])
@@ -60,11 +62,13 @@ export default function AdminWallet() {
       })
   }
   const deleteWallet = async (id) => {
+    expiredToken();
     let wal = wallet.find(x => x.coin === id);
     await axios.delete(`${urlAdminWallet}/${wal?.id}`)
   }
   const saveWallet = async (data) => {
     try {
+      expiredToken();
       let exist = wallet.find(x => x.coin === data.coin);
       if (!exist) {
         console.log({ data })
@@ -83,6 +87,7 @@ export default function AdminWallet() {
   };
   const editWallets = async (data) => {
     try {
+      expiredToken();
       let obj = {
         walletAddress: data?.editwalletAddress
       }

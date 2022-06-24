@@ -5,7 +5,8 @@ import axios from "axios";
 import { urlCoins, urlProfile, urlWallet } from "../../endpoints";
 import { coins } from "../../enum";
 import { useForm } from "react-hook-form";
-import { getToken } from "../../Auth/HandleJWT";
+import { expiredToken, getToken } from "../../Auth/HandleJWT";
+import { errorMessage, successMessage } from "../../Utils/hotToast";
 
 export default function UserProfile() {
   const {
@@ -51,14 +52,16 @@ export default function UserProfile() {
   };
   const userAuth = getToken();
   useEffect(() => {
+    expiredToken();
     loadWallet();
     loadUserData();
     loadCoins();
     //eslint-disable-next-line
   }, [])
   const loadWallet = async () => {
-    await axios.get(urlWallet)
-      .then(response => setWallet(response.data))
+    const response = await axios.get(urlWallet);
+    setWallet(response.data)
+    console.log({ response })
 
   }
 
@@ -78,6 +81,7 @@ export default function UserProfile() {
   };
 
   const loadOneWallet = async (id) => {
+    expiredToken();
     let wal = wallet.find(x => x.coin === id);
     console.log({ id })
     console.log({ wal })
@@ -90,48 +94,66 @@ export default function UserProfile() {
 
   }
   const deleteWallet = async (id) => {
+    expiredToken();
     let wal = wallet.find(x => x.coin === id);
-    await axios.delete(`${urlWallet}/${wal?.id}`)
+    const res = await axios.delete(`${urlWallet}/${wal?.id}`)
+    if (res?.data?.successmessage) {
+      successMessage(res?.data?.successmessage);
+      loadWallet();
+    }
   }
   const saveWallet = async (data) => {
     try {
+      expiredToken();
       console.log({ data })
       let exist = wallet.find(x => x.coin === data.coin);
       if (!exist) {
-        console.log({ data })
-        await axios.post(urlWallet, data)
-        loadWallet();
+        const res = await axios.post(urlWallet, data)
+        if (res?.data?.successmessage) {
+          successMessage(res?.data?.successmessage);
+          loadWallet();
+          return;
+        }
+        errorMessage(res?.data?.errormessage)
+        return;
       }
 
-
+      errorMessage("Coin already exists!")
     } catch (error) {
       console.log(error)
     }
   }
   const editWallets = async (data) => {
     try {
+      expiredToken();
       let obj = {
         walletAddress: data?.editwalletAddress
       }
-      console.log({ obj })
-      await axios.put(`${urlWallet}/${editWalletData?.id}`, obj)
-      loadWallet();
-
+      const res = await axios.put(`${urlWallet}/${editWalletData?.id}`, obj)
+      if (res?.data?.successmessage) {
+        successMessage(res?.data?.successmessage);
+        loadWallet();
+      }
     } catch (error) {
       console.log(error)
     }
   }
   const Verify = async (data) => {
     try {
+      expiredToken();
       setShowForm(false)
       setIsLoading("verify")
       console.log({ data })
-      await axios.put(`${urlProfile}/${userAuth?.id}`, data)
+      const res = await axios.put(`${urlProfile}/${userAuth?.id}`, data)
       // const timer = 
-      setTimeout(() => setIsLoading("load"), 5000);
-      // return () => clearTimeout(timer);
-      setTimeout(() => loadUserData(), 5000);
-      
+      if (res?.data?.successmessage) {
+        successMessage(res?.data?.successmessage);
+        setTimeout(() => setIsLoading("load"), 5000);
+        // return () => clearTimeout(timer);
+        setTimeout(() => loadUserData(), 5000);
+      }
+
+
     } catch (error) {
       console.log(error)
     }

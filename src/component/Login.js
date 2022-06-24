@@ -4,6 +4,7 @@ import { urlLogin } from '../endpoints';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { saveToken } from '../Auth/HandleJWT';
+import { errorMessage, successMessage } from '../Utils/hotToast';
 
 export default function Login() {
   const {
@@ -19,16 +20,20 @@ export default function Login() {
 
   const history = useNavigate();
   const handleOnChange = (e) => {
-    
+
   };
   const loginUser = async (data) => {
     try {
       console.log({ data })
       const res = await axios.post(urlLogin, data)
-      console.log(res?.data)
-      saveToken(res?.data)
-      history("/")
-      window.location.reload()
+      if (res?.data?.successmessage) {
+        successMessage(res?.data?.successmessage);
+        saveToken(res?.data)
+        history("/")
+        window.location.reload()
+        return;
+      }
+      errorMessage(res?.data?.errormessage)
     } catch (error) {
       console.log(error)
     }
@@ -84,23 +89,23 @@ export default function Login() {
                                 onChange={(e) => handleOnChange(e)}
                                 {...register("password", { required: true })}
                                 aria-label="Sizing example input"
-                              aria-describedby="inputGroup-sizing-default"
+                                aria-describedby="inputGroup-sizing-default"
                               />
                               <div
-                              style={{ cursor: 'pointer' }}
-                              onClick={togglepassword}
-                              class="input-group-prepend">
-                              <span
-                                className="input-group-text bg-primary text-light"
-                                id="inputGroup-sizing-default"
-                              >
-                                <i
-                                  className={
-                                    password ? "ti ti-eye" : "ti ti-eye"
-                                  }
-                                ></i>
-                              </span>
-                            </div>
+                                style={{ cursor: 'pointer' }}
+                                onClick={togglepassword}
+                                class="input-group-prepend">
+                                <span
+                                  className="input-group-text bg-primary text-light"
+                                  id="inputGroup-sizing-default"
+                                >
+                                  <i
+                                    className={
+                                      password ? "ti ti-eye" : "ti ti-eye"
+                                    }
+                                  ></i>
+                                </span>
+                              </div>
                             </div>
                           </div>
                         </div>
