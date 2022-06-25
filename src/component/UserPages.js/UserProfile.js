@@ -239,7 +239,7 @@ export default function UserProfile() {
                               {wallet && wallet.find(x => x.coin === coins.BTC) &&
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                   <i className="fab fa-bitcoin fa-lg text-warning" />
-                                  <p className=" text-dark mb-0">{addresses.bitcoin.walletAddress}</p>
+                                  <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.bitcoin.walletAddress}</p>
                                   <div className="d-flex justify-content-between">
                                     <i
                                       onClick={() => loadOneWallet(coins.BTC)}
@@ -259,7 +259,7 @@ export default function UserProfile() {
                                     className="fab fa-ethereum fa-lg"
                                     style={{ color: "#333333" }}
                                   />
-                                  <p className=" text-dark mb-0">{addresses.ethereum.walletAddress}</p>
+                                  <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.ethereum.walletAddress}</p>
                                   <div className="d-flex justify-content-between">
                                     <i
                                       onClick={() => loadOneWallet(coins.ETH)}
@@ -276,7 +276,7 @@ export default function UserProfile() {
                               {wallet && wallet.find(x => x.coin === coins.BNB) &&
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                   <img src="img/binance-coin-bnb.svg" style={{ width: '20px' }} alt="bnb" />
-                                  <p className=" text-dark mb-0">{addresses.bnb.walletAddress}</p>
+                                  <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.bnb.walletAddress}</p>
                                   <div className="d-flex justify-content-between">
                                     <i
                                       onClick={() => loadOneWallet(coins.BNB)}
@@ -293,7 +293,7 @@ export default function UserProfile() {
                               {wallet && wallet.find(x => x.coin === coins.XRP) &&
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                   <img src="img/xrp-xrp-logo.svg" style={{ width: '20px' }} alt="xrp" />
-                                  <p className=" text-dark mb-0">{addresses.xrp.walletAddress}</p>
+                                  <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.xrp.walletAddress}</p>
                                   <div className="d-flex justify-content-between">
                                     <i
                                       onClick={() => loadOneWallet(coins.XRP)}
@@ -309,7 +309,7 @@ export default function UserProfile() {
                               {wallet && wallet.find(x => x.coin === coins.USDT) &&
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                   <img src="img/tether-usdt-logo.svg" style={{ width: '20px' }} alt="usdt" />
-                                  <p className=" text-dark mb-0">{addresses.usdt.walletAddress}</p>
+                                  <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.usdt.walletAddress}</p>
                                   <div className="d-flex justify-content-between">
                                     <i
                                       onClick={() => loadOneWallet(coins.USDT)}
@@ -326,7 +326,7 @@ export default function UserProfile() {
                               {wallet && wallet.find(x => x.coin === coins.LTC) &&
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                   <img src="img/litecoin-ltc.svg" style={{ width: '20px' }} alt="ltc" />
-                                  <p className=" text-dark mb-0">{addresses.litecoin.walletAddress}</p>
+                                  <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.litecoin.walletAddress}</p>
                                   <div className="d-flex justify-content-between">
                                     <i
                                       onClick={() => loadOneWallet(coins.LTC)}
