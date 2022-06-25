@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { expiredToken, getToken } from "../../Auth/HandleJWT";
 import { errorMessage, successMessage } from "../../Utils/hotToast";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 export default function UserProfile() {
   const {
@@ -151,10 +152,11 @@ export default function UserProfile() {
       const res = await axios.put(`${urlProfile}/${userAuth?.id}`, data)
       // const timer = 
       if (res?.data?.successmessage) {
-        successMessage(res?.data?.successmessage);
         setTimeout(() => setIsLoading("load"), 5000);
         // return () => clearTimeout(timer);
-        setTimeout(() => loadUserData(), 5000);
+        setTimeout(() => loadUserData(),
+          successMessage(res?.data?.successmessage),
+          5000);
       }
 
 
@@ -173,7 +175,14 @@ export default function UserProfile() {
           <div id="content">
             <Header />
             <div className="container-fluid">
+            <div className="row d-flex mr-4">
+                  <Link to="/editprofile" class="btn btn-info btn-rounded">
+                    Edit
+                  </Link>
+                  <hr />
+                </div>
               <section className="col" style={{ backgroundColor: "#eee" }}>
+                
                 {!profile?.identityNumber &&
                   <div className="row ml-4">
                     <small className="btn m-0 font-weight-bold text-danger" data-toggle="modal" data-target="#exampleModal">Click to verify your account</small>
@@ -182,12 +191,7 @@ export default function UserProfile() {
                 <div className="row d-flex float-left ml-4">
                   <h2 className="m-0 font-weight-bold text-dark">Welcome</h2>
                 </div>
-                {/* <div className="row d-flex float-right mr-4">
-                <button type="button" class="btn btn-info btn-rounded">
-                  Edit
-                </button>
-                <hr />
-              </div> */}
+
                 <div className="col container py-5">
                   <div className="row">
                     <div className="col-lg-4">

@@ -23,6 +23,7 @@ import UsersList from "../component/UserPages.js/UsersList";
 import ViewTransaction from "../component/UserPages.js/ViewTransaction";
 import Withdraw from "../component/UserPages.js/Withdraw";
 import ProtectedRoutes from "./ProtectedRoutes";
+import EditProfile from "../component/UserPages.js/EditProfile";
 
 
 export default function Router() {
@@ -59,13 +60,14 @@ export function AppRoutes() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/faqs" element={<FAQS />} />
         <Route path="/charts" element={<Charts />} />
-        <Route path="/changepassword" element={<ChangePassword />}/>
+        <Route path="/changepassword" element={<ChangePassword />} />
         <Route path="/contact" element={<Contact />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="/admin/wallet" element={<AdminWallet />} />
           <Route path="/users" element={<UsersList />} />
         </Route>
         <Route path="/404" element={<NotFound />} />
+        <Route path="/editprofile" element={<EditProfile />} />
 
         <Route path="*" element={<Dashboard />} />
       </Routes>
