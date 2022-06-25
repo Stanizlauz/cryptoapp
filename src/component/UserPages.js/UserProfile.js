@@ -175,14 +175,14 @@ export default function UserProfile() {
           <div id="content">
             <Header />
             <div className="container-fluid">
-            <div className="row d-flex mr-4">
-                  <Link to="/editprofile" class="btn btn-info btn-rounded">
-                    Edit
-                  </Link>
-                  <hr />
-                </div>
+              <div className="row d-flex ml-1 mb-1">
+                <Link to="/editprofile" class="btn btn-info btn-rounded">
+                  Edit
+                </Link>
+                <hr />
+              </div>
               <section className="col" style={{ backgroundColor: "#eee" }}>
-                
+
                 {!profile?.identityNumber &&
                   <div className="row ml-4">
                     <small className="btn m-0 font-weight-bold text-danger" data-toggle="modal" data-target="#exampleModal">Click to verify your account</small>

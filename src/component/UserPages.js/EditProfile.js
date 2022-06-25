@@ -1,18 +1,14 @@
 import axios from "axios";
-import { Country, State } from "country-state-city";
-import { useEffect, useState } from "react";
+import moment from "moment";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { getToken } from "../../Auth/HandleJWT";
 import { urlProfile } from "../../endpoints";
 import { updateProfileFormData } from "../../Utils/FormData";
 import { successMessage } from "../../Utils/hotToast";
-import moment from "moment";
 
 export default function EditProfile() {
-    const country = Country.getAllCountries([]);
-    const [state, setState] = useState([]);
-    const [profile, setProfile] = useState([]);
     const userAuth = getToken();
 
     const {
@@ -40,8 +36,6 @@ export default function EditProfile() {
         setValue("lastName", response?.data?.lastName);
         setValue("phoneNo", response?.data?.phoneNo);
         setValue("picture", response?.data?.picture);
-        setProfile(response.data)
-        console.log(response.data)
     }
     const updateUser = async (data) => {
         try {
@@ -66,61 +60,6 @@ export default function EditProfile() {
         } catch (error) {
             console.log(error);
         }
-    };
-    const selectedState = (e) => {
-        console.log(e.target.value);
-        setState(State.getStatesOfCountry(e.target.value));
-    };
-
-    const [input, setInput] = useState({
-        password: "",
-        confirmPassword: "",
-    });
-    const [error, setError] = useState({
-        password: "",
-        confirmPassword: "",
-    });
-    const onInputChange = (e) => {
-        const { name, value } = e.target;
-        setInput((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-        validateInput(e);
-    };
-    const validateInput = (e) => {
-        let { name, value } = e.target;
-        setError((prev) => {
-            const stateObj = { ...prev, [name]: "" };
-
-            switch (name) {
-                case "password":
-                    if (!value) {
-                        stateObj[name] = "Please enter Password.";
-                    } else if (input.confirmPassword && value !== input.confirmPassword) {
-                        stateObj["confirmPassword"] =
-                            "Password and Confirm Password does not match.";
-                    } else {
-                        stateObj["confirmPassword"] = input.confirmPassword
-                            ? ""
-                            : error.confirmPassword;
-                    }
-                    break;
-
-                case "confirmPassword":
-                    if (!value) {
-                        stateObj[name] = "Please enter Confirm Password.";
-                    } else if (input.password && value !== input.password) {
-                        stateObj[name] = "Password does not match.";
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-
-            return stateObj;
-        });
     };
 
     return (
@@ -289,7 +228,7 @@ export default function EditProfile() {
                                         <div className="d-flex float-right pt-3">
                                             <Link
                                                 type="button"
-                                                to="/"
+                                                to="/userprofile"
                                                 className="btn btn-dark btn-lg mr-2"
                                             >
                                                 Back
