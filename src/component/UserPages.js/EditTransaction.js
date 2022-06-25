@@ -7,6 +7,7 @@ import TradingView from '../TradingView'
 import Header from './Header'
 import Sidebar from './Sidebar'
 import moment from "moment";
+import { expiredToken } from '../../Auth/HandleJWT'
 
 
 export default function EditTransaction() {
@@ -21,6 +22,7 @@ export default function EditTransaction() {
     reValidateMode: "onChange",
   });
   useEffect(() => {
+    expiredToken()
     loadData();
     //eslint-disable-next-line
   }, [])
@@ -38,6 +40,7 @@ export default function EditTransaction() {
 
   const saveTransaction = async (data) => {
     try {
+      expiredToken();
       const obj = {
         currentBalance: data?.currentBalance,
         expectedPayout: data?.expectedPayout

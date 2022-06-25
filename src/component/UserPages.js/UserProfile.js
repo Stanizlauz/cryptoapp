@@ -5,12 +5,15 @@ import axios from "axios";
 import { urlCoins, urlProfile, urlWallet } from "../../endpoints";
 import { coins } from "../../enum";
 import { useForm } from "react-hook-form";
-import { getToken } from "../../Auth/HandleJWT";
+import { expiredToken, getToken } from "../../Auth/HandleJWT";
+import { errorMessage, successMessage } from "../../Utils/hotToast";
+import moment from "moment";
 
 export default function UserProfile() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
 
   } = useForm({
@@ -23,6 +26,7 @@ export default function UserProfile() {
     handleSubmit: handleSubmit2,
     formState: { errors: errors2 },
     setValue: setValue2,
+    reset: reset2
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -30,6 +34,7 @@ export default function UserProfile() {
   const {
     register: register3,
     handleSubmit: handleSubmit3,
+    reset: reset3,
     formState: { errors: errors3 },
   } = useForm({
     mode: "onChange",
@@ -51,14 +56,16 @@ export default function UserProfile() {
   };
   const userAuth = getToken();
   useEffect(() => {
+    expiredToken();
     loadWallet();
     loadUserData();
     loadCoins();
     //eslint-disable-next-line
   }, [])
   const loadWallet = async () => {
-    await axios.get(urlWallet)
-      .then(response => setWallet(response.data))
+    const response = await axios.get(urlWallet);
+    setWallet(response.data)
+    console.log({ response })
 
   }
 
@@ -78,6 +85,7 @@ export default function UserProfile() {
   };
 
   const loadOneWallet = async (id) => {
+    expiredToken();
     let wal = wallet.find(x => x.coin === id);
     console.log({ id })
     console.log({ wal })
@@ -90,48 +98,66 @@ export default function UserProfile() {
 
   }
   const deleteWallet = async (id) => {
+    expiredToken();
     let wal = wallet.find(x => x.coin === id);
-    await axios.delete(`${urlWallet}/${wal?.id}`)
+    const res = await axios.delete(`${urlWallet}/${wal?.id}`)
+    if (res?.data?.successmessage) {
+      successMessage(res?.data?.successmessage);
+      loadWallet();
+    }
   }
   const saveWallet = async (data) => {
     try {
+      expiredToken();
       console.log({ data })
       let exist = wallet.find(x => x.coin === data.coin);
       if (!exist) {
-        console.log({ data })
-        await axios.post(urlWallet, data)
-        loadWallet();
+        const res = await axios.post(urlWallet, data)
+        if (res?.data?.successmessage) {
+          successMessage(res?.data?.successmessage);
+          loadWallet();
+          return;
+        }
+        errorMessage(res?.data?.errormessage)
+        return;
       }
 
-
+      errorMessage("Coin already exists!")
     } catch (error) {
       console.log(error)
     }
   }
   const editWallets = async (data) => {
     try {
+      expiredToken();
       let obj = {
         walletAddress: data?.editwalletAddress
       }
-      console.log({ obj })
-      await axios.put(`${urlWallet}/${editWalletData?.id}`, obj)
-      loadWallet();
-
+      const res = await axios.put(`${urlWallet}/${editWalletData?.id}`, obj)
+      if (res?.data?.successmessage) {
+        successMessage(res?.data?.successmessage);
+        loadWallet();
+      }
     } catch (error) {
       console.log(error)
     }
   }
   const Verify = async (data) => {
     try {
+      expiredToken();
       setShowForm(false)
       setIsLoading("verify")
       console.log({ data })
-      await axios.put(`${urlProfile}/${userAuth?.id}`, data)
+      const res = await axios.put(`${urlProfile}/${userAuth?.id}`, data)
       // const timer = 
-      setTimeout(() => setIsLoading("load"), 5000);
-      // return () => clearTimeout(timer);
-      setTimeout(() => loadUserData(), 5000);
-      
+      if (res?.data?.successmessage) {
+        successMessage(res?.data?.successmessage);
+        setTimeout(() => setIsLoading("load"), 5000);
+        // return () => clearTimeout(timer);
+        setTimeout(() => loadUserData(), 5000);
+      }
+
+
     } catch (error) {
       console.log(error)
     }
@@ -213,7 +239,7 @@ export default function UserProfile() {
                               {wallet && wallet.find(x => x.coin === coins.BTC) &&
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                   <i className="fab fa-bitcoin fa-lg text-warning" />
-                                  <p className=" text-dark mb-0">{addresses.bitcoin.walletAddress}</p>
+                                  <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.bitcoin.walletAddress}</p>
                                   <div className="d-flex justify-content-between">
                                     <i
                                       onClick={() => loadOneWallet(coins.BTC)}
@@ -233,7 +259,7 @@ export default function UserProfile() {
                                     className="fab fa-ethereum fa-lg"
                                     style={{ color: "#333333" }}
                                   />
-                                  <p className=" text-dark mb-0">{addresses.ethereum.walletAddress}</p>
+                                  <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.ethereum.walletAddress}</p>
                                   <div className="d-flex justify-content-between">
                                     <i
                                       onClick={() => loadOneWallet(coins.ETH)}
@@ -250,7 +276,7 @@ export default function UserProfile() {
                               {wallet && wallet.find(x => x.coin === coins.BNB) &&
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                   <img src="img/binance-coin-bnb.svg" style={{ width: '20px' }} alt="bnb" />
-                                  <p className=" text-dark mb-0">{addresses.bnb.walletAddress}</p>
+                                  <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.bnb.walletAddress}</p>
                                   <div className="d-flex justify-content-between">
                                     <i
                                       onClick={() => loadOneWallet(coins.BNB)}
@@ -267,7 +293,7 @@ export default function UserProfile() {
                               {wallet && wallet.find(x => x.coin === coins.XRP) &&
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                   <img src="img/xrp-xrp-logo.svg" style={{ width: '20px' }} alt="xrp" />
-                                  <p className=" text-dark mb-0">{addresses.xrp.walletAddress}</p>
+                                  <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.xrp.walletAddress}</p>
                                   <div className="d-flex justify-content-between">
                                     <i
                                       onClick={() => loadOneWallet(coins.XRP)}
@@ -283,7 +309,7 @@ export default function UserProfile() {
                               {wallet && wallet.find(x => x.coin === coins.USDT) &&
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                   <img src="img/tether-usdt-logo.svg" style={{ width: '20px' }} alt="usdt" />
-                                  <p className=" text-dark mb-0">{addresses.usdt.walletAddress}</p>
+                                  <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.usdt.walletAddress}</p>
                                   <div className="d-flex justify-content-between">
                                     <i
                                       onClick={() => loadOneWallet(coins.USDT)}
@@ -300,7 +326,7 @@ export default function UserProfile() {
                               {wallet && wallet.find(x => x.coin === coins.LTC) &&
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                   <img src="img/litecoin-ltc.svg" style={{ width: '20px' }} alt="ltc" />
-                                  <p className=" text-dark mb-0">{addresses.litecoin.walletAddress}</p>
+                                  <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.litecoin.walletAddress}</p>
                                   <div className="d-flex justify-content-between">
                                     <i
                                       onClick={() => loadOneWallet(coins.LTC)}
@@ -356,7 +382,7 @@ export default function UserProfile() {
                               <p className="text-dark mb-0">Date Of Birth:</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{profile?.dateOfBirth}</p>
+                              <p className="text-muted mb-0">{moment(profile?.dateOfBirth).format('MMM D, YYYY')}</p>
                             </div>
                           </div>
                           <hr />
@@ -458,6 +484,7 @@ export default function UserProfile() {
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={() => reset()}
               >
                 Close
               </button>
@@ -535,6 +562,7 @@ export default function UserProfile() {
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={() => reset2()}
               >
                 Close
               </button>
@@ -616,6 +644,7 @@ export default function UserProfile() {
                     type="button"
                     className="btn btn-secondary"
                     data-dismiss="modal"
+                    onClick={() => reset3()}
                   >
                     Close
                   </button>

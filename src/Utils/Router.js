@@ -2,11 +2,8 @@ import React from "react";
 // import ReactDOM from "react-dom/client";
 import { Route, Routes } from "react-router-dom";
 import AboutUs from "../component/AboutUs";
-<<<<<<< HEAD
 import ConfirmEmail from "../component/confirmEmail";
-=======
 import Charts from "../component/Charts";
->>>>>>> origin/main
 import Contact from "../component/Contact";
 import FAQS from "../component/FAQS";
 import HomePageBody from "../component/HomePageBody";

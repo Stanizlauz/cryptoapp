@@ -8,3 +8,4 @@ export const urlCoins = `${baseURL}/coins`;
 export const urlLogout = `${baseURL}/logout`;
 export const urlAdminWallet = `${baseURL}/adminwallet`;
 export const urlConfirmEmail = `${baseURL}/user/confirm`;
+export const urlChangePassword = `${baseURL}/changepassword`;

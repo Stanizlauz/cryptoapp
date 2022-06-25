@@ -7,11 +7,13 @@ import axios from "axios";
 import Authorize from "../../Auth/Authorize";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import { expiredToken } from "../../Auth/HandleJWT";
 
 export default function Transaction() {
   const [transaction, setTransaction] = useState([]);
 
   useEffect(() => {
+    expiredToken();
     loadData();
   }, [])
 

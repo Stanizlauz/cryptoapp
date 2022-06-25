@@ -35,6 +35,7 @@ export function expiredToken() {
     if (token) {
         if (expirationDate <= new Date()) {
             logOut()
+            // window.alert("session expired")
             //return []; //token has expired
         }
     }
@@ -44,7 +45,9 @@ export function expiredToken() {
 
 export function logOut() {
     localStorage.removeItem(tokenKey);
-    // window.location.reload()
+    // window.alert("successfully logged out")
+
+    window.location.reload()
     //localStorage.removeItem(expirationKy);
 }
 

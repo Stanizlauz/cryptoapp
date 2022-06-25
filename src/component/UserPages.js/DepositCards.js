@@ -3,11 +3,13 @@ import { useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { expiredToken } from "../../Auth/HandleJWT";
 import { urlTransaction } from "../../endpoints";
 import { depositFormData } from "../../Utils/FormData";
+import { successMessage, errorMessage } from "../../Utils/hotToast";
 
 
-export default function DepositCards({ image, coin, address, modalId ,message}) {
+export default function DepositCards({ image, coin, address, modalId, message }) {
   const history = useNavigate();
 
   const {
@@ -25,11 +27,17 @@ export default function DepositCards({ image, coin, address, modalId ,message}) 
 
   const depositCoin = async (data) => {
     try {
+      expiredToken();
       data.coin = selectCoin
       data.picture = data.picture[0]
       const formData = depositFormData(data);
-      await axios.post(urlTransaction, formData);
-      history("/transactions");
+      const res = await axios.post(urlTransaction, formData);
+      if (res?.data?.successmessage) {
+        successMessage(res?.data?.successmessage);
+        history("/transactions");
+        return;
+      }
+      errorMessage(res?.data?.errormessage)
       // window.location.reload();
     } catch (error) {
       console.log(error);
@@ -123,9 +131,9 @@ export default function DepositCards({ image, coin, address, modalId ,message}) 
                   </div>
                   <hr />
                   <div >
-                  <div className="mt-3 mb-3 text-dark" style={{fontWeight: 'bold'}}>
-                  Pay your preferred investment amount to the company's {coin} address {message}
-                  </div>
+                    <div className="mt-3 mb-3 text-dark" style={{ fontWeight: 'bold' }}>
+                      Pay your preferred investment amount to the company's {coin} address {message}
+                    </div>
                     <textarea
                       readOnly
                       rows={1}
