@@ -13,6 +13,7 @@ export default function AdminWallet() {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -22,6 +23,7 @@ export default function AdminWallet() {
     handleSubmit: handleSubmit2,
     formState: { errors: errors2 },
     setValue: setValue2,
+    reset: reset2
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -323,6 +325,7 @@ export default function AdminWallet() {
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={() => reset()}
               >
                 Close
               </button>
@@ -399,6 +402,7 @@ export default function AdminWallet() {
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={() => reset2()}
               >
                 Close
               </button>

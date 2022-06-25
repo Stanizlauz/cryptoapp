@@ -7,11 +7,13 @@ import { coins } from "../../enum";
 import { useForm } from "react-hook-form";
 import { expiredToken, getToken } from "../../Auth/HandleJWT";
 import { errorMessage, successMessage } from "../../Utils/hotToast";
+import moment from "moment";
 
 export default function UserProfile() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
 
   } = useForm({
@@ -24,6 +26,7 @@ export default function UserProfile() {
     handleSubmit: handleSubmit2,
     formState: { errors: errors2 },
     setValue: setValue2,
+    reset: reset2
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -31,6 +34,7 @@ export default function UserProfile() {
   const {
     register: register3,
     handleSubmit: handleSubmit3,
+    reset: reset3,
     formState: { errors: errors3 },
   } = useForm({
     mode: "onChange",
@@ -378,7 +382,7 @@ export default function UserProfile() {
                               <p className="text-dark mb-0">Date Of Birth:</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{profile?.dateOfBirth}</p>
+                              <p className="text-muted mb-0">{moment(profile?.dateOfBirth).format('MMM D, YYYY')}</p>
                             </div>
                           </div>
                           <hr />
@@ -480,6 +484,7 @@ export default function UserProfile() {
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={() => reset()}
               >
                 Close
               </button>
@@ -557,6 +562,7 @@ export default function UserProfile() {
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={() => reset2()}
               >
                 Close
               </button>
@@ -638,6 +644,7 @@ export default function UserProfile() {
                     type="button"
                     className="btn btn-secondary"
                     data-dismiss="modal"
+                    onClick={() => reset3()}
                   >
                     Close
                   </button>

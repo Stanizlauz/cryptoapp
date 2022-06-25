@@ -26,6 +26,7 @@ export default function Withdraw() {
   const {
     register: register2,
     handleSubmit: handleSubmit2,
+    reset: reset2
     // formState: { errors: errors2 },
     // setValue: setValue2,
     // getValues: getValues2,
@@ -253,6 +254,7 @@ export default function Withdraw() {
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={() => reset2()}
               >
                 Close
               </button>
