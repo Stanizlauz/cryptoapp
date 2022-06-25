@@ -6,12 +6,14 @@ import axios from "axios";
 import { urlAdminWallet, urlCoins } from "../../endpoints";
 import { coins } from "../../enum";
 import { useForm } from "react-hook-form";
+import { expiredToken } from "../../Auth/HandleJWT";
 
 export default function AdminWallet() {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -21,6 +23,7 @@ export default function AdminWallet() {
     handleSubmit: handleSubmit2,
     formState: { errors: errors2 },
     setValue: setValue2,
+    reset: reset2
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -37,6 +40,7 @@ export default function AdminWallet() {
     litecoin: wallet?.find(x => x.coin === coins.LTC),
   };
   useEffect(() => {
+    expiredToken();
     loadCoins();
     loadWallet();
   }, [wallet])
@@ -60,11 +64,13 @@ export default function AdminWallet() {
       })
   }
   const deleteWallet = async (id) => {
+    expiredToken();
     let wal = wallet.find(x => x.coin === id);
     await axios.delete(`${urlAdminWallet}/${wal?.id}`)
   }
   const saveWallet = async (data) => {
     try {
+      expiredToken();
       let exist = wallet.find(x => x.coin === data.coin);
       if (!exist) {
         console.log({ data })
@@ -83,6 +89,7 @@ export default function AdminWallet() {
   };
   const editWallets = async (data) => {
     try {
+      expiredToken();
       let obj = {
         walletAddress: data?.editwalletAddress
       }
@@ -318,6 +325,7 @@ export default function AdminWallet() {
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={() => reset()}
               >
                 Close
               </button>
@@ -394,6 +402,7 @@ export default function AdminWallet() {
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={() => reset2()}
               >
                 Close
               </button>

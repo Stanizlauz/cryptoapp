@@ -4,12 +4,14 @@ import Sidebar from "./Sidebar";
 import Header from "./Header";
 import axios from "axios";
 import { urlProfile } from "../../endpoints";
+import { expiredToken } from "../../Auth/HandleJWT";
 
 
 export default function UsersList() {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
+        expiredToken();
         const loadUsers = async () => {
             await axios.get(urlProfile)
                 .then(response => setUsers(response?.data));

@@ -60,7 +60,7 @@ export function AppRoutes() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/faqs" element={<FAQS />} />
         <Route path="/charts" element={<Charts />} />
-        <Route path="/hopper" element={<Cryptohopper />}/>
+        <Route path="/hopper" element={<Cryptohopper/>}/>
         <Route path="/changepassword" element={<ChangePassword />}/>
         <Route path="/contact" element={<Contact />} />
         <Route element={<ProtectedRoutes />}>

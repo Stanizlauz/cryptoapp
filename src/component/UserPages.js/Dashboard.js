@@ -5,10 +5,12 @@ import Header from "./Header";
 import BinanceView from "../BinanceView";
 import axios from "axios";
 import { urlTransaction } from "../../endpoints";
+import { expiredToken } from "../../Auth/HandleJWT";
 export default function Dashboard() {
   const [transaction, setTransaction] = useState();
 
   useEffect(() => {
+    expiredToken();
     loadData();
   }, [])
 
@@ -29,9 +31,9 @@ export default function Dashboard() {
                 {/* Begin Page Content */}
                 {/* Page Heading */}
                 <TradingView />
-            <div>
-              <h3 className="" style={{ color: '#00757F', fontWeight: 'bold' }}>Dashboard</h3>
-            </div>
+                <div>
+                  <h3 className="" style={{ color: '#00757F', fontWeight: 'bold' }}>Dashboard</h3>
+                </div>
                 {/* <div className="d-sm-flex align-items-center justify-content-between mb-4">
                   <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>
                 </div> */}

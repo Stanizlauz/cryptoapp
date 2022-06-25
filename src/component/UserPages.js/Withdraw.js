@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { urlCoins, urlWallet } from "../../endpoints";
 import Swal from "sweetalert2";
+import { expiredToken } from "../../Auth/HandleJWT";
 
 export default function Withdraw() {
   const {
@@ -25,6 +26,7 @@ export default function Withdraw() {
   const {
     register: register2,
     handleSubmit: handleSubmit2,
+    reset: reset2
     // formState: { errors: errors2 },
     // setValue: setValue2,
     // getValues: getValues2,
@@ -35,6 +37,7 @@ export default function Withdraw() {
   const [listedCoins, setListedCoins] = useState();
   const [wallet, setWallet] = useState([]);
   useEffect(() => {
+    expiredToken();
     loadWallet();
     loadCoins();
   }, [wallet])
@@ -60,6 +63,7 @@ export default function Withdraw() {
   }
   const saveWithdrawal = (data) => {
     try {
+      expiredToken();
       Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -80,6 +84,7 @@ export default function Withdraw() {
   }
   const saveWallet = async (data) => {
     try {
+      expiredToken();
       let exist = wallet.find(x => x.coin === data.coin);
       if (!exist) {
         console.log({ data })
@@ -105,8 +110,8 @@ export default function Withdraw() {
                 <h1 style={{ color: "white" }}>Withdraw</h1>
               </div> */}
               <div>
-              <h3 style={{ color: '#FFD700', fontWeight: 'bold' }}>Withdraw</h3>
-            </div>
+                <h3 style={{ color: '#FFD700', fontWeight: 'bold' }}>Withdraw</h3>
+              </div>
               <div className="card mb-4">
                 <div className="card-body">
                   {wallet && wallet?.length > 0 &&
@@ -249,6 +254,7 @@ export default function Withdraw() {
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={() => reset2()}
               >
                 Close
               </button>

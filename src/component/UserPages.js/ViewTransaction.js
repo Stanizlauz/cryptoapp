@@ -4,6 +4,7 @@ import Header from './Header'
 import { urlTransaction } from '../../endpoints';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { expiredToken } from '../../Auth/HandleJWT';
 
 
 export default function ViewTransaction() {
@@ -11,6 +12,7 @@ export default function ViewTransaction() {
   const { id } = useParams();
   const history = useNavigate();
   useEffect(() => {
+    expiredToken();
     loadData();
     //eslint-disable-next-line
   }, [])
@@ -22,6 +24,7 @@ export default function ViewTransaction() {
 
   const approve = async () => {
     try {
+      expiredToken();
       await axios.patch(`${urlTransaction}/approve/${id}`);
       history("/transactions");
     } catch (error) {

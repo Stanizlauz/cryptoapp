@@ -1,4 +1,3 @@
-import React from "react";
 // import About from "./About";
 import AboutTeamSecond from "./AboutTeamSecond";
 import CarouselWrapper from "./CarouselWrapper";

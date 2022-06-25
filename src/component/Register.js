@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { urlRegister } from "../endpoints";
 import { registerFormData } from "../Utils/FormData";
+import { successMessage } from "../Utils/hotToast";
 
 export default function Register() {
   const country = Country.getAllCountries([]);
@@ -27,9 +28,12 @@ export default function Register() {
       data.picture = data.picture[0]
       console.log({ data });
       const formData = registerFormData(data);
-      console.log({formData})
-      await axios.post(urlRegister, formData);
-      history("/login");
+      console.log({ formData })
+      const res = await axios.post(urlRegister, formData);
+      if (res?.data?.successmessage) {
+        successMessage(res?.data?.successmessage);
+        history("/login");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -411,7 +415,7 @@ export default function Register() {
                         <input
                           type="password"
                           className="form-control form-control-lg"
-                          id="confirmPassword"   
+                          id="confirmPassword"
                           name="confirmPassword"
                           value={input.confirmPassword}
                           onBlur={validateInput}
