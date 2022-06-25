@@ -11,7 +11,7 @@ export default function Footer() {
               <div className="col-lg-3 col-sm-6 sm-padding" style={{fontWeight: 'bold'}}>
                 <p>
                   All deposit should be made directly to ArksTrades trading
-                  wallet provided on your dashboard, ArksTrades wont aknowlegde
+                  wallet provided on your dashboard, ArksTrades won't aknowlegde
                   fund transfer from third party agent or be accountable for
                   loss of deposit made to any account managers or refer.
                 </p>
@@ -29,7 +29,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="col-lg-3 col-sm-6 sm-padding">
-                <h4>Usefull Link</h4>
+                <h4>Useful Link</h4>
                 <ul className="widget_links">
                   <li>
                     <Link to="/login">

@@ -2,12 +2,10 @@ import React from "react";
 // import ReactDOM from "react-dom/client";
 import { Route, Routes } from "react-router-dom";
 import AboutUs from "../component/AboutUs";
-<<<<<<< HEAD
-import ConfirmEmail from "../component/confirmEmail";
-=======
 import Charts from "../component/Charts";
->>>>>>> origin/main
+import ConfirmEmail from "../component/confirmEmail";
 import Contact from "../component/Contact";
+import Cryptohopper from "../component/Cryptohopper";
 import FAQS from "../component/FAQS";
 import HomePageBody from "../component/HomePageBody";
 import Login from "../component/Login";
@@ -62,6 +60,7 @@ export function AppRoutes() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/faqs" element={<FAQS />} />
         <Route path="/charts" element={<Charts />} />
+        <Route path="/hopper" element={<Cryptohopper />}/>
         <Route path="/changepassword" element={<ChangePassword />}/>
         <Route path="/contact" element={<Contact />} />
         <Route element={<ProtectedRoutes />}>

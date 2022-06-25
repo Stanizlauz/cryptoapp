@@ -28,6 +28,7 @@ export default function Headerss() {
           {/* </a> */}
           <button
             className="navbar-toggler"
+            style={{ color: "black" }}
             onClick={myFunc}
             type="button"
             data-toggle="collapse"
@@ -36,7 +37,7 @@ export default function Headerss() {
             aria-expanded="false"
             // aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon" />
+            <span className="navbar-toggler-icon" style={{ backgroundColor: "#C4E0E5" }}/>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto mt-2 mt-lg-0">

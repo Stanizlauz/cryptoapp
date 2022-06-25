@@ -36,7 +36,7 @@ export default function Pricing() {
                       <div className="solu_description">
                         <p>24/7 Support</p>
                         <br />
-                        <p>3 Days/Trade For</p>
+                        <p>3 Trades/Day For</p>
                         <div className="number_of_days">7 Days</div>
                         <button type="button" className="read_more_btn">
                           Choose Plan
@@ -58,8 +58,8 @@ export default function Pricing() {
                       <div className="solu_description">
                         <p>24/7 Support</p>
                         <br />
-                        <p>14 Days/Trade For</p>
-                        <div className="number_of_days">7 Days</div>
+                        <p>7 Trades/Day For</p>
+                        <div className="number_of_days">14 Days</div>
                         <button type="button" className="read_more_btn">
                           Choose Plan
                         </button>
@@ -80,8 +80,8 @@ export default function Pricing() {
                       <div className="solu_description">
                         <p>24/7 Support</p>
                         <br />
-                        <p>14 Days/Trade For</p>
-                        <div className="number_of_days">7Days</div>
+                        <p>10 Trades/Day For</p>
+                        <div className="number_of_days">14 Days</div>
                         <button type="button" className="read_more_btn">
                           Choose Plan
                         </button>
@@ -105,7 +105,7 @@ export default function Pricing() {
                       <div className="solu_description">
                         <p>24/7 Support</p>
                         <br />
-                        <p>14 Days/Trade For</p>
+                        <p>14 Trades/Day For</p>
                         <div className="number_of_days">14 Days</div>
                         <button type="button" className="read_more_btn">
                           Choose Plan
@@ -134,7 +134,7 @@ export default function Pricing() {
                         </button>
                       </div>
                     </div>
-                    <div className="solution_card">
+                    {/* <div className="solution_card">
                       <div className="hover_color_bubble" />
                    
                       <div className="solu_title">
@@ -155,7 +155,7 @@ export default function Pricing() {
                           Choose Plan
                         </button>
                       </div>
-                    </div>
+                    </div> */}
                     
                   </div>
                 </div>

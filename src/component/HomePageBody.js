@@ -1,9 +1,9 @@
 import React from "react";
 // import About from "./About";
 import AboutTeamSecond from "./AboutTeamSecond";
-import AllChart from "./AllChart";
 import CarouselWrapper from "./CarouselWrapper";
 import CounterSecion from "./CounterSecion";
+import Cryptohopper from "./Cryptohopper";
 import Footer from "./Footer";
 import Headerss from "./Headerss";
 import Pricing from "./Pricing";
@@ -14,13 +14,11 @@ export default function HomePageBody() {
     <>
       <Headerss />
       <CarouselWrapper />
-      {/* <BinanceView /> */}
-      {/* <About /> */}
-      <AllChart />
       <Services />
       <Pricing />
       <AboutTeamSecond />
       <CounterSecion />
+      <Cryptohopper />
       <Footer />
     </>
   );

@@ -58,7 +58,7 @@ export default function FAQS() {
                 </div>
                 <div className="card">
                   <div className="card-header d-flex justify-content-between">
-                    <a className="collapsed" role="button" data-toggle="collapse" href="#collapse_5i" aria-expanded="false"> What can i trade trade with CapitalTrades ?</a>
+                    <a className="collapsed" role="button" data-toggle="collapse" href="#collapse_5i" aria-expanded="false"> What can i trade trade with Arkstrades ?</a>
                   </div>
                   <div id="collapse_5i" className="collapse" data-parent="#accordion_2">
                     <div className="card-body pa-15 text-dark">(Bitcoin, Bitcoin cash, Ethereum, Litecoin etc...).</div>
@@ -69,7 +69,7 @@ export default function FAQS() {
                     <a className="collapsed" role="button" data-toggle="collapse" href="#collapse_6i" aria-expanded="false">Terms and Conditions</a>
                   </div>
                   <div id="collapse_6i" className="collapse" data-parent="#accordion_2">
-                    <div className="card-body pa-15 text-dark"> Upon executing this Agreement, you will become a Member of CapitalTrades. In the event that you make an investment in securities through the Platform, you will also become a client of BC. BC will advise you of the type of client you are for regulatory purposes.</div>
+                    <div className="card-body pa-15 text-dark"> Upon executing this Agreement, you will become a Member of Arkstrades. In the event that you make an investment in securities through the Platform, you will become a client of ArksTrades. ArksTrades will advise you of the type of client you are for regulatory purposes.</div>
                   </div>
                 </div>
               </div>

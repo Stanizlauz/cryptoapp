@@ -170,7 +170,7 @@ export default function Charts() {
                     color: "black",
                   }}
                 >
-                  BNB (BNB)
+                  BNB (Binance SmartChain)
                 </p>
               </div>
             </div>
@@ -214,7 +214,7 @@ export default function Charts() {
                     color: "black",
                   }}
                 >
-                  XRP (XRP)
+                  XRP (Ripple)
                 </p>
               </div>
             </div>

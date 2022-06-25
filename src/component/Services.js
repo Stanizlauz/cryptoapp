@@ -10,7 +10,7 @@ export default function Services() {
       {/* column */}
       <div className="col-lg-6 align-self-center">
         <span className="badge badge-info font-weight-heavy" style={{fontSize: '20px'}}>Why Choose Us?</span>
-        <h4 className="my-3 text-dark service-text">Our goal is to provide our investors with a reliable source of high income, while minimizing any possible risks and offering high-quality service.</h4>
+        <h4 className="my-3 text-dark service-text">Our goal is to provide our investors with a reliable source of high income,offering high quality services while minimizing any possible risks.</h4>
         <Link
                     to="/about"
                     className="btn btn-outline-light btn-xs btn-icon-text"
@@ -24,14 +24,14 @@ export default function Services() {
             <i className="ti ti-server" aria-hidden="true" />
             </span>
             <h6 className="font-weight-medium my-3">Our Service</h6>
-            <p>The team of the company's financial specialist with strong command in crypto minning allows for effective analysis and financial situation. All plans comes with an instant trading feature.</p>
+            <p>The team of the company's financial specialist with strong command in crypto mining and trading allows for effective analysis and financial situation. All plans comes with an instant trading feature.</p>
           </div>
           <div className="col-md-5 mt-4 service-box">
             <span className="text-info-gradiant display-5">
             <i className="ti ti-stats-up" aria-hidden="true" />
             </span>
             <h6 className="font-weight-medium my-3">Guaranteed Profit</h6>
-            <p>Our Trading program is insured with up to $89million. This covers for 80% of your trading risk. Access your earnings and request withdrawals without a hitch.</p>
+            <p>Our Trading program is insured with up to $89million. This maximises 80% of your investments while covering for 20% of your trading risk. Access your earnings and request withdrawals without a hitch.</p>
           </div>
           <div className="col-md-5 mt-4 mx-2 service-box">
             <span className="text-info-gradiant display-5">
