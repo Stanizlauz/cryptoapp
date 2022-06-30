@@ -19,12 +19,13 @@ export default function Headerss() {
       <header>
         x
         <nav
-          className="navbar navbar-expand-lg navbar-dark bg-light fixed-top"
+          className="navbar navbar-expand-lg navbar-dark fixed-top"
           id="accordionSidebar"
+          style={{ backgroundColor: "#3caec0" }}
         >
           {/* <a className="navbar-brand" href="#"> */}
-            {/* Navbar */}
-            <img src="img/logo1.png" alt="Brand" style={{ width: "120px" }} />
+          {/* Navbar */}
+          <img src="img/logo1.png" alt="Brand" style={{ width: "120px" }} />
           {/* </a> */}
           <button
             className="navbar-toggler"
@@ -35,15 +36,15 @@ export default function Headerss() {
             data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02"
             aria-expanded="false"
-            // aria-label="Toggle navigation"
+          // aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon" style={{ backgroundColor: "#C4E0E5" }}/>
+            <span className="navbar-toggler-icon" style={{ backgroundColor: "#C4E0E5" }} />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
               <li className="nav-item">
-              <Link to="/" className="nav-link text-dark" style={{fontWeight: 'bolder'}}>
-              Home
+                <Link to="/" className="nav-link text-dark" style={{ fontWeight: 'bolder' }}>
+                  Home
                 </Link>
               </li>
               {/* <li className="nav-item">
@@ -52,22 +53,22 @@ export default function Headerss() {
               </a>
             </li> */}
               <li>
-                <Link to="/about" className="nav-link text-dark" style={{fontWeight: 'bolder'}}> 
+                <Link to="/about" className="nav-link text-dark" style={{ fontWeight: 'bolder' }}>
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/plans" className="nav-link text-dark" style={{fontWeight: 'bolder'}}>
+                <Link to="/plans" className="nav-link text-dark" style={{ fontWeight: 'bolder' }}>
                   Plans
                 </Link>
               </li>
               <li>
-                <Link to="/faqs" className="nav-link text-dark" style={{fontWeight: 'bolder'}}>
+                <Link to="/faqs" className="nav-link text-dark" style={{ fontWeight: 'bolder' }}>
                   FAQS
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="nav-link text-dark" style={{fontWeight: 'bolder'}}>
+                <Link to="/contact" className="nav-link text-dark" style={{ fontWeight: 'bolder' }}>
                   Contact Us
                 </Link>
               </li>
@@ -108,6 +109,8 @@ export default function Headerss() {
       </header>
   
       {/* <TradingView /> */}
+
+      <TradingView />
 
       {/* <header id="header" className="header_section bd-bottom">
         <div className="top_header">

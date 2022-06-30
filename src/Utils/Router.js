@@ -15,6 +15,7 @@ import AdminWallet from "../component/UserPages.js/AdminWallet";
 import ChangePassword from "../component/UserPages.js/ChangePassword";
 import Dashboard from "../component/UserPages.js/Dashboard";
 import Deposit from "../component/UserPages.js/Deposit";
+import EditProfile from "../component/UserPages.js/EditProfile";
 import EditTransaction from "../component/UserPages.js/EditTransaction";
 import Plans from "../component/UserPages.js/Plans";
 import Profile from "../component/UserPages.js/Profile";
@@ -67,6 +68,7 @@ export function AppRoutes() {
           <Route path="/admin/wallet" element={<AdminWallet />} />
           <Route path="/users" element={<UsersList />} />
         </Route>
+        <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/404" element={<NotFound />} />
 
         <Route path="*" element={<Dashboard />} />
