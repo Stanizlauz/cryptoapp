@@ -142,116 +142,116 @@ export default function AdminWallet() {
               </ul>
 
               {wallet &&
-                <div className="card mb-4 mb-lg-0">
-                  <div className="card-body p-0">
-                    <ul className="list-group list-group-flush rounded-3">
-                      {wallet && wallet.find(x => x.coin === coins.BTC) &&
-                        <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                          <i className="fab fa-bitcoin fa-lg text-warning" />
-                          <p className=" text-dark mb-0">{addresses.bitcoin.walletAddress}</p>
-                          <div className="d-flex justify-content-between">
-                            <i
-                              onClick={() => loadOneWallet(coins.BTC)}
-                              className="fas fa-pen text-success mr-1"
-                              data-toggle="modal"
-                              data-target="#editwallet"
-                            />
-                            <i
-                              onClick={() => deleteWallet(coins.BTC)}
-                              className="fas fa-times text-danger" />
-                          </div>
-                        </li>
-                      }
-                      {wallet && wallet.find(x => x.coin === coins.ETH) &&
-                        <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                          <i
-                            className="fab fa-ethereum fa-lg"
-                            style={{ color: "#333333" }}
-                          />
-                          <p className=" text-dark mb-0">{addresses.ethereum.walletAddress}</p>
-                          <div className="d-flex justify-content-between">
-                            <i
-                              onClick={() => loadOneWallet(coins.ETH)}
-                              className="fas fa-pen text-success mr-1"
-                              data-toggle="modal"
-                              data-target="#editwallet"
-                            />
-                            <i
-                              onClick={() => deleteWallet(coins.ETH)}
-                              className="fas fa-times text-danger" />
-                          </div>
-                        </li>
-                      }
-                      {wallet && wallet.find(x => x.coin === coins.BNB) &&
-                        <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                          <img src="img/binance-coin-bnb.svg" style={{ width: '20px' }} alt="bnb" />
-                          <p className=" text-dark mb-0">{addresses.bnb.walletAddress}</p>
-                          <div className="d-flex justify-content-between">
-                            <i
-                              onClick={() => loadOneWallet(coins.BNB)}
-                              className="fas fa-pen text-success mr-1"
-                              data-toggle="modal"
-                              data-target="#editwallet"
-                            />
-                            <i
-                              onClick={() => deleteWallet(coins.BNB)}
-                              className="fas fa-times text-danger" />
-                          </div>
-                        </li>
-                      }
-                      {wallet && wallet.find(x => x.coin === coins.XRP) &&
-                        <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                          <img src="img/xrp-xrp-logo.svg" style={{ width: '20px' }} alt="xrp" />
-                          <p className=" text-dark mb-0">{addresses.xrp.walletAddress}</p>
-                          <div className="d-flex justify-content-between">
-                            <i
-                              onClick={() => loadOneWallet(coins.XRP)}
-                              className="fas fa-pen text-success mr-1"
-                              data-toggle="modal"
-                              data-target="#editwallet"
-                            />
-                            <i
-                              onClick={() => deleteWallet(coins.XRP)}
-                              className="fas fa-times text-danger" />
-                          </div>
-                        </li>}
-                      {wallet && wallet.find(x => x.coin === coins.USDT) &&
-                        <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                          <img src="img/tether-usdt-logo.svg" style={{ width: '20px' }} alt="usdt" />
-                          <p className=" text-dark mb-0">{addresses.usdt.walletAddress}</p>
-                          <div className="d-flex justify-content-between">
-                            <i
-                              onClick={() => loadOneWallet(coins.USDT)}
-                              className="fas fa-pen text-success mr-1"
-                              data-toggle="modal"
-                              data-target="#editwallet"
-                            />
-                            <i
-                              onClick={() => deleteWallet(coins.USDT)}
-                              className="fas fa-times text-danger" />
-                          </div>
-                        </li>
-                      }
-                      {wallet && wallet.find(x => x.coin === coins.LTC) &&
-                        <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                          <img src="img/litecoin-ltc.svg" style={{ width: '20px' }} alt="ltc" />
-                          <p className=" text-dark mb-0">{addresses.litecoin.walletAddress}</p>
-                          <div className="d-flex justify-content-between">
-                            <i
-                              onClick={() => loadOneWallet(coins.LTC)}
-                              className="fas fa-pen text-success"
-                              data-toggle="modal"
-                              data-target="#editwallet"
-                            />
-                            <i
-                              onClick={() => deleteWallet(coins.LTC)}
-                              className="fas fa-times text-danger" />
-                          </div>
-                        </li>
-                      }
-                    </ul>
-                  </div>
-                </div>
+                 <div className="card mb-4 mb-lg-0">
+                 <div className="card-body p-0">
+                   <ul className="list-group list-group-flush rounded-3">
+                     {wallet && wallet.find(x => x.coin === coins.BTC) &&
+                       <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                         <i className="fab fa-bitcoin fa-lg text-warning" />
+                         <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.bitcoin.walletAddress}</p>
+                         <div className="d-flex justify-content-between">
+                           <i
+                             onClick={() => loadOneWallet(coins.BTC)}
+                             className="fas fa-pen text-success mr-1"
+                             data-toggle="modal"
+                             data-target="#editwallet"
+                           />
+                           <i
+                             onClick={() => deleteWallet(coins.BTC)}
+                             className="fas fa-times text-danger" />
+                         </div>
+                       </li>
+                     }
+                     {wallet && wallet.find(x => x.coin === coins.ETH) &&
+                       <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                         <i
+                           className="fab fa-ethereum fa-lg"
+                           style={{ color: "#333333" }}
+                         />
+                         <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.ethereum.walletAddress}</p>
+                         <div className="d-flex justify-content-between">
+                           <i
+                             onClick={() => loadOneWallet(coins.ETH)}
+                             className="fas fa-pen text-success mr-1"
+                             data-toggle="modal"
+                             data-target="#editwallet"
+                           />
+                           <i
+                             onClick={() => deleteWallet(coins.ETH)}
+                             className="fas fa-times text-danger" />
+                         </div>
+                       </li>
+                     }
+                     {wallet && wallet.find(x => x.coin === coins.BNB) &&
+                       <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                         <img src="img/binance-coin-bnb.svg" style={{ width: '20px' }} alt="bnb" />
+                         <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.bnb.walletAddress}</p>
+                         <div className="d-flex justify-content-between">
+                           <i
+                             onClick={() => loadOneWallet(coins.BNB)}
+                             className="fas fa-pen text-success mr-1"
+                             data-toggle="modal"
+                             data-target="#editwallet"
+                           />
+                           <i
+                             onClick={() => deleteWallet(coins.BNB)}
+                             className="fas fa-times text-danger" />
+                         </div>
+                       </li>
+                     }
+                     {wallet && wallet.find(x => x.coin === coins.XRP) &&
+                       <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                         <img src="img/xrp-xrp-logo.svg" style={{ width: '20px' }} alt="xrp" />
+                         <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.xrp.walletAddress}</p>
+                         <div className="d-flex justify-content-between">
+                           <i
+                             onClick={() => loadOneWallet(coins.XRP)}
+                             className="fas fa-pen text-success mr-1"
+                             data-toggle="modal"
+                             data-target="#editwallet"
+                           />
+                           <i
+                             onClick={() => deleteWallet(coins.XRP)}
+                             className="fas fa-times text-danger" />
+                         </div>
+                       </li>}
+                     {wallet && wallet.find(x => x.coin === coins.USDT) &&
+                       <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                         <img src="img/tether-usdt-logo.svg" style={{ width: '20px' }} alt="usdt" />
+                         <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.usdt.walletAddress}</p>
+                         <div className="d-flex justify-content-between">
+                           <i
+                             onClick={() => loadOneWallet(coins.USDT)}
+                             className="fas fa-pen text-success mr-1"
+                             data-toggle="modal"
+                             data-target="#editwallet"
+                           />
+                           <i
+                             onClick={() => deleteWallet(coins.USDT)}
+                             className="fas fa-times text-danger" />
+                         </div>
+                       </li>
+                     }
+                     {wallet && wallet.find(x => x.coin === coins.LTC) &&
+                       <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                         <img src="img/litecoin-ltc.svg" style={{ width: '20px' }} alt="ltc" />
+                         <p className=" text-dark mb-0 text-wrap" style={{ width: '255px' }}>{addresses.litecoin.walletAddress}</p>
+                         <div className="d-flex justify-content-between">
+                           <i
+                             onClick={() => loadOneWallet(coins.LTC)}
+                             className="fas fa-pen text-success"
+                             data-toggle="modal"
+                             data-target="#editwallet"
+                           />
+                           <i
+                             onClick={() => deleteWallet(coins.LTC)}
+                             className="fas fa-times text-danger" />
+                         </div>
+                       </li>
+                     }
+                   </ul>
+                 </div>
+               </div>
               }
             </div>
           </div>

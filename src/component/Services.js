@@ -13,7 +13,7 @@ export default function Services() {
         <h4 className="my-3 text-dark service-text">Our goal is to provide our investors with a reliable source of high income,offering high quality services while minimizing any possible risks.</h4>
         <Link
                     to="/about"
-                    className="btn btn-outline-light btn-xs btn-icon-text"
+                    className="btn btn-outline-light btn-xs text-dark btn-icon-text"
                   >
                     Read More.
                   </Link>
