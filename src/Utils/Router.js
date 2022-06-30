@@ -11,6 +11,7 @@ import HomePageBody from "../component/HomePageBody";
 import Login from "../component/Login";
 import NotFound from "../component/NotFound";
 import Register from "../component/Register";
+import Slider from "../component/Slider";
 import AdminWallet from "../component/UserPages.js/AdminWallet";
 import ChangePassword from "../component/UserPages.js/ChangePassword";
 import Dashboard from "../component/UserPages.js/Dashboard";
@@ -56,6 +57,7 @@ export function AppRoutes() {
         <Route path="/edittransactions/:id" element={<EditTransaction />} />
         <Route path="/viewtransactions/:id" element={<ViewTransaction />} />
         <Route path="/withdraw" element={<Withdraw />} />
+        <Route path="/slide" element={<Slider />} />
         <Route path="/userprofile" element={<UserProfile />} />
         <Route path="/" element={<HomePageBody />} />
         <Route path="/about" element={<AboutUs />} />

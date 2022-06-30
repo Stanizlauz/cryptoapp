@@ -1,56 +1,103 @@
-import React from 'react'
+import React from "react";
 
-export default function () {
+export default function Slider() {
   return (
     <>
-    <section className="slider-section">
-  <div className="slider-wrapper">
-    <div id="main-slider" className="nivoSlider">
-      <img src="img/slider-1.jpg" alt title="#slider-caption-1" />
-      <img src="img/slider-2.jpg" alt title="#slider-caption-2" />
-      <img src="img/slider-3.jpg" alt title="#slider-caption-3" />
-    </div>{/* /#main-slider */}
-    <div id="slider-caption-1" className="nivo-html-caption slider-caption">
-      <div className="display-table">
-        <div className="table-cell">
-          <div className="container">
-            <div className="slider-text">
-              <h1 className="wow fadeInLeft2" data-wow-delay="1s"><span>Invest In Cryptocoin</span><br /><span>Easy Way To Trade Bitcoin.</span></h1>
-              <p className="wow fadeInRight2" data-wow-delay="1s">We offer free consulting and the best project management <br />for your ideas, 100% delivery guaranteed.</p>
-              <a href="#" className="button_1 wow bounceInUp" data-wow-delay="0.8s">Learn More</a>
+      <div className="home_page">
+        <div className="slide">
+          <div
+            id="carouselExampleControls"
+            className="carousel slide"
+            data-ride="carousel"
+          >
+            <div className="carousel-inner">
+              <div className="carousel-item">
+                <section className="sectionn1">
+                  <div className="content">
+                    <div className="innerguy">
+                      <div className="landing_header_one">
+                        Get Organized and make profit
+                      </div>
+                      <div className="landing_header_three mr-3">
+                        All you need to become a better earner in one place
+                      </div>
+                      <div style={{ zIndex: "2000 !important" }}>
+                        <a href="/about" className="landing_btn">
+                          Read more
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div className="carousel-item active">
+                <section className="sectionn2">
+                  <div className="content">
+                    <div className="innerguy">
+                      <div className="landing_header_one">
+                        Get Started Today
+                      </div>
+                      <div className="landing_header_three mr-5">
+                        We have over 30,000 happy client
+                      </div>
+                      <a
+                        href="/login"
+                        style={{ zIndex: "20 !important" }}
+                        className="landing_btn"
+                      >
+                        Get started
+                      </a>
+                    </div>
+                    {/*                     
+                              <img src="../static/browser_picture/snackfever-lead-capture-page-12.png" alt=""> */}
+                  </div>
+                </section>
+              </div>
+              <div className="carousel-item">
+                <section className="sectionn3">
+                  <div className="content">
+                    <div className="innerguy">
+                      <div className="landing_header_one">
+                        We Are Here For You.
+                      </div>
+                      <div className="landing_header_three mr-5">
+                        We Are Here Always. 24/7
+                      </div>
+                      <a
+                        href="/about"
+                        style={{ zIndex: 20 }}
+                        className="landing_btn"
+                      >
+                        Read more
+                      </a>
+                    </div>
+                    {/*                     
+                              <img src="../static/browser_picture/snackfever-lead-capture-page-12.png" alt=""> */}
+                  </div>
+                </section>
+              </div>
             </div>
+            <a
+              className="carousel-control-prev"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="prev"
+            >
+              <span className="carousel-control-prev-icon" aria-hidden="true" />
+              <span className="sr-only">Previous</span>
+            </a>
+            <a
+              className="carousel-control-next"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="next"
+            >
+              <span className="carousel-control-next-icon" aria-hidden="true" />
+              <span className="sr-only">Next</span>
+            </a>
           </div>
         </div>
       </div>
-    </div> {/* /#slider-caption-1 */}
-    <div id="slider-caption-2" className="nivo-html-caption slider-caption">
-      <div className="display-table">
-        <div className="table-cell">
-          <div className="container">
-            <div className="slider-text">
-              <h1 className="wow bounceInDown" data-wow-delay="1s"><span>Be Ready To Fly</span> <br /><span>With Cryptocoin.</span></h1>
-              <p className="wow fadeInRight2" data-wow-delay="1s">We offer free consulting and the best project management <br />for your ideas, 100% delivery guaranteed.</p>
-              <a href="#" className="button_1 wow bounceInLeft" data-wow-delay="0.8s">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> {/* /#slider-caption-2 */}
-    <div id="slider-caption-3" className="nivo-html-caption slider-caption">
-      <div className="display-table">
-        <div className="table-cell">
-          <div className="container">
-            <div className="slider-text">
-              <h1 className="wow bounceInUp" data-wow-delay="1s"><span>Invest In Cryptocoin</span><br /><span>Easy Way To Trade Bitcoin.</span></h1>
-              <p className="wow fadeInRight2" data-wow-delay="1s">We offer free consulting and the best project management <br />for your ideas, 100% delivery guaranteed.</p>
-              <a href="#" className="button_1 wow bounceInUp" data-wow-delay="0.8s">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> {/* /#slider-caption-3 */}
-  </div>
-</section>{/* /#slider-Section */}
     </>
-  )
+  );
 }

@@ -19,7 +19,7 @@ export default function Charts() {
           <a
             href="https://www.cryptohopper.com/currencies/detail?currency=BTC"
             target="_blank"
-            className="mcw-tr mcw-link mcw-card mcw-card-1 mcw-white-theme mcw-rounded col-lg-2 col-md-12 mb-4"
+            className="mcw-tr mcw-link mcw-card mcw-card-1 mcw-white-theme mcw-rounded col-sm-4"
           >
             <div className="bg">
               <img
@@ -63,7 +63,7 @@ export default function Charts() {
           <a
             href="https://www.cryptohopper.com/currencies/detail?currency=ETH"
             target="_blank"
-            className="mcw-tr mcw-link mcw-card mcw-card-1 mcw-white-theme mcw-rounded col-lg-2 col-md-12 mb-4"
+            className="mcw-tr mcw-link mcw-card mcw-card-1 mcw-white-theme mcw-rounded col-sm-4"
           >
             <div className="bg">
               <img
@@ -107,7 +107,7 @@ export default function Charts() {
           <a
             href="https://www.cryptohopper.com/currencies/detail?currency=USDT"
             target="_blank"
-            className="mcw-tr mcw-link mcw-card mcw-card-1 mcw-white-theme mcw-rounded col-lg-2 col-md-12 mb-4"
+            className="mcw-tr mcw-link mcw-card mcw-card-1 mcw-white-theme mcw-rounded col-lg-2 col-sm-4"
           >
             <div className="bg">
               <img
