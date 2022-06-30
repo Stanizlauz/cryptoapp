@@ -107,7 +107,7 @@ export default function Headerss() {
         </nav>
       </header>
   
-      <TradingView />
+      {/* <TradingView /> */}
 
       {/* <header id="header" className="header_section bd-bottom">
         <div className="top_header">

@@ -60,12 +60,7 @@ export default function CarouselWrapper() {
               <br />
               <br />
               <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
+           
 
               <div className="col-sm-6 xs-padding mb-4">
                 <div className="about_info">
