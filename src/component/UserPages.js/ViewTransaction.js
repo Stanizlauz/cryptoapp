@@ -5,6 +5,7 @@ import { urlTransaction } from '../../endpoints';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { expiredToken } from '../../Auth/HandleJWT';
+import { successMessage } from '../../Utils/hotToast';
 
 
 export default function ViewTransaction() {
@@ -25,8 +26,11 @@ export default function ViewTransaction() {
   const approve = async () => {
     try {
       expiredToken();
-      await axios.patch(`${urlTransaction}/approve/${id}`);
-      history("/transactions");
+      const res = await axios.patch(`${urlTransaction}/approve/${id}`);
+      if (res?.data?.successmessage) {
+        successMessage(res?.data?.successmessage);
+        history("/transactions");
+    }
     } catch (error) {
       console.log(error);
     }
