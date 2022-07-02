@@ -3,9 +3,10 @@ import TradingView from "../TradingView";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import axios from "axios";
-import { urlTransaction } from "../../endpoints";
-import { expiredToken } from "../../Auth/HandleJWT";
+import { urlTransaction, urlProfile } from "../../endpoints";
+import { expiredToken, getToken } from "../../Auth/HandleJWT";
 import Charts from "../Charts";
+
 export default function Dashboard() {
   const [transaction, setTransaction] = useState();
 
@@ -13,12 +14,21 @@ export default function Dashboard() {
     expiredToken();
     loadData();
   }, []);
+  const userAuth = getToken();
+  useEffect(() => {
+    loadUserData();
+  })
 
   const loadData = async () => {
     await axios
       .get(urlTransaction)
       .then((response) => setTransaction(response.data));
   };
+  const [profile, setProfile] = useState([]);
+  const loadUserData = async () => {
+    await axios.get(`${urlProfile}/${userAuth?.id}`)
+      .then(response => setProfile(response.data))
+  }
 
   return (
     <>
@@ -48,17 +58,21 @@ export default function Dashboard() {
                   <div className="col-sm-4 grid-margin">
                     <div className="card">
                       <div className="card-body">
-                        <h5>Account Name</h5>
+                        <h5>
+                        {profile?.firstName} {profile?.lastName}
+                        </h5>
                         <div className="row">
                           <div className="col-8 col-sm-12 col-xl-8 my-auto">
                             <div className="d-flex d-sm-block d-md-flex align-items-center">
-                              <h2 className="mb-0">Account Email</h2>
+                              <h2 className="mb-0">
+                              {profile?.email}
+                              </h2>
                               <p className="text-success ml-2 mb-0 font-weight-medium">
-                                +3.5%
+                                
                               </p>
                             </div>
                             <h6 className="text-muted font-weight-normal">
-                              Phonenumber
+                            {profile?.phoneNo}
                             </h6>
                           </div>
                           <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
