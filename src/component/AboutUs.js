@@ -1,200 +1,193 @@
 import React from "react";
 import Headerss from "./Headerss";
 import Footer from "./Footer";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "./styles.css";
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function AboutUs() {
   return (
     <>
       <Headerss />
 
-      {/* Carousel wrapper */}
-      <div
-        id="carouselDarkVariant"
-        className="carousel slide carousel-fade carousel-dark"
-        data-mdb-ride="carousel"
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
       >
-        {/* Indicators */}
-        <div className="carousel-indicators">
-          <button
-            data-mdb-target="#carouselDarkVariant"
-            data-mdb-slide-to={0}
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          />
-          <button
-            data-mdb-target="#carouselDarkVariant"
-            data-mdb-slide-to={1}
-            aria-label="Slide 1"
-          />
-          <button
-            data-mdb-target="#carouselDarkVariant"
-            data-mdb-slide-to={2}
-            aria-label="Slide 1"
-          />
-        </div>
-        {/* Inner */}
-        <div className="carousel-inner">
-          {/* Single item */}
-          <div className="carousel-item active">
-            <img
-              src="img/slider-4.jpg"
-              className="d-block w-100"
-              alt=""
-              title="#slider-caption-1"
-            />
-            {/* <div className="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </div> */}
-            <div className="carousel-caption d-none d-md-block">
-              <h1 className="wow fadeInLeft2" data-wow-delay="1s">
-                <span
-                  style={{
-                    fontSize: "70px",
-                    fontWeight: "bolder",
-                    backgroundColor: "#00757F",
-                    borderRadius: "2px",
-                  }}
-                >
-                  About Us
-                </span>
-                <br />
-              </h1>
-            </div>
-          </div>
-          {/* Single item */}
-          <div className="carousel-item">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(35).webp"
-              className="d-block w-100"
-              alt="Mountaintop"
-            />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-            </div>
-          </div>
-          {/* Single item */}
-          <div className="carousel-item">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(40).webp"
-              className="d-block w-100"
-              alt="Woman Reading a Book"
-            />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Carousel wrapper */}
-
-      {/* <section className="about_section bd-bottom padding">
-        <div className="container">
-          <div className="section_heading align-center mb-40">
-            <h2>Making money and making you rich.</h2>
-          </div>
-          <div className="row about_box">
-            <div className="col-sm-6 xs-padding">
-              <div className="about_info">
-                <h3>Recognizing your need is our primary motive.</h3>
-                <p>
-                  Our aim is to minimize risk and make profit from the crypto
-                  currency market while putting smiles on our customers faces.
-                </p>
-              </div>
-            </div>
-            <div className="col-sm-6 xs-padding">
-              <div className="why_content">
-                <h3>Why Choose Us?</h3>
-                <ul>
-                  <li>
-                    <i className="fa fa-check" />
-                    We offer the most package of service in the industry.
-                  </li>
-                  <li>
-                    <i className="fa fa-check" />
-                    High customer retention rate. Printing and type company.
-                  </li>
-                  <li>
-                    <i className="fa fa-check" />
-                    Our service features are unmatched in the center.
-                  </li>
-                  <li>
-                    <i className="fa fa-check" />
-                    Afordable pricing offers. Printing and typesetting house.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="about_image" />
-      </section> */}
-
-      {/* <section className="h-100 bg-dark">
-        <div className="container py-5 h-100">
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col">
-              <div className="card card-registration my-4 bg-dark">
-                <div className="row g-0">
-                  <div className="col-xl-6">
-                    <div className="container">
-                      <div className="section_heading align-center mb-40">
-                        <h2>Making money and making you rich.</h2>
-                      </div>
-                      <div className="row about_box">
-                        <div className="col-sm-6 xs-padding">
-                          <div className="about_info text-dark">
-                            <h3>
-                              Recognizing your need is our primary motive.
-                            </h3>
-                            <p>
-                              Our aim is to minimize risk and make profit from
-                              the crypto currency market while putting smiles on
-                              our customers faces.
-                            </p>
-                          </div>
-                        </div>
-                        <div className="col-sm-6 xs-padding">
-                          <div className="why_content">
-                            <h3>Why Choose Us?</h3>
-                            <ul>
-                              <li>
-                                <i className="fa fa-check" />
-                                We offer the most package of service in the
-                                industry.
-                              </li>
-                              <li>
-                                <i className="fa fa-check" />
-                                High customer retention rate. Printing and type
-                                company.
-                              </li>
-                              <li>
-                                <i className="fa fa-check" />
-                                Our service features are unmatched in the
-                                center.
-                              </li>
-                              <li>
-                                <i className="fa fa-check" />
-                                Afordable pricing offers. Printing and
-                                typesetting house.
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+        <SwiperSlide>
+          {" "}
+          {/* <h5 className="caption">First slide label</h5> */}
+          <div className="caption">
+              <div className="col-sm-6 xs-padding mb-4">
+                <div className="text-datk">
+                  <h3
+                    style={{
+                      backgroundColor: "#00757F",
+                      padding: "10px 15px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Welcome to Arks Trades.
+                  </h3>
+                  <p
+                    style={{
+                      backgroundColor: "#4b4b4f",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    We take your privacy and security very serious here at Arkstrades. As a platform you can trust, we're built with a 256 bit encryption level to add an additional layer of security. You can protect your assets by setting up your account to use google two factor authenticator
+                  </p>
+                
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section> */}
+          <img src="img/invest-1.jpg" alt=".."/>
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+         <div className="caption">
+              <div className="col-sm-6 xs-padding mb-4">
+                <div className="text-datk">
+                  <h3
+                    style={{
+                      backgroundColor: "#00757F",
+                      padding: "10px 15px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Risk Analysis
+                  </h3>
+                  <p
+                    style={{
+                      backgroundColor: "#4b4b4f",
+                      borderRadius: "4px",
+                    }}
+                  >
+                  'Business' means that you have to treat this endeavour as a business and not a gamble. if you had a business plan to show Warrent Buffett, would he approve and invest in you? Bussiness that are strong with a clear strategy ,with a competitive moat. You need to structure your trading business in the same way. Make a deposit through our secure wallet to wallet transfer and get credited almost instantly and start earning daily intrest till deposit term expire
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+          <img src="img/invest-2.jpg" alt=".."/>
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+         <div className="caption">
+              <div className="col-sm-6 xs-padding mb-4">
+                <div className="text-datk">
+                  <h3
+                    style={{
+                      backgroundColor: "#00757F",
+                      padding: "10px 15px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Complete Financial Planning
+                  </h3>
+                  <p
+                    style={{
+                      backgroundColor: "#4b4b4f",
+                      borderRadius: "4px",
+                    }}
+                  >
+                   Developing a clear edge, sitting on your hands untill your edge is in play (patient) diversifying your bets without disworsifying them, and managing correlation is key to this part of the equation. But also being in a personal posistion toi make trading work for you. Dont think about paying up your bills instantly with your trading. rather, make sure you have diversify income streams that allows you learn survive and then thrive without been pressured to perform
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+          <img src="img/invest-3.jpg" alt=".."/>
+        </SwiperSlide>
+        {/* <SwiperSlide>
+          {" "}
+         <div className="caption">
+              <div className="col-sm-6 xs-padding mb-4">
+                <div className="text-datk">
+                  <h3
+                    style={{
+                      backgroundColor: "#00757F",
+                      padding: "10px 15px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Recognizing your need is our primary motive.
+                  </h3>
+                  <p
+                    style={{
+                      backgroundColor: "#4b4b4f",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    Our aim is to minimize risk and make profit from the crypto
+                    currency market while putting smiles on our customers faces.
+                  </p>
+                  <a
+                    to="#"
+                    className="btn btn-outline-light btn-xs btn-icon-text"
+                  >
+                    More about us
+                  </a>
+                </div>
+              </div>
+            </div>
+          <img src="img/slider-1.jpg" alt=".."/>
+        </SwiperSlide> */}
+        {/* <SwiperSlide>
+          {" "}
+         <div className="caption">
+              <div className="col-sm-6 xs-padding mb-4">
+                <div className="text-datk">
+                  <h3
+                    style={{
+                      backgroundColor: "#00757F",
+                      padding: "10px 15px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Recognizing your need is our primary motive.
+                  </h3>
+                  <p
+                    style={{
+                      backgroundColor: "#4b4b4f",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    Our aim is to minimize risk and make profit from the crypto
+                    currency market while putting smiles on our customers faces.
+                  </p>
+                  <a
+                    to="#"
+                    className="btn btn-outline-light btn-xs btn-icon-text"
+                  >
+                    More about us
+                  </a>
+                </div>
+              </div>
+            </div>
+          <img src="images/bg_2.jpg" alt=".."/>
+        </SwiperSlide> */}
+      </Swiper>
+
+   
 
       <section className="team section">
         <div className="container">

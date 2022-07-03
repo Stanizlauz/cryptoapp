@@ -1,103 +1,205 @@
 import React from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
 
-export default function Slider() {
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "./styles.css";
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from "swiper";
+
+export default function App() {
   return (
     <>
-      <div className="home_page">
-        <div className="slide">
-          <div
-            id="carouselExampleControls"
-            className="carousel slide"
-            data-ride="carousel"
-          >
-            <div className="carousel-inner">
-              <div className="carousel-item">
-                <section className="sectionn1">
-                  <div className="content">
-                    <div className="innerguy">
-                      <div className="landing_header_one">
-                        Get Organized and make profit
-                      </div>
-                      <div className="landing_header_three mr-3">
-                        All you need to become a better earner in one place
-                      </div>
-                      <div style={{ zIndex: "2000 !important" }}>
-                        <a href="/about" className="landing_btn">
-                          Read more
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-              <div className="carousel-item active">
-                <section className="sectionn2">
-                  <div className="content">
-                    <div className="innerguy">
-                      <div className="landing_header_one">
-                        Get Started Today
-                      </div>
-                      <div className="landing_header_three mr-5">
-                        We have over 30,000 happy client
-                      </div>
-                      <a
-                        href="/login"
-                        style={{ zIndex: "20 !important" }}
-                        className="landing_btn"
-                      >
-                        Get started
-                      </a>
-                    </div>
-                    {/*                     
-                              <img src="../static/browser_picture/snackfever-lead-capture-page-12.png" alt=""> */}
-                  </div>
-                </section>
-              </div>
-              <div className="carousel-item">
-                <section className="sectionn3">
-                  <div className="content">
-                    <div className="innerguy">
-                      <div className="landing_header_one">
-                        We Are Here For You.
-                      </div>
-                      <div className="landing_header_three mr-5">
-                        We Are Here Always. 24/7
-                      </div>
-                      <a
-                        href="/about"
-                        style={{ zIndex: 20 }}
-                        className="landing_btn"
-                      >
-                        Read more
-                      </a>
-                    </div>
-                    {/*                     
-                              <img src="../static/browser_picture/snackfever-lead-capture-page-12.png" alt=""> */}
-                  </div>
-                </section>
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          {" "}
+          {/* <h5 className="caption">First slide label</h5> */}
+          <div className="caption">
+              <div className="col-sm-6 xs-padding mb-4">
+                <div className="text-datk">
+                  <h3
+                    style={{
+                      backgroundColor: "#00757F",
+                      padding: "10px 15px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Recognizing your need is our primary motive.
+                  </h3>
+                  <p
+                    style={{
+                      backgroundColor: "#4b4b4f",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    Our aim is to minimize risk and make profit from the crypto
+                    currency market while putting smiles on our customers faces.
+                  </p>
+                  <a
+                    to="#"
+                    className="btn btn-outline-light btn-xs btn-icon-text"
+                  >
+                    More about us
+                  </a>
+                </div>
               </div>
             </div>
-            <a
-              className="carousel-control-prev"
-              href="#carouselExampleControls"
-              role="button"
-              data-slide="prev"
-            >
-              <span className="carousel-control-prev-icon" aria-hidden="true" />
-              <span className="sr-only">Previous</span>
-            </a>
-            <a
-              className="carousel-control-next"
-              href="#carouselExampleControls"
-              role="button"
-              data-slide="next"
-            >
-              <span className="carousel-control-next-icon" aria-hidden="true" />
-              <span className="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
+          <img src="images/bg_1.jpg" alt=".."/>
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+         <div className="caption">
+              <div className="col-sm-6 xs-padding mb-4">
+                <div className="text-datk">
+                  <h3
+                    style={{
+                      backgroundColor: "#00757F",
+                      padding: "10px 15px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Recognizing your need is our primary motive.
+                  </h3>
+                  <p
+                    style={{
+                      backgroundColor: "#4b4b4f",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    Our aim is to minimize risk and make profit from the crypto
+                    currency market while putting smiles on our customers faces.
+                  </p>
+                  <a
+                    to="#"
+                    className="btn btn-outline-light btn-xs btn-icon-text"
+                  >
+                    More about us
+                  </a>
+                </div>
+              </div>
+            </div>
+          <img src="images/bg_2.jpg" alt=".."/>
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+         <div className="caption">
+              <div className="col-sm-6 xs-padding mb-4">
+                <div className="text-datk">
+                  <h3
+                    style={{
+                      backgroundColor: "#00757F",
+                      padding: "10px 15px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Recognizing your need is our primary motive.
+                  </h3>
+                  <p
+                    style={{
+                      backgroundColor: "#4b4b4f",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    Our aim is to minimize risk and make profit from the crypto
+                    currency market while putting smiles on our customers faces.
+                  </p>
+                  <a
+                    to="#"
+                    className="btn btn-outline-light btn-xs btn-icon-text"
+                  >
+                    More about us
+                  </a>
+                </div>
+              </div>
+            </div>
+          <img src="images/bg_3.jpg" alt=".."/>
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+         <div className="caption">
+              <div className="col-sm-6 xs-padding mb-4">
+                <div className="text-datk">
+                  <h3
+                    style={{
+                      backgroundColor: "#00757F",
+                      padding: "10px 15px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Recognizing your need is our primary motive.
+                  </h3>
+                  <p
+                    style={{
+                      backgroundColor: "#4b4b4f",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    Our aim is to minimize risk and make profit from the crypto
+                    currency market while putting smiles on our customers faces.
+                  </p>
+                  <a
+                    to="#"
+                    className="btn btn-outline-light btn-xs btn-icon-text"
+                  >
+                    More about us
+                  </a>
+                </div>
+              </div>
+            </div>
+          <img src="images/bg_1.jpg" alt=".."/>
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+         <div className="caption">
+              <div className="col-sm-6 xs-padding mb-4">
+                <div className="text-datk">
+                  <h3
+                    style={{
+                      backgroundColor: "#00757F",
+                      padding: "10px 15px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Recognizing your need is our primary motive.
+                  </h3>
+                  <p
+                    style={{
+                      backgroundColor: "#4b4b4f",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    Our aim is to minimize risk and make profit from the crypto
+                    currency market while putting smiles on our customers faces.
+                  </p>
+                  <a
+                    to="#"
+                    className="btn btn-outline-light btn-xs btn-icon-text"
+                  >
+                    More about us
+                  </a>
+                </div>
+              </div>
+            </div>
+          <img src="images/bg_2.jpg" alt=".."/>
+        </SwiperSlide>
+      </Swiper>
     </>
   );
 }

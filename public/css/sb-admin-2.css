@@ -6258,7 +6258,7 @@ a.close.disabled {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
 }
 
-.carousel-indicators {
+. {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -6272,7 +6272,7 @@ a.close.disabled {
   list-style: none;
 }
 
-.carousel-indicators li {
+. li {
   box-sizing: content-box;
   flex: 0 1 auto;
   width: 30px;
@@ -6290,12 +6290,12 @@ a.close.disabled {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .carousel-indicators li {
+  . li {
     transition: none;
   }
 }
 
-.carousel-indicators .active {
+. .active {
   opacity: 1;
 }
 
