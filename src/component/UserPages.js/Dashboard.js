@@ -17,7 +17,7 @@ export default function Dashboard() {
   const userAuth = getToken();
   useEffect(() => {
     loadUserData();
-  })
+  });
 
   const loadData = async () => {
     await axios
@@ -26,9 +26,10 @@ export default function Dashboard() {
   };
   const [profile, setProfile] = useState([]);
   const loadUserData = async () => {
-    await axios.get(`${urlProfile}/${userAuth?.id}`)
-      .then(response => setProfile(response.data))
-  }
+    await axios
+      .get(`${urlProfile}/${userAuth?.id}`)
+      .then((response) => setProfile(response.data));
+  };
 
   return (
     <>
@@ -59,20 +60,16 @@ export default function Dashboard() {
                     <div className="card">
                       <div className="card-body">
                         <h5>
-                        {profile?.firstName} {profile?.lastName}
+                          {profile?.firstName} {profile?.lastName}
                         </h5>
                         <div className="row">
                           <div className="col-8 col-sm-12 col-xl-8 my-auto">
                             <div className="d-flex d-sm-block d-md-flex align-items-center">
-                              <h2 className="mb-0">
-                              {profile?.email}
-                              </h2>
-                              <p className="text-success ml-2 mb-0 font-weight-medium">
-                                
-                              </p>
+                              <h2 className="mb-0">{profile?.email}</h2>
+                              <p className="text-success ml-2 mb-0 font-weight-medium"></p>
                             </div>
                             <h6 className="text-muted font-weight-normal">
-                            {profile?.phoneNo}
+                              {profile?.phoneNo}
                             </h6>
                           </div>
                           <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
@@ -82,14 +79,47 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-sm-4 grid-margin">
+                  {transaction && transaction?.length > 0 && (
+                    <div className="col-sm-4 grid-margin">
+                      <div className="card">
+                        <div className="card-body">
+                          {transaction?.map((wal) => (
+                            <h5>
+                              {wal.transactionStatus}
+                            </h5>
+                          ))}
+                          <div className="row">
+                            <div className="col-8 col-sm-12 col-xl-8 my-auto">
+                              <div className="d-flex d-sm-block d-md-flex align-items-center">
+                                <h2 className="mb-0"></h2>
+                                <p className="text-success ml-2 mb-0 font-weight-medium">
+                                  +8.3%
+                                </p>
+                              </div>
+                              <h6 className="text-muted font-weight-normal">
+                                {" "}
+                                9.61% Since last month
+                              </h6>
+                            </div>
+                            <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                              <i className="icon-lg mdi mdi-wallet-travel text-danger ml-auto" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  {/* <div className="col-sm-4 grid-margin">
                     <div className="card">
                       <div className="card-body">
-                        <h5>Trade status</h5>
+                        <h5>
+                          traded
+                        </h5>
                         <div className="row">
                           <div className="col-8 col-sm-12 col-xl-8 my-auto">
                             <div className="d-flex d-sm-block d-md-flex align-items-center">
-                              <h2 className="mb-0">Live</h2>
+                              <h2 className="mb-0">
+                              </h2>
                               <p className="text-success ml-2 mb-0 font-weight-medium">
                                 +8.3%
                               </p>
@@ -105,33 +135,36 @@ export default function Dashboard() {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-sm-4 grid-margin">
-                    <div className="card">
-                      <div className="card-body">
-                        <h5>Amount traded</h5>
-                        <div className="row">
-                          <div className="col-8 col-sm-12 col-xl-8 my-auto">
-                            <div className="d-flex d-sm-block d-md-flex align-items-center">
-                              <h2 className="mb-0">$2039</h2>
-                              <p className="text-danger ml-2 mb-0 font-weight-medium">
-                                -2.1%{" "}
-                              </p>
+                  </div> */}
+                  {transaction && transaction?.length > 0 && (
+                    <div className="col-sm-4 grid-margin">
+                      <div className="card">
+                        <div className="card-body">
+                          <h5>Amound Traded</h5>
+                          <div className="row">
+                            <div className="col-8 col-sm-12 col-xl-8 my-auto">
+                              <div className="d-flex d-sm-block d-md-flex align-items-center">
+                                {transaction?.map((wal) => (
+                                  <h2 className="mb-0">
+                                    {wal.amountDeposited}
+                                  </h2>
+                                ))}
+                              </div>
+                              {transaction?.map((wal) => (
+                                <h6 className="text-muted font-weight-normal">
+                                  current balance: {wal.currentBalance}
+                                </h6>
+                              ))}
                             </div>
-                            <h6 className="text-muted font-weight-normal">
-                              current balance
-                            </h6>
-                          </div>
-                          <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                            <i className="icon-lg mdi mdi-monitor text-success ml-auto" />
+                            <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                              <i className="icon-lg mdi mdi-monitor text-success ml-auto" />
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
-
-                <Charts />
 
                 <br />
                 {/* Content Row */}
@@ -203,6 +236,11 @@ export default function Dashboard() {
                     </div>
                   </div>
                 )}
+                <br/>
+                <br/>
+                <div className="all_chart">
+                  <Charts />
+                </div>
               </div>
             </div>
           </div>

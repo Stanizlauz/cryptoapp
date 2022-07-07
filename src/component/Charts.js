@@ -1,14 +1,9 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 export default function Charts() {
   return (
     <>
-      {/* <div
-        class="cryptohopper-web-widget"
-        data-id="3"
-        data-coins="bitcoin,ethereum,tether,binance-coin,xrp,litecoin"
-        data-realtime="on"
-      ></div> */}
       <div
         className="cryptohopper-web-widget"
         data-id={3}
@@ -295,6 +290,7 @@ export default function Charts() {
           />
         </a>
       </div>
+
     </>
   );
 }
