@@ -37,8 +37,8 @@ export default function Sidebar() {
         {/* Nav Item - Dashboard */}
         <li className="nav-item">
           <Link className="nav-link" to="/">
-            <i className="fas fa-fw fa-home text-dark" />
-            <span className="text-dark" style={{fontWeight: 'bolder', fontSize: '15px'}}>Home</span>
+            <i className="fas fa-fw fa-home text-light" />
+            <span className="text-light" style={{fontWeight: 'bolder', fontSize: '15px'}}>Home</span>
           </Link>
         </li>
         {/* Divider */}
@@ -48,8 +48,8 @@ export default function Sidebar() {
         {/* Nav Item - Pages Collapse Menu */}
         <li className="nav-item">
           <Link className="nav-link collapsed" to="/dashboard">
-            <i className="fas fa-fw fa-line-chart text-dark" />
-            <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Dashboard</span>
+            <i className="fas fa-fw fa-line-chart text-light" />
+            <span className="text-light" style={{fontWeight: 'bolder',fontSize: '15px' }}>Dashboard</span>
           </Link>
         </li>
         <hr className="sidebar-divider" />
@@ -58,8 +58,8 @@ export default function Sidebar() {
             <>
               <li className="nav-item">
                 <Link className="nav-link" to="/userprofile">
-                  <i className="fas fa-fw fa-user-circle text-dark" />
-                  <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Profile</span>
+                  <i className="fas fa-fw fa-user-circle text-light" />
+                  <span className="text-light" style={{fontWeight: 'bolder',fontSize: '15px' }}>Profile</span>
                 </Link>
               </li>
               <hr className="sidebar-divider" />
@@ -69,8 +69,8 @@ export default function Sidebar() {
         />
         <li className="nav-item">
           <Link className="nav-link collapsed" to="/plans">
-            <i className="fas fa-fw fa-suitcase text-dark" />
-            <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Plans</span>
+            <i className="fas fa-fw fa-suitcase text-light" />
+            <span className="text-light" style={{fontWeight: 'bolder',fontSize: '15px' }}>Plans</span>
           </Link>
         </li>
         {/* Divider */}
@@ -78,16 +78,16 @@ export default function Sidebar() {
         {/* Nav Item - Pages Collapse Menu */}
         <li className="nav-item">
           <Link className="nav-link collapsed" to="/transactions">
-            <i className="fas fa-fw fa-tasks text-dark" />
-            <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Transactions</span>
+            <i className="fas fa-fw fa-tasks text-light" />
+            <span className="text-light" style={{fontWeight: 'bolder',fontSize: '15px' }}>Transactions</span>
           </Link>
         </li>
         <hr className="sidebar-divider" />
         {/* Nav Item - Charts */}
         <li className="nav-item" onClick={() => { sessionStorage.setItem('fromPlans', "false") }}>
           <Link className="nav-link" to="/deposit">
-            <i className="fas fa-fw fa-window-maximize text-dark" />
-            <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Deposit</span>
+            <i className="fas fa-fw fa-window-maximize text-light" />
+            <span className="text-light" style={{fontWeight: 'bolder',fontSize: '15px' }}>Deposit</span>
           </Link>
         </li>
         <hr className="sidebar-divider" />
@@ -97,15 +97,15 @@ export default function Sidebar() {
             <>
               <li className="nav-item">
                 <Link className="nav-link" to="/users">
-                  <i className="fas fa-fw fa-users text-dark" />
-                  <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Users</span>
+                  <i className="fas fa-fw fa-users text-light" />
+                  <span className="text-light" style={{fontWeight: 'bolder',fontSize: '15px' }}>Users</span>
                 </Link>
               </li>
               <hr className="sidebar-divider" />
               <li className="nav-item">
                 <Link className="nav-link" to="/admin/wallet">
-                  <i className="fas fa-fw fa-user-secret text-dark" />
-                  <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Admin Wallet</span>
+                  <i className="fas fa-fw fa-user-secret text-light" />
+                  <span className="text-light" style={{fontWeight: 'bolder',fontSize: '15px' }}>Admin Wallet</span>
                 </Link>
               </li>
               <hr className="sidebar-divider" />
@@ -119,8 +119,8 @@ export default function Sidebar() {
             <>
               <li className="nav-item">
                 <Link className="nav-link" to="/withdraw">
-                  <i className="fas fa-fw fa-credit-card text-dark" />
-                  <span className="text-dark" style={{fontWeight: 'bolder',fontSize: '15px' }}>Withdraw</span>
+                  <i className="fas fa-fw fa-credit-card text-light" />
+                  <span className="text-light" style={{fontWeight: 'bolder',fontSize: '15px' }}>Withdraw</span>
                 </Link>
               </li>
               {/* Divider */}

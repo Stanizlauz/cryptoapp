@@ -3829,6 +3829,7 @@ input[type="submit"].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  background-color: #1B1212;
 }
 .navbar .container,
 .navbar .container-fluid,
@@ -4241,6 +4242,8 @@ input[type="submit"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  background-color: #28282B;
+background-image: linear-gradient(315deg, #28282B 0%, #5a585a 74%);
 }
 .card-title {
   margin-bottom: 0.75rem;
@@ -9017,9 +9020,8 @@ a:focus {
   display: flex;
 }
 #wrapper #content-wrapper {
-  /* background-color: black; */
-  background-color: #000000;
-background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+  background-color: #1B1212;
+/* background-image: linear-gradient(315deg, #000000 0%, #414141 74%); */
   width: 100%;
   overflow-x: hidden;
 }
@@ -9151,7 +9153,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
 }
 .bg-gradient-dark {
   background-color: #5a5c69;
-  background-image: linear-gradient(180deg, #5a5c69 10%, #373840 100%);
+  /* background-image: linear-gradient(180deg, #5a5c69 10%, #373840 100%); */
   background-size: cover;
 }
 .bg-gray-100 {
@@ -9453,6 +9455,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
 .sidebar {
   width: 6.5rem;
   min-height: 100vh;
+  background-color: #301934;
 }
 .sidebar .nav-item {
   position: relative;
@@ -9812,7 +9815,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
   color: rgba(255, 255, 255, 0.5);
 }
 .sidebar-dark #sidebarToggle:hover {
-  background-color: #00757F;
+  background-color: #0e070c;
 }
 .sidebar-dark.toggled #sidebarToggle::after {
   color: rgba(255, 255, 255, 0.5);

@@ -95,7 +95,7 @@ export default function Deposit() {
             {/* <h1 className="text-dark">Deposit</h1> */}
             <TradingView />
             <div>
-              <h3 className="" style={{ color: '#00757F', fontWeight: 'bold' }}>Deposit</h3>
+              <h3 className="" style={{ color: 'white', fontWeight: 'bold' }}>Deposit</h3>
             </div>
             <div className="our-webcoderskull bg-dark">
               <div className="my_alert">

@@ -31,7 +31,7 @@ export default function Transaction() {
             <div className="container-fluid">
               <TradingView />
               <div>
-                <h3 className="" style={{ color: '#00757F', fontWeight: 'bold' }}> Transaction History</h3>
+                <h3 className="" style={{ color: 'white', fontWeight: 'bold' }}> Transaction History</h3>
               </div>
               {/* <div className="card-header py-3">
               <h6 className="m-0 font-weight-bold text-dark">

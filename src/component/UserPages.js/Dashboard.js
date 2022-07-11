@@ -46,7 +46,7 @@ export default function Dashboard() {
                 <div>
                   <h3
                     className=""
-                    style={{ color: "#00757F", fontWeight: "bold" }}
+                    style={{ color: "white", fontWeight: "bold" }}
                   >
                     Dashboard
                   </h3>
@@ -59,18 +59,20 @@ export default function Dashboard() {
                   <div className="col-sm-4 grid-margin">
                     <div className="card">
                       <div className="card-body">
-                        <h5>
+                        <h5 className="text-white font-weight-bold">
                           {profile?.firstName} {profile?.lastName}
                         </h5>
                         <div className="row">
                           <div className="col-8 col-sm-12 col-xl-8 my-auto">
                             <div className="d-flex d-sm-block d-md-flex align-items-center">
-                              <h2 className="mb-0">{profile?.email}</h2>
+                              <h4 className="mb-0 text-info">
+                                {profile?.email}
+                              </h4>
                               <p className="text-success ml-2 mb-0 font-weight-medium"></p>
                             </div>
-                            <h6 className="text-muted font-weight-normal">
+                            {/* <h6 className="text-light font-weight-normal">
                               {profile?.phoneNo}
-                            </h6>
+                            </h6> */}
                           </div>
                           <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                             <i className="icon-lg mdi mdi-codepen text-primary ml-auto" />
@@ -84,22 +86,21 @@ export default function Dashboard() {
                       <div className="card">
                         <div className="card-body">
                           {transaction?.map((wal) => (
-                            <h5>
+                            <h5 className="text-success">
                               {wal.transactionStatus}
                             </h5>
                           ))}
                           <div className="row">
                             <div className="col-8 col-sm-12 col-xl-8 my-auto">
                               <div className="d-flex d-sm-block d-md-flex align-items-center">
-                                <h2 className="mb-0"></h2>
-                                <p className="text-success ml-2 mb-0 font-weight-medium">
+                                {transaction?.map((wal) => (
+                                  <h3 className="mb-0 text-warning">{wal.coin}</h3>
+                                ))}
+
+                                <h6 className="text-primary ml-2 mb-0 font-weight-medium">
                                   +8.3%
-                                </p>
+                                </h6>
                               </div>
-                              <h6 className="text-muted font-weight-normal">
-                                {" "}
-                                9.61% Since last month
-                              </h6>
                             </div>
                             <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                               <i className="icon-lg mdi mdi-wallet-travel text-danger ml-auto" />
@@ -140,19 +141,21 @@ export default function Dashboard() {
                     <div className="col-sm-4 grid-margin">
                       <div className="card">
                         <div className="card-body">
-                          <h5>Amound Traded</h5>
+                          <h5 className="text-light font-weight-bold">
+                            Amound Traded
+                          </h5>
                           <div className="row">
                             <div className="col-8 col-sm-12 col-xl-8 my-auto">
                               <div className="d-flex d-sm-block d-md-flex align-items-center">
                                 {transaction?.map((wal) => (
-                                  <h2 className="mb-0">
-                                    {wal.amountDeposited}
+                                  <h2 className="mb-0 text-info font-weight-bold">
+                                    ${wal.amountDeposited}
                                   </h2>
                                 ))}
                               </div>
                               {transaction?.map((wal) => (
-                                <h6 className="text-muted font-weight-normal">
-                                  current balance: {wal.currentBalance}
+                                <h6 className="text-success font-weight-normal">
+                                  current balance: ${wal.currentBalance}
                                 </h6>
                               ))}
                             </div>
@@ -165,7 +168,9 @@ export default function Dashboard() {
                     </div>
                   )}
                 </div>
+                <br />
 
+                <Charts />
                 <br />
                 {/* Content Row */}
                 {transaction && transaction?.length > 0 && (
@@ -178,16 +183,20 @@ export default function Dashboard() {
                         <div className="card-body">
                           <div className="table-responsive">
                             <table className="table">
-                              <thead className="text-dark">
-                                <tr className="text-dark">
-                                  <th>S/N</th>
-                                  <th>Coin</th>
-                                  <th>Amount Traded</th>
+                              <thead className="text-white">
+                                <tr className="text-white">
+                                  <th className="text-white">S/N</th>
+                                  <th className="text-white">Coin</th>
+                                  <th className="text-white">Amount Traded</th>
                                   {/* <th>Start Date</th> */}
                                   {/* <th>End Date</th> */}
-                                  <th>Current Balance</th>
-                                  <th>Expected Payout</th>
-                                  <th>Trade Status</th>
+                                  <th className="text-white">
+                                    Current Balance
+                                  </th>
+                                  <th className="text-white">
+                                    Expected Payout
+                                  </th>
+                                  <th className="text-white">Trade Status</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -195,26 +204,30 @@ export default function Dashboard() {
                                   transaction.length > 0 &&
                                   transaction?.map((tran, index) => (
                                     <tr key={tran.id}>
-                                      <td className="text-dark">{index + 1}</td>
-                                      <td className="text-dark">{tran.coin}</td>
-                                      <td className="text-dark">
+                                      <td className="text-white">
+                                        {index + 1}
+                                      </td>
+                                      <td className="text-white">
+                                        {tran.coin}
+                                      </td>
+                                      <td className="text-white">
                                         {tran.amountDeposited && (
                                           <>${tran.amountDeposited}</>
                                         )}
                                       </td>
                                       {/* <td className="text-dark">{tran.startDate}</td> */}
                                       {/* <td className="text-dark">{tran.endDate}</td> */}
-                                      <td className="text-dark">
+                                      <td className="text-white">
                                         {tran.currentBalance && (
                                           <>${tran.currentBalance}</>
                                         )}
                                       </td>
-                                      <td className="text-dark">
+                                      <td className="text-white">
                                         {tran.expectedPayout && (
                                           <>${tran.expectedPayout}</>
                                         )}
                                       </td>
-                                      <td className="text-dark">
+                                      <td className="text-white">
                                         {tran.transactionStatus ===
                                         "Pending" ? (
                                           <span className="badge bg-warning text-white p-2 font-weight-bold">
@@ -236,11 +249,8 @@ export default function Dashboard() {
                     </div>
                   </div>
                 )}
-                <br/>
-                <br/>
-                <div className="all_chart">
-                  <Charts />
-                </div>
+                <br />
+                <br />
               </div>
             </div>
           </div>

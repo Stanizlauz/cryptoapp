@@ -21,13 +21,13 @@ export default function Packages() {
           <div className="row">
             <div className="col-lg-4 col-md-12 mb-4">
               <div className="card card1 h-100">
-                <div className="card-body">
+                <div className="card-body card1">
                   <h5 className="card-title">Basic</h5>
                   <br />
-                  <span className="amt">$500</span>/$999
+                  <span className="amt text-light">$500</span>/$999
                   <div className="d-grid my-3">
                     <Link to="/deposit">
-                      <button className="btn btn-outline-dark btn-block"
+                      <button className="btn btn-outline-light btn-block"
                         onClick={() => setPlans('Basic', '$500 - $999')}
                       >
                         Select
@@ -44,14 +44,14 @@ export default function Packages() {
             </div>
             <div className="col-lg-4 col-md-12 mb-4">
               <div className="card card2 h-100">
-                <div className="card-body">
+                <div className="card-body card2">
                   <h5 className="card-title">Silver</h5>
                   <br />
-                  <span className="amt">$1000</span>$5999
+                  <span className="amt text-light">$1000</span>$5999
                   <br />
                   <div className="d-grid my-3">
                     <Link to="/deposit">
-                      <button className="btn btn-outline-dark btn-block"
+                      <button className="btn btn-outline-light btn-block"
                         onClick={() => setPlans('Silver', '$1000 - $5999')}
                       >
                         Select
@@ -69,14 +69,14 @@ export default function Packages() {
 
             <div className="col-lg-4 col-md-12 mb-4">
               <div className="card card3 h-100">
-                <div className="card-body">
+                <div className="card-body card3">
                   <h5 className="card-title">Gold</h5>
                   <br />
-                  <span className="amt">$6000</span>$9999
+                  <span className="amt text-light">$6000</span>$9999
                   <br />
                   <div className="d-grid my-3">
                     <Link to="/deposit">
-                      <button className="btn btn-outline-dark btn-block"
+                      <button className="btn btn-outline-light btn-block"
                         onClick={() => setPlans('Gold', '$6000 - $9999')}
                       >
                         Select
@@ -93,14 +93,14 @@ export default function Packages() {
             </div>
             <div className="col-lg-4 col-md-12 mb-4">
               <div className="card card4 h-100">
-                <div className="card-body">
+                <div className="card-body card4">
                   <h5 className="card-title">Diamond</h5>
                   <br />
-                  <span className="amt">$10,000</span>/$49,999
+                  <span className="amt text-light">$10,000</span>/$49,999
                   <br />
                   <div className="d-grid my-3">
                     <Link to="/deposit">
-                      <button className="btn btn-outline-dark btn-block"
+                      <button className="btn btn-outline-light btn-block"
                         onClick={() => setPlans('Diamond', '$10,000 - $49,999')}
                       >
                         Select
@@ -117,14 +117,14 @@ export default function Packages() {
             </div>
             <div className="col-lg-4 col-md-12 mb-4">
               <div className="card card5 h-100">
-                <div className="card-body">
+                <div className="card-body card5">
                   <h5 className="card-title">Platinum</h5>
                   <br />
-                  <span className="amt">$50,000</span>/$99,999
+                  <span className="amt text-light">$50,000</span>/$99,999
                   <br />
                   <div className="d-grid my-3">
                     <Link to="/deposit">
-                      <button className="btn btn-outline-dark btn-block"
+                      <button className="btn btn-outline-light btn-block"
                         onClick={() => setPlans('Platinum', '$50,000 - $99,999')}
                       >
                         Select
@@ -141,14 +141,14 @@ export default function Packages() {
             </div>
             <div className="col-lg-4 col-md-12 mb-4">
               <div className="card card5 h-100">
-                <div className="card-body">
+                <div className="card-body card5">
                   <h5 className="card-title">Premium</h5>
                   <br />
-                  <span className="amt">$100,000</span>/$999,999
+                  <span className="amt text-light">$100,000</span>/$999,999
                   <br />
                   <div className="d-grid my-3">
                     <Link to="/deposit">
-                      <button className="btn btn-outline-dark btn-block"
+                      <button className="btn btn-outline-light btn-block"
                         onClick={() => setPlans('Premium', '$100,000 - $999,999')}
                       >
                         Select

@@ -209,8 +209,8 @@ export default function UserProfile() {
                               :
                               <i className="fab fa-gg-circle fa-lg text-danger" />
                             }
-                            {profile?.identityNumber ? <span className="text-dark font-weight-bold">verified</span>
-                              : <span className="text-dark font-weight-bold">NotVerified</span>
+                            {profile?.identityNumber ? <span className="text-light font-weight-bold">verified</span>
+                              : <span className="text-light font-weight-bold">NotVerified</span>
                             }
                           </span>
                         </div>
@@ -218,7 +218,7 @@ export default function UserProfile() {
                       <div className="card mb-4 mb-lg-0">
                         <div className="card-body p-0">
                           <div className="row d-flex float-left ml-2">
-                            <p className="text-dark font-weight-bold mr-2 mt-2">Wallets</p>
+                            <p className="text-light font-weight-bold mr-2 mt-2">Wallets</p>
                           </div>
                         </div>
                       </div>
@@ -226,7 +226,7 @@ export default function UserProfile() {
                         <div className="card mb-4 mb-lg-0">
                           <div className="card-body p-0">
                             <div className="row d-flex float-right mr-4">
-                              <p className="text-dark font-weight-bold mr-2 mt-2">Add Wallet</p>
+                              <p className="text-light font-weight-bold mr-2 mt-2">Add Wallet</p>
                               <i
                                 className="fas fa-plus text-primary mt-2"
                                 data-toggle="modal"
@@ -354,19 +354,19 @@ export default function UserProfile() {
                         <div className="card-body">
                           <div className="row">
                             <div className="col-sm-3">
-                              <p className="text-dark mb-0">Full Name:</p>
+                              <p className="text-light mb-0">Full Name:</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{profile?.firstName} {profile?.lastName}</p>
+                              <p className="text-white mb-0">{profile?.firstName} {profile?.lastName}</p>
                             </div>
                           </div>
                           <hr />
                           <div className="row">
                             <div className="col-sm-3">
-                              <p className="text-dark mb-0">Email:</p>
+                              <p className="text-light mb-0">Email:</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">
+                              <p className="text-white mb-0">
                                 {profile?.email}
                               </p>
                             </div>
@@ -374,37 +374,37 @@ export default function UserProfile() {
                           <hr />
                           <div className="row">
                             <div className="col-sm-3">
-                              <p className="text-dark mb-0">Phone:</p>
+                              <p className="text-light mb-0">Phone:</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{profile?.phoneNo}</p>
+                              <p className="text-white mb-0">{profile?.phoneNo}</p>
                             </div>
                           </div>
                           <hr />
                           <div className="row">
                             <div className="col-sm-3">
-                              <p className="text-dark mb-0">Date Of Birth:</p>
+                              <p className="text-light mb-0">Date Of Birth:</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{moment(profile?.dateOfBirth).format('MMM D, YYYY')}</p>
+                              <p className="text-white mb-0">{moment(profile?.dateOfBirth).format('MMM D, YYYY')}</p>
                             </div>
                           </div>
                           <hr />
                           <div className="row">
                             <div className="col-sm-3">
-                              <p className="text-dark mb-0">Gender:</p>
+                              <p className="text-light mb-0">Gender:</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{profile?.gender}</p>
+                              <p className="text-white mb-0">{profile?.gender}</p>
                             </div>
                           </div>
                           <hr />
                           <div className="row">
                             <div className="col-sm-3">
-                              <p className="text-dark mb-0">Address:</p>
+                              <p className="text-light mb-0">Address:</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">
+                              <p className="text-white mb-0">
                                 {profile?.address}
                               </p>
                             </div>
