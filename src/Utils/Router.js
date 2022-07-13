@@ -11,7 +11,7 @@ import HomePageBody from "../component/HomePageBody";
 import Login from "../component/Login";
 import NotFound from "../component/NotFound";
 import Register from "../component/Register";
-import Slider from "../component/Slider";
+import Slider from "../component/slider";
 import AdminWallet from "../component/UserPages.js/AdminWallet";
 import ChangePassword from "../component/UserPages.js/ChangePassword";
 import Dashboard from "../component/UserPages.js/Dashboard";

@@ -34,7 +34,7 @@ export default function DepositCards({ image, coin, address, modalId, message })
       const res = await axios.post(urlTransaction, formData);
       if (res?.data?.successmessage) {
         successMessage(res?.data?.successmessage);
-        history("/transactions");
+        // history("/transactions");
         return;
       }
       errorMessage(res?.data?.errormessage)

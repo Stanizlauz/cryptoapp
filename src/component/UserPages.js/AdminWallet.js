@@ -7,6 +7,7 @@ import { urlAdminWallet, urlCoins } from "../../endpoints";
 import { coins } from "../../enum";
 import { useForm } from "react-hook-form";
 import { expiredToken } from "../../Auth/HandleJWT";
+import { errorMessage, successMessage } from "../../Utils/hotToast";
 
 export default function AdminWallet() {
   const {
@@ -66,19 +67,30 @@ export default function AdminWallet() {
   const deleteWallet = async (id) => {
     expiredToken();
     let wal = wallet.find(x => x.coin === id);
-    await axios.delete(`${urlAdminWallet}/${wal?.id}`)
+    const res = await axios.delete(`${urlAdminWallet}/${wal?.id}`)
+    if (res?.data?.successmessage) {
+      successMessage(res?.data?.successmessage);
+      loadWallet();
+    }
   }
+
   const saveWallet = async (data) => {
     try {
       expiredToken();
+      console.log({ data })
       let exist = wallet.find(x => x.coin === data.coin);
       if (!exist) {
-        console.log({ data })
-        await axios.post(urlAdminWallet, data)
-        loadWallet();
+        const res = await axios.post(urlAdminWallet, data)
+        if (res?.data?.successmessage) {
+          successMessage(res?.data?.successmessage);
+          loadWallet();
+          return;
+        }
+        errorMessage(res?.data?.errormessage)
+        return;
       }
 
-
+      errorMessage("Coin already exists!")
     } catch (error) {
       console.log(error)
     }
@@ -87,21 +99,22 @@ export default function AdminWallet() {
     // const { name, value } = e.target;
 
   };
+  
   const editWallets = async (data) => {
     try {
       expiredToken();
       let obj = {
         walletAddress: data?.editwalletAddress
       }
-      console.log({ obj })
-      await axios.put(`${urlAdminWallet}/${editWalletData?.id}`, obj)
-      loadWallet();
-
+      const res = await axios.put(`${urlAdminWallet}/${editWalletData?.id}`, obj)
+      if (res?.data?.successmessage) {
+        successMessage(res?.data?.successmessage);
+        loadWallet();
+      }
     } catch (error) {
       console.log(error)
     }
   }
-
   return (
     <>
       <div id="wrapper">
