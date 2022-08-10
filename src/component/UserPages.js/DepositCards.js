@@ -8,9 +8,15 @@ import { urlTransaction } from "../../endpoints";
 import { depositFormData } from "../../Utils/FormData";
 import { successMessage, errorMessage } from "../../Utils/hotToast";
 
-
-export default function DepositCards({ image, coin, address, modalId, message }) {
+export default function DepositCards({
+  image,
+  coin,
+  address,
+  modalId,
+  message,
+}) {
   const history = useNavigate();
+  const [paid, setPaid] = useState(false);
 
   const {
     register,
@@ -28,16 +34,17 @@ export default function DepositCards({ image, coin, address, modalId, message })
   const depositCoin = async (data) => {
     try {
       expiredToken();
-      data.coin = selectCoin
-      data.picture = data.picture[0]
+      data.coin = selectCoin;
+      data.picture = data.picture[0];
       const formData = depositFormData(data);
       const res = await axios.post(urlTransaction, formData);
       if (res?.data?.successmessage) {
         successMessage(res?.data?.successmessage);
+        setPaid(true);
         // history("/transactions");
         return;
       }
-      errorMessage(res?.data?.errormessage)
+      errorMessage(res?.data?.errormessage);
       // window.location.reload();
     } catch (error) {
       console.log(error);
@@ -45,8 +52,8 @@ export default function DepositCards({ image, coin, address, modalId, message })
   };
 
   const selectedCoin = (coi) => {
-    setSelectCoin(coi)
-  }
+    setSelectCoin(coi);
+  };
 
   const [copied, setCopied] = useState(false);
   const [selectCoin, setSelectCoin] = useState();
@@ -75,7 +82,6 @@ export default function DepositCards({ image, coin, address, modalId, message })
           </div>
         </div>
       </li>
-
 
       <div>
         {/* Button trigger modal */}
@@ -110,8 +116,7 @@ export default function DepositCards({ image, coin, address, modalId, message })
                       className="form-label text-dark font-weight-bold"
                       htmlFor="amountDeposited"
                     >
-                      Enter amount{" "}
-                      <span className="text-danger">*</span>
+                      Enter amount <span className="text-danger">*</span>
                       {errors.amountDeposited && (
                         <span className="text-danger font-weight-bold">
                           Minimum $500
@@ -130,9 +135,13 @@ export default function DepositCards({ image, coin, address, modalId, message })
                     />
                   </div>
                   <hr />
-                  <div >
-                    <div className="mt-3 mb-3 text-dark" style={{ fontWeight: 'bold' }}>
-                      Pay your preferred investment amount to the company's {coin} address {message}
+                  <div>
+                    <div
+                      className="mt-3 mb-3 text-dark"
+                      style={{ fontWeight: "bold" }}
+                    >
+                      Pay your preferred investment amount to the company's{" "}
+                      {coin} address {message}
                     </div>
                     <textarea
                       readOnly
@@ -141,15 +150,11 @@ export default function DepositCards({ image, coin, address, modalId, message })
                       style={{ maxWidth: "100%" }}
                       className="text-dark"
                       value={address}
-                    // onChange={setCopied(true)}
+                      // onChange={setCopied(true)}
                     />
-
                   </div>
                   <div className="mb-1 ml-3">
-                    <small
-                      className="text-info pointer"
-                      id="text_infild"
-                    >
+                    <small className="text-info pointer" id="text_infild">
                       Copy address to clipboard{" "}
                       <CopyToClipboard
                         text={address}
@@ -158,16 +163,14 @@ export default function DepositCards({ image, coin, address, modalId, message })
                         <i className="fas fa-copy text-dark ml-2" />
                       </CopyToClipboard>
                       {copied ? (
-                        <span className="text-success ml-2">
-                          Copied.
-                        </span>
+                        <span className="text-success ml-2">Copied.</span>
                       ) : null}
                     </small>
                   </div>
                   <hr />
                   <div className="mt-3 mb-3 text-dark">
-                    In order to confirm payment. A proof of payment
-                    have to be uploaded.
+                    In order to confirm payment. A proof of payment have to be
+                    uploaded.
                   </div>
                   <div className="form-group">
                     <label className="text-dark" htmlFor="picture">
@@ -213,13 +216,15 @@ export default function DepositCards({ image, coin, address, modalId, message })
                   >
                     Close
                   </button>
-                  <button
-                    type="button"
-                    onClick={handleSubmit(depositCoin)}
-                    className="btn btn-primary"
-                  >
-                    Pay
-                  </button>
+                  {!paid && (
+                    <button
+                      type="button"
+                      onClick={handleSubmit(depositCoin)}
+                      className="btn btn-primary"
+                    >
+                      Pay
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
