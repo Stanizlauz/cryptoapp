@@ -17,7 +17,7 @@ export default function Cryptohopper() {
         </div>
       </div>
 
-      <div className="trade_view_container here_on_init">
+      {/* <div className="trade_view_container here_on_init">
         <div className="tradingview-widget-container ">
           <div id="technical-analysis dashboard_chart_container" />
           <div
@@ -58,7 +58,7 @@ export default function Cryptohopper() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

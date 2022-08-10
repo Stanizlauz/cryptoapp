@@ -98,8 +98,8 @@ export default function Pricing() {
                           Diamond
                         </Link>
                         <h3>
-                          $10,000
-                          <small className="max">/Max $49,999</small>
+                          $40,000
+                          <small className="max">/Max $99,999</small>
                         </h3>
                       </div>
                       <div className="solu_description">
@@ -120,8 +120,8 @@ export default function Pricing() {
                           Platinum
                         </Link>
                         <h3>
-                          $50,000
-                          <small className="max">/Max $99,999</small>
+                          $100,000
+                          <small className="max">/Max $999,999</small>
                         </h3>
                       </div>
                       <div className="solu_description">

@@ -2,7 +2,7 @@
 import AboutTeamSecond from "./AboutTeamSecond";
 import CarouselWrapper from "./CarouselWrapper";
 import CounterSecion from "./CounterSecion";
-// import Cryptohopper from "./Cryptohopper";
+import Cryptohopper from "./Cryptohopper";
 import Footer from "./Footer";
 import Headerss from "./Headerss";
 import Pricing from "./Pricing";
@@ -17,7 +17,7 @@ export default function HomePageBody() {
       <Pricing />
       <AboutTeamSecond />
       <CounterSecion />
-      {/* <Cryptohopper /> */}
+      <Cryptohopper />
       <Footer />
     </>
   );
