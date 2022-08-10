@@ -216,7 +216,7 @@ export default function DepositCards({
                   >
                     Close
                   </button>
-                  {!paid && (
+                  {!paid && 
                     <button
                       type="button"
                       onClick={handleSubmit(depositCoin)}
@@ -224,7 +224,7 @@ export default function DepositCards({
                     >
                       Pay
                     </button>
-                  )}
+                  }
                 </div>
               </div>
             </div>
