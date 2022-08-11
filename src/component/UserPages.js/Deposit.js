@@ -97,7 +97,7 @@ export default function Deposit() {
             <div>
               <h3 className="" style={{ color: 'white', fontWeight: 'bold' }}>Deposit</h3>
             </div>
-            <div className="our-webcoderskull bg-dark">
+            <div className="our-webcoderskull" style={{backgroundCilor: 'rgb(9 9 12)'}}>
               <div className="my_alert">
                 {fromPlans === "true" &&
                   <div className="alert alert-info mx-2">

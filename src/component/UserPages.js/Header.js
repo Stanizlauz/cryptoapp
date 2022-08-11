@@ -21,7 +21,7 @@ export default function Header() {
           onClick={myFunc}
           className="btn btn-link d-md-none rounded-circle mr-3"
         >
-          <i className="fa fa-bars" style={{ color: 'black' }} />
+          <i className="fa fa-bars" style={{ color: 'white' }} />
         </button>
 
         {/* <div class="col-sm-11 text-right">
