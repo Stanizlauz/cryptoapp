@@ -11,9 +11,13 @@ import "./styles.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import TradingView from "./TradingView";
+
 export default function CarouselWrapper() {
   return (
     <>
+    
+      <TradingView />
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

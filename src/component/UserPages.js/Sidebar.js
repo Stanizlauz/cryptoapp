@@ -28,7 +28,7 @@ export default function Sidebar() {
 
             {/* <i className="fas fa-laugh-wink text-dark" /> */}
           </div>
-          <img src="img/logo1.png" alt="Brand" style={{ width: "120px" }} />
+          <img src="img/logoDashboard.png" alt="Brand" style={{ width: "100px", padding: "10px"}} className="py-0" />
 
           {/* <div className="sidebar-brand-text mx-3 text-dark">Admin</div> */}
         </a>

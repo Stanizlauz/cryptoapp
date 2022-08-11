@@ -19,31 +19,32 @@ export default function Headerss() {
       <header>
         x
         <nav
-          className="navbar navbar-expand-lg navbar-dark fixed-top"
-          id="accordionSidebar"
-          style={{ backgroundColor: "#3caec0" }}
+          className="navbar navbar-expand-lg navbar-light bg-light fixed-top"
+          // id="accordionSidebar"
+          // style={{width: "100%", backgroundColor: "white"}}
         >
           {/* <a className="navbar-brand" href="#"> */}
           {/* Navbar */}
-          <img src="img/logo1.png" alt="Brand" style={{ width: "120px" }} />
+          <img src="img/logo1.png" alt="Brand" style={{ width: "100px", padding: "15px"}} className="py-0" />
           {/* </a> */}
+         
           <button
             className="navbar-toggler"
-            style={{ color: "black" }}
-            onClick={myFunc}
             type="button"
             data-toggle="collapse"
-            data-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
+            onClick={myFunc}
+
+            data-target="#navbarText"
+            aria-controls="navbarText"
             aria-expanded="false"
-          // aria-label="Toggle navigation"
+            aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon" style={{ backgroundColor: "#C4E0E5" }} />
+            <span className="navbar-toggler-icon" />
           </button>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+          <div className="collapse navbar-collapse bg-light" id="navbarText">
+            <ul className="navbar-nav mr-auto text-center">
               <li className="nav-item">
-                <Link to="/" className="nav-link text-dark" style={{ fontWeight: 'bolder' }}>
+                <Link to="/" className="nav-link text-dark" style={{ fontWeight: 'bold' }}>
                   Home
                 </Link>
               </li>
@@ -53,22 +54,22 @@ export default function Headerss() {
               </a>
             </li> */}
               <li>
-                <Link to="/about" className="nav-link text-dark" style={{ fontWeight: 'bolder' }}>
+                <Link to="/about" className="nav-link text-dark" style={{ fontWeight: 'bold' }}>
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/plans" className="nav-link text-dark" style={{ fontWeight: 'bolder' }}>
+                <Link to="/plans" className="nav-link text-dark" style={{ fontWeight: 'bold' }}>
                   Plans
                 </Link>
               </li>
               <li>
-                <Link to="/faqs" className="nav-link text-dark" style={{ fontWeight: 'bolder' }}>
+                <Link to="/faqs" className="nav-link text-dark" style={{ fontWeight: 'bold' }}>
                   FAQS
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="nav-link text-dark" style={{ fontWeight: 'bolder' }}>
+                <Link to="/contact" className="nav-link text-dark" style={{ fontWeight: 'bold' }}>
                   Contact Us
                 </Link>
               </li>
@@ -104,97 +105,69 @@ export default function Headerss() {
                 </>
               )}
             </ul>
+            <span className="navbar-text text-dark" style={{ fontWeight: 'bold' }}>
+              'Bitcoin is a technological tour de force'
+            </span>
           </div>
         </nav>
+      <TradingView />
+
+        {/* <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <img src="img/logo1.png" alt="Brand" style={{ width: "100px", padding: "15px"}} className="py-0" />
+
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div className="collapse navbar-collapse bg-dark" id="navbarText">
+            <ul className="navbar-nav mr-auto text-center">
+              <li className="nav-item active">
+              <Link to="/" className="nav-link font-weight-bold text-white" style={{ fontWeight: 'bold' }}>
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link font-weight-bold text-white" href="#about">
+                  About
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link font-weight-bold text-white" href="#examination">
+                  Examination
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link font-weight-bold text-white" href="#services">
+                  Services
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link font-weight-bold text-white" href="#contacts">
+                  Let's Talk
+                </a>
+              </li>
+            </ul>
+            <span className="navbar-text">
+              'Bitcoin is a technological tour de force'
+            </span>
+          </div>
+        </nav> */}
       </header>
   
       {/* <TradingView /> */}
 
-      <TradingView />
-
-      {/* <header id="header" className="header_section bd-bottom">
-        <div className="top_header">
-          <div className="container">
-            <div className="top_content_wrap row">
-              <div className="col-sm-8">
-                <ul className="left_info">
-                  <li>
-                    <a href="/"><i className="ti-email" />service.capitaltrades@hotmail.com </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="col-sm-4 d-md-block">
-                <ul className="right_info">
-                  {loggedIn?.length === 0 ?
-                    <>
-                      <li>
-                        <Link to="/login">
-                          <i className="ti-user" />
-                          Login
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/register">
-                          <i className="ti-pencil-alt" />
-                          Register
-                        </Link>
-                      </li>
-                    </>
-                    :
-                    <>
-                      <li>
-                        <Link to="/">
-                          <i className="ti-new-window" />
-                          Logout
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/dashboard">
-                          <i className="ti-bar-chart" />
-                          Dashboard
-                        </Link>
-                      </li>
-                    </>
-                  }
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="bottom_header">
-          <div className="container">
-            <div className="bottom_content_wrap row">
-              <div className="col-sm-4 mt-4">
-
-                <img src="img/logo.png" alt="Brand" />
-
-              </div>
-              <div className="col-sm-8 mt-4 text-right">
-                <ul id="mainmenu" className="nav navbar-nav nav-menu">
-                  <li className="active">
-                    <a href="/">Home</a>
-                  </li>
-                  <li>
-                    <Link to="/about">About</Link>
-                  </li>
-                  <li>
-                    <Link to="/plans">Plans</Link>
-                  </li>
-                  <li>
-                    <Link to="/faqs">FAQS</Link>
-                  </li>
-                  <li>
-                    <Link to="/contact">Contact Us</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header> */}
-      {/* Header Section */}
-
-      <TradingView />
+      {/* <TradingView /> */}
+      {/* <div className="fixed-top">
+    <TradingView />
+    </div> */}
+      {/* <TradingView /> */}
     </>
   );
 }
