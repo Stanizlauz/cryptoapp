@@ -9,6 +9,22 @@ import Charts from "../Charts";
 
 export default function Dashboard() {
   const [transaction, setTransaction] = useState();
+  const [currentBal, setCurrentBal] = useState([]);
+
+  // useEffect(() => {
+  //   loadCurrentBal();
+  // })
+  
+  // const loadCurrentBal = async () => {
+  //   await axios
+  //   .get(urlTransaction)
+
+  //   let total = currentBal;
+  //   let tot = total.reduce(function (a, b) {
+  //     return a + b.currentBalance
+  //   },0)
+  // }
+  // console.log(tot)
 
   useEffect(() => {
     expiredToken();
@@ -20,10 +36,26 @@ export default function Dashboard() {
   });
 
   const loadData = async () => {
-    await axios
-      .get(urlTransaction)
-      .then((response) => setTransaction(response.data));
+    // await axios
+    //   .get(urlTransaction)
+    //   .then((response) => setTransaction(response.data));
+    //   let total = response?.data;
+    //   let tot = total.reduce(function (a,b) {
+    //     return a + b.currentBalance
+
+    //   })
+    //   console.log(tot);
+    const responses = await axios
+    .get(urlTransaction)
+    .then((response) => setTransaction(response.data));
+      let total = responses.data;
+      let tot = total.reduce(function (a,b) {
+        return a + b.currentBalance
+
+      })
+      console.log(tot);
   };
+ 
   const [profile, setProfile] = useState([]);
   const loadUserData = async () => {
     await axios
@@ -85,21 +117,23 @@ export default function Dashboard() {
                     <div className="col-sm-4 grid-margin">
                       <div className="card">
                         <div className="card-body">
-                          {transaction?.map((wal) => (
+                          
                             <h5 className="text-success">
-                              {wal.transactionStatus}
+                              Major Coins Traded
                             </h5>
-                          ))}
+                          
                           <div className="row">
                             <div className="col-8 col-sm-12 col-xl-8 my-auto">
                               <div className="d-flex d-sm-block d-md-flex align-items-center">
-                                {transaction?.map((wal) => (
-                                  <h3 className="mb-0 text-warning">{wal.coin}</h3>
-                                ))}
+                                  <h3 className="mb-0 text-warning">Bitcoin</h3>
+                               
 
                                 <h6 className="text-primary ml-2 mb-0 font-weight-medium">
                                   +8.3%
                                 </h6>
+                              </div>
+                              <div className="d-flex d-sm-block d-md-flex align-items-center">
+                              <h3 className="mb-0 text-warning">Ethereum</h3>
                               </div>
                             </div>
                             <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
@@ -146,13 +180,13 @@ export default function Dashboard() {
                           </h5>
                           <div className="row">
                             <div className="col-8 col-sm-12 col-xl-8 my-auto">
-                              <div className="d-flex d-sm-block d-md-flex align-items-center">
+                              {/* <div className="d-flex d-sm-block d-md-flex align-items-center">
                                 {transaction?.map((wal) => (
                                   <h2 className="mb-0 text-info font-weight-bold">
                                     ${wal.amountDeposited}
                                   </h2>
                                 ))}
-                              </div>
+                              </div> */}
                               {transaction?.map((wal) => (
                                 <h6 className="text-success font-weight-normal">
                                   current balance: ${wal.currentBalance}

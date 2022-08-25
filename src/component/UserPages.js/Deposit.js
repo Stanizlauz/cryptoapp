@@ -49,7 +49,7 @@ export default function Deposit() {
         <img src="img/tether-usdt-logo.png" className="img-responsive" alt="" />
       ),
       coin: wallet?.find(x => x.coin === coins.USDT),
-      message: "(usdt 20 network)"
+      message: "(Trc 20 network)"
 
     },
     {

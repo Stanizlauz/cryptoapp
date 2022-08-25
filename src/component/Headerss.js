@@ -16,7 +16,7 @@ export default function Headerss() {
   };
   return (
     <>
-      <header>
+      <header className="fixed-top">
         x
         <nav
           className="navbar navbar-expand-lg navbar-light bg-light fixed-top"
@@ -111,6 +111,7 @@ export default function Headerss() {
           </div>
         </nav>
       <TradingView />
+      
 
         {/* <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <img src="img/logo1.png" alt="Brand" style={{ width: "100px", padding: "15px"}} className="py-0" />
