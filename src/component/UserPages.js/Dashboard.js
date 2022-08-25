@@ -45,15 +45,14 @@ export default function Dashboard() {
 
     //   })
     //   console.log(tot);
-    const responses = await axios
-    .get(urlTransaction)
-    .then((response) => setTransaction(response.data));
-      let total = responses.data;
+    const response = await axios.get(urlTransaction);
+     setTransaction(response.data);
+      let total = response.data;
       let tot = total.reduce(function (a,b) {
         return a + b.currentBalance
 
-      })
-      console.log(tot);
+      },0)
+      setCurrentBal(tot)
   };
  
   const [profile, setProfile] = useState([]);
@@ -187,11 +186,16 @@ export default function Dashboard() {
                                   </h2>
                                 ))}
                               </div> */}
-                              {transaction?.map((wal) => (
+                              {/* {transaction?.map((wal) => (
                                 <h6 className="text-success font-weight-normal">
                                   current balance: ${wal.currentBalance}
                                 </h6>
-                              ))}
+                              ))} */}
+                              {
+                                <h6 className="text-success font-weight-normal">
+                                  current balance: ${currentBal}
+                                </h6>
+                              }
                             </div>
                             <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                               <i className="icon-lg mdi mdi-monitor text-success ml-auto" />
