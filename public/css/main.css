@@ -604,9 +604,10 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
 }
 
 .all_chart{
-    padding: 30px 100px;
+    /* padding: 30px 100px; */
     background-color: #283035;
     min-height: 787px;
+    /* padding: 20px; */
 }
 
 .how_it_works{
@@ -3182,7 +3183,7 @@ a {
     margin-left: 40px;
 }
 .all_chart {
-    padding: 30px 100px;
+    /* padding: 30px 100px; */
     background-color: #202736;
     min-height: 787px;
 }

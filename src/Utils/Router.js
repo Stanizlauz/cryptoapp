@@ -7,10 +7,12 @@ import ConfirmEmail from "../component/confirmEmail";
 import Contact from "../component/Contact";
 import Cryptohopper from "../component/Cryptohopper";
 import FAQS from "../component/FAQS";
+import ForgotPassword from "../component/ForgotPassword";
 import HomePageBody from "../component/HomePageBody";
 import Login from "../component/Login";
 import NotFound from "../component/NotFound";
 import Register from "../component/Register";
+import ResetPassword from "../component/ResetPassword";
 // import Slider from "../component/slider";
 import AdminWallet from "../component/UserPages.js/AdminWallet";
 import ChangePassword from "../component/UserPages.js/ChangePassword";
@@ -38,7 +40,9 @@ export default function Router() {
         <Route path="/contact" element={<Contact />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route exact path="/user/confirm/:id" element={<ConfirmEmail />} />
+        <Route exact path="/user/resetpassword/${userId}" element={<ResetPassword />} />
         <Route path="*" element={<Login />} />
       </Routes>
     </>

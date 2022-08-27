@@ -9,3 +9,4 @@ export const urlLogout = `${baseURL}/logout`;
 export const urlAdminWallet = `${baseURL}/adminwallet`;
 export const urlConfirmEmail = `${baseURL}/user/confirm`;
 export const urlChangePassword = `${baseURL}/changepassword`;
+export const urlResetPassword = `${baseURL}/forgotpassword`;
