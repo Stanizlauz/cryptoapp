@@ -42,7 +42,7 @@ export default function Router() {
         <Route exact path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route exact path="/user/confirm/:id" element={<ConfirmEmail />} />
-        <Route exact path="/user/resetpassword/${userId}" element={<ResetPassword />} />
+        <Route exact path="/user/resetpassword/:id" element={<ResetPassword />} />
         <Route path="*" element={<Login />} />
       </Routes>
     </>
@@ -67,8 +67,8 @@ export function AppRoutes() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/faqs" element={<FAQS />} />
         <Route path="/charts" element={<Charts />} />
-        <Route path="/hopper" element={<Cryptohopper/>}/>
-        <Route path="/changepassword" element={<ChangePassword />}/>
+        <Route path="/hopper" element={<Cryptohopper />} />
+        <Route path="/changepassword" element={<ChangePassword />} />
         <Route path="/contact" element={<Contact />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="/admin/wallet" element={<AdminWallet />} />

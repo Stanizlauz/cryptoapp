@@ -5,7 +5,6 @@ import { urlResetPassword } from '../endpoints'
 
 export default function ConfirmEmail() {
     const { email } = useParams()
-    console.log({ email })
     useEffect(() => {
         loadData();
         //eslint-disable-next-line

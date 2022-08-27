@@ -48,10 +48,10 @@ export default function ChangePassword() {
       switch (name) {
         case "password":
           if (!value) {
-            stateObj[name] = "Please enter Password.";
+            stateObj[name] = "";
           } else if (input.confirmNewPassword && value !== input.confirmNewPassword) {
             stateObj["confirmNewPassword"] =
-              "New password and Confirm Password does not match.";
+              "New password and Confirm Password does not match ";
           } else {
             stateObj["confirmNewPassword"] = input.confirmNewPassword
               ? ""
@@ -61,9 +61,9 @@ export default function ChangePassword() {
 
         case "confirmNewPassword":
           if (!value) {
-            stateObj[name] = "Please enter Confirm Password ";
+            stateObj[name] = " ";
           } else if (input.newPassword && value !== input.newPassword) {
-            stateObj[name] = "Password does not match.";
+            stateObj[name] = "Password does not match ";
           }
           break;
 

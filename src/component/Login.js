@@ -110,10 +110,10 @@ export default function Login() {
                           </div>
                         </div>
                       </form>
+                      <Link to="/forgotpassword" className="text-primary">Forgot your password?</Link>
                       <div className="d-flex justify-content-end pt-3">
                         <Link to="/" type="button" className="btn btn-danger btn-lg mr-2">Back</Link>
                         <button type="button" onClick={handleSubmit(loginUser)} className="btn btn-success btn-lg ms-2">Login</button>
-                        <Link to="/forgotpassword" type='button' className="btn btn-warning">Forgot Password</Link>
                       </div>
                     </div>
                   </div>
