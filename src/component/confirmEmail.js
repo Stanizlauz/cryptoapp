@@ -1,16 +1,16 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { urlResetPassword } from '../endpoints'
+import { Link, useParams } from 'react-router-dom'
+import { urlConfirmEmail } from '../endpoints'
 
 export default function ConfirmEmail() {
-    const { email } = useParams()
+    const { id } = useParams()
     useEffect(() => {
         loadData();
         //eslint-disable-next-line
     }, [])
     const loadData = async () => {
-        await axios.post(`${urlResetPassword}/${email}`)
+        await axios.post(`${urlConfirmEmail}/${id}`)
     }
     return (
         <section className="h-100 bg-dark">
